@@ -6,7 +6,7 @@ Oxford Cambridgelytica.  This is demonstration code to help learn about Go's dif
 
 Download these files to corresponding folders under your Go src path.
 I have not attempted "go get" with these.  Please let me know if it works or not.
-Make sure to check out the demo powerpoint.
+Make sure to check out the demo slide deck.
 
 ### Prerequisites
 
