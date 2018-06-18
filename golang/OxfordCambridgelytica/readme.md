@@ -1,4 +1,4 @@
-# Project Title
+# Oxford Cambridgelytica
 
 Oxford Cambridgelytica.  This is demonstration code to help learn about Go's differences from other languages as well as get some hands-on experience with a perceptron and a KNN algorithm usage from the GoLearn library.
 
