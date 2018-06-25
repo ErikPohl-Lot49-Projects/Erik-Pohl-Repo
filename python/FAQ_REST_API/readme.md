@@ -34,4 +34,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* None, yet, except for a interview rejection which inspire me to create this in a few hours.
+* None, yet, except for a interview rejection which inspired me to create this example in a few hours to show how trivial it is.
