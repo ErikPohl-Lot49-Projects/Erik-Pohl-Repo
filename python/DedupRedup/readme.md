@@ -52,6 +52,7 @@ There are a few targeted improvements I'd like to make:
 2. I'd like to bail on files which cannot be effectively deduplicated.
 3. I'd like to do multiple attempts until there are no collisions in some cases.
 4. I'd like to add to in-code documentation and refactor.
+5. Pretty high up there on the list is deciding on another deduplication file format.  This one works, but I'd rather use delimiter text proven not to be in the original file at all.
 
 ## Authors
 
