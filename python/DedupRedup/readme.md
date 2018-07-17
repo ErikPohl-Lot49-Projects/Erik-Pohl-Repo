@@ -53,6 +53,7 @@ There are a few targeted improvements I'd like to make:
 3. I'd like to do multiple attempts until there are no collisions in some cases.
 4. I'd like to add to in-code documentation and refactor.
 5. Pretty high up there on the list is deciding on another deduplication file format.  This one works, but I'd rather use delimiter text proven not to be in the original file at all.
+6. I'd love to add another, better, hash function into the mix, do analysis on if different approaches work better for different types of data.
 
 ## Authors
 
