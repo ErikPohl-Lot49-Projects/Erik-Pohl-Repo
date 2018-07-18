@@ -268,19 +268,15 @@ class dedupredup:
     def redup(self,inputf, outputf):
         print('REDUPPING:',inputf)
         self.hashtable = {}
-        #read hash table
         finput = open(inputf,"rb")
         foutput = open(outputf,"wb")
-        #read hash table
-        #print("reading deduped file")
-        # load hash table
+        # load hash table from file
         inputline = finput.readline()[:-2]
         while inputline == b'hash then raw':
             filehashkey = finput.readline()[:-2]
             filehashvalue = finput.readline()[:-2]
             self.hashtable[filehashkey] = filehashvalue
             inputline = finput.readline()[:-2]
-        #self.stats()
         # go through file contents and map file out of hash table
         for i in range(0,len(inputline)//self.hashsize):
             decodethis = inputline[i*self.hashsize:i*self.hashsize+self.hashsize]
