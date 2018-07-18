@@ -1,4 +1,5 @@
 import random
+import os
 
 SUMPOWERSOF7 = 'SUMPOWERSOF7'
 FIRSTNBYTES = 'FIRSTNBYTES'
@@ -171,7 +172,7 @@ class dedupredup:
 
     # remove duplicates from a file by constructing a hash table and file table to represent the file
     def dedup(self,inputpath,outputpath):
-        print("DEDUP: opening files for reading and writing")
+        print("DEDUPPING:",inputpath)
         input_file = open(inputpath, "rb")
         outfile = open(outputpath, "wb")
         indcount = 0
@@ -187,7 +188,7 @@ class dedupredup:
         outfile.write("\r\n".encode())
         outfile.close()
         input_file.close()
-        return 'deduped ' + str(indcount) + ' chunks'
+        return 'Result: Deduped ' + str(indcount) + ' chunks into '+outputpath
 
     # output stats for hashing a file
     def stats(self):
@@ -265,13 +266,13 @@ class dedupredup:
 # END METHODS to create test files
     # redup the inputf file into the outputf file
     def redup(self,inputf, outputf):
-        print('redupping')
+        print('REDUPPING:',inputf)
         self.hashtable = {}
         #read hash table
         finput = open(inputf,"rb")
         foutput = open(outputf,"wb")
         #read hash table
-        print("reading deduped file")
+        #print("reading deduped file")
         # load hash table
         inputline = finput.readline()[:-2]
         while inputline == b'hash then raw':
@@ -279,7 +280,7 @@ class dedupredup:
             filehashvalue = finput.readline()[:-2]
             self.hashtable[filehashkey] = filehashvalue
             inputline = finput.readline()[:-2]
-        self.stats()
+        #self.stats()
         # go through file contents and map file out of hash table
         for i in range(0,len(inputline)//self.hashsize):
             decodethis = inputline[i*self.hashsize:i*self.hashsize+self.hashsize]
@@ -288,8 +289,8 @@ class dedupredup:
         finput.close()
         # output if any error is expected due to collisions
         if self.collisions > 0:
-            return "complete with collisions %d \n" % self.collisions
-        return "complete"
+            return "Result: Redupped {0} with {0} collisions.\n".format(outputf, self.collisions)
+        return "Result: Completed redupping without collisions or error: redupped {0} into {1}.\n".format( inputf, outputf)
 
 # used to print out a file
 def outputfile(inpath):
@@ -324,3 +325,6 @@ if __name__ == '__main__':
     print(dduprdup.dedup(dduprdup.originalfilepath, dduprdup.dedupedfilepath))
     # redup the file in the deduped file path into the reduped file path
     print(dduprdup.redup(dduprdup.dedupedfilepath,  dduprdup.redupedfilepath)) # was output_string = a.redup()
+    print("File size of original [{0}]: {1}".format(dduprdup.originalfilepath, os.stat(dduprdup.originalfilepath).st_size))
+    print("File size of dedupped [{0}]: {1}".format(dduprdup.dedupedfilepath, os.stat(dduprdup.dedupedfilepath).st_size))
+    print("File size of redupped [{0}]: {1}".format(dduprdup.redupedfilepath, os.stat(dduprdup.redupedfilepath).st_size))
