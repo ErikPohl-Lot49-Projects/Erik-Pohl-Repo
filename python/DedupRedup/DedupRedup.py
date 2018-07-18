@@ -43,6 +43,7 @@ class dedupredup:
         self.dedupedfilepath = dedupfilepath    # deduped binary file location and name
         self.redupedfilepath = redupfilepath    # reduped binary file location and name
 
+
 # START my hash function dictionary
     # accepts a block to hash
     # returns a number with bytes within hashsize
@@ -188,7 +189,7 @@ class dedupredup:
         outfile.write("\r\n".encode())
         outfile.close()
         input_file.close()
-        return 'Result: Deduped ' + str(indcount) + ' chunks into '+outputpath
+        return 'Result: Deduped ' + str(indcount) + ' chunks into '+outputpath +' using '+self.hashfunc+' hash function.'
 
     # output stats for hashing a file
     def stats(self):
@@ -316,6 +317,7 @@ if __name__ == '__main__':
         z= dduprdup.createverylongpatterns(dduprdup.originalfilepath,8)
     if dduprdup.testtype == LESSVARIABLERANDOM:
         z = dduprdup.createmuchlessvariablerandomtestfile(dduprdup.originalfilepath, 20)
+    print("Created {0} test file as file name: {1}".format(dduprdup.testtype, dduprdup.originalfilepath))
 
     # dedup the file in the original file path into the deduped file path
     print(dduprdup.dedup(dduprdup.originalfilepath, dduprdup.dedupedfilepath))
