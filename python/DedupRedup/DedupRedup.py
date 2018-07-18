@@ -1,5 +1,6 @@
 import random
 import os
+import filecmp
 
 SUMPOWERSOF7 = 'SUMPOWERSOF7'
 FIRSTNBYTES = 'FIRSTNBYTES'
@@ -326,3 +327,7 @@ if __name__ == '__main__':
     print("File size of original [{0}]: {1}".format(dduprdup.originalfilepath, os.stat(dduprdup.originalfilepath).st_size))
     print("File size of dedupped [{0}]: {1}".format(dduprdup.dedupedfilepath, os.stat(dduprdup.dedupedfilepath).st_size))
     print("File size of redupped [{0}]: {1}".format(dduprdup.redupedfilepath, os.stat(dduprdup.redupedfilepath).st_size))
+    if filecmp.cmp(dduprdup.redupedfilepath,dduprdup.originalfilepath):
+        print("File comparison SUCCESS: Original file matches Deduped Reduped Original file.")
+    else:
+        print("File size test FAILURE: Original file does not match Deduped Reduped Original file.")
