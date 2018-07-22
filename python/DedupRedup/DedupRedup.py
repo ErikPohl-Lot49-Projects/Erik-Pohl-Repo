@@ -43,6 +43,9 @@ class dedupredup:
         self.originalfilepath = origfilepath    # original or source binary file location and name
         self.dedupedfilepath = dedupfilepath    # deduped binary file location and name
         self.redupedfilepath = redupfilepath    # reduped binary file location and name
+        self.originalfizesize = 0
+        self.dedupedfizesize = 0
+        self.redupedfizesize = 0
 
 
 # START my hash function dictionary
@@ -175,6 +178,7 @@ class dedupredup:
     # remove duplicates from a file by constructing a hash table and file table to represent the file
     def dedup(self,inputpath,outputpath):
         print("DEDUPPING:",inputpath)
+        self.originalfizesize = os.stat(inputpath).st_size
         input_file = open(inputpath, "rb")
         outfile = open(outputpath, "wb")
         indcount = 0
@@ -190,6 +194,7 @@ class dedupredup:
         outfile.write("\r\n".encode())
         outfile.close()
         input_file.close()
+        self.dedupedfilesize = os.stat(outputpath).st_size
         return 'Result: Deduped ' + str(indcount) + ' chunks into '+outputpath +' using '+self.hashfunc+' hash function.'
 
     # output stats for hashing a file
@@ -285,6 +290,7 @@ class dedupredup:
             foutput.write(self.hashtable[decodethis])
         foutput.close()
         finput.close()
+        self.redupedfilesize = os.stat(outputf).st_size
         # output if any error is expected due to collisions
         if self.collisions > 0:
             return "Result: Redupped {0} with {0} collisions.\n".format(outputf, self.collisions)
@@ -324,10 +330,19 @@ if __name__ == '__main__':
     print(dduprdup.dedup(dduprdup.originalfilepath, dduprdup.dedupedfilepath))
     # redup the file in the deduped file path into the reduped file path
     print(dduprdup.redup(dduprdup.dedupedfilepath,  dduprdup.redupedfilepath)) # was output_string = a.redup()
-    print("File size of original [{0}]: {1}".format(dduprdup.originalfilepath, os.stat(dduprdup.originalfilepath).st_size))
-    print("File size of dedupped [{0}]: {1}".format(dduprdup.dedupedfilepath, os.stat(dduprdup.dedupedfilepath).st_size))
-    print("File size of redupped [{0}]: {1}".format(dduprdup.redupedfilepath, os.stat(dduprdup.redupedfilepath).st_size))
-    if filecmp.cmp(dduprdup.redupedfilepath,dduprdup.originalfilepath):
-        print("File comparison SUCCESS: Original file matches Deduped Reduped Original file.")
+
+    print("File size of original [{0}]: {1}".format(dduprdup.originalfilepath, dduprdup.originalfizesize))
+    print("File size of dedupped [{0}]: {1}".format(dduprdup.dedupedfilepath, dduprdup.dedupedfilesize))
+    print("File size of redupped [{0}]: {1}".format(dduprdup.redupedfilepath, dduprdup.redupedfilesize))
+    if filecmp.cmp(dduprdup.redupedfilepath,dduprdup.originalfilepath) and (dduprdup.dedupedfilesize < dduprdup.originalfizesize):
+        print("File deduplication SUCCESS: Original file matches Deduped Reduped Original file and original file deduped by {0} percent.".format(100*
+                        (dduprdup.originalfizesize - dduprdup.dedupedfilesize)/dduprdup.originalfizesize))
     else:
-        print("File size test FAILURE: Original file does not match Deduped Reduped Original file.")
+        print("File deduplication FAILURE")
+        if not filecmp.cmp(dduprdup.redupedfilepath,dduprdup.originalfilepath):
+            print("Original file does not match Deduped Reduped Original file.")
+        if (dduprdup.dedupedfilesize > dduprdup.originalfizesize):
+            print(
+                "Deduped file increased size by {0} percent.".format(
+                    100 *
+                    (dduprdup.dedupedfilesize - dduprdup.originalfizesize) / dduprdup.originalfizesize))
