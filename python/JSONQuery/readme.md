@@ -3,11 +3,16 @@
 This is under way and only a rough draft is on GitHub.
 
 This accepts a JSON format description and a JSON expression.
-Using Python's regex module (re) and the JSON format description, this returns a list of mismatches if certain conditions are met:
+Using Python's regex module (re) and the JSON format description, this returns a list of mismatches or matches if certain conditions are met:
 a) are all query format JSON keys present?
 b) do the values in the JSON expression for all the format description keys match regular expression definitions set up in the format description?
 
-This can be used when querying JSON request results against a Restful API for use with a front-end query page with lots of different JSON keys which can be queried against.
+The goal here, whether using it in mismatch mode or match mode, is to be able to filter nested JSON for certain match conditions which are customizable and accept regex expressions.
+
+In Mismatch mode, it can act as a validation, returning all the conditions which fail so that they can be corrected -- think: is this JSON missing a value or does it have a bad value?  Where are the mismatches between the expected format and the actual value?
+
+In Match mode, it can act as a filter, retriving only some keys from a JSON source or permitting code which calls this to return JSON which has a match.  So if a client were being served JSON and it only wanted the deeply nested foo key values, you could use this to get them.  If a client were being served JSON, and it only wanted to display the JSON with foo which matches one regex string and bar which matches another, this functionality is addressed in match mode.
+
 
 # Example cases
 
