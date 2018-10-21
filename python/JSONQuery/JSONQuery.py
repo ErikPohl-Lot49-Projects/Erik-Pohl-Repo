@@ -1,6 +1,6 @@
 import json, re, logging, sys
 
-def json_format_compare(test_data, format_data, usedpath='', mismatches =[], matches = [],debugmode = 0, matchmode =0):
+def json_format_compare(test_data, format_data, usedpath='', results =[],debugmode = 0, matchmode =0):
     '''json_parse
     accepts as input a test_data json variable
     and a format_data json variable
@@ -25,15 +25,18 @@ def json_format_compare(test_data, format_data, usedpath='', mismatches =[], mat
         if format_key not in test_data:
             logging.info("key not found")
             logging.info("usedpath" + usedpath + '/' + format_key)
-            mismatches.append(usedpath + '/' + format_key)
-            continue
+            if not matchmode:
+                results.append(usedpath + '/' + format_key)
+                continue
+            else:
+                raise ValueError
         logging.info("format value for the key" +str(type(format_data[format_key]))
                      + str(len(format_data[format_key]))+ str(format_data[format_key]))
         logging.info("test value for the key"+ str(type(test_data[format_key]))
                      + str(len(test_data[format_key]))+ str(test_data[format_key]))
         if isinstance(format_data[format_key], dict):
             logging.info("recurse for " +str(format_data[format_key]))
-            json_format_compare(test_data[format_key], format_data[format_key], usedpath + '/' + format_key, mismatches, matchmode=matchmode)
+            json_format_compare(test_data[format_key], format_data[format_key], usedpath + '/' + format_key, results, matchmode=matchmode)
         else:
             logging.info("comparing "+ str(format_data[format_key])+ str(test_data[format_key]))
             findres = re.match(format_data[format_key], test_data[format_key])
@@ -41,18 +44,13 @@ def json_format_compare(test_data, format_data, usedpath='', mismatches =[], mat
                 if matchmode:
                     logging.info("found")
                     logging.info("usedpath"+ usedpath+'/'+format_key)
-                    matches.append((usedpath+'/'+format_key,test_data[format_key]))
+                    results.append((usedpath+'/'+format_key,test_data[format_key]))
             else:
                 if not matchmode:
                     logging.info("not found")
                     logging.info("usedpath"+ usedpath+'/'+format_key)
-                    mismatches.append(usedpath+'/'+format_key)
-    if not matchmode:
-        return mismatches
-    return matches
-
-
-
+                    results.append(usedpath+'/'+format_key)
+    return results
 
 test_json_str =         '{"hello": "1", "zap": {"h1": "one", "h2": "two", "single": "."}}'
 json_query_format_str = '{"zap": {"h1": ".*"}}'
