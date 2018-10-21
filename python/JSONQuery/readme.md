@@ -3,7 +3,7 @@
 This is under way and only a rough draft is on GitHub.
 
 This accepts a JSON format description and a JSON expression.
-Using Python's re and the JSON format description, this returns a list of mismatches if certain conditions are met:
+Using Python's regex module (re) and the JSON format description, this returns a list of mismatches if certain conditions are met:
 a) are all query format JSON keys present?
 b) do the values in the JSON expression for all the format description keys match regular expression definitions set up in the format description?
 
