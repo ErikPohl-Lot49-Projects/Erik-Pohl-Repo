@@ -12,15 +12,13 @@ def json_parse(test_data, format_data, usedpath='', mismatches =[], debugmode = 
 
     return value are any paths to json keys which have a mismatch
     between the test_data value for those keys and the corresponding format_data'''
-    if debugmode == 1:
+    if debugmode:
         logging.basicConfig(stream=sys.stdout, level=logging.INFO)
     logging.info("parsing test data"+ str(test_data))
     logging.info("parsing format data"+ str(format_data))
     for i in format_data.keys():
         logging.info("evaluating key:"+ i)
-        try:
-            z = test_data[i]
-        except:
+        if i not in test_data:
             logging.info("key not found")
             logging.info("usedpath" + usedpath + '/' + i)
             mismatches.append(usedpath + '/' + i)
@@ -48,3 +46,7 @@ json_query_format = json.loads(json_query_format_str)
 print("starting test_json", test_json)
 print("starting json_query_format", json_query_format)
 print("mismatches", json_parse(test_json,json_query_format))
+
+
+
+
