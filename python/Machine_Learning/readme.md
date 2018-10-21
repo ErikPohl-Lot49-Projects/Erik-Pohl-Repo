@@ -2,6 +2,10 @@
 
 In this code, I demonstrate usage of a KNN algorithm to handle certain countenance book data.
 
+Imagine a company named Oxford Cambridgelytica were to use like or the absense of like data from a popular app named countenance book to try to figure out whether humans were in the set of "willing to accept rule by our Machine Learning overlords" or "fight against the ML overlords like Sarah Connor".
+
+This is kind of what the software might start out as which Oxford Cambridgelytica were to use.
+
 # Important disclaimer
 
 The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different
