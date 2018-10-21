@@ -10,8 +10,12 @@ def json_parse(test_data, format_data, usedpath='', mismatches =[], debugmode = 
     test_data is the json you want to compare against a particular format
     format_data is the json format with regex expressions for values
 
-    return value are any paths to json keys which have a mismatch
-    between the test_data value for those keys and the corresponding format_data'''
+    return values are any paths to json keys which have a mismatch
+    between the test_data value for those keys and the corresponding format_data
+    or [] if no values are mismatched between test data and format
+
+    If [] is returned then this is a JSON match with the search format
+    which is used to specify variable criteria in a front end'''
     if debugmode:
         logging.basicConfig(stream=sys.stdout, level=logging.INFO)
     logging.info("parsing test data"+ str(test_data))
@@ -41,8 +45,10 @@ def json_parse(test_data, format_data, usedpath='', mismatches =[], debugmode = 
                 mismatches.append(usedpath+'/'+format_key)
     return mismatches
 
+#test_json_str =         '{"hello":"1", "zarg": {"h1":"one", "h2":"2"}}'
+#json_query_format_str = '{"hello":"2", "zarg": {"h1":"one", "h2":"3"}, "blammo": "1"}'
 test_json_str =         '{"hello":"1", "zarg": {"h1":"one", "h2":"2"}}'
-json_query_format_str = '{"hello":"2", "zarg": {"h1":"one", "h2":"3"}, "blammo": "1"}'
+json_query_format_str = '{"hello":".", "zarg": {"h1":"one", "h2":"."}}'
 test_json = json.loads(test_json_str)
 json_query_format = json.loads(json_query_format_str)
 print("starting test_json", test_json)
