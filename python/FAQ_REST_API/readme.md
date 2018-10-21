@@ -1,5 +1,5 @@
 # FAQ Restful API Example
-
+ 
 This is demonstration code to help learn about developing a Restful API in Python using flask-restful.
 
 # Important disclaimer
