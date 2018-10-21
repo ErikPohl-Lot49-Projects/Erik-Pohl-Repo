@@ -77,7 +77,7 @@ In Match mode, it can act as a filter, retriving only some keys from a JSON sour
         json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
         {"zap": {"h1": ".*"})
         
-        [['/zap/h1', 'one']] 
+        [('/zap/h1', 'one')]
 
 # Important disclaimer
 
