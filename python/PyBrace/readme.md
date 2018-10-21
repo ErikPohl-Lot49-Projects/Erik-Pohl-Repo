@@ -13,7 +13,7 @@ All branches end in end in human language descriptions of test cases.
 
 ### This database is used by a PyUnit extension which records test results and can generate, based on test results, functional test coverage, and business value:
 
-a) A to do list of the most valuable untested functionality or that functionality which has failed tests associated with it.
+a) A to do list of what the engineering team should work on next : the most valuable untested functionality and that functionality which has failed tests associated with it, ranked by overall business value delivered by testing it
 
 b) An assessment of total business value which has been tested versus total business value with failed tests or which does not have tests associated with it.
 
