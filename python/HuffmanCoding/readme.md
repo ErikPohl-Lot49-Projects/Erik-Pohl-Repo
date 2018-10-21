@@ -1,7 +1,7 @@
 # HuffmanCoding
 
 I wanted to build the Huffman Coding tree logic here.  This is work I did in a couple of hours.  Please see disclaimer below.
-
+ 
 # Important disclaimer
 
 The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different
