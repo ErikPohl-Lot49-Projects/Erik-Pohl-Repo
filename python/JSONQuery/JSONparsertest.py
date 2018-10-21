@@ -11,7 +11,6 @@ class JSONParsertest(ut.TestCase):
     @pm.parameterized.expand([
         ("Basic match", {'hello':'1'},{'hello':'1'}, []),
         ("Basic Wildcard match", {'hello': '1'}, {'hello': '.'}, []),
-
         ("Basic mismatch", {'hello': '1'}, {'hello': 'x'}, ['/hello']),
         ("Nested match", {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
          {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}}, []),
@@ -25,6 +24,8 @@ class JSONParsertest(ut.TestCase):
          {'zap': {'h1': 'one'}}, []),
         ("Nested mismatch with fewer keys in format", {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
          {'zap': {'h1': 'onx'}}, ['/zap/h1']),
+        ("Nested mismatches with fewer keys in format", {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '4'}},
+         {'zap': {'h1': 'onx', 'single': '5'}}, [['/zap/h1', '/zap/single']]),
     ])
     def testJSONparser(self, testname, testinp, testinp2, expected):
         self.assertEqual(JP.json_format_compare(testinp, testinp2, '', []), expected)
