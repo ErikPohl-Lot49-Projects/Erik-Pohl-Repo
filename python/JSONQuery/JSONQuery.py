@@ -16,27 +16,29 @@ def json_parse(test_data, format_data, usedpath='', mismatches =[], debugmode = 
         logging.basicConfig(stream=sys.stdout, level=logging.INFO)
     logging.info("parsing test data"+ str(test_data))
     logging.info("parsing format data"+ str(format_data))
-    for i in format_data.keys():
-        logging.info("evaluating key:"+ i)
-        if i not in test_data:
+    for format_key in format_data.keys():
+        logging.info("evaluating key:"+ format_key)
+        if format_key not in test_data:
             logging.info("key not found")
-            logging.info("usedpath" + usedpath + '/' + i)
-            mismatches.append(usedpath + '/' + i)
+            logging.info("usedpath" + usedpath + '/' + format_key)
+            mismatches.append(usedpath + '/' + format_key)
             continue
-        logging.info("format value for the key" +str(type(format_data[i]))+ str(len(format_data[i]))+ str(format_data[i]))
-        logging.info("test value for the key"+ str(type(test_data[i]))+ str(len(test_data[i]))+ str(test_data[i]))
-        if isinstance(format_data[i], dict) and len(format_data[i]) > 1:
-            logging.info("recurse for " +str(format_data[i]))
-            json_parse(test_data[i], format_data[i], usedpath +'/'+ i, mismatches)
+        logging.info("format value for the key" +str(type(format_data[format_key]))
+                     + str(len(format_data[format_key]))+ str(format_data[format_key]))
+        logging.info("test value for the key"+ str(type(test_data[format_key]))
+                     + str(len(test_data[format_key]))+ str(test_data[format_key]))
+        if isinstance(format_data[format_key], dict) and len(format_data[format_key]) > 1:
+            logging.info("recurse for " +str(format_data[format_key]))
+            json_parse(test_data[format_key], format_data[format_key], usedpath +'/'+ format_key, mismatches)
         else:
-            logging.info("comparing "+ str(format_data[i])+ str(test_data[i]))
-            findres = re.match(format_data[i], test_data[i])
+            logging.info("comparing "+ str(format_data[format_key])+ str(test_data[format_key]))
+            findres = re.match(format_data[format_key], test_data[format_key])
             if findres:
                 logging.info("found")
             else:
                 logging.info("not found")
-                logging.info("usedpath"+ usedpath+'/'+i)
-                mismatches.append(usedpath+'/'+i)
+                logging.info("usedpath"+ usedpath+'/'+format_key)
+                mismatches.append(usedpath+'/'+format_key)
     return mismatches
 
 test_json_str =         '{"hello":"1", "zarg": {"h1":"one", "h2":"2"}}'
