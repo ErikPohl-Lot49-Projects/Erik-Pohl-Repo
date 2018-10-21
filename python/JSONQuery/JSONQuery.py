@@ -41,7 +41,7 @@ def json_format_compare(test_data, format_data, usedpath='', mismatches =[], mat
                 if matchmode:
                     logging.info("found")
                     logging.info("usedpath"+ usedpath+'/'+format_key)
-                    matches.append([usedpath+'/'+format_key,test_data[format_key]])
+                    matches.append((usedpath+'/'+format_key,test_data[format_key]))
             else:
                 if not matchmode:
                     logging.info("not found")
