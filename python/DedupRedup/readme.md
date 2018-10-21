@@ -1,6 +1,6 @@
 # Dedup / Redup Example: DedupRedup
 
-In this code, I created a DedupRedup class.  This class contains methods and attributes to experiment with file deduplication and reduplication.  Most notably, it permits addition of various methods for hashing data and various methods for creating test file scenarios to deduplicate and reduplicate.
+In this code, I created a DedupRedup class.  This class contains methods and attributes to experiment with file deduplication and reduplication.  Most notably, it permits addition of various methods for hashing data and various methods for creating test file scenarios to deduplicate and reduplicate.  
 
 # Important disclaimer
 
