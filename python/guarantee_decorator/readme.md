@@ -1,6 +1,33 @@
 # Decorator Example: Guarantee
 
-This decorator adds flexibility to Python function mandatory keywords
+This decorator adds flexibility to Python function mandatory keyword handling.
+Given features of the language which generate exceptions for missing mandatory keyword arguments,
+this was an attempt to demonstrate usage of the decorator pattern with an application to handle 
+missing mandatory keyword arguments with a standard decorator which could be applied by the developer
+to add functionality to missing keyword argument exceptions and add to the self-documenting code.
+
+# Important disclaimer
+
+The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different
+sets, helping to establish and build on them.
+
+Here are some elements I expect to be able to provide, if needed:
+
+a) A complete regression test suite.
+
+b) Meaningful exceptions and exception-handling coverage.
+
+c) Thoughtful, self-documenting, variable, method, and function names.
+
+d) Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
+
+e) Actual docstring comments at all levels of the code.
+
+f) Linting the code for PEP 8 standardization.
+
+g) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+
+h) Commit statements which facilitate an understanding of code history.
 
 ## Getting Started
 
