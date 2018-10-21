@@ -67,6 +67,12 @@ This can be used when querying JSON request results against a Restful API for us
        'zap': {'h1': 'onx', 'single': '5'}})
         
         [['/zap/h1', '/zap/single']]) 
+        
+#### Match found using a format looking for any character string in a field -- will return this filtered match result and path
+        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
+        {"zap": {"h1": ".*"})
+        
+        [['/zap/h1', 'one']] 
 
 # Important disclaimer
 
