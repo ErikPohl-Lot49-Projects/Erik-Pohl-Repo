@@ -1,6 +1,17 @@
 import json, re, logging, sys
 
 def json_parse(test_data, format_data, usedpath='', mismatches =[], debugmode = 0):
+    '''json_parse
+    accepts as input a test_data json variable
+    and a format_data json variable
+    and a debugmode variable
+    usedpath and mismatches are for internal use only
+    
+    test_data is the json you want to compare against a particular format
+    format_data is the json format with regex expressions for values
+    
+    return value are any paths to json keys which have a mismatch
+    between the test_data value for those keys and the corresponding format_data'''
     if debugmode == 1:
         logging.basicConfig(stream=sys.stdout, level=logging.INFO)
     logging.info("parsing test data"+ str(test_data))
@@ -30,3 +41,7 @@ json_query_format = json.loads(json_query_format_str)
 print("starting test_json", test_json)
 print("starting json_query_format", json_query_format)
 print("mismatches", json_parse(test_json,json_query_format))
+
+
+
+
