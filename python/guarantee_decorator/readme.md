@@ -5,7 +5,7 @@ Given features of the language which generate exceptions for missing mandatory k
 this was an attempt to demonstrate usage of the decorator pattern with an application to handle 
 missing mandatory keyword arguments with a standard decorator which could be applied by the developer
 to add functionality to missing keyword argument exceptions and add to the self-documenting code.
-
+ 
 # Important disclaimer
 
 The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different
