@@ -1,6 +1,6 @@
 import json, re, logging, sys
 
-def json_parse(test_data, format_data, usedpath='', mismatches =[], debugmode = 0):
+def json_format_compare(test_data, format_data, usedpath='', mismatches =[], debugmode = 0):
     '''json_parse
     accepts as input a test_data json variable
     and a format_data json variable
@@ -33,7 +33,7 @@ def json_parse(test_data, format_data, usedpath='', mismatches =[], debugmode = 
                      + str(len(test_data[format_key]))+ str(test_data[format_key]))
         if isinstance(format_data[format_key], dict) and len(format_data[format_key]) > 1:
             logging.info("recurse for " +str(format_data[format_key]))
-            json_parse(test_data[format_key], format_data[format_key], usedpath +'/'+ format_key, mismatches)
+            json_format_compare(test_data[format_key], format_data[format_key], usedpath + '/' + format_key, mismatches)
         else:
             logging.info("comparing "+ str(format_data[format_key])+ str(test_data[format_key]))
             findres = re.match(format_data[format_key], test_data[format_key])
@@ -53,7 +53,7 @@ test_json = json.loads(test_json_str)
 json_query_format = json.loads(json_query_format_str)
 print("starting test_json", test_json)
 print("starting json_query_format", json_query_format)
-print("mismatches", json_parse(test_json,json_query_format))
+print("mismatches", json_format_compare(test_json, json_query_format))
 
 
 
