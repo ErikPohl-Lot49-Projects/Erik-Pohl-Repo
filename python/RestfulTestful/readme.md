@@ -1,6 +1,6 @@
 # RestfulTestful
 
-I am mostly done with code which is not ready for review.
+I am mostly done with the code, but it is not ready for review.
 
 This code provides classes for two key functions to automate Restful API testing.
 
