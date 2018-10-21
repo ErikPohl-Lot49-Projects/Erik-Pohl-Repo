@@ -9,6 +9,64 @@ b) do the values in the JSON expression for all the format description keys matc
 
 This can be used when querying JSON request results against a Restful API for use with a front-end query page with lots of different JSON keys which can be queried against.
 
+# Example cases
+
+#### No mismatches in a basic format-- this would be a find against a JSON dictionary 
+        json_format_compare({'hello':'1'},{'hello':'1'})
+        
+        []
+        
+#### No mismatches in a basic format using a wildcard-- this would be a find against a JSON dictionary 
+        json_format_compare({'hello':'1'},{'hello': '.'})
+        
+        []
+
+#### Mismatch in a basic format -- this would be a record mismatch and would not produce a find against a JSON dictionary 
+        json_format_compare({'hello':'1'},{'hello': 'x'})
+        
+        ['/hello']
+
+#### No mismatches in a nested format-- this would be a find against a JSON dictionary 
+        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
+        {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}})
+        
+        []
+
+#### Mismatches in a nested format level 1 -- this would be a record mismatch and would not produce a find against a JSON dictionary  
+        json_format_compare({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
+        {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}})
+        
+        ['/hello']
+
+#### Mismatches in a nested format level 1/2 -- this would be a record mismatch and would not produce a find against a JSON dictionary  
+        json_format_compare({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
+        {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '2'}})
+        
+        ['/hello', '/zap/single'])
+
+#### Unexpected format key
+        json_format_compare({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
+        {'hello': '.', 'blammo' : 'blam', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}})
+        
+        ['/blammo']
+        
+#### No mismatches in a nested format with format using only some keys in test data -- this would be a find against a JSON dictionary 
+        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
+        {'zap': {'h1': 'one'}})
+        
+        []      
+
+#### Mismatch in a nested format with format using only some keys in test data -- this would be a find against a JSON dictionary 
+        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
+        {'zap': {'h1': 'onx'}})
+        
+        ['/zap/h1']) 
+
+#### Mismatches in a nested format with format using only some keys in test data -- this would be a find against a JSON dictionary 
+        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '4'},
+       'zap': {'h1': 'onx', 'single': '5'}})
+        
+        [['/zap/h1', '/zap/single']]) 
 
 # Important disclaimer
 
