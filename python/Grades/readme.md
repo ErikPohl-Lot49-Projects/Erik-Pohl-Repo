@@ -2,6 +2,12 @@
 
 In this code, I created a Restful API server and client combination to demonstrate the ability of unit tests to drive Restful API development using TDD.
 
+** BIG IMPROVEMENTS COMING **
+
+I am working on a Restful API automated testing tool, in the spirit of Robot Factory but with my own spin on it.
+I will demonstrate it on APIs like this one, rather than building a server to test it.
+At the minimum, even without an automated test suite, I plan on introducing mocking here for this Rest API to demonstrate just some of the things I've mocked to permit incrementally complex test suites I have control over.
+
 # Important disclaimer
 
 The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different
