@@ -1,37 +1,68 @@
 # RestfulTestful
 
 I am mostly done with code which is not ready for review.
+
 This code provides classes for two key functions to automate Restful API testing.
 
+
 a) The test case database database development tool for which I will develop a web front end to permit non-developers to build cases.
+
 This tool object provides methods to build and update RestfulTestful database table values:
+
 i) Applications.  This is a humaan language description of the System Under Test
+
 Columns:
+
 AppId: Unique identifier for a System Under Test.
+
 AppName: Human language name of the System Under Test.
+
 AppDescription: Human language description of the System Under Test.
+
 ii) Test Cases.  These are human language descriptions of test cases for the System Under Test.
+
 Columns:
+
 AppId: Joins to the System Under Test.
+
 TestCaseId: Unique identifier for the test case.
+
 TestCaseName: A user-friendly name of the test case.
+
 TestCaseDescr: A human language description of the what the test case does.
+
 iii) EndPoints.  These are one or many EndPoints to each Test Case.
+
 AppId: Joins to the System Under Test.
+
 TestCaseId: Joins to the Test Case.
+
 EndPointId: Unique identifier for the endpoint.
+
 EndPointURI: When the application code is called, this is the URI which will be used for this endpoint.
-EndPpintJSON: This is the JSON to return to the System Under Test in RestfulTestful for this endpoint for this test case.
+
+EndPointJSON: This is the JSON to return to the System Under Test in RestfulTestful for this endpoint for this test case.
+
 iv) Expected results
+
 This is in process.
 
+
 b) RestfulTestful
+
 This object utilizes the database constructed in the former object.
+
 This object generates mocked JSON results for a System Under Test based on entries in the database.
+
 This object allows for certain cases:
+
 a) suppose the System Under Test has multiple endpoints which need to be mocked
+
 b) suppose you want to store all your regression test cases in a non-techie user-friendly database with a web-front end
+
 c) suppose you want the code to simply iterate through all of the test cases in a way which utilizes the object and an App designation which moves the business logic of the test cases out of your code?
+
+
 
 # Important disclaimer
 
