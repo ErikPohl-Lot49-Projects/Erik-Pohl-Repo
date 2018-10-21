@@ -1,10 +1,11 @@
 # JSON Query Tool
 
-This is under way and not yet ready for GitHub.
+This is under way and only a rough draft is on GitHub.
+
 This accepts a JSON format description and a JSON expression.
-Using Python's re and the JSON format description, this returns a True or a False if certain conditions are met:
+Using Python's re and the JSON format description, this returns a list of mismatches if certain conditions are met:
 a) are all query format JSON keys present?
-b) do the key names and the values match regular expression definitions set up in the format description?
+b) do the values in the JSON expression for all the format description keys match regular expression definitions set up in the format description?
 
 This can be used when querying JSON request results against a Restful API for use with a front-end query page with lots of different JSON keys which can be queried against.
 
