@@ -31,7 +31,7 @@ def json_format_compare(test_data, format_data, usedpath='', mismatches =[], deb
                      + str(len(format_data[format_key]))+ str(format_data[format_key]))
         logging.info("test value for the key"+ str(type(test_data[format_key]))
                      + str(len(test_data[format_key]))+ str(test_data[format_key]))
-        if isinstance(format_data[format_key], dict) and len(format_data[format_key]) > 1:
+        if isinstance(format_data[format_key], dict):
             logging.info("recurse for " +str(format_data[format_key]))
             json_format_compare(test_data[format_key], format_data[format_key], usedpath + '/' + format_key, mismatches)
         else:
@@ -45,16 +45,15 @@ def json_format_compare(test_data, format_data, usedpath='', mismatches =[], deb
                 mismatches.append(usedpath+'/'+format_key)
     return mismatches
 
-#test_json_str =         '{"hello":"1", "zarg": {"h1":"one", "h2":"2"}}'
-#json_query_format_str = '{"hello":"2", "zarg": {"h1":"one", "h2":"3"}, "blammo": "1"}'
-test_json_str =         '{"hello":"1", "zarg": {"h1":"one", "h2":"2"}}'
-json_query_format_str = '{"hello":".", "zarg": {"h1":"one", "h2":"."}}'
+
+
+
+test_json_str =         '{"hello": "1", "zap": {"h1": "one", "h2": "two", "single": "."}}'
+json_query_format_str = '{"zap": {"h1": "one"}}'
 test_json = json.loads(test_json_str)
 json_query_format = json.loads(json_query_format_str)
 print("starting test_json", test_json)
 print("starting json_query_format", json_query_format)
-print("mismatches", json_format_compare(test_json, json_query_format))
-
-
+print("mismatches", json_format_compare(test_json, json_query_format, debugmode=1))
 
 
