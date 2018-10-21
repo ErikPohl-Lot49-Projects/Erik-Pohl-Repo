@@ -5,7 +5,7 @@ I am mostly done with the code, but it is not ready for review.
 This code provides classes for two key functions to automate Restful API testing.
 
 
-## a) The test case database database development tool for which I will develop a web front end to permit non-developers to build cases.
+### a) The test case database database development tool for which I will develop a web front end to permit non-developers to build cases.
 
 This tool object provides methods to build and update RestfulTestful database table values:
 
@@ -48,7 +48,7 @@ iv) Expected results
 This is in process.
 
 
-## b) RestfulTestful
+### b) RestfulTestful
 
 This object utilizes the database constructed in the former object.
 
