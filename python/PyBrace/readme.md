@@ -12,11 +12,17 @@ The features form a hierarchical tree, breaking functionality down from an overa
 All branches end in end in human language descriptions of test cases.
 
 This database is used by a PyUnit extension which records test results and can generate, based on test results, functional test coverage, and business value:
+
 a) A to do list of the most valuable untested functionality or that functionality which has failed tests associated with it.
+
 b) An assessment of total business value which has been tested versus total business value with failed tests or which does not have tests associated with it.
+
 c) A history of test results which I would intend to link with Version Control APIs (example: GitHub)
+
 d) Self-documenting and traceability: for each test case, you can see all the levels of functionality abstracted above it in a tree-branch leading up to the overall System Under Test-- meaning that you know from the least granular to the most granular at any time why you are building a test case, what it tests, and what business value it returns-- the traceability is enforced through the tree structure
+
 e) A flag can be enabled to enforce TDD -- meaning a piece of functionality is not considered complete until it has green tests, and that developers are expected to iterate through Red, Green, and Refactor.
+
 
 
 
