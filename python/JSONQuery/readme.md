@@ -6,7 +6,7 @@ Using Python's re and the JSON format description, this returns a True or a Fals
 a) are all query format JSON keys present?
 b) do the key names and the values match regular expression definitions set up in the format description?
 
-This can be used when querying JSON results against a front-end query page with lots of different JSON keys which can be queried against.
+This can be used when querying JSON request results against a Restful API for use with a front-end query page with lots of different JSON keys which can be queried against.
 
 
 # Important disclaimer
