@@ -1,6 +1,6 @@
 import json, re, logging, sys
 
-def json_format_compare(test_data, format_data, usedpath='', mismatches =[], debugmode = 0):
+def json_format_compare(test_data, format_data, usedpath='', mismatches =[], matches = [],debugmode = 0, matchmode =0):
     '''json_parse
     accepts as input a test_data json variable
     and a format_data json variable
@@ -33,27 +33,35 @@ def json_format_compare(test_data, format_data, usedpath='', mismatches =[], deb
                      + str(len(test_data[format_key]))+ str(test_data[format_key]))
         if isinstance(format_data[format_key], dict):
             logging.info("recurse for " +str(format_data[format_key]))
-            json_format_compare(test_data[format_key], format_data[format_key], usedpath + '/' + format_key, mismatches)
+            json_format_compare(test_data[format_key], format_data[format_key], usedpath + '/' + format_key, mismatches, matchmode=matchmode)
         else:
             logging.info("comparing "+ str(format_data[format_key])+ str(test_data[format_key]))
             findres = re.match(format_data[format_key], test_data[format_key])
             if findres:
-                logging.info("found")
+                if matchmode:
+                    logging.info("found")
+                    logging.info("usedpath"+ usedpath+'/'+format_key)
+                    matches.append([usedpath+'/'+format_key,test_data[format_key]])
             else:
-                logging.info("not found")
-                logging.info("usedpath"+ usedpath+'/'+format_key)
-                mismatches.append(usedpath+'/'+format_key)
-    return mismatches
+                if not matchmode:
+                    logging.info("not found")
+                    logging.info("usedpath"+ usedpath+'/'+format_key)
+                    mismatches.append(usedpath+'/'+format_key)
+    if not matchmode:
+        return mismatches
+    return matches
 
 
 
 
 test_json_str =         '{"hello": "1", "zap": {"h1": "one", "h2": "two", "single": "."}}'
-json_query_format_str = '{"zap": {"h1": "one"}}'
+json_query_format_str = '{"zap": {"h1": ".*"}}'
 test_json = json.loads(test_json_str)
 json_query_format = json.loads(json_query_format_str)
 print("starting test_json", test_json)
 print("starting json_query_format", json_query_format)
 print("mismatches", json_format_compare(test_json, json_query_format, debugmode=1))
+
+print("matches", json_format_compare(test_json, json_query_format, matchmode=1, debugmode=1))
 
 
