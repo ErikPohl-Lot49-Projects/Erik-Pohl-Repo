@@ -54,6 +54,8 @@ def json_format_compare(test_data, format_data, usedpath='', results =None,debug
                 if not matchmode:
                     logging.info("adding usedpath"+ usedpath+'/'+format_key)
                     results.append(usedpath+'/'+format_key)
+                else: ## partial matches are not okay
+                    return []
     return results
 
 test_json_str =         '{"hello": "1", "zap": {"h1": "one", "h2": "two", "single": "."}}'
