@@ -1,5 +1,6 @@
 import json, re, logging, sys
 
+#TODO I will possibly make a marker for an AND match attempt and another marker for an OR match attempt
 def json_format_compare(test_data, format_data, usedpath='', results =None,debugmode = 0, matchmode =0):
     '''json_parse
     accepts as input a test_data json variable
