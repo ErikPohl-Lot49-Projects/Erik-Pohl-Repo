@@ -75,7 +75,7 @@ In Match mode, it can act as a filter, retriving only some keys from a JSON sour
         
 #### Match found using a format looking for any character string in a field -- will return this filtered match result and path
         json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
-        {"zap": {"h1": ".*"})
+        {"zap": {"h1": ".*"}, matchmode=1)
         
         [('/zap/h1', 'one')]
 
