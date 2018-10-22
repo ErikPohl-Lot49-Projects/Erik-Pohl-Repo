@@ -41,25 +41,25 @@ def json_format_compare(test_data, format_data, usedpath='', results =[],debugmo
             logging.info("comparing "+ str(format_data[format_key])+ str(test_data[format_key]))
             findres = re.match(format_data[format_key], test_data[format_key])
             if findres:
+                logging.info("found")
                 if matchmode:
-                    logging.info("found")
                     logging.info("usedpath"+ usedpath+'/'+format_key)
                     results.append((usedpath+'/'+format_key,test_data[format_key]))
             else:
+                logging.info("not found")
                 if not matchmode:
-                    logging.info("not found")
                     logging.info("usedpath"+ usedpath+'/'+format_key)
                     results.append(usedpath+'/'+format_key)
     return results
 
 test_json_str =         '{"hello": "1", "zap": {"h1": "one", "h2": "two", "single": "."}}'
-json_query_format_str = '{"zap": {"h1": ".*"}}'
+json_query_format_str = '{"zap": {"h1": ".*"}, "hello": ".*"}'
 test_json = json.loads(test_json_str)
 json_query_format = json.loads(json_query_format_str)
 print("starting test_json", test_json)
 print("starting json_query_format", json_query_format)
 print("mismatches", json_format_compare(test_json, json_query_format, debugmode=1))
 
-print("matches", json_format_compare(test_json, json_query_format, matchmode=1, debugmode=1))
+print("matches", json_format_compare(test_json, json_query_format, results =[],matchmode=1, debugmode=1))
 
 
