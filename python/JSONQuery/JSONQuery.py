@@ -26,35 +26,39 @@ def json_format_compare(test_data, format_data, usedpath='', results =None,debug
     logging.info("parsing format data"+ str(format_data))
     for format_key in format_data.keys():
         logging.info("evaluating key:"+ format_key)
+        current_json_path = usedpath+'/'+format_key
         if format_key not in test_data:
             logging.info("key not found")
-            logging.info("usedpath" + usedpath + '/' + format_key)
+            logging.info("usedpath" + current_json_path)
             if not matchmode:
-                results.append(usedpath + '/' + format_key)
+                results.append(current_json_path)
                 continue
             else:
                 raise ValueError
-        logging.info("format value for the key" +str(type(format_data[format_key]))
-                     + str(len(format_data[format_key]))+ str(format_data[format_key]))
-        logging.info("test value for the key"+ str(type(test_data[format_key]))
-                     + str(len(test_data[format_key]))+ str(test_data[format_key]))
-        if isinstance(format_data[format_key], dict):
-            logging.info("recurse for " +str(format_data[format_key]))
-            json_format_compare(test_data[format_key], format_data[format_key], usedpath=usedpath + '/' + format_key,
+        format_value = format_data[format_key]
+        test_value = test_data[format_key]
+        logging.info("format value for the key " +str(type(format_value)) + " "
+                     + str(len(format_value))+ " " + str(format_value))
+        logging.info("test value for the key: "+ str(type(test_value)) + " "
+                     + str(len(test_value))+ " " + str(test_value))
+        ## if the format value which is being compared with the test value, recurse
+        if isinstance(format_value, dict):
+            logging.info("recurse for " +str(format_value))
+            json_format_compare(test_value, format_value, usedpath=current_json_path,
                                 results=results, matchmode=matchmode)
         else:
-            logging.info("comparing "+ str(format_data[format_key])+ str(test_data[format_key]))
-            findres = re.match(format_data[format_key], test_data[format_key])
-            if findres:
-                logging.info("found")
+            logging.info("comparing "+ str(format_value) + " " + str(test_value))
+            match_result = re.match(format_value, test_value)
+            if match_result:
+                logging.info(format_value + " matches " + test_value)
                 if matchmode:
-                    logging.info("adding usedpath"+ usedpath+'/'+format_key)
-                    results.append((usedpath+'/'+format_key,test_data[format_key]))
+                    logging.info("adding current json path to results: "+ current_json_path)
+                    results.append((current_json_path,test_value))
             else:
-                logging.info("not found")
+                logging.info(format_value + " does not match " + test_value)
                 if not matchmode:
-                    logging.info("adding usedpath"+ usedpath+'/'+format_key)
-                    results.append(usedpath+'/'+format_key)
+                    logging.info("adding current json path to results: "+ current_json_path)
+                    results.append(current_json_path)
                 else: ## partial matches are not okay
                     return []
     return results
@@ -68,5 +72,3 @@ print("starting json_query_format", json_query_format)
 print("mismatches", json_format_compare(test_json, json_query_format, debugmode=1))
 
 print("matches", json_format_compare(test_json, json_query_format, matchmode=1, debugmode=1))
-
-
