@@ -2,7 +2,7 @@ import json, re, logging, sys
 
 #TODO I will possibly make a marker for an AND match attempt and another marker for an OR match attempt
 def json_format_compare(test_data, format_data, usedpath='', results =None,debugmode = 0, matchmode =0):
-    '''json_parse
+    '''json_format_compare
     accepts as input a test_data json variable
     and a format_data json variable
     and a debugmode variable
@@ -11,12 +11,10 @@ def json_format_compare(test_data, format_data, usedpath='', results =None,debug
     test_data is the json you want to compare against a particular format
     format_data is the json format with regex expressions for values
 
-    return values are any paths to json keys which have a mismatch
-    between the test_data value for those keys and the corresponding format_data
-    or [] if no values are mismatched between test data and format
-
-    If [] is returned then this is a JSON match with the search format
-    which is used to specify variable criteria in a front end'''
+    results are either full matches in the test_data to the format_data if match mode is set to find matches
+    or a list of mismatches if match mode is set to find mismatches
+    '''
+    
     if results == None:
         print("clearing")
         results = []
