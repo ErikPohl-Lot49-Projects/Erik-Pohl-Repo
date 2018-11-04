@@ -12,7 +12,7 @@ However, logging and comments tend to make my code look not Pythonic.
 
 So I thought of the following substitutions:
 
-
+```
 def foo():
   '''docsys'''
   # comment the block
@@ -24,8 +24,8 @@ def foo():
   # comment the block
   even more code
   log yet another critical status here
-  
-
+```  
+```
 def foo():
   '''docsys'''
   #1
@@ -37,17 +37,18 @@ def foo():
   #3
   even more code
   #@3
-
+```
 Using a decorator, we can marry the #@ codes to logging statements recorded in a data structure to create logging.
-
+```
 @DeAwkwardizeLogging
 foo()
-
+```
 This would execute foo with logging in place of the #@ comments.
 
 Using a reporting function, we can translate out the comments and logging statements
+```
 DeDeAwkwardizeCode(foo)
-
+```
 This would ouput the code with full comments and logging messages
 
 ### This database is used by DeAwkwardize:
