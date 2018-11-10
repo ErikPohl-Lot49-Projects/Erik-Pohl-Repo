@@ -34,6 +34,9 @@ class JSONParsertest(ut.TestCase):
         ("report matches all ands satisfied without nesting of format",
          {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
          {"hello": "."}, 1, [('/hello', '1')]),
+        ("report or matches!",
+         {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
+         {"hello": ".", 'zap': {'h1': 'ox'}}, 2, [('/hello', '1')]),
     ])
     def testJSONparser(self, testname, testinp, testinp2, matchtype, expected):
         self.assertEqual(expected,JP.json_format_compare(testinp, testinp2, matchmode=matchtype))
