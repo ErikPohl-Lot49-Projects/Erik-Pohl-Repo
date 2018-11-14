@@ -33,8 +33,20 @@ sorter.list_of_lists =output_list_without_header
 print(sorter.sort())
 
 sorter.clear_sort_fields()
-sorter.add_multiple_fields_by_position([(6, 'datestringdel-'), (4, 'int')])
+sorter.add_multiple_fields_by_position([(6, 'datestringdel-'), (4)])
 sorter.has_header = False
 sorter.reverse_sort = False
+sorter.list_of_lists =output_list_without_header
+print(sorter.sort())
+
+sorter = list_of_list_sorter(output_list_with_header)
+sorter.has_header = True
+sorter.add_sort_field_by_header_field_name('five')
+print(sorter.sort())
+
+sorter.clear_sort_fields()
+sorter.add_sort_field_by_position(6)
+sorter.has_header = False
+sorter.reverse_sort = True
 sorter.list_of_lists =output_list_without_header
 print(sorter.sort())
