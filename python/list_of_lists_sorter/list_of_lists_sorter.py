@@ -51,5 +51,5 @@ class list_of_list_sorter:
             key=lambda row: self.sort_choice(row, self.sort_fields),
             reverse=self.reverse_sort)
         if self.has_header:
-            self.list_of_lists[0:0] = copyheader
+            self.list_of_lists[0:0] = [copyheader]
         return self.list_of_lists
