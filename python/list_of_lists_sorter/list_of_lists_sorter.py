@@ -1,6 +1,7 @@
 from collections import namedtuple
 from datetime import date
 
+
 class list_of_list_sorter:
     sort_field = namedtuple('sort_field', 'position type')
 
@@ -17,17 +18,37 @@ class list_of_list_sorter:
         if self.has_header:
             self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(field_name), sort_field_type))
 
-    def add_multiple_fields_by_position(self, postypelist):
-        for sort_field_add in postypelist:
+    def add_multiple_fields_by_position(self, position_type_list):
+        for sort_field_add in position_type_list:
             if type(sort_field_add) is not tuple:
                 sort_field_add = (sort_field_add, "string")
             self.sort_fields.append(self.sort_field(sort_field_add[0], sort_field_add[1]))
 
-    def add_multiple_fields_by_header_field(self, postypelist):
-        for sort_field_add in postypelist:
+    def add_multiple_fields_by_position_list_comprehension(self, position_type_list):
+        '''
+        deprecated
+        '''
+        [self.sort_fields.append(self.sort_field(sort_field_add[0], sort_field_add[1]))
+         if type(sort_field_add) is tuple
+         else
+         self.sort_fields.append(self.sort_field(sort_field_add, "string"))
+         for sort_field_add in position_type_list]
+
+    def add_multiple_fields_by_header_field(self, position_type_list):
+        for sort_field_add in position_type_list:
             if type(sort_field_add) is not tuple:
                 sort_field_add = (sort_field_add, "string")
             self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1]))
+
+    def add_multiple_fields_by_header_field_list_comprehension(self, position_type_list):
+        '''
+        deprecated
+        '''
+        [self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1]))
+         if type(sort_field_add) is tuple
+         else
+         self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add), "string"))
+         for sort_field_add in position_type_list]
 
     def clear_sort_fields(self):
         self.sort_fieldst = []
