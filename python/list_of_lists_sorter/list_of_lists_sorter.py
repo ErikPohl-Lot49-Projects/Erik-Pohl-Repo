@@ -10,19 +10,23 @@ class list_of_list_sorter:
         self.reverse_sort = False
         self.has_header = False
 
-    def add_sort_field_by_position(self, position, type):
-        self.sort_fields.append(self.sort_field(position, type))
+    def add_sort_field_by_position(self, column_position, sort_field_type="string"):
+        self.sort_fields.append(self.sort_field(column_position, sort_field_type))
 
-    def add_sort_field_by_header_field_name(self, field_name, type):
+    def add_sort_field_by_header_field_name(self, field_name, sort_field_type="string"):
         if self.has_header:
-            self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(field_name), type))
+            self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(field_name), sort_field_type))
 
     def add_multiple_fields_by_position(self, postypelist):
         for sort_field_add in postypelist:
+            if type(sort_field_add) is not tuple:
+                sort_field_add = (sort_field_add, "string")
             self.sort_fields.append(self.sort_field(sort_field_add[0], sort_field_add[1]))
 
     def add_multiple_fields_by_header_field(self, postypelist):
         for sort_field_add in postypelist:
+            if type(sort_field_add) is not tuple:
+                sort_field_add = (sort_field_add, "string")
             self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1]))
 
     def clear_sort_fields(self):
