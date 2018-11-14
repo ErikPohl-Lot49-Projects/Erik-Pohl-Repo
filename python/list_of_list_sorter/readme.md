@@ -15,7 +15,7 @@ alpha-numeric sorting]
 
 # Future plans
 
-  Reluctantly get rid of getter/setter methods.  I like them.
+  Allow for multiple sort field additions at one time.
   Refactor.
   Create regression tests to allow for TDD moving forward.
   
