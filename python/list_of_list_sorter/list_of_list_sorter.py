@@ -17,7 +17,14 @@ class list_of_list_sorter:
     def add_sort_field_by_header_field_name(self, field_name, type):
         if self.has_header:
             self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(field_name), type))
-            self.sort_option['sort_fields'] = self.sort_fields
+
+    def add_multiple_fields_by_position(self, postypelist):
+        for sort_field_add in postypelist:
+            self.sort_fields.append(self.sort_field(sort_field_add[0], sort_field_add[1]))
+
+    def add_multiple_fields_by_header_field(self, postypelist):
+        for sort_field_add in postypelist:
+            self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1]))
 
     def clear_sort_fields(self):
         self.sort_option['sort_fields'] = []
@@ -60,7 +67,7 @@ output_list_with_header = [
 ]
 sorter = list_of_list_sorter(output_list_with_header)
 sorter.has_header = True
-sorter.add_sort_field_by_position(6, 'datestringdel-')
+sorter.add_sort_field_by_header_field_name('six', 'datestringdel-')
 print(sorter.sort())
 
 output_list_without_header = [
@@ -76,4 +83,19 @@ sorter = list_of_list_sorter(output_list_without_header)
 sorter.has_header = False
 sorter.reverse_sort = True
 sorter.add_sort_field_by_position(6, 'datestringdel-')
+print(sorter.sort())
+
+output_list_without_header = [
+    [1, 2, 3, 7, 1, 7, '1-1-15'],
+    [1, 2, 3, 7, 2, 6, '1-1-14'],
+    [1, 2, 3, 5, 3, 5, '1-1-13'],
+    [1, 2, 3, 4, 4, 4, '1-1-12'],
+    [1, 2, 3, 3, 5, 3, '1-1-11'],
+    [1, 2, 3, 2, 6, 2, '1-1-10'],
+    [1, 2, 3, 1, 7, 1, '1-1-18']
+]
+sorter = list_of_list_sorter(output_list_without_header)
+sorter.has_header = False
+sorter.reverse_sort = False
+sorter.add_multiple_fields_by_position([(6, 'datestringdel-'), (4, 'int')])
 print(sorter.sort())
