@@ -26,7 +26,7 @@ class list_of_list_sorter:
             self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1]))
 
     def clear_sort_fields(self):
-        self.sort_option['sort_fields'] = []
+        self.sort_fieldst = []
 
     def field_type_convert(self, raw, ftype):
         if ftype.startswith('datestringdel'):
