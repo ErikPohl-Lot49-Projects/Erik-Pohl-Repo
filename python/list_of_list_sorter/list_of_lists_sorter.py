@@ -1,6 +1,5 @@
 from collections import namedtuple
-import datetime
-
+from datetime import date
 
 class list_of_list_sorter:
     sort_field = namedtuple('sort_field', 'position type')
@@ -31,7 +30,7 @@ class list_of_list_sorter:
 
     def field_type_convert(self, raw, ftype):
         if ftype.startswith('datestringdel'):
-            return (datetime.date
+            return (date
                 (
                 int(raw.split(ftype[-1])[2]),
                 int(raw.split(ftype[-1])[0]),
@@ -45,11 +44,12 @@ class list_of_list_sorter:
 
     def sort(self):
         header_offset = int(self.has_header)
-        copy = self.list_of_lists[0]
+        if self.has_header:
+            copyheader = self.list_of_lists[0]
         self.list_of_lists = self.list_of_lists[header_offset:]
         self.list_of_lists.sort(
             key=lambda row: self.sort_choice(row, self.sort_fields),
             reverse=self.reverse_sort)
         if self.has_header:
-            self.list_of_lists[0:0] = copy
+            self.list_of_lists[0:0] = copyheader
         return self.list_of_lists
