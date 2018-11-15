@@ -1,10 +1,18 @@
 # DeAwkwardize
- 
-This is the working title for a project to abbreviate comments and logging in Python source code.
-Logging would be activated using a decorator function.
-Comments and logging would output when the code is reported on using a translation function.
 
-The impetus?  I come from a tradition of supporting production code with heavy commenting and logging.
+I am targeting deliverables in my repo on this for 11/17.
+
+This is the working title for a project to abbreviate comments and logging in Python source code.
+I will be using dill in conjunction with a database back end to allow self-modifying code:
+you write code with logging and comments, the logging and comments get compressed into almost invisibility in the code. 
+
+Then, logging executes through self-modifying behavior when DeAwkwardize is used as a decorator.  
+
+Comments appear when you view code through the lens of DeAwkwardize.
+
+####The impetus?  
+
+I come from a tradition of supporting production code with heavy commenting and logging.
 The heavy commenting allows ease of maintenance for developers who get pulled into a project and might be of varying skill levels.
 The logging is useful for support and debugging, mostly support.  Production code without logging takes longer to support.
 
