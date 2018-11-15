@@ -22,7 +22,7 @@ You want to be able to have granular designations:
 
 This JSON Query tool returns, based on a parameter switch, either AND match results, OR match results, or mismatches given a JSON query format (using regex expressions for the values in the query format) and a JSON expression to match against.
 
-Using this format in a loop of all the data in your input will help you encapsulate the hard parts of searching the input JSON using highly flexible query expressions.
+Using this function in a loop of all the data in your input will help you encapsulate the hard parts of searching the input JSON using highly flexible query expressions.
 
 ---------
 
