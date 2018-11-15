@@ -10,7 +10,7 @@ Then, logging executes through self-modifying behavior when DeAwkwardize is used
 
 Comments appear when you view code through the lens of DeAwkwardize.
 
-####The impetus?  
+#### The impetus?  
 
 I come from a tradition of supporting production code with heavy commenting and logging.
 The heavy commenting allows ease of maintenance for developers who get pulled into a project and might be of varying skill levels.
