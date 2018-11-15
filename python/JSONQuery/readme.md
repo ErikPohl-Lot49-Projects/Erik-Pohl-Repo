@@ -1,6 +1,7 @@
 # JSON Query Tool
 
-** Special note ** I will be refactoring this code on the evening of 11/15.  I'm also re-evaluating the output of the function and parameter setups.
+** Special note ** I will be refactoring this code on the evening of 11/15.  I'm also re-evaluating the output of the function and parameter setups to make it align with the list_of_lists_sorter tool in my repo.  
+Combined, the expectation is for the two tools to work together to filter and then sort JSON inputs in highly flexible ways, designated by input parameters which govern the behavior of both the input filters and the output sorting.
 
 _Imagine you are handling a sufficient amount of JSON input data._
 
