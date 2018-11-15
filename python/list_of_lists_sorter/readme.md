@@ -21,7 +21,7 @@ This class adds to the sort method the following features:
 3. Address other list of X types: dictionaries, etc. (Targeted for weekend of 11/17-- a list of dictionaries state)
 4. Consider reasonable exception handling without stifling exceptions.
 5. Lint the code. (Weekend of 11/17)
-6. Provide example of uses in my readme markdown (due 11/17).
+6. Provide example of uses in my readme markdown (due 11/15).
   
 ## Getting Started
 
