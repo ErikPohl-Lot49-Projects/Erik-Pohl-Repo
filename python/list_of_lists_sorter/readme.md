@@ -1,4 +1,6 @@
 # List of lists sorter class
+
+** Special note ** I will be adding a full regression test suite on the evening of 11/15/18.
  
 Python offers a graceful method to sort lists of lists.
 
@@ -14,11 +16,11 @@ This class adds to the sort method the following features:
 
 # Future plans
 
-1. Add full regression tests so that additional development will be TDD.
-2. Add comments and docstrings.
-3. Address other list of X types: dictionaries, etc.
+1. Add full regression tests so that additional development will be TDD. (Due evening of 11/15)
+2. Add comments and docstrings. (Due evening of 11/15)
+3. Address other list of X types: dictionaries, etc. (Targeted for weekend of 11/17-- a list of dictionaries state)
 4. Consider reasonable exception handling without stifling exceptions.
-5. Lint the code.
+5. Lint the code. (Weekend of 11/17)
   
 ## Getting Started
 
