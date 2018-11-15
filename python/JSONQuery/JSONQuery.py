@@ -1,6 +1,8 @@
 import json, re, logging, sys
+from collections import namedtuple
 
 #TODO refactor
+json_query_finding = namedtuple('json_query_finding', 'current_json_path, queried_json_clause')
 
 def json_format_compare(test_data, format_data, usedpath='', results =None,debugmode = 0, matchmode =0):
     '''json_format_compare
@@ -25,16 +27,16 @@ def json_format_compare(test_data, format_data, usedpath='', results =None,debug
     for format_key in format_data.keys():
         logging.info("evaluating key:"+ format_key)
         current_json_path = usedpath+'/'+format_key
-        if format_key not in test_data:
-            logging.info("key not found")
-            logging.info("usedpath" + current_json_path)
+        try:
+            test_value = test_data[format_key]
+        except:
+            logging.info("key not found at usedpath" + current_json_path)
             if not matchmode:
-                results.append(current_json_path)
+                results.append(json_query_finding(current_json_path,'key_not_found'))
                 continue
             else:
                 raise ValueError
         format_value = format_data[format_key]
-        test_value = test_data[format_key]
         logging.info("format value for the key " +str(type(format_value)) + " "
                      + str(len(format_value))+ " " + str(format_value))
         logging.info("test value for the key: "+ str(type(test_value)) + " "
@@ -43,7 +45,7 @@ def json_format_compare(test_data, format_data, usedpath='', results =None,debug
         if isinstance(format_value, dict):
             logging.info("recurse for " +str(format_value))
             json_format_compare(test_value, format_value, usedpath=current_json_path,
-                                results=results, matchmode=matchmode)
+                                results=results, matchmode=matchmode,debugmode=debugmode)
         else:
             logging.info("comparing "+ str(format_value) + " " + str(test_value))
             match_result = re.match(format_value, test_value)
@@ -51,12 +53,12 @@ def json_format_compare(test_data, format_data, usedpath='', results =None,debug
                 logging.info(format_value + " matches " + test_value)
                 if matchmode:
                     logging.info("adding current json path to results: "+ current_json_path)
-                    results.append((current_json_path,test_value))
+                    results.append(json_query_finding(current_json_path,test_value))
             else:
                 logging.info(format_value + " does not match " + test_value)
                 if not matchmode:
                     logging.info("adding current json path to results: "+ current_json_path)
-                    results.append(current_json_path)
+                    results.append(json_query_finding(current_json_path,'mismatch'))
                 else: ## partial matches are not okay
                     if matchmode == 2: # or mode
                         # this is a mismatch, but don't short circuit and exit because we're in or mode
@@ -64,13 +66,3 @@ def json_format_compare(test_data, format_data, usedpath='', results =None,debug
                     else: # and mode
                         return []
     return results
-
-test_json_str =         '{"hello": "1", "zap": {"h1": "one", "h2": "two", "single": "."}}'
-json_query_format_str = '{"zap": {"h1": ".*"}, "hello": ".*"}'
-test_json = json.loads(test_json_str)
-json_query_format = json.loads(json_query_format_str)
-print("starting test_json", test_json)
-print("starting json_query_format", json_query_format)
-print("mismatches", json_format_compare(test_json, json_query_format, debugmode=0))
-
-print("matches", json_format_compare(test_json, json_query_format, matchmode=1, debugmode=1))
