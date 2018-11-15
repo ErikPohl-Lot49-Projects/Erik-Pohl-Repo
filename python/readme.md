@@ -20,3 +20,5 @@ f) Linting the code for PEP 8 standardization.
 g) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
 h) Commit statements which facilitate an understanding of code history.
+
+i) Readme.md pages with more interesting usage of markdown.  https://en.wikipedia.org/wiki/Markdown
