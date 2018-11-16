@@ -1,8 +1,5 @@
 # JSON Query Tool
 
-** Special note ** I will be refactoring this code on the evening of 11/15.  I'm also re-evaluating the output of the function and parameter setups to make it align with the list_of_lists_sorter tool in my repo.  
-Combined, the expectation is for the two tools to work together to filter and then sort JSON inputs in highly flexible ways, designated by input parameters which govern the behavior of both the input filters and the output sorting.
-
 _Imagine you are handling a sufficient amount of JSON input data._
 
 The data has a bevy of keys, including deeply nested keys.
@@ -42,71 +39,71 @@ In Match mode, it can act as a filter, retriving only some keys from a JSON sour
 # Example cases
 
 #### No mismatches in a basic format-- this would be a find against a JSON dictionary 
-        json_format_compare({'hello':'1'},{'hello':'1'})
+        compare_json_to_query_clause({'hello':'1'},{'hello':'1'})
         
         []
         
 #### No mismatches in a basic format using a wildcard-- this would be a find against a JSON dictionary 
-        json_format_compare({'hello':'1'},{'hello': '.'})
+        compare_json_to_query_clause({'hello':'1'},{'hello': '.'})
         
         []
 
 #### Mismatch in a basic format -- this would be a record mismatch and would not produce a find against a JSON dictionary 
-        json_format_compare({'hello':'1'},{'hello': 'x'})
+        compare_json_to_query_clause({'hello':'1'},{'hello': 'x'})
         
         ['/hello']
 
 #### No mismatches in a nested format-- this would be a find against a JSON dictionary 
-        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
+        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
         {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}})
         
         []
 
 #### Mismatches in a nested format level 1 -- this would be a record mismatch and would not produce a find against a JSON dictionary  
-        json_format_compare({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
+        compare_json_to_query_clause({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
         {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}})
         
         ['/hello']
 
 #### Mismatches in a nested format level 1/2 -- this would be a record mismatch and would not produce a find against a JSON dictionary  
-        json_format_compare({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
+        compare_json_to_query_clause({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
         {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '2'}})
         
         ['/hello', '/zap/single'])
 
 #### Unexpected format key
-        json_format_compare({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
+        compare_json_to_query_clause({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
         {'hello': '.', 'blammo' : 'blam', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}})
         
         ['/blammo']
         
 #### No mismatches in a nested format with format using only some keys in test data -- this would be a find against a JSON dictionary 
-        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
+        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
         {'zap': {'h1': 'one'}})
         
         []      
 
 #### Mismatch in a nested format with format using only some keys in test data -- this would be a find against a JSON dictionary 
-        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
+        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
         {'zap': {'h1': 'onx'}})
         
         ['/zap/h1']) 
 
 #### Mismatches in a nested format with format using only some keys in test data -- this would be a find against a JSON dictionary 
-        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '4'},
+        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '4'},
        'zap': {'h1': 'onx', 'single': '5'}})
         
         [['/zap/h1', '/zap/single']]) 
         
 #### Match found using a format looking for any character string in a field -- will return this filtered match result and path
-        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
-        {"zap": {"h1": ".*"}, matchmode=1)
+        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
+        {"zap": {"h1": ".*"}, matchmode=MATCHMODES["AND"])
         
         [('/zap/h1', 'one')]
         
 #### Match found using or mode where only one format criteria is matching
-        json_format_compare({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
-        {"hello": ".", 'zap': {'h1': 'ox'}}, matchmode=2)
+        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
+        {"hello": ".", 'zap': {'h1': 'ox'}}, matchmode=MATCHMODES["OR"])
         
         [('/hello', '1')]
 
@@ -117,21 +114,9 @@ sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
-a) A complete regression test suite.
+a) Linting the code for PEP 8 standardization.
+b) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
-b) Meaningful exceptions and exception-handling coverage.
-
-c) Thoughtful, self-documenting, variable, method, and function names.
-
-d) Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
-
-e) Actual docstring comments at all levels of the code.
-
-f) Linting the code for PEP 8 standardization.
-
-g) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
-
-h) Commit statements which facilitate an understanding of code history.
 
 ## Getting Started
 
