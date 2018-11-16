@@ -1,5 +1,7 @@
 # JSON Query Tool
 
+** weekend of Nov 17 ** I will be converting this to a class during the weekend
+
 _Imagine you are handling a sufficient amount of JSON input data._
 
 The data has a bevy of keys, including deeply nested keys.
@@ -23,7 +25,7 @@ Using this function in a loop of all the data in your input will help you encaps
 
 ---------
 
-This accepts a JSON format description and a JSON expression.
+compare_json_to_query_clause accepts a JSON format description and a JSON expression.
 
 Using Python's regex module (re) and the JSON format description, this returns a list of mismatches or matches if certain conditions are met:
 a) are all query format JSON keys present in and mode?  in or mode for matches, which matches qualify?
