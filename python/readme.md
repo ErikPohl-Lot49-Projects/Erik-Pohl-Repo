@@ -1,6 +1,6 @@
 # This repo shows an evolution
 
-I am quickly evolving my style now from "able to complex problems in Python" more towards "Python code I'd submit for a code review for production code".
+I am quickly evolving my style now from "able to solve complex problems in Python reliably" more towards "Python code I'd submit for a code review for production code".
 
 I'm still learning, researching Python-particular coding patterns (even learning from anti-patterns) to refine my code style
 
