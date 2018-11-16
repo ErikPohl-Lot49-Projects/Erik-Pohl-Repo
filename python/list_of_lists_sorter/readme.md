@@ -12,6 +12,10 @@ This class adds to the sort method the following features:
 3. Select sort fields with field headers or column positions.
 4. Handle strings which represent dates in the sort as dates conditionally.
 
+# Examples
+
+#### one
+
 # Future plans
 
 1. Review unit test cases for completeness on 11/17.
