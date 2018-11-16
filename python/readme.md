@@ -7,6 +7,7 @@ I'm still learning, researching Python-particular coding patterns and anti-patte
 The most representative work is recent work:
 
 _JSONquery_
+
 _list_of_lists_sorter_
 
 I plan on building on these so they work together and so the list_of_lists_sorter uses the state pattern to handle dictionaries
