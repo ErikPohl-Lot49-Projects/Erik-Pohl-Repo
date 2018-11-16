@@ -37,3 +37,90 @@ class ListofListsTests(TestCase):
         self.assertEqual(lolsorter.sort_fields[1].field_type, 'datestringdelimiter')
         self.assertEqual(lolsorter.sort_fields[2].position,7)
         self.assertEqual(lolsorter.sort_fields[2].field_type, "string")
+
+
+    def testCaseBasicNonHeaderTestDateSort(self):
+        output_list_without_header = [
+            [1, 2, 3, 7, 1, 7, '1-1-15'],
+            [1, 2, 3, 7, 2, 6, '1-1-14']
+        ]
+        lolsorter = list_of_list_sorter(output_list_without_header)
+        lolsorter.add_sort_field_by_position(6, 'datestringdelimiter-')
+        sorted_output = lolsorter.sort()
+        self.assertEqual(sorted_output,[
+            [1, 2, 3, 7, 2, 6, '1-1-14'],
+            [1, 2, 3, 7, 1, 7, '1-1-15']
+        ])
+        lolsorter.reverse_sort = True
+        sorted_output = lolsorter.sort()
+        self.assertEqual(sorted_output,[
+            [1, 2, 3, 7, 1, 7, '1-1-15'],
+            [1, 2, 3, 7, 2, 6, '1-1-14']
+        ])
+
+    def testCaseBasicNonHeaderTestNumberSort(self):
+        output_list_without_header = [
+            [1, 2, 3, 7, 1, 7, '1-1-15'],
+            [1, 2, 3, 7, 2, 6, '1-1-14']
+        ]
+        lolsorter = list_of_list_sorter(output_list_without_header)
+        lolsorter.add_sort_field_by_position(5)
+        sorted_output = lolsorter.sort()
+        self.assertEqual(sorted_output, [
+            [1, 2, 3, 7, 2, 6, '1-1-14'],
+            [1, 2, 3, 7, 1, 7, '1-1-15']
+        ])
+        lolsorter.reverse_sort = True
+        sorted_output = lolsorter.sort()
+        self.assertEqual(sorted_output, [
+            [1, 2, 3, 7, 1, 7, '1-1-15'],
+            [1, 2, 3, 7, 2, 6, '1-1-14']
+        ])
+
+    def testCaseBasicHeaderTestDateSort(self):
+        output_list_with_header = [
+            ['field1','field2','field3','field4', 'field5', 'field6', 'datefield1'],
+            [1, 2, 3, 7, 1, 7, '1-1-15'],
+            [1, 2, 3, 7, 2, 6, '1-1-14']
+        ]
+        lolsorter2 = list_of_list_sorter(output_list_with_header)
+        lolsorter2.has_header = True
+        lolsorter2.add_sort_field_by_header_field_name('datefield1', 'datestringdelimiter-')
+        print("sortfields", lolsorter2.sort_fields)
+        sorted_output = lolsorter2.sort()
+        print("sorted", sorted_output)
+        self.assertEqual(sorted_output, [
+            ['field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'datefield1'],
+            [1, 2, 3, 7, 2, 6, '1-1-14'],
+            [1, 2, 3, 7, 1, 7, '1-1-15']
+        ])
+        lolsorter2.reverse_sort = True
+        sorted_output = lolsorter2.sort()
+        self.assertEqual(sorted_output, [
+            ['field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'datefield1'],
+            [1, 2, 3, 7, 1, 7, '1-1-15'],
+            [1, 2, 3, 7, 2, 6, '1-1-14']
+        ])
+
+    def testCaseBasicNonHeaderTestNumberSort(self):
+        output_list_with_header = [
+            ['field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'datefield1'],
+            [1, 2, 3, 7, 1, 7, '1-1-15'],
+            [1, 2, 3, 7, 2, 6, '1-1-14']
+        ]
+        lolsorter = list_of_list_sorter(output_list_with_header)
+        lolsorter.has_header = True
+        lolsorter.add_sort_field_by_position(5)
+        sorted_output = lolsorter.sort()
+        self.assertEqual(sorted_output, [
+            ['field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'datefield1'],
+            [1, 2, 3, 7, 2, 6, '1-1-14'],
+            [1, 2, 3, 7, 1, 7, '1-1-15']
+        ])
+        lolsorter.reverse_sort = True
+        sorted_output = lolsorter.sort()
+        self.assertEqual(sorted_output, [
+            ['field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'datefield1'],
+            [1, 2, 3, 7, 1, 7, '1-1-15'],
+            [1, 2, 3, 7, 2, 6, '1-1-14']
+        ])
