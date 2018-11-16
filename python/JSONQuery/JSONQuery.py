@@ -1,68 +1,55 @@
 import json, re, logging, sys
 from collections import namedtuple
 
-#TODO refactor
+# TODO make this a class with a compare method
+JSON_KEY_MISSING = 'key_not_found'
 json_query_finding = namedtuple('json_query_finding', 'current_json_path, queried_json_clause')
+JSON_VALUE_MISMATCH = 'JSON_value_mismatch'
+MATCHMODES = {'AND': 1, 'OR': 2, 'MISMATCH':0}
 
-def json_format_compare(test_data, format_data, usedpath='', results =None,debugmode = 0, matchmode =0):
-    '''json_format_compare
-    accepts as input a test_data json variable
-    and a format_data json variable
-    and a debugmode variable
-    usedpath and mismatches are for internal use only
-
-    test_data is the json you want to compare against a particular format
-    format_data is the json format with regex expressions for values
-
-    results are either full matches in the test_data to the format_data if match mode is set to find matches
-    or a list of mismatches if match mode is set to find mismatches
+def compare_json_to_query_clause(JSON_to_query, JSON_query_clause, *,
+                                 match_mode=MATCHMODES["MISMATCH"],
+                                 debug_mode=False, current_JSON_path='', JSON_query_results=None):
     '''
-
-    if results == None:
-        results = []
-    if debugmode:
+    compare_json_to_query_clause
+    :param JSON_to_query: This is an input JSON which you want to query
+    :param JSON_query_clause: This is a clause in JSON format for the keys you want to query with values in regex
+    :param match_mode: This is the match mode to apply making the comparison [AND,OR,MISMATCH]
+    :param debug_mode: Debug mode can be on or off, deprecated
+    :param current_JSON_path: This is an internal only variable which tracks the current JSON path for reporting findings
+    :param JSON_query_results: This stores results of the comparison throughout the query
+    :return: This returns findings based on the JSON_to_query, the JSON_query_clause, and the match_mode
+    '''
+    if JSON_query_results == None:
+        JSON_query_results = []
+    if debug_mode:
         logging.basicConfig(stream=sys.stdout, level=logging.INFO)
-    logging.info("parsing test data"+ str(test_data))
-    logging.info("parsing format data"+ str(format_data))
-    for format_key in format_data.keys():
-        logging.info("evaluating key:"+ format_key)
-        current_json_path = usedpath+'/'+format_key
+    for format_key in JSON_query_clause.keys():
+        current_json_path = current_JSON_path + '/' + format_key
         try:
-            test_value = test_data[format_key]
+            JSON_to_query_key_value = JSON_to_query[format_key]
         except:
-            logging.info("key not found at usedpath" + current_json_path)
-            if not matchmode:
-                results.append(json_query_finding(current_json_path,'key_not_found'))
+            if not match_mode:
+                JSON_query_results.append(json_query_finding(current_json_path, JSON_KEY_MISSING))
                 continue
             else:
                 raise ValueError
-        format_value = format_data[format_key]
-        logging.info("format value for the key " +str(type(format_value)) + " "
-                     + str(len(format_value))+ " " + str(format_value))
-        logging.info("test value for the key: "+ str(type(test_value)) + " "
-                     + str(len(test_value))+ " " + str(test_value))
-        ## if the format value which is being compared with the test value, recurse
-        if isinstance(format_value, dict):
-            logging.info("recurse for " +str(format_value))
-            json_format_compare(test_value, format_value, usedpath=current_json_path,
-                                results=results, matchmode=matchmode,debugmode=debugmode)
+        JSON_query_key_value = JSON_query_clause[format_key]
+        ## if the format value which is being compared with the test value is itself a clause, recurse
+        if isinstance(JSON_query_key_value, dict):
+            compare_json_to_query_clause(JSON_to_query_key_value, JSON_query_key_value,
+                                         current_JSON_path=current_json_path,
+                                         JSON_query_results=JSON_query_results,
+                                         match_mode=match_mode, debug_mode=debug_mode)
         else:
-            logging.info("comparing "+ str(format_value) + " " + str(test_value))
-            match_result = re.match(format_value, test_value)
-            if match_result:
-                logging.info(format_value + " matches " + test_value)
-                if matchmode:
-                    logging.info("adding current json path to results: "+ current_json_path)
-                    results.append(json_query_finding(current_json_path,test_value))
+            if re.match(JSON_query_key_value, JSON_to_query_key_value):
+                if match_mode:
+                    JSON_query_results.append(json_query_finding(current_json_path, JSON_to_query_key_value))
             else:
-                logging.info(format_value + " does not match " + test_value)
-                if not matchmode:
-                    logging.info("adding current json path to results: "+ current_json_path)
-                    results.append(json_query_finding(current_json_path,'mismatch'))
-                else: ## partial matches are not okay
-                    if matchmode == 2: # or mode
-                        # this is a mismatch, but don't short circuit and exit because we're in or mode
-                        pass
-                    else: # and mode
+                if not match_mode: #mismach is being tracked
+                    JSON_query_results.append(json_query_finding(current_json_path, JSON_VALUE_MISMATCH))
+                else:  ## partial matches are not okay for ANDs but are okay for ORs
+                    if match_mode == MATCHMODES["AND"]:
                         return []
-    return results
+                        # otherwise, this is a mismatch, but don't short circuit and exit because we're in or mode
+    return JSON_query_results
