@@ -1,3 +1,15 @@
+# This repo shows an evolution
+
+I have been going from "able to solve a problem in Python" more towards "Python code I'd submit for a code review for production code"
+I'm still learning, researching Python-particular coding patterns and anti-patterns to refine my code style
+The most representative work is recent work:
+
+_JSONquery_
+_list_of_lists_sorter_
+
+I plan on building on these so they work together and so the list_of_lists_sorter uses the state pattern to handle dictionaries
+As I move forward, I will go back and refactor for style and clarity my former work, including adding the details below:
+
 # Important disclaimer
 
 The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different
