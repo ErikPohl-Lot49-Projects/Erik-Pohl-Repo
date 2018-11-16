@@ -35,7 +35,11 @@ The goal here, whether using it in mismatch mode or match mode, is to be able to
 
 In Mismatch mode, it can act as a validation, returning all the conditions which fail so that they can be corrected -- think: is this JSON missing a value or does it have a bad value?  Where are the mismatches between the expected format and the actual value?
 
-In Match mode, it can act as a filter, retriving only some keys from a JSON source or permitting code which calls this to return JSON which has a match (and mode or or mode).  So if a client were being served JSON and it only wanted the deeply nested foo key values, you could use this to get them.  If a client were being served JSON, and it only wanted to display the JSON with foo which matches one regex string and bar which matches another, this functionality is addressed in match mode.  ANDs and ORs are handled in match mode.
+In Match mode, it can act as a filter, retriving only some keys from a JSON source or permitting code which calls this to return JSON which has a match (AND mode or OR mode).  
+
+So if a client were being served JSON and it only wanted the deeply nested foo key values, you could use this to get them.  
+
+If a client were being served JSON, and it only wanted to display the JSON with foo keys whose values matche one regex string and bar keys whose values match another, this functionality is addressed in match mode.  ANDs and ORs are handled in match mode.
 
 
 # Example cases
