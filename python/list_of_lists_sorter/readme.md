@@ -15,6 +15,11 @@ This class adds to the sort method the following features:
 # Examples
 
 #### one
+output_list_with_header = [
+    ['zero', 'one', 'two', 'three', 'four', 'five', 'six'],
+    [1, 2, 3, 7, 1, 7, '1-1-15'],
+    [1, 2, 3, 7, 2, 6, '1-1-14'],
+    ]
 
 # Future plans
 
