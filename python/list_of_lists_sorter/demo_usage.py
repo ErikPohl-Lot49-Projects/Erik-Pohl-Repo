@@ -1,4 +1,4 @@
-from sort import list_of_list_sorter
+from list_of_lists_sorter import list_of_list_sorter
 
 output_list_with_header = [
     ['zero', 'one', 'two', 'three', 'four', 'five', 'six'],
