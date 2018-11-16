@@ -3,7 +3,9 @@ from datetime import date
 
 
 class list_of_list_sorter:
-    sort_field = namedtuple('sort_field', 'position type')
+    sort_field = namedtuple('sort_field', 'position field_type')
+
+    STRINGDATEPREFIX = 'datestringdelimiter'
 
     def __init__(self, list_of_lists):
         self.list_of_lists = list_of_lists
@@ -51,21 +53,16 @@ class list_of_list_sorter:
          for sort_field_add in position_type_list]
 
     def clear_sort_fields(self):
-        self.sort_fieldst = []
+        self.sort_fields = []
 
-    def field_type_convert(self, raw, ftype):
-        if ftype.startswith('datestringdel'):
-            return (date
-                (
-                int(raw.split(ftype[-1])[2]),
-                int(raw.split(ftype[-1])[0]),
-                int(raw.split(ftype[-1])[1])
-            )
-            )
+    def field_type_convert(self, raw, field_type):
+        datetuple = namedtuple('datetuple', 'month day year')
+        if field_type.startswith(self.STRINGDATEPREFIX):
+            return datetuple(*raw.split(field_type[-1]))
         return raw
 
     def sort_choice(self, x, its):
-        return [self.field_type_convert(x[y.position], y.type) for y in its]
+        return [self.field_type_convert(x[y.position], y.field_type) for y in its]
 
     def sort(self):
         header_offset = int(self.has_header)
