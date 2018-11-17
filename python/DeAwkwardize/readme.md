@@ -154,3 +154,32 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Thanks to everyone who has motivated me to learn more.
+
+## Long-winded backstory
+
+
+Of all the antonyms of Awkward, I prefer "easy".
+
+Easy things work and are simple to understand.
+
+In social situations, we often relate "awkward" and "easy" to how recognizable and acceptable interaction styles are.
+
+Along with non-verbal cues, the verbal part of social situations involves communication.
+
+In coding, this can be comments or logging.
+
+Think of how we say, "Hello" as a greeting.  It feels fairly meaningless, except as a means of initiating a conversation.
+
+Some developers want to get rid of social conversation cues in their code.
+
+So: for, example, I once heard a lead engineer say he rejects code in code-review which has comments.
+
+However, I love comments!
+
+How to get around this?
+
+Suppose I delivered code with comments like this : "#%1"
+
+He could complain, but I could make an argument that this is not a distracting comment: there are no words!
+
+---------------------------------------------------------------------------------------------------------------------------
