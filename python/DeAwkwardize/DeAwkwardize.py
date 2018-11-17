@@ -5,6 +5,13 @@ import logging, sys
 
 
 class deawkwardize:
+    '''
+    Deawkwardize allows a user to
+    deawkwardize a python program by splitting it into a file with tokens instead of comments/logging and a token file
+    or reawkwardize it:
+        reawk logging is a decorator which in real time replaces tokens with logging messages to restore logging
+        reawk file output is a method which outputs a file in its original form with full comments and logging
+    '''
 
     def __init__(self):
         self.deawkdict = {}
@@ -32,7 +39,7 @@ class deawkwardize:
 
     def deawk(self, infname, outfname='deawked_', tokenfile='deawkdict.txt'):
         '''
-        Accepts as input a python program name to output, 
+        Accepts as input a python program name to output,
         replaces all the comments and logging messages in it with tokens
         and writes the abbreviated [deawkwardized] file to and outfile
         with the tokens to a token file
