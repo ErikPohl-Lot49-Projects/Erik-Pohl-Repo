@@ -2,6 +2,7 @@
 
 The first rev is in place, but don't expect to be able to read or use it.
 It has a functioning test case, which makes it in a "green" test case.
+I need to let it distill a little before continuing work here.
 
 This is the working title for a project to abbreviate comments and logging in Python source code.
 I will be using dill in conjunction with a file (later database) back end to allow self-modifying code:
