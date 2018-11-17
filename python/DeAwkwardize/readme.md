@@ -1,9 +1,7 @@
 # DeAwkwardize
 
-I am targeting deliverables in my repo on this for 11/17.
-
 This is the working title for a project to abbreviate comments and logging in Python source code.
-I will be using dill in conjunction with a database back end to allow self-modifying code:
+I will be using dill in conjunction with a file (later database) back end to allow self-modifying code:
 you write code with logging and comments, the logging and comments get compressed into almost invisibility in the code. 
 
 Then, logging executes through self-modifying behavior when DeAwkwardize is used as a decorator.  
@@ -59,23 +57,38 @@ DeDeAwkwardizeCode(foo)
 ```
 This would ouput the code with full comments and logging messages
 
-### This database is used by DeAwkwardize:
+### This database is potentially used by DeAwkwardize:
 
 DeAwkwardizeBase
+
   Table Annotation_Apps:
+  
       Annotation_app_id:  Unique ID for an annotation App
+      
       Annotation_app_name:Name of the App to be annotated with DeAwkwardize
+      
   Table Annotations:
+  
       Annotation_id:      Unique ID for an annotation
+      
       Annotation_app_id:  This identifier makes sure the annotation is applied to the correct source code
+      
       Annotation_type:    Logging/Comment
+      
       Annotation_text:    For a logging type, this is the contents of the logging message: 
+      
                           logging.info("Hello, look at me here at,"+str(x))
+                          
                           would have an Annotation_text of '"Hello, look at me here at,"+str(x)'
+                          
                           For a Comment type, this is the contents of the comment:
+                          
                           #This is a very long comment
+                          
                           would have an Annotation_text of "This is a very long comment"
+                          
       Annotation_modifier:For a logging type, this is whether it is info, critical, debug, etc.
+      
 
 # Future plans
 
