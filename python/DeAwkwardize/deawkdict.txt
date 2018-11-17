@@ -1,0 +1,11 @@
+#%1||# recognize dups with a dict
+#%2||# find logging and comments and translate spitting translation into output file
+#%3||# translate lines into reawked lines and output
+#%4||## do replacement here for logging
+#%5||# Define a function we want to modify:
+#%6||logging.info("hello")
+#%7||# Run the function to check output
+#%8||# print('\n\nRunning Function...')
+#%9||# >>> Here
+#%10||logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+#%11||logging.info("hello")
