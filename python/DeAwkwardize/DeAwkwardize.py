@@ -6,8 +6,6 @@ import logging, sys
 
 class deawkwardize:
 
-
-
     def __init__(self):
         self.deawkdict = {}
         self.token = 0
@@ -16,9 +14,13 @@ class deawkwardize:
         self.logging_token_prefix = '#%'
         self.comment_token_prefix = '#@'
 
-
-
     def load_token_dict(self, fname):
+        '''
+        Accepts as input the name of a token dictionary file
+        loads the tokens into a token dictionary
+        :param fname: Token dictionary file name
+        :return: True
+        '''
         try:
             with open(fname, 'r') as awkfile:
                 for fline in awkfile:
@@ -26,12 +28,22 @@ class deawkwardize:
                     self.deawkdict[a] = b
         except Exception as e:
             print(e)
+        return True
 
+    def deawk(self, infname, outfname='deawked_', tokenfile='deawkdict.txt'):
+        '''
+        Accepts as input a python program name to output, 
+        replaces all the comments and logging messages in it with tokens
+        and writes the abbreviated [deawkwardized] file to and outfile
+        with the tokens to a token file
+        :param infname: Input python program
+        :param outfname: Output deawkwardized python program
+        :param tokenfile: output token file
+        :return: True
+        '''
 
-
-    def deawk(self, infname, outfname='deawked_', tokenfile = 'deawkdict.txt'):
         def gentoken(linex):
-            #recognize dups with a dict
+            # recognize dups with a dict
 
             try:
                 return self.tokendict[linex]
@@ -41,24 +53,33 @@ class deawkwardize:
                 return (str(self.token))
 
         outfname = outfname + infname
-        with open(infname, 'r') as deawk_input, open(outfname,"w") as deawk_output, \
-            open(tokenfile,'w') as tokenfilehandle:
+        with open(infname, 'r') as deawk_input, open(outfname, "w") as deawk_output, \
+                open(tokenfile, 'w') as tokenfilehandle:
             for line in deawk_input:
-                #find logging and comments and translate spitting translation into output file
+                # find logging and comments and translate spitting translation into output file
 
                 if line.strip().startswith('logging'):
-                    newtoken = self.logging_token_prefix+ str(gentoken(line.strip()))
-                    deawk_output.write(line.replace(line.strip(),newtoken) + '\n')
-                    tokenfilehandle.write(newtoken + self.deawkdictdelimiter + line.strip()+'\n')
+                    newtoken = self.logging_token_prefix + str(gentoken(line.strip()))
+                    deawk_output.write(line.replace(line.strip(), newtoken) + '\n')
+                    tokenfilehandle.write(newtoken + self.deawkdictdelimiter + line.strip() + '\n')
                     continue
                 if line.strip().startswith('#'):
                     newtoken = self.comment_token_prefix + str(gentoken(line.strip()))
-                    deawk_output.write(line.replace(line.strip(), newtoken)+ '\n')
-                    tokenfilehandle.write(newtoken + self.deawkdictdelimiter + line.strip()+'\n')
+                    deawk_output.write(line.replace(line.strip(), newtoken) + '\n')
+                    tokenfilehandle.write(newtoken + self.deawkdictdelimiter + line.strip() + '\n')
                     continue
                 deawk_output.write(line)
+        return True
 
     def reawk_fileput(self, fname):
+        '''
+        This takes a token dictionary
+        and restores a file to its awkward glory
+        with comments and full logging messages
+        replacing the abbreviated tokens
+        :param fname: File name to output with comments and logging restored
+        :return: True
+        '''
         with open(fname, 'r') as deawk_file:
             for line in deawk_file:
                 # translate lines into reawked lines and output
@@ -70,11 +91,12 @@ class deawkwardize:
                         print(line)
                 else:
                     print(line)
+        return True
 
     def reawk_logging(self, *argsx):
-        """"this decorater uses a token dictionary to 
+        """"this decorater uses a token dictionary to
         replace during runtime
-        certain tokens 
+        certain tokens
         with full logging messages
         to allow logging without logging messages in
         the code
@@ -82,7 +104,7 @@ class deawkwardize:
         do not use this on programs which
         fly the space shuttle
         perform surgery on people
-        etc. 
+        etc.
         """
 
         def real_decorator(func):
@@ -95,7 +117,7 @@ class deawkwardize:
                 newtestinnersource = 'import logging, sys\nlogging.basicConfig(stream=sys.stdout, level=logging.INFO)\n'
                 for line in testSourceLines:
                     if line.strip().startswith(self.logging_token_prefix):
-                        try: #% only, though
+                        try:  # % only, though
                             replace = self.deawkdict[line.strip()]
                             newtestinnersource += replace + "\n"
                             continue
@@ -103,8 +125,8 @@ class deawkwardize:
                             replace = line.strip()
                         newtestinnersource += replace.strip() + '\n'
                     elif not line.strip().startswith('def') and not line.strip().startswith('@'):
-                        newtestinnersource+=line.strip() +'\n'
-                #print("new innersource\n", newtestinnersource)
+                        newtestinnersource += line.strip() + '\n'
+                # print("new innersource\n", newtestinnersource)
                 code_obj = compile(newtestinnersource, '<string>', 'exec')
                 func.__code__ = copy.deepcopy(code_obj)
                 result = func(*args, **kwargs)
@@ -152,5 +174,5 @@ logging.info("hello3")
 
 logging.info("hello4")
 
-#print("REAWKING")
-#da.reawk_fileput('DeAwkwardize.py')
+# print("REAWKING")
+# da.reawk_fileput('DeAwkwardize.py')
