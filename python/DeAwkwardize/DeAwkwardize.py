@@ -156,6 +156,8 @@ class deawkwardize:
 
         return real_decorator
 
+    
+### DEMO USAGE CODE
 
 da = deawkwardize()
 da.load_deawk_token_dictionary('deawkdict.txt')
