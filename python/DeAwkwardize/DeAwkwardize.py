@@ -72,9 +72,17 @@ class deawkwardize:
                     print(line)
 
     def reawk_logging(self, *argsx):
-        """"this is a decorator to guarantee specific keyword arguments are used
-        in an otherwise open ended keyword argument list
-        Allows for extra messaging and handling for an error related to missing or invalid keyword arguments
+        """"this decorater uses a token dictionary to 
+        replace during runtime
+        certain tokens 
+        with full logging messages
+        to allow logging without logging messages in
+        the code
+        NOTE: since this involves self-modifying editing of code in real time
+        do not use this on programs which
+        fly the space shuttle
+        perform surgery on people
+        etc. 
         """
 
         def real_decorator(func):
