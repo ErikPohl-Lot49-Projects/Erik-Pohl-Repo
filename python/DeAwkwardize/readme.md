@@ -7,17 +7,20 @@ _**DO YOU WANT TO SEE A DECORATOR WHICH USES SOME COOL, SELF_MODIFYING CODE?**_
 ![alt text](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/python/DeAwkwardize/webpageunderconstruction-1024x681.jpg)
 
 
-The first rev is in place, but don't expect to be able to read or use it.
-It has a functioning test case, which makes it in a "green" test case.
-I need to let it distill a little before continuing work here.
+The first rev is in place, but don't expect to be able to use the class for your own cases.
+The code in my repo is good for a demo only.
 
-This is the working title for a project to abbreviate comments and logging in Python source code.
-I will be using dill in conjunction with a file (later database) back end to allow self-modifying code:
+It has a functioning test case, which makes it in a "green" test case.
+
+Working in self-modifying code is easy, but takes some brain I need for other things this morning at 8am.  (The project woke me at 6am wanting to be solved!)  As a result, I need to let it distill a little before continuing work here.
+
+DeAwkwardize is the working title for a project to abbreviate comments and logging in Python source code.
+I use dill in conjunction with a translation file (later, this will be a database) to allow self-modifying code:
 you write code with logging and comments, the logging and comments get compressed into almost invisibility in the code. 
 
-Then, logging executes through self-modifying behavior when DeAwkwardize is used as a decorator.  
+Then, logging executes through self-modifying behavior when the right DeAwkwardize method is used as a decorator.  
 
-Comments appear when you view code through the lens of DeAwkwardize.
+Comments and logging re-appear when you view code through the lens of DeAwkwardize, allowing you to restore your full logging and comments when needed.
 
 #### The impetus?  
 
