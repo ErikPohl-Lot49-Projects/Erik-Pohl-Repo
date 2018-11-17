@@ -5,15 +5,18 @@ import logging, sys
 
 
 class deawkwardize:
+    
+
 
     def __init__(self, fname):
         self.deawkdict = {}
         self.token = 0
         self.tokendict = {}
+        self.deawkdictdelimiter = '||'
         try:
             with open(fname, 'r') as awkfile:
                 for fline in awkfile:
-                    a, b = fline.split('||')
+                    a, b = fline.split(self.deawkdictdelimiter)
                     self.deawkdict[a] = b
         except Exception as e:
             print(e)
@@ -40,12 +43,12 @@ class deawkwardize:
                 if line.strip().startswith('logging'):
                     newtoken = '#%'+ str(gentoken(line.strip()))
                     deawk_output.write(line.replace(line.strip(),newtoken) + '\n')
-                    tokenfilehandle.write(newtoken + '||' + line.strip()+'\n')
+                    tokenfilehandle.write(newtoken + self.deawkdictdelimiter + line.strip()+'\n')
                     continue
                 if line.strip().startswith('#'):
                     newtoken = '#@' + str(gentoken(line.strip()))
                     deawk_output.write(line.replace(line.strip(), newtoken)+ '\n')
-                    tokenfilehandle.write(newtoken + '||' + line.strip()+'\n')
+                    tokenfilehandle.write(newtoken + self.deawkdictdelimiter + line.strip()+'\n')
                     continue
                 deawk_output.write(line)
 
