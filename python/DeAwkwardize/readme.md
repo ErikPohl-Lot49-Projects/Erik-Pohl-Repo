@@ -1,5 +1,8 @@
 # DeAwkwardize
 
+The first rev is in place, but don't expect to be able to read or use it.
+It has a functioning test case, which makes it in a "green" test case.
+
 This is the working title for a project to abbreviate comments and logging in Python source code.
 I will be using dill in conjunction with a file (later database) back end to allow self-modifying code:
 you write code with logging and comments, the logging and comments get compressed into almost invisibility in the code. 
