@@ -8,7 +8,6 @@ class deawkwardize:
 
     def __init__(self, fname):
         self.deawkdict = {}
-        print("load on init")
         self.token = 0
         self.tokendict = {}
         try:
@@ -18,13 +17,12 @@ class deawkwardize:
                     self.deawkdict[a] = b
         except Exception as e:
             print(e)
-        print("this is what i got")
-        print(self.deawkdict)
+
 
 
     def deawk(self, infname, outfname='deawked_', tokenfile = 'deawkdict.txt'):
         def gentoken(linex):
-            #%1
+            #recognize dups with a dict
 
             try:
                 return self.tokendict[linex]
@@ -37,7 +35,7 @@ class deawkwardize:
         with open(infname, 'r') as deawk_input, open(outfname,"w") as deawk_output, \
             open(tokenfile,'w') as tokenfilehandle:
             for line in deawk_input:
-                #%2
+                #find logging and comments and translate spitting translation into output file
 
                 if line.strip().startswith('logging'):
                     newtoken = '#%'+ str(gentoken(line.strip()))
@@ -45,9 +43,7 @@ class deawkwardize:
                     tokenfilehandle.write(newtoken + '||' + line.strip()+'\n')
                     continue
                 if line.strip().startswith('#'):
-                    print("comment", line.strip())
-                    print("use #@", gentoken(line.strip()))
-                    newtoken = '#%' + str(gentoken(line.strip()))
+                    newtoken = '#@' + str(gentoken(line.strip()))
                     deawk_output.write(line.replace(line.strip(), newtoken)+ '\n')
                     tokenfilehandle.write(newtoken + '||' + line.strip()+'\n')
                     continue
@@ -56,7 +52,7 @@ class deawkwardize:
     def reawk_fileput(self, fname):
         with open(fname, 'r') as deawk_file:
             for line in deawk_file:
-                #%3
+                # translate lines into reawked lines and output
 
                 if line.strip().startswith('#'):
                     try:
@@ -76,13 +72,13 @@ class deawkwardize:
             @wraps(func)
             def wrapper(*args, **kwargs):
                 testSource = dill.source.getsource(func)
-                #%4
+                ## do replacement here for logging
 
                 testSourceLines = testSource.split('\n')
                 newtestinnersource = 'import logging, sys\nlogging.basicConfig(stream=sys.stdout, level=logging.INFO)\n'
                 for line in testSourceLines:
                     if line.strip().startswith('#'):
-                        try:
+                        try: #% only, though
                             replace = self.deawkdict[line.strip()]
                             newtestinnersource += replace + "\n"
                             continue
@@ -91,7 +87,7 @@ class deawkwardize:
                         newtestinnersource += replace.strip() + '\n'
                     elif not line.strip().startswith('def') and not line.strip().startswith('@'):
                         newtestinnersource+=line.strip() +'\n'
-                print("new innersource\n", newtestinnersource)
+                #print("new innersource\n", newtestinnersource)
                 code_obj = compile(newtestinnersource, '<string>', 'exec')
                 func.__code__ = copy.deepcopy(code_obj)
                 result = func(*args, **kwargs)
@@ -106,38 +102,37 @@ class deawkwardize:
 da = deawkwardize('deawkdict.txt')
 
 
-#%5
+# Define a function we want to modify:
 
 @da.reawk_logging()
 def test():
-    #%6
+    logging.info("hello")
     print("Here")
 
 
-print('I am here2')
 @da.reawk_logging('')
 def test2():
-    #%6
+    logging.info("hello")
     print("Hello world")
 
 
-#%7
+# Run the function to check output
 
 
-#%8
+# print('\n\nRunning Function...')
 
 test()
-#%9
+# >>> Here
 
 
 test2()
 
-#%10
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 ##da.deawk('DeAwkwardize.py')
-#%11
+logging.info("hello")
 
-#%11
+logging.info("hello")
 
-print("REAWKING")
-da.reawk_fileput('deawked_DeAwkwardize.py')
+#print("REAWKING")
+#da.reawk_fileput('DeAwkwardize.py')
