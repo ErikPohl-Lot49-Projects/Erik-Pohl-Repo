@@ -43,10 +43,8 @@ print(sorter.sort())
 
 # Future plans
 
-1. Review unit test cases for completeness on 11/17.
-2. Address other list of X types: dictionaries, etc. (Targeted for weekend of 11/17-- a list of dictionaries state)
-3. Consider reasonable exception handling without stifling exceptions.
-4. Lint the code. (Weekend of 11/17)
+1. Consider reasonable exception handling without stifling exceptions.
+2. Lint the code. (Weekend of 11/17)
   
 ## Getting Started
 
