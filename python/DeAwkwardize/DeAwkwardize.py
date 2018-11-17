@@ -5,14 +5,20 @@ import logging, sys
 
 
 class deawkwardize:
-    
 
 
-    def __init__(self, fname):
+
+    def __init__(self):
         self.deawkdict = {}
         self.token = 0
         self.tokendict = {}
         self.deawkdictdelimiter = '||'
+        self.logging_token_prefix = '#%'
+        self.comment_token_prefix = '#@'
+
+
+
+    def load_token_dict(self, fname):
         try:
             with open(fname, 'r') as awkfile:
                 for fline in awkfile:
@@ -41,12 +47,12 @@ class deawkwardize:
                 #find logging and comments and translate spitting translation into output file
 
                 if line.strip().startswith('logging'):
-                    newtoken = '#%'+ str(gentoken(line.strip()))
+                    newtoken = self.logging_token_prefix+ str(gentoken(line.strip()))
                     deawk_output.write(line.replace(line.strip(),newtoken) + '\n')
                     tokenfilehandle.write(newtoken + self.deawkdictdelimiter + line.strip()+'\n')
                     continue
                 if line.strip().startswith('#'):
-                    newtoken = '#@' + str(gentoken(line.strip()))
+                    newtoken = self.comment_token_prefix + str(gentoken(line.strip()))
                     deawk_output.write(line.replace(line.strip(), newtoken)+ '\n')
                     tokenfilehandle.write(newtoken + self.deawkdictdelimiter + line.strip()+'\n')
                     continue
@@ -80,7 +86,7 @@ class deawkwardize:
                 testSourceLines = testSource.split('\n')
                 newtestinnersource = 'import logging, sys\nlogging.basicConfig(stream=sys.stdout, level=logging.INFO)\n'
                 for line in testSourceLines:
-                    if line.strip().startswith('#'):
+                    if line.strip().startswith(self.logging_token_prefix):
                         try: #% only, though
                             replace = self.deawkdict[line.strip()]
                             newtestinnersource += replace + "\n"
@@ -102,7 +108,8 @@ class deawkwardize:
         return real_decorator
 
 
-da = deawkwardize('deawkdict.txt')
+da = deawkwardize()
+da.load_token_dict('deawkdict.txt')
 
 
 # Define a function we want to modify:
@@ -133,9 +140,9 @@ test2()
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 ##da.deawk('DeAwkwardize.py')
-logging.info("hello")
+logging.info("hello3")
 
-logging.info("hello")
+logging.info("hello4")
 
 #print("REAWKING")
 #da.reawk_fileput('DeAwkwardize.py')
