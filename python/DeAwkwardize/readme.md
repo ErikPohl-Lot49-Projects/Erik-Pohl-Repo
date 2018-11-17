@@ -159,28 +159,28 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Long-winded backstory
 
 
-Of all the antonyms of Awkward, I prefer "easy".
+Of all the antonyms of "awkward", I prefer "easy".  Easy things work and are simple to understand.
 
-Easy things work and are simple to understand.
-
-In social situations, we often relate "awkward" and "easy" to how recognizable and acceptable interaction styles are.
-
-Along with non-verbal cues, the verbal part of social situations involves communication.
-
-In coding, this can be comments or logging.
-
+In social situations, we often relate "awkward" and "easy" to how recognizable and acceptable interaction-styles are.
 Think of how we say, "Hello" as a greeting.  It feels fairly meaningless, except as a means of initiating a conversation.
+However, approaching even someone you know and starting out a conversation with: "Would you mind writing a program to find the area under a curve" would be considered rude.
+You first say, "Hello."  Ask them how their day is going.  Then make the request.  Now it is fine.
+
+As illustrated in the example, communication involves non-verbal cues as well as spoken or written expressions.
+In coding, the verbal cues are can be comments or logging.
 
 Some developers want to get rid of social conversation cues in their code.
 
 So: for, example, I once heard a lead engineer say he rejects code in code-review which has comments.
 
-However, I love comments!
+However, I love long-winded comments and intense-amounts of logging
 
 How to get around this?
 
-Suppose I delivered code with comments like this : "#%1"
+Suppose I delivered code with comments like this : "#@1" and logging replaced with terms like: "#%2"
 
 He could complain, but I could make an argument that this is not a distracting comment: there are no words!
+The logging statements, activated by a decorator, would not look like distracting logging statements!
+I could always get my version back with all the long-winded comments and full logging expressions by reawking the deawked code.
 
 ---------------------------------------------------------------------------------------------------------------------------
