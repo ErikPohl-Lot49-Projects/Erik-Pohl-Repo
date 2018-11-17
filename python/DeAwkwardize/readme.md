@@ -2,6 +2,11 @@
 
 _**DO YOU WANT TO SEE A DECORATOR WHICH USES SOME COOL, SELF_MODIFYING CODE?**_
 
+warning
+
+![alt text](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/python/DeAwkwardize/webpageunderconstruction-1024x681.jpg)
+
+
 The first rev is in place, but don't expect to be able to read or use it.
 It has a functioning test case, which makes it in a "green" test case.
 I need to let it distill a little before continuing work here.
