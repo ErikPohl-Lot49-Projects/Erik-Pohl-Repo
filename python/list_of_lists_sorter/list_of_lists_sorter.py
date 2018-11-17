@@ -84,11 +84,12 @@ class list_of_list_sorter:
             return datetuple(*raw.split(field_type[-1]))
         return raw
 
-    def sort_choice(self, x, its):
+    def sort_choice(self, unsorted_list_row, sort_fields_to_apply):
         '''
         define the sort type based on the sort field list of criteria
         '''
-        return [self.field_type_convert(x[y.position], y.field_type) for y in its]
+        return [self.field_type_convert(unsorted_list_row[sort_field_to_apply.position], sort_field_to_apply.field_type)
+                for sort_field_to_apply in sort_fields_to_apply]
 
     def sort(self):
         '''
