@@ -1,3 +1,8 @@
+# Special note
+I have made a list_of_dicts_sorter class and a list_of_lists_sorter class.
+This enabled me to create a list_of_xs_sorter class which chooses between them and provides a common interface (only list of lists with headers are compatible).
+I intend on sharpening the pattern of list_of_xs_sorter, and also adding a list_of_string_lists_sorter into the mix.
+
 # List of lists sorter class
 
 Python offers a graceful method to sort lists of lists.
