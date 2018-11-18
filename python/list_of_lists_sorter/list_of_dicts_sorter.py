@@ -30,7 +30,8 @@ class list_of_dicts_sorter:
         for sort_field_add in key_type_list:
             if type(sort_field_add) is not tuple:
                 sort_field_add = (sort_field_add, "string")
-            self.sort_fields.append(sort_field_add[0], sort_field_add[1])
+            print("add_multiple_fields_by_key_names given ", key_type_list)
+            self.sort_fields.append((sort_field_add[0], sort_field_add[1]))
 
     def clear_sort_fields(self):
         '''
