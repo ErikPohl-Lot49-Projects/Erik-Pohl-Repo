@@ -12,6 +12,9 @@ class ListOfDictsTests(TestCase):
         lodsorter = list_of_dicts_sorter(output_dict)
         self.assertEqual(lodsorter.list_of_dicts, output_dict)  # initialized value
         self.assertEqual(lodsorter.reverse_sort, False)  # default value
+        sort_style = [("one"), ("two")]
+        lodsorter.add_multiple_fields_by_key_names(sort_style)
+        print(lodsorter.sort_fields)
 
     def testCaseTestDateSort(self):
         output_list_of_dicts = [
