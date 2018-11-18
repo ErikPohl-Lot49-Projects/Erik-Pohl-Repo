@@ -1,6 +1,6 @@
 #TODO use a design pattern to simplify this
 from list_of_dicts_sorter import list_of_dicts_sorter
-from list_of_lists_sorter import list_of_list_sorter
+from list_of_lists_sorter import list_of_lists_sorter
 
 
 class list_of_xs_sorter:
@@ -23,7 +23,7 @@ class list_of_xs_sorter:
     def sort_factory(self):
         print(type(self.list_of_xs[0]))
         if type(self.list_of_xs[0]) is list:
-            self.sort_object = list_of_list_sorter(self.list_of_xs)
+            self.sort_object = list_of_lists_sorter(self.list_of_xs)
         if type(self.list_of_xs[0]) is dict:
             print('dict sort factory')
             self.sort_object = list_of_dicts_sorter(self.list_of_xs)
