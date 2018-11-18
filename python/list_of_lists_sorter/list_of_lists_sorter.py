@@ -85,8 +85,6 @@ class list_of_lists_sorter:
             return date(int(x.year), int(x.month), int(x.day))
         return raw
 
-)
-
     def sort_choice(self, unsorted_list_row, sort_fields_to_apply):
         '''
         define the sort type based on the sort field list of criteria
