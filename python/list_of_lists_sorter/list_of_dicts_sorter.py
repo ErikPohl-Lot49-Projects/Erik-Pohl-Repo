@@ -20,7 +20,7 @@ class list_of_dicts_sorter:
         '''
         add a sort field to the sort field criteria by key name in the dict, sort field type default is string
         '''
-        print(field_name, sort_field_type)
+        #print(field_name, sort_field_type)
         self.sort_fields.append(self.sort_field(field_name, sort_field_type))
 
     def add_multiple_fields_by_key_names(self, key_type_list):
