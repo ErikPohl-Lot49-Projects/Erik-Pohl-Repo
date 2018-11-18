@@ -12,6 +12,11 @@ class ListofListsTests(TestCase):
         self.assertEqual(lolsorter.list_of_lists, output_list_without_header)   # initialized value
         self.assertEqual(lolsorter.has_header, False)                           # default value
         self.assertEqual(lolsorter.reverse_sort,False)                          # default value
+        output_list_with_header = [['one','two'],['1','2']]
+        lolsorter_header = list_of_lists_sorter(output_list_with_header)
+        sort_style = [("one"), ("two")]
+        lolsorter_header.add_multiple_fields_by_header_field(sort_style)
+        print(lolsorter_header.sort_fields)
     def testCaseBasicPositionalPositionalSortFields(self):
         output_list_without_header = [
             [1, 2, 3, 7, 1, 7, '1-1-15'],
