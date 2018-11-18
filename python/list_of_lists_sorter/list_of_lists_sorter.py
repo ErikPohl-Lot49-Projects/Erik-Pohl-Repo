@@ -57,7 +57,7 @@ class list_of_lists_sorter:
         for sort_field_add in position_type_list:
             if type(sort_field_add) is not tuple:
                 sort_field_add = (sort_field_add, "string")
-            self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1]))
+            self.sort_fields.append((self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1])))
 
     def add_multiple_fields_by_header_field_list_comprehension(self, position_type_list):
         '''
