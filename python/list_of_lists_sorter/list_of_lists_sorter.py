@@ -50,11 +50,11 @@ class list_of_lists_sorter:
          self.sort_fields.append(self.sort_field(sort_field_add, "string"))
          for sort_field_add in position_type_list]
 
-    def add_multiple_fields_by_header_field(self, position_type_list):
+    def add_multiple_fields_by_header_field(self, fieldheader_type_list):
         '''
         add a multiple sort fields to the sort field criteria by header field name in the list, sort field type default is string
         '''
-        for sort_field_add in position_type_list:
+        for sort_field_add in fieldheader_type_list:
             if type(sort_field_add) is not tuple:
                 sort_field_add = (sort_field_add, "string")
             self.sort_fields.append((self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1])))
