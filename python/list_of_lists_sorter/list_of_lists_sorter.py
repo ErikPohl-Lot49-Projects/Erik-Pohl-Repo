@@ -82,7 +82,7 @@ class list_of_lists_sorter:
         datetuple = namedtuple('datetuple', 'month day year')
         if field_type.startswith(self.STRINGDATEPREFIX):
             x = datetuple(*raw.split(field_type[-1]))
-            return date(int(x.year), int(x.month), int(x.day)
+            return date(int(x.year), int(x.month), int(x.day))
         return raw
 
 )
