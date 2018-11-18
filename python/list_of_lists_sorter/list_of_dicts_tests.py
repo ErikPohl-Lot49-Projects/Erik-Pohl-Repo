@@ -1,7 +1,6 @@
 from unittest import TestCase
 from list_of_dicts_sorter import list_of_dicts_sorter
 
-
 class ListOfDictsTests(TestCase):
 
     def testCaseBasicInitialization(self):
@@ -13,6 +12,9 @@ class ListOfDictsTests(TestCase):
         self.assertEqual(lodsorter.list_of_dicts, output_dict)  # initialized value
         self.assertEqual(lodsorter.reverse_sort, False)  # default value
         sort_style = [("one"), ("two")]
+        lodsorter.add_multiple_fields_by_key_names(sort_style)
+        lodsorter.clear_sort_fields()
+        sort_style = [("one"), ("two", lodsorter.STRINGDATEPREFIX+'-')]
         lodsorter.add_multiple_fields_by_key_names(sort_style)
         print(lodsorter.sort_fields)
 
@@ -52,5 +54,13 @@ class ListOfDictsTests(TestCase):
         self.assertEqual(sorted_output, [
             {'one': 1, 'two': '5'},
             {'one': 1, 'two': '4'}
+        ])
+        sort_style = [("two"), ("one")]
+        lodsorter.add_multiple_fields_by_key_names(sort_style)
+        lodsorter.reverse_sort = False
+        sorted_output = lodsorter.sort()
+        self.assertEqual(sorted_output, [
+            {'one': 1, 'two': '4'},
+            {'one': 1, 'two': '5'}
         ])
 
