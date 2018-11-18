@@ -44,7 +44,9 @@ class list_of_dicts_sorter:
         '''
         datetuple = namedtuple('datetuple', 'month day year')
         if field_type.startswith(self.STRINGDATEPREFIX):
-            return datetuple(*raw.split(field_type[-1]))
+            x = datetuple(*raw.split(field_type[-1]))
+            return date(int(x.year), int(x.month),   int(x.day))
+
         return raw
 
     def sort_choice(self, unsorted_dict_row, sort_fields_to_apply):
