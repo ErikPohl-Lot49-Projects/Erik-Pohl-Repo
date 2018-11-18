@@ -1,5 +1,5 @@
 from unittest import TestCase
-from list_of_lists_sorter import list_of_list_sorter
+from list_of_lists_sorter import list_of_lists_sorter
 
 class ListofListsTests(TestCase):
 
@@ -8,7 +8,7 @@ class ListofListsTests(TestCase):
             [1, 2, 3, 7, 1, 7, '1-1-15'],
             [1, 2, 3, 7, 2, 6, '1-1-14']
         ]
-        lolsorter = list_of_list_sorter(output_list_without_header)
+        lolsorter = list_of_lists_sorter(output_list_without_header)
         self.assertEqual(lolsorter.list_of_lists, output_list_without_header)   # initialized value
         self.assertEqual(lolsorter.has_header, False)                           # default value
         self.assertEqual(lolsorter.reverse_sort,False)                          # default value
@@ -17,7 +17,7 @@ class ListofListsTests(TestCase):
             [1, 2, 3, 7, 1, 7, '1-1-15'],
             [1, 2, 3, 7, 2, 6, '1-1-14']
         ]
-        lolsorter = list_of_list_sorter(output_list_without_header)
+        lolsorter = list_of_lists_sorter(output_list_without_header)
         self.assertEqual(lolsorter.list_of_lists, output_list_without_header)   # initialized value
         lolsorter.add_sort_field_by_position(5)
         # the first item should have a defaulted string type and a position of 5
@@ -44,7 +44,7 @@ class ListofListsTests(TestCase):
             [1, 2, 3, 7, 1, 7, '1-1-15'],
             [1, 2, 3, 7, 2, 6, '1-1-14']
         ]
-        lolsorter = list_of_list_sorter(output_list_without_header)
+        lolsorter = list_of_lists_sorter(output_list_without_header)
         lolsorter.add_sort_field_by_position(6, 'datestringdelimiter-')
         sorted_output = lolsorter.sort()
         self.assertEqual(sorted_output,[
@@ -63,7 +63,7 @@ class ListofListsTests(TestCase):
             [1, 2, 3, 7, 1, 7, '1-1-15'],
             [1, 2, 3, 7, 2, 6, '1-1-14']
         ]
-        lolsorter = list_of_list_sorter(output_list_without_header)
+        lolsorter = list_of_lists_sorter(output_list_without_header)
         lolsorter.add_sort_field_by_position(5)
         sorted_output = lolsorter.sort()
         self.assertEqual(sorted_output, [
@@ -83,7 +83,7 @@ class ListofListsTests(TestCase):
             [1, 2, 3, 7, 1, 7, '1-1-15'],
             [1, 2, 3, 7, 2, 6, '1-1-14']
         ]
-        lolsorter2 = list_of_list_sorter(output_list_with_header)
+        lolsorter2 = list_of_lists_sorter(output_list_with_header)
         lolsorter2.has_header = True
         lolsorter2.add_sort_field_by_header_field_name('datefield1', 'datestringdelimiter-')
         print("sortfields", lolsorter2.sort_fields)
@@ -108,7 +108,7 @@ class ListofListsTests(TestCase):
             [1, 2, 3, 7, 1, 7, '1-1-15'],
             [1, 2, 3, 7, 2, 6, '1-1-14']
         ]
-        lolsorter = list_of_list_sorter(output_list_with_header)
+        lolsorter = list_of_lists_sorter(output_list_with_header)
         lolsorter.has_header = True
         lolsorter.add_sort_field_by_position(5)
         sorted_output = lolsorter.sort()
@@ -124,3 +124,12 @@ class ListofListsTests(TestCase):
             [1, 2, 3, 7, 1, 7, '1-1-15'],
             [1, 2, 3, 7, 2, 6, '1-1-14']
         ])
+
+
+
+
+
+
+
+
+
