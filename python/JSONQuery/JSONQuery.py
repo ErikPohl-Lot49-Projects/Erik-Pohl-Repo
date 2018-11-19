@@ -2,8 +2,9 @@ import json, re, logging, sys
 from collections import namedtuple
 
 # TODO make this a class with a compare method
-JSON_KEY_MISSING = 'key_not_found'
 json_query_finding = namedtuple('json_query_finding', 'current_json_path, queried_json_clause')
+json_query_final_results = namedtuple('json_query_results', 'json_query_finding, overall_result')
+JSON_KEY_MISSING = 'JSON_key_not_found'
 JSON_VALUE_MISMATCH = 'JSON_value_mismatch'
 MATCHMODES = {'AND': 1, 'OR': 2, 'MISMATCH':0}
 
@@ -50,6 +51,8 @@ def compare_json_to_query_clause(JSON_to_query, JSON_query_clause, *,
                     JSON_query_results.append(json_query_finding(current_json_path, JSON_VALUE_MISMATCH))
                 else:  ## partial matches are not okay for ANDs but are okay for ORs
                     if match_mode == MATCHMODES["AND"]:
-                        return []
+                        return json_query_final_results([],None)
                         # otherwise, this is a mismatch, but don't short circuit and exit because we're in or mode
-    return JSON_query_results
+    if (match_mode) and (JSON_query_results):
+        return json_query_final_results(JSON_query_results, JSON_to_query)
+    return json_query_final_results(JSON_query_results, None)
