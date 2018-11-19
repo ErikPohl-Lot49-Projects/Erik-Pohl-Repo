@@ -65,4 +65,6 @@ class JSONParsertest(ut.TestCase):
          [json_query_finding(current_json_path='/hello', queried_json_clause='1')]),
     ])
     def testJSONparser(self, testname, testinp, testinp2, matchtype, expected):
-        self.assertEqual(expected, JP.compare_json_to_query_clause(testinp, testinp2, match_mode=matchtype, debug_mode=True))
+        actual = JP.compare_json_to_query_clause(testinp, testinp2, match_mode=matchtype, debug_mode=True)
+        print(actual.overall_result)
+        self.assertEqual(expected, actual.json_query_finding)
