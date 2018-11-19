@@ -1,8 +1,9 @@
 import json, re, logging, sys
 from collections import namedtuple
 
-# TODO make this a class with a compare method
-json_query_finding = namedtuple('json_query_finding', 'current_json_path, queried_json_clause')
+#TODO make it a class with a compare method
+#TODO should a mismatch which is actually mismatched return an 'actual_finding_value' of the input json
+json_query_finding = namedtuple('json_query_finding', 'current_json_path, actual_finding_value')
 json_query_final_results = namedtuple('json_query_results', 'json_query_finding, overall_result')
 JSON_KEY_MISSING = 'JSON_key_not_found'
 JSON_VALUE_MISMATCH = 'JSON_value_mismatch'
