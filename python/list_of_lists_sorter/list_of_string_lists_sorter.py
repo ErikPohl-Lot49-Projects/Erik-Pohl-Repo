@@ -81,4 +81,5 @@ class list_of_string_lists_sorter:
         self._list_of_lists_sorter.has_header = self.has_header
         self._list_of_lists_sorter.reverse_sort = self.reverse_sort
         self._list_of_lists_sorter.sort_fields = self.sort_fields
-        return self._list_of_lists_sorter.sort()
+        unxvert_list = [self.string_list_delimiter.join(i) for i in self._list_of_lists_sorter.sort()]
+        return unxvert_list
