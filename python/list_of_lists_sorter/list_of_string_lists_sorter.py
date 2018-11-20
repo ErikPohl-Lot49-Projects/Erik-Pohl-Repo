@@ -2,7 +2,9 @@ from collections import namedtuple
 from datetime import date
 from list_of_lists_sorter import list_of_lists_sorter
 
-
+#TODO: infer delimiter?
+#TODO: add output as list of lists, output as list of dicts?
+#TODO: add regression tests
 class list_of_string_lists_sorter:
     '''
     This class allows you to flexibly define and execute sorts on lists of string lists
