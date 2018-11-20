@@ -1,7 +1,7 @@
 from collections import namedtuple
 from datetime import date
 
-
+#TODO add output as list of lists with headers, add output as list of string lists with headers
 class list_of_dicts_sorter:
     '''
     This class allows you to flexibly define and execute sorts on lists of dicts
@@ -20,7 +20,6 @@ class list_of_dicts_sorter:
         '''
         add a sort field to the sort field criteria by key name in the dict, sort field type default is string
         '''
-        #print(field_name, sort_field_type)
         self.sort_fields.append(self.sort_field(field_name, sort_field_type))
 
     def add_multiple_fields_by_key_names(self, key_type_list):
