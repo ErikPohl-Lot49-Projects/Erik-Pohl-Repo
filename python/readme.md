@@ -16,7 +16,7 @@ Also, I want you to know I can write a rough draft of Python code to do a variet
 
 Also, I am getting much better and some of this is old code.  
 
-Were Python my day-job, I'd apply the same level of ever-vigilance of it and be addressing the code during a work day, rather than after, when I'm not as fatigued.
+Were Python my day-job, I'd apply the same level of ever-vigilance to it, and I would address the code during a work day when I'm still fresh and have coffee / tea in me.
 
 
 Thanks in advance for holding your nose!
