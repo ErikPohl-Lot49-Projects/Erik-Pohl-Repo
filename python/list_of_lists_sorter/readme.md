@@ -1,7 +1,7 @@
 # Special note
 You will also find a list_of_dicts_sorter class and a list_of_string_lists_sorter class along with the named list_of_lists_sorter class.
 
-This enabled me to create a list_of_xs_sorter class which chooses between them and provides a common interface (only list of lists with headers are compatible).
+This enabled me to create a list_of_xs_sorter class which chooses between them and provides a common interface (only list of Xs with headers are compatible).
 
 I intend to sharpen the pattern of the list_of_xs_sorter.
 
