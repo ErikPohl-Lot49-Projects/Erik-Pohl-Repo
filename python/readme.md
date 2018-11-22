@@ -4,7 +4,7 @@
 
 I don't like code smells.  On the job, I'm ever vigilant about them.
 
-This is a repo I put together after a full day of work in another language, and, sometimes, after a full work-week, including the weekend, in that language.
+This is a repo I put together after a full day of work in another language, and, sometimes, after a full work-week, including part of the weekend, in that language.
 
 I do this because I love it.  
 
