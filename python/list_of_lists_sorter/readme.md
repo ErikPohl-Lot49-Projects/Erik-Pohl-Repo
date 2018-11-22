@@ -14,10 +14,14 @@ Why gild the lily?
 _Because the lily is there._  And because it teaches me things about a language I love.
 
 This class adds to the sort method the following features:
-1. Define sort fields using encapsulated methods to prevent explicitly creating lambda functoons and itemgetters.
+1. Define sort fields using encapsulated methods to prevent explicitly creating lambda functions and using itemgetters.
+
 2. Gracefully handle list of lists which have a single row column header as well as headerless list of lists.
+
 3. Select sort fields with field headers or column positions.
+
 4. Handle strings which represent dates in the sort as dates conditionally.
+
 
 # Examples
 
