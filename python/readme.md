@@ -14,10 +14,9 @@ Because I come back periodically and clean it up.
 
 Also, I want you to know I can write a rough draft of Python code to do a variety of things.
 
-Also, I am getting much better and some of this is old code.  
+Also, I am getting much better (some of this is Yoda-aged code for me!)
 
 Were Python my day-job, I'd apply the same level of ever-vigilance to it, and I would address the code during a work day when I'm still fresh and have coffee / tea in me.
-
 
 Thanks in advance for holding your nose!
 
