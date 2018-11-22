@@ -1,3 +1,22 @@
+# I know what code smells are
+
+![Yoda doesn't like code smells](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/code_smell.jpg)
+
+I don't like code smells.  On the job, I'm ever vigilant about them.
+
+This is a repo I put together after a full day of work in another language, and, sometimes, after a full work-week, including the weekend, in that language.
+
+I do this because I love it.  
+
+_Why do I have Python code up here with bad code smells?_
+
+Because I come back periodically and clean it up.
+Also, I want you to know I can write a rough draft of Python code to do a variety of things.
+Also, I am getting much better and some of this is old code.  
+Were Python my day-job, I'd apply the same level of ever-vigilance of it and be addressing the code during a work day, rather than after, when I'm not as fatigued.
+
+Thanks in advance for holding your nose!
+
 # This repo shows an evolution
 
 I am quickly evolving my style now from "able to solve complex problems in Python reliably" more towards "Python code I'd submit for a code review for production code".
