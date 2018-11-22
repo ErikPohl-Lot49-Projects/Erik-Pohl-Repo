@@ -11,9 +11,13 @@ I do this because I love it.
 _Why do I have Python code up here with bad code smells?_
 
 Because I come back periodically and clean it up.
+
 Also, I want you to know I can write a rough draft of Python code to do a variety of things.
+
 Also, I am getting much better and some of this is old code.  
+
 Were Python my day-job, I'd apply the same level of ever-vigilance of it and be addressing the code during a work day, rather than after, when I'm not as fatigued.
+
 
 Thanks in advance for holding your nose!
 
