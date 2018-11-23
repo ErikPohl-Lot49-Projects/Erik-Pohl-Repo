@@ -1,7 +1,5 @@
 # JSON Query Tool
 
-** weekend of Nov 17 ** I will be converting this to a class during the weekend
-
 _Imagine you are handling a sufficient amount of JSON input data._
 
 The data has a bevy of keys, including deeply nested keys.
@@ -123,6 +121,14 @@ Here are some elements I expect to be able to provide, if needed:
 a) Linting the code for PEP 8 standardization.
 b) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
+## Future work
+
+- [ ] Lint the code and clean up.
+- [ ] Rework example cases in GitHub repo to be up-to-date with current revisions.
+- [ ] Provide better demo usage cases.
+- [ ] Tie this to the list_of_xs_sorter.
+- [ ] Evaluate the output format.
+- [ ] Change regex value matchers to include also functional value matchers?
 
 ## Getting Started
 
