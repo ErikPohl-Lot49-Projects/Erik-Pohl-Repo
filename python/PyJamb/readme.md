@@ -49,6 +49,16 @@ g) Requirements documents, user-facing documents and presentations, and other do
 
 h) Commit statements which facilitate an understanding of code history.
 
+## Future plans
+
+- [ ] Connect test results to GitHub via an API to create and maintain task lists.
+- [ ] Publish initial working revision in Python here as a cleaned-up translation (rather than the as-is translation) of Joist from my Java repo.
+- [ ] Front end to allow a non-technical user to enter feature descriptions and test descriptions with links to external systems (Jenkins, etc.)
+- [ ] Tie this to some form of code comment layering, currently considering my Deawkwardize class
+- [ ] User-friendly visualizations of current BDD statuses to use as instrumentation.
+- [ ] A comprehensive user guide
+- [ ] Add my presentation on PyJamb and BDD into the repo here.
+
 ## Getting Started
 
 Download these files to corresponding folders under your Python src path.
