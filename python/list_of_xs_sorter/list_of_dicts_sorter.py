@@ -1,7 +1,6 @@
 from collections import namedtuple
 from datetime import date
 
-#TODO add output as list of lists with headers, add output as list of string lists with headers
 class list_of_dicts_sorter:
     '''
     This class allows you to flexibly define and execute sorts on lists of dicts
@@ -15,6 +14,8 @@ class list_of_dicts_sorter:
         self.list_of_dicts = list_of_dicts
         self.sort_fields = []
         self.reverse_sort = False
+        self.output_as_list_of = dict
+        self.output_as_list_of_string_delimiter = ' '
 
     def add_sort_field_by_key_name(self, field_name, sort_field_type="string"):
         '''
@@ -59,5 +60,19 @@ class list_of_dicts_sorter:
         '''
         execute the sort based on all of the criteria and setups in the instantiation
         '''
-        return sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields), reverse=self.reverse_sort)
+        # convert to decision dict
+        if self.output_as_list_of == list:
+            return [[[key for key in self.list_of_dicts[0]]]+
+                    [[dictval for dictval in dict.values()] for dict in
+                     sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields),
+                          reverse=self.reverse_sort)]][0]
+        elif self.output_as_list_of == str:
+            return [self.output_as_list_of_string_delimiter.join(z) for z in [[[key for key in self.list_of_dicts[0]]] +
+             [[dictval for dictval in dict.values()] for dict in
+              sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields),
+                     reverse=self.reverse_sort)]][0]]
+        elif self.output_as_list_of == dict:
+            return sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields), reverse=self.reverse_sort)
+        else:
+            raise ValueError
 
