@@ -124,6 +124,7 @@ b) Requirements documents, user-facing documents and presentations, and other do
 ## Future work
 
 - [ ] Lint the code and clean up.
+- [ ] Make this a class definition.
 - [ ] Rework example cases in GitHub repo to be up-to-date with current revisions.
 - [ ] Provide better demo usage cases.
 - [ ] Tie this to the list_of_xs_sorter.
