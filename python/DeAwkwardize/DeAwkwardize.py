@@ -14,6 +14,7 @@ import dill
 # TODO: address how to handle common or anticipated exceptions
 # TODO: handle different types of logging messages
 # than just explicit logging lines
+# TODO: handle a case where a def is within a def when reawking logging!
 # TODO: shorten function and variable names
 class deawkwardize:
     '''
