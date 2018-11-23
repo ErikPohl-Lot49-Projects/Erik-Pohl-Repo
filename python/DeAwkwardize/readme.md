@@ -173,7 +173,7 @@ As an example, approaching even someone you know and starting out a conversation
 
 You first say, "Hello."  Ask them how their day is going.  Then make the request.  Now, it is fine.  
 
-"Hello" is a verbal cue. In coding, the verbal cues are can be comments and logging.
+"Hello" is a verbal cue. In coding, the verbal cues can be comments and logging.
 
 Some developers want to get rid of those verbal cues in their code, letting the elegance of the actual code communicate.  
 
@@ -181,7 +181,7 @@ So: for, example, I once heard a lead engineer say he rejects code in code-revie
 
 Python is a beautiful language.  As a former Literature major in college, I can say it is actually poetic.
 
-Pythonic code, especially without logging and comments, is elegant, not akward.  However, to a support or maintaining engineer, this elegance, this poetry, might still be seen as complex.
+Pythonic and idiomatic Python code is elegant, not akward.  However, to a support or maintaining engineer, this elegance, this poetry, might still be seen as complex without more prosaic comments and logging messages.
 
 I love long-winded comments and intense-amounts of logging for support reasons.  I have done support, and I loved clear explanations and explication-style logging.
 
