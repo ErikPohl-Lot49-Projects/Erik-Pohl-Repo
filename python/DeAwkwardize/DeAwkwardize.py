@@ -1,6 +1,4 @@
 import copy
-import logging
-import sys
 from functools import wraps
 
 import dill
@@ -87,6 +85,7 @@ class deawkwardize:
                     code_line_to_generate_a_token_for
                 ] = self.current_token_sequence_number
                 return (str(self.current_token_sequence_number))
+
         deawkwardize_output_file_name = \
             deawkwardize_output_file_name + deawkwardize_input_file_name
         with open(deawkwardize_input_file_name, 'r') as deawk_input, \
@@ -216,46 +215,3 @@ class deawkwardize:
             func
 
         return real_decorator
-
-
-# DEMO USAGE CODE
-
-da = deawkwardize()
-da.load_deawk_token_dictionary('deawkdict.txt')
-
-
-# Define a function we want to modify:
-
-@da.reawk_logging()
-def test():
-    logging.info("hello")
-    print("Here")
-
-
-@da.reawk_logging('')
-def test2():
-    logging.info("hello")
-    print("Hello world")
-
-
-# Run the function to check output
-
-
-# print('\n\nRunning Function...')
-
-test()
-# >>> Here
-
-
-test2()
-
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
-
-# da.deawk('DeAwkwardize.py')
-
-logging.info("hello3")
-
-logging.info("hello4")
-
-# print("REAWKING")
-# da.reawk_fileput('DeAwkwardize.py')
