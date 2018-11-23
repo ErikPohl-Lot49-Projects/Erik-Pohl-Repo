@@ -110,6 +110,8 @@ DeAwkwardizeBase
 - [ ] PEP8 lint the code and clean up
 - [ ] Allow a user to designate comment types and logging types to deawkwardize rather than hard-coding.
 - [ ] Address the issue of the token file delimiter possibly being part of the tokenized string.  
+- [ ] Better example cases for the readme.
+
   
   
 # Important disclaimer
