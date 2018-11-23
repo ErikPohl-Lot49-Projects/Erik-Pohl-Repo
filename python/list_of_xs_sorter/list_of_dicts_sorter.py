@@ -61,18 +61,18 @@ class list_of_dicts_sorter:
         execute the sort based on all of the criteria and setups in the instantiation
         '''
         # convert to decision dict
+        list_of_dicts_sorted = sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields), reverse=self.reverse_sort)
+
         if self.output_as_list_of == list:
             return [[[key for key in self.list_of_dicts[0]]]+
                     [[dictval for dictval in dict.values()] for dict in
-                     sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields),
-                          reverse=self.reverse_sort)]][0]
+                     list_of_dicts_sorted]][0]
         elif self.output_as_list_of == str:
             return [self.output_as_list_of_string_delimiter.join(z) for z in [[[key for key in self.list_of_dicts[0]]] +
              [[dictval for dictval in dict.values()] for dict in
-              sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields),
-                     reverse=self.reverse_sort)]][0]]
+              list_of_dicts_sorted]][0]]
         elif self.output_as_list_of == dict:
-            return sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields), reverse=self.reverse_sort)
+            return list_of_dicts_sorted
         else:
             raise ValueError
 
