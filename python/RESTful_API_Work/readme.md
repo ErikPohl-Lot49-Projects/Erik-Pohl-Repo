@@ -10,7 +10,7 @@ This involved:
 * Technical requirements gathering and definition
 * Team leadership of an external team of 3-5 EDI mapping and translation developers
 * Software engineering to integrate the mapped and translated data into the enterprise software and out of the enterprise software
-* Architecture -- put together maintainable and easily supportable architectures which reduced onboarding trading partners
+* Architecture -- put together maintainable and easily supportable architectures which reduced the time to onboard trading partners
 * Project planning: Scaled and seamless migrations of the full suite of e-commerce transactions and integrations with no
 service interruptions to external or internal customers.
 
