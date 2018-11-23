@@ -101,8 +101,16 @@ DeAwkwardizeBase
 
 # Future plans
 
-  I want comments to be overlaid onto code, and even onto themselves, and tie into the hierarchical structure of PyJamb
-  These could be revealed using TKinter or in an IDE plugin
+- [ ] I want comments to be overlaid onto code, and even onto themselves, and tie into the hierarchical structure of PyJamb
+  These could be revealed using TKinter or in an IDE plugin.
+- [ ] Modify the tokens to be even less obtrusive using white space.
+- [ ] Include a header comment not to manually modify tokenized comments.
+- [ ] Make more comprehensive demos.
+- [ ] Create a full regression test suite
+- [ ] PEP8 lint the code and clean up
+- [ ] Allow a user to designate comment types and logging types to deawkwardize rather than hard-coding.
+- [ ] Address the issue of the token file delimiter possibly being part of the tokenized string.  
+  
   
 # Important disclaimer
 
