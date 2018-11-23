@@ -1,4 +1,4 @@
-# TRestSemblance aka RestfulTestful
+# RestSemblance aka RestfulTestful
 
 I am mostly done with the code, but it is not ready for review.
 
