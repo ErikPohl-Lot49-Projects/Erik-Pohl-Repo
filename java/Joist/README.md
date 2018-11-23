@@ -1,6 +1,8 @@
 # A framework addition to JUnit: Joist
 
 This is a framework addition to JUnit.
+It was written in a weekend.  
+I made no attempts to refactor the code or make it production-worthy.
 
 ## Getting Started
 
