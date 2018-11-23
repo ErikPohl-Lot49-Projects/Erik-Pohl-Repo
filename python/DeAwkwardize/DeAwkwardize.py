@@ -3,7 +3,6 @@ from functools import wraps
 
 import dill
 
-
 # TODO: https://en.wikipedia.org/wiki/Memoization
 # TODO: refactor
 # TODO: make delimiter logic better--
@@ -31,13 +30,19 @@ class deawkwardize:
     def __init__(self):
         self.reawkwardize_token_dictionary = {}
         self.current_token_sequence_number = 0
-        self.deawkwardize_token_dictionary = {}
+        self.deawk_token_dictionary = {}
         self.deawkwardize_token_file_delimiter = '||'
         self.standard_reawk_function_code_header = \
             'import logging, sys\n' \
             'logging.basicConfig(stream=sys.stdout, level=logging.INFO)\n'
         self.logging_token_prefix = '#%'
         self.comment_token_prefix = '#@'
+        self.logging_startswith = 'logging'
+        self.comment_startswith = '#'
+        self.token_translation = [
+            {self.logging_startswith: self.logging_token_prefix},
+            {self.comment_startswith: self.comment_token_prefix}
+            ]
 
     def load_deawk_token_dictionary(self, deawk_token_file_name):
         '''
@@ -55,77 +60,69 @@ class deawkwardize:
             print(e)
         return True
 
+    def generate_deawk_token(self, code_line_to_generate_a_token_for):
+        # recognize dups with a dict
+
+        try:
+            return self.deawk_token_dictionary[
+                code_line_to_generate_a_token_for
+            ]
+        except:
+            self.current_token_sequence_number += 1
+            self.deawk_token_dictionary[
+                code_line_to_generate_a_token_for
+            ] = self.current_token_sequence_number
+            return (str(self.current_token_sequence_number))
+
+    def tokenize(self, line, prefix, deawk_output_handle, token_file_handle):
+        newtoken = prefix + \
+                   str(
+                       self.generate_deawk_token(
+                           line.strip()
+                       )
+                   )
+        deawk_output_handle.write(
+            line.replace(line.strip(),
+                         newtoken) +
+            '\n')
+        token_file_handle.write(
+            newtoken +
+            self.deawkwardize_token_file_delimiter +
+            line.strip() +
+            '\n')
+        return True
+
     def deawk(self,
-              deawkwardize_input_file_name,
-              deawkwardize_output_file_name='deawked_',
-              deawkwardize_token_file='deawkdict.txt'
+              deawk_input_file_name,
+              deawk_output_file_prefix='deawked_',
+              deawk_token_file='deawkdict.txt'
               ):
         '''
         Accepts as input a python program name to output,
         replaces all the comments and logging messages in it with tokens
         and writes the abbreviated [deawkwardized] file to and outfile
         with the tokens to a token file
-        :param deawkwardize_input_file_name: Input python program
-        :param deawkwardize_output_file_name: Output deawkwardized
+        :param deawk_input_file_name: Input python program
+        :param deawk_output_file_prefix: Output deawkwardized
         python program
-        :param deawkwardize_token_file: output token file
+        :param deawk_token_file: output token file
         :return: True
         '''
 
-        def generate_deawkwardize_token(code_line_to_generate_a_token_for):
-            # recognize dups with a dict
-
-            try:
-                return self.deawkwardize_token_dictionary[
-                    code_line_to_generate_a_token_for
-                ]
-            except:
-                self.current_token_sequence_number += 1
-                self.deawkwardize_token_dictionary[
-                    code_line_to_generate_a_token_for
-                ] = self.current_token_sequence_number
-                return (str(self.current_token_sequence_number))
-
-        deawkwardize_output_file_name = \
-            deawkwardize_output_file_name + deawkwardize_input_file_name
-        with open(deawkwardize_input_file_name, 'r') as deawk_input, \
-                open(deawkwardize_output_file_name, "w") as deawk_output, \
-                open(deawkwardize_token_file, 'w') as tokenfilehandle:
-            for line in deawk_input:
-                # find logging and comments and translate spitting translation
-                # into output file
-
-                if line.strip().startswith('logging'):
-                    newtoken = self.logging_token_prefix + \
-                               str(
-                                   generate_deawkwardize_token(
-                                       line.strip()
-                                   )
-                               )
-                    deawk_output.write(
-                        line.replace(line.strip(),
-                                     newtoken) +
-                        '\n')
-                    tokenfilehandle.write(
-                        newtoken +
-                        self.deawkwardize_token_file_delimiter +
-                        line.strip() +
-                        '\n')
-                    continue
-                if line.strip().startswith('#'):
-                    newtoken = self.comment_token_prefix + \
-                               str(generate_deawkwardize_token(line.strip()))
-                    deawk_output.write(
-                        line.replace(line.strip(), newtoken) +
-                        '\n'
-                    )
-                    tokenfilehandle.write(
-                        newtoken + self.deawkwardize_token_file_delimiter +
-                        line.strip() +
-                        '\n'
-                    )
-                    continue
-                deawk_output.write(line)
+        deawk_output_file_prefix = deawk_output_file_prefix + \
+                                   deawk_input_file_name
+        with open(deawk_input_file_name, 'r') as deawk_input_handle, \
+                open(deawk_output_file_prefix, "w") as deawk_output_handle, \
+                open(deawk_token_file, 'w') as token_file_handle:
+            for line in deawk_input_handle:
+                for starts_with in self.token_translation:
+                    if line.strip().startswith(starts_with):
+                        self.tokenize(line,
+                                      self.token_translation[starts_with],
+                                      deawk_output_handle,
+                                      token_file_handle)
+                        continue
+                deawk_output_handle.write(line)
         return True
 
     def reawk_fileput(self, reawkwardize_input_file_name):
