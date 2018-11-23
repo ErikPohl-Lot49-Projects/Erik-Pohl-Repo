@@ -6,7 +6,7 @@ I don't like code smells.  On the job, I'm ever-vigilant about them.
 
 Python is not my day-job.  I taught myself Python on nights and weekends because I love the language.
 
-This is a repo I put together after a full day of work of software engineering in PL/SQL.  On weekends, it was after a full work-week in PL/SQL.  S
+This is a repo I put together after a full day of work of software engineering in PL/SQL.  On weekends, it was after a full work-week in PL/SQL.  
 
 I do this side-work because I love Python enough to spend my leisure time getting better at it.  
 
@@ -18,7 +18,7 @@ Also, I am getting much better (some of this is Yoda-aged code for me!)  I do co
 
 Were Python my day-job, I'd apply the same level of ever-vigilance to it, and I would address the code during a work day when I'm still fresh (have coffee / tea in me).
 
-Some of my better work is not in this repo because it is protected by an obligation to a company.
+Some of my better work is not in this repo because it is protected by an obligation to one or more companies.
 
 Thanks in advance for holding your nose!
 
