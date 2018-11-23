@@ -28,7 +28,7 @@ class deawkwardize:
     '''
 
     def __init__(self):
-        self.reawkwardize_token_dictionary = {}
+        self.reawk_token_dictionary = {}
         self.current_token_sequence_number = 0
         self.deawk_token_dictionary = {}
         self.deawkwardize_token_file_delimiter = '||'
@@ -55,7 +55,7 @@ class deawkwardize:
             with open(deawk_token_file_name, 'r') as deawk_file_handle:
                 for fline in deawk_file_handle:
                     a, b = fline.split(self.deawkwardize_token_file_delimiter)
-                    self.reawkwardize_token_dictionary[a] = b
+                    self.reawk_token_dictionary[a] = b
         except Exception as e:
             print(e)
         return True
@@ -125,32 +125,32 @@ class deawkwardize:
                 deawk_output_handle.write(line)
         return True
 
-    def reawk_fileput(self, reawkwardize_input_file_name):
+    def reawk_fileput(self, reawk_input_file_name):
         '''
         This takes a token dictionary
         and restores a file to its awkward glory
         with comments and full logging messages
         replacing the abbreviated tokens
-        :param reawkwardize_input_file_name: File name to output
+        :param reawk_input_file_name: File name to output
         with comments and logging restored
         :return: True
         '''
-        with open(reawkwardize_input_file_name, 'r') \
-                as reawkwardize_file_handle:
-            for reawkwardize_file_line in reawkwardize_file_handle:
+        with open(reawk_input_file_name, 'r') \
+                as reawk_file_handle:
+            for reawk_file_line in reawk_file_handle:
                 # translate lines into reawked lines and output
 
-                if reawkwardize_file_line.strip().startswith('#'):
+                if reawk_file_line.strip().startswith('#'):
                     try:
-                        print(reawkwardize_file_line.replace(
-                            reawkwardize_file_line.strip(),
-                            self.reawkwardize_token_dictionary[
-                                reawkwardize_file_line.strip()
+                        print(reawk_file_line.replace(
+                            reawk_file_line.strip(),
+                            self.reawk_token_dictionary[
+                                reawk_file_line.strip()
                             ]))
                     except:
-                        print(reawkwardize_file_line)
+                        print(reawk_file_line)
                 else:
-                    print(reawkwardize_file_line)
+                    print(reawk_file_line)
         return True
 
     def reawk_logging(self, *argsx):
@@ -182,7 +182,7 @@ class deawkwardize:
                             self.logging_token_prefix):
                         try:  # % only, though
                             reawk_code_line_replacement = \
-                                self.reawkwardize_token_dictionary[
+                                self.reawk_token_dictionary[
                                     function_source_line.strip()
                                 ]
                             reawked_replacement_source_code += \
@@ -199,11 +199,8 @@ class deawkwardize:
                         reawked_replacement_source_code \
                             += function_source_line.strip() + '\n'
 
-                # print("new innersource\n", newtestinnersource)
-
                 compiled_code_object = compile(reawked_replacement_source_code,
                                                '<string>', 'exec')
-
                 func.__code__ = copy.deepcopy(compiled_code_object)
                 reawked_code_return_value = func(*args, **kwargs)
                 return reawked_code_return_value
