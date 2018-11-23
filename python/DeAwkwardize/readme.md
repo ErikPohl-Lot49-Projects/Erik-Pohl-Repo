@@ -6,21 +6,16 @@ _**DO YOU WANT TO SEE A DECORATOR WHICH USES SOME COOL, SELF-MODIFYING CODE?**_
 
 ![Under construction](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/webpageunderconstruction-1024x681.jpg)
 
+**_DeAwkwardize_** is the working title for a project to tokenize comments and logging in Python source code and render them unobtrusive when reading the code, which ideally might be easily readable on its own.
 
-DeAwkwardize is the working title for a project to abbreviate comments and logging in Python source code.
+The Deawk method of the class substitutes tokens for logging and comment-statements in the Python source code, writing a "deawkwardized" version of the code to file.
 
-It substitutes tokens for logging and comments in Python code.
+The logging tokens in the deawkwardized version of the code can be replaced for logging messages during runtime when applying a decorator, called "reawk_logging", to a function containing logging tokens.  This fun trick involves self-modifying code.
 
-The logging tokens can be replaced for logging messages during runtime when applying a decorator, called "reawk" to a function.
+If you want to restore your source code to the original, comments and logging re-appear when you view code through the lens of a full reawk process.  
 
+I use dill in conjunction with a translation file (later, this will be a database) to allow self-modifying code.
 This is a demo version only.  It will become beta by the end of 2018, hopefully.
-
-I use dill in conjunction with a translation file (later, this will be a database) to allow self-modifying code:
-you write code with logging and comments, the logging and comments get compressed into almost invisibility in the code. 
-
-Then, logging executes through self-modifying behavior when the right DeAwkwardize method is used as a decorator.  
-
-Comments and logging re-appear when you view code through the lens of DeAwkwardize, allowing you to restore your full logging and comments when needed.
 
 #### The impetus?  
 
@@ -168,29 +163,36 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Long-winded backstory
 
+Of all the antonyms of "awkward", I prefer "easy".  Easy things are simple to understand.  Awkward things are less easy to understand at first glance: they do not comform to a simple pattern and are not immediately recognizable.
 
-Of all the antonyms of "awkward", I prefer "easy".  Easy things work and are simple to understand.
+In social situations, "awkward" gets used for interactions which do not apply easy-to-recognize patterns.
 
-In social situations, we often relate "awkward" and "easy" to how recognizable and acceptable interaction-styles are.
-Think of how we say, "Hello" as a greeting.  It feels fairly meaningless, except as a means of initiating a conversation.
-However, approaching even someone you know and starting out a conversation with: "Would you mind writing a program to find the area under a curve" would be considered rude.
-You first say, "Hello."  Ask them how their day is going.  Then make the request.  Now it is fine.
+Think of how we say "Hello" as a greeting.  It feels fairly meaningless, except as a means of initiating a conversation.
 
-As illustrated in the example, communication involves non-verbal cues as well as spoken or written expressions.
-In coding, the verbal cues are can be comments or logging.
+As an example, approaching even someone you know and starting out a conversation with: "Would you mind writing a program to find the area under a curve?" would be considered rude.
 
-Some developers want to get rid of social conversation cues in their code.
+You first say, "Hello."  Ask them how their day is going.  Then make the request.  Now, it is fine.  
+
+"Hello" is a verbal cue. In coding, the verbal cues are can be comments and logging.
+
+Some developers want to get rid of social conversation cues in their code.  Ironically, this can be less awkward.  
 
 So: for, example, I once heard a lead engineer say he rejects code in code-review which has comments.
 
-However, I love long-winded comments and intense-amounts of logging
+Python is a beautiful language.  As a former Literature major in college, I can say it is actually poetic.
 
-How to get around this?
+Pythonic code, especially without logging and comments, is elegant, not akward.
+
+However, I love long-winded comments and intense-amounts of logging for support reasons.  I have done support, and I loved clear explanations and explication-style logging.
+
+How to get around this: elegant, poetic code without much help for support/maintenance, or prosaic code with a lot of help for support/maintenance?
 
 Suppose I delivered code with comments like this : "#@1" and logging replaced with terms like: "#%2"
 
-He could complain, but I could make an argument that this is not a distracting comment: there are no words!
-The logging statements, activated by a decorator, would not look like distracting logging statements!
-I could always get my version back with all the long-winded comments and full logging expressions by reawking the deawked code.
+It has been deawkwardized.  The "Hello" greeting is not prosaic: "Hello, dear friend, how are you this fine day?"  It is short and present, but cut to the essentials, allowing the rest of the code to be poetic and complex and elegant without "unnecessary" explanation.
+
+What a build engineer sees as awkward, a support engineer might see as necessary.  
+
+We can have both styles working together.
 
 ---------------------------------------------------------------------------------------------------------------------------
