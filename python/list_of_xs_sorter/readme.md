@@ -1,13 +1,10 @@
-# Special note
-You will also find a list_of_dicts_sorter class and a list_of_string_lists_sorter class along with the named list_of_lists_sorter class.
+# List of xs sorter class
 
-This enabled me to create a list_of_xs_sorter class which chooses between them and provides a common interface (only list of Xs with headers are compatible).
+This is a class which provides a common interface for many list of xs sorter classes.  It began with a list of lists sorter class.
 
-I intend to sharpen the pattern of the list_of_xs_sorter.
+# But why?
 
-# List of lists sorter class
-
-Python offers a graceful method to sort lists of lists.
+Python offers a graceful method to sort lists of lists and lists of other types.
 
 Why gild the lily?
 
