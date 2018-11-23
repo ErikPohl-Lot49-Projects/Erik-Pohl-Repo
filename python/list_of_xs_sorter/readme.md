@@ -51,9 +51,10 @@ print(sorter.sort())
 
 # Future plans
 
-1. Consider reasonable exception handling without stifling exceptions.
-2. Lint the code. (Weekend of 11/17)
-3. Other list of xs sorter classes are here, and I'd like to make my list_of_xs_sorter class more svelte using a design pattern
+- [ ] Consider reasonable exception handling without stifling exceptions.
+- [ ] Lint the code. (Weekend of 11/24)
+- [ ] Make the list_of_xs_sorter class more svelte using a design pattern.
+- [ ] Move demo usage code to one file and out of my list_of_xs_sorter class file.
   
 ## Getting Started
 
