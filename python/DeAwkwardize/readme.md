@@ -7,14 +7,14 @@ _**DO YOU WANT TO SEE A DECORATOR WHICH USES SOME COOL, SELF-MODIFYING CODE?**_
 ![Under construction](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/webpageunderconstruction-1024x681.jpg)
 
 
-The first rev is in place, but don't expect to be able to use the class for your own cases.
-The code in my repo is good for a demo only.
-
-It has a functioning test case, which makes it in a "green" test case.
-
-Working in self-modifying code is easy, but takes some brain I need for other things this morning at 8am.  (The project woke me at 6am wanting to be solved!)  As a result, I need to let it distill a little before continuing work here.
-
 DeAwkwardize is the working title for a project to abbreviate comments and logging in Python source code.
+
+It substitutes tokens for logging and comments in Python code.
+
+The logging tokens can be replaced for logging messages during runtime when applying a decorator, called "reawk" to a function.
+
+This is a demo version only.  It will become beta by the end of 2018, hopefully.
+
 I use dill in conjunction with a translation file (later, this will be a database) to allow self-modifying code:
 you write code with logging and comments, the logging and comments get compressed into almost invisibility in the code. 
 
