@@ -6,7 +6,7 @@ _**DO YOU WANT TO SEE A DECORATOR WHICH USES SOME COOL, SELF-MODIFYING CODE?**_
 
 ![Under construction](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/webpageunderconstruction-1024x681.jpg)
 
-**_DeAwkwardize_** is the working title for a project to tokenize comments and logging in Python source code and render them unobtrusive when reading the code, which ideally might be easily readable on its own.
+**_DeAwkwardize_** is the working title for a project to tokenize comments and logging in Python source code and render them unobtrusive when reading the code.
 
 The Deawk method of the class substitutes tokens for logging and comment-statements in the Python source code, writing a "deawkwardized" version of the code to file.
 
