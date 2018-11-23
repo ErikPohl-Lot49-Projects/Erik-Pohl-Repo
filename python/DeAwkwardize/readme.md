@@ -163,33 +163,34 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Long-winded backstory
 
-Of all the antonyms of "awkward", I prefer "easy".  Easy things are simple to understand.  Awkward things are less easy to understand at first glance: they do not comform to a simple pattern and are not immediately recognizable.
+Of all the antonyms of "awkward", I prefer "easy".  Easy things are simple to understand.  Awkward things are less easy to understand at first glance: they do not conform to a simple pattern and are not immediately recognizable.
 
 In social situations, "awkward" gets used for interactions which do not apply easy-to-recognize patterns.
 
 Think of how we say "Hello" as a greeting.  It feels fairly meaningless, except as a means of initiating a conversation.
 
-As an example, approaching even someone you know and starting out a conversation with: "Would you mind writing a program to find the area under a curve?" would be considered rude.
+As an example, approaching even someone you know and starting out a conversation with: "Could you write us a program to find the area under a curve?" would be considered rude.
 
 You first say, "Hello."  Ask them how their day is going.  Then make the request.  Now, it is fine.  
 
 "Hello" is a verbal cue. In coding, the verbal cues are can be comments and logging.
 
-Some developers want to get rid of social conversation cues in their code.  Ironically, this can be less awkward.  
+Some developers want to get rid of those verbal cues in their code, letting the elegance of the actual code communicate.  
 
 So: for, example, I once heard a lead engineer say he rejects code in code-review which has comments.
 
 Python is a beautiful language.  As a former Literature major in college, I can say it is actually poetic.
 
-Pythonic code, especially without logging and comments, is elegant, not akward.
+Pythonic code, especially without logging and comments, is elegant, not akward.  However, to a support or maintaining engineer, this elegance, this poetry, might still be seen as complex.
 
-However, I love long-winded comments and intense-amounts of logging for support reasons.  I have done support, and I loved clear explanations and explication-style logging.
+I love long-winded comments and intense-amounts of logging for support reasons.  I have done support, and I loved clear explanations and explication-style logging.
 
-How to get around this: elegant, poetic code without much help for support/maintenance, or prosaic code with a lot of help for support/maintenance?
+How to get around this?  Elegant, poetic code without much help for support/maintenance, or prosaic code with a lot of help for support/maintenance?
 
-Suppose I delivered code with comments like this : "#@1" and logging replaced with terms like: "#%2"
+Suppose I delivered code with comments like this: "#@1" 
+and logging replaced with terms like: "#%2"
 
-It has been deawkwardized.  The "Hello" greeting is not prosaic: "Hello, dear friend, how are you this fine day?"  It is short and present, but cut to the essentials, allowing the rest of the code to be poetic and complex and elegant without "unnecessary" explanation.
+It has been deawkwardized.  The "Hello" greeting is not prosaic: "Hello, dear friend, how are you this fine day?"  It is short and present, but it has been cut to the essentials, allowing the rest of the code to be poetic and complex and elegant without "unnecessary" explanation.
 
 What a build engineer sees as awkward, a support engineer might see as necessary.  
 
