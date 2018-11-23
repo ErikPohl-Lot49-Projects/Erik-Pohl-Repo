@@ -4,7 +4,7 @@ _**DO YOU WANT TO SEE A DECORATOR WHICH USES SOME COOL, SELF-MODIFYING CODE?**_
 
 # WARNING!
 
-![Under construction](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/webpageunderconstruction-1024x681.jpg)
+![Under construction](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/webpageunderconstruction-1024x681.jpg){:height="50%" width="50%"}
 
 
 The first rev is in place, but don't expect to be able to use the class for your own cases.
