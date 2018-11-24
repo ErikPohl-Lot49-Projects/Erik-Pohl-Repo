@@ -22,30 +22,7 @@ This class adds to the sort method the following features:
 
 # Examples
 
-#### Set up a list of lists with a header row
-```
-output_list_with_header = [
-    ['zero', 'one', 'two', 'three', 'four', 'five', 'six'],
-    [1, 2, 3, 7, 1, 7, '1-1-15'],
-    [1, 2, 3, 7, 2, 6, '1-1-14'],
-    ]
-```
-#### Establish list of lists sort object and then declare a header
-```
-sorter = list_of_list_sorter(output_list_with_header)
-sorter.has_header = True
-```
-#### Add a sort field on the sixth column using a date conversion from string with a - delimiter 
-```
-sorter.add_sort_field_by_header_field_name('six', 'datestringdel-')
-```
-#### Perform the sort using these criteria
-```
-print(sorter.sort())
-```
-
-    [1, 2, 3, 7, 1, 7, '1-1-14'],
-    [1, 2, 3, 7, 2, 6, '1-1-15']
+See demo_usage.py for now!  This will be updated soon to reflect common usages.
 
 
 
