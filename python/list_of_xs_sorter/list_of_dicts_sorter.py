@@ -1,5 +1,6 @@
 from collections import namedtuple
 from datetime import date
+from list_of_xs_converter import list_of_xs_converter
 
 
 class list_of_dicts_sorter:
@@ -64,13 +65,6 @@ class list_of_dicts_sorter:
         # convert to decision dict
         list_of_dicts_sorted = sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields),
                                       reverse=self.reverse_sort)
-        decision_dict = {list: [[[key for key in self.list_of_dicts[0]]] +
-                                [[dictval for dictval in dict.values()] for dict in
-                                 list_of_dicts_sorted]][0],
-                         dict: list_of_dicts_sorted,
-                         str: [self.output_as_list_of_string_delimiter.join(str(z)) for z in
-                               [[[key for key in self.list_of_dicts[0]]] +
-                                [[dictval for dictval in dict.values()]
-                                 for dict in
-                                 list_of_dicts_sorted]][0]]}
-        return decision_dict[self.output_as_list_of]
+        return list_of_xs_converter(list_of_xs=list_of_dicts_sorted,
+                                    to_list_of=self.output_as_list_of,
+                                    output_as_string_delimiter=self.output_as_list_of_string_delimiter)
