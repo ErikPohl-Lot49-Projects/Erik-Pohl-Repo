@@ -1,9 +1,9 @@
 from collections import namedtuple
 from datetime import date
 from list_of_lists_sorter import list_of_lists_sorter
+from list_of_xs_converter import list_of_xs_converter
 
 #TODO: infer delimiter?
-#TODO: add output as list of lists, output as list of dicts?
 #TODO: add regression tests
 class list_of_string_lists_sorter:
     '''
@@ -20,6 +20,7 @@ class list_of_string_lists_sorter:
         self.list_of_string_lists = list_of_string_lists
         self.string_list_delimiter = string_list_delimiter
         self.sort_fields = []
+        self.output_as_list_of = str
         self.reverse_sort = False
         self.has_header = False
 
@@ -82,4 +83,6 @@ class list_of_string_lists_sorter:
         self._list_of_lists_sorter.reverse_sort = self.reverse_sort
         self._list_of_lists_sorter.sort_fields = self.sort_fields
         unxvert_list = [self.string_list_delimiter.join(i) for i in self._list_of_lists_sorter.sort()]
-        return unxvert_list
+        return list_of_xs_converter(list_of_xs=unxvert_list,
+                                    to_list_of=self.output_as_list_of,
+                                    output_as_string_delimiter= self.string_list_delimiter)
