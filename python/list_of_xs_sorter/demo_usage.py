@@ -104,7 +104,7 @@ surprise_me_sorter.add_sort_field_by_field_name('two', 'string')
 print(surprise_me_sorter.sort())
 
 
-print("here")
+print("list of dicts sorted and output as a list of lists or a list of string lists")
 lod_sorter_list = list_of_dicts_sorter([
     {'one': '1', 'two': '5'},
     {'one': '1', 'two': '4'}
@@ -121,7 +121,7 @@ print(z)
 
 
 
-
+print("list of lists sorted and output as a list of dicts or a list of string lists")
 sorter = list_of_lists_sorter(output_list_with_header)
 sorter.has_header = True
 sorter.add_sort_field_by_header_field_name('six', 'datestringdel-')
@@ -137,7 +137,7 @@ print(sorter.sort())
 
 
 
-print("final")
+print("list of string lists sorted and output as a list of dicts or a list of lists")
 output_list_of_string_lists_with_header = [
     'zero one two three four five six',
     '1 2 3 7 1 7 1-1-15',
