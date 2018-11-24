@@ -1,6 +1,7 @@
 from collections import namedtuple
 from datetime import date
 
+
 class list_of_dicts_sorter:
     '''
     This class allows you to flexibly define and execute sorts on lists of dicts
@@ -45,7 +46,7 @@ class list_of_dicts_sorter:
         datetuple = namedtuple('datetuple', 'month day year')
         if field_type.startswith(self.STRINGDATEPREFIX):
             x = datetuple(*raw.split(field_type[-1]))
-            return date(int(x.year), int(x.month),   int(x.day))
+            return date(int(x.year), int(x.month), int(x.day))
 
         return raw
 
@@ -61,18 +62,15 @@ class list_of_dicts_sorter:
         execute the sort based on all of the criteria and setups in the instantiation
         '''
         # convert to decision dict
-        list_of_dicts_sorted = sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields), reverse=self.reverse_sort)
-
-        if self.output_as_list_of == list:
-            return [[[key for key in self.list_of_dicts[0]]]+
-                    [[dictval for dictval in dict.values()] for dict in
-                     list_of_dicts_sorted]][0]
-        elif self.output_as_list_of == str:
-            return [self.output_as_list_of_string_delimiter.join(z) for z in [[[key for key in self.list_of_dicts[0]]] +
-             [[dictval for dictval in dict.values()] for dict in
-              list_of_dicts_sorted]][0]]
-        elif self.output_as_list_of == dict:
-            return list_of_dicts_sorted
-        else:
-            raise ValueError
-
+        list_of_dicts_sorted = sorted(self.list_of_dicts, key=lambda row: self.sort_choice(row, self.sort_fields),
+                                      reverse=self.reverse_sort)
+        decision_dict = {list: [[[key for key in self.list_of_dicts[0]]] +
+                                [[dictval for dictval in dict.values()] for dict in
+                                 list_of_dicts_sorted]][0],
+                         dict: list_of_dicts_sorted,
+                         str: [self.output_as_list_of_string_delimiter.join(str(z)) for z in
+                               [[[key for key in self.list_of_dicts[0]]] +
+                                [[dictval for dictval in dict.values()]
+                                 for dict in
+                                 list_of_dicts_sorted]][0]]}
+        return decision_dict[self.output_as_list_of]
