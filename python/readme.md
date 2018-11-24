@@ -61,3 +61,14 @@ g) Requirements documents, user-facing documents and presentations, and other do
 h) Commit statements which facilitate an understanding of code history.
 
 i) Readme.md pages with more interesting usage of markdown.  https://en.wikipedia.org/wiki/Markdown
+
+# Design pattern gists to complete
+- [ ] Factory Method
+- [ ] Adapter
+- [ ] Composite	
+- [ ] Flyweight	
+- [ ] Interpreter	
+- [ ] Observer	
+- [ ] Strategy	
+- [ ] Template Method	
+- [ ] Vistor	
