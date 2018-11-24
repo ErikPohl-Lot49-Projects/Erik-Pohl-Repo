@@ -13,7 +13,8 @@ def list_of_xs_converter(*,list_of_xs=None,to_list_of =None, output_as_string_de
         decision_dict = {dict:
                              [{list_of_xs[0][lcount]:litem for lcount, litem in enumerate(list)} for list in list_of_xs[1:]],
                          list: list_of_xs,
-                         str: list_of_xs}
+                         str: [output_as_string_delimiter.join([str(item) for item in listx]) for listx in list_of_xs]
+                         }
         return decision_dict[to_list_of]
     if type(list_of_xs[0]) == str:
         decision_dict = {dict: list_of_xs,
