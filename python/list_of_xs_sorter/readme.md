@@ -54,8 +54,8 @@ print(sorter.sort())
 - [ ] Consider reasonable exception handling without stifling exceptions.
 - [ ] Lint the code. (Weekend of 11/24)
 - [ ] Make the list_of_xs_sorter class more svelte using a design pattern.
-- [ ] Move demo usage code to one file and out of my list_of_xs_sorter class file.
-- [ ] Write "output as" methods for each individual sorter class to permit outputting as other list of x types.
+- [x] Move demo usage code to one file and out of my list_of_xs_sorter class file.
+- [x] Write "output as" methods for each individual sorter class to permit outputting as other list of x types.
 - [ ] Better example cases for the readme
 
   
