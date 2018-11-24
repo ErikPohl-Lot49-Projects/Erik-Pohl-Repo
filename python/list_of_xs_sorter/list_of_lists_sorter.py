@@ -1,11 +1,13 @@
 from collections import namedtuple
 from datetime import date
-from list_of_lists_sorter import list_of_lists_sorter
+from list_of_xs_converter import list_of_xs_converter
 
 
-class list_of_string_lists_sorter:
+#TODO add output as list of dicts (only for list of lists with headers)
+#TODO , add output as list of string lists (with and without headers)
+class list_of_lists_sorter:
     '''
-    This class allows you to flexibly define and execute sorts on lists of string lists
+    This class allows you to flexibly define and execute sorts on lists of lists
     with and without headers
     with and without reverse sort
     '''
@@ -13,14 +15,13 @@ class list_of_string_lists_sorter:
 
     STRINGDATEPREFIX = 'datestringdelimiter'
 
-
-    def __init__(self, list_of_string_lists, string_list_delimiter):
-        self.list_of_string_lists = list_of_string_lists
-        self.string_list_delimiter = string_list_delimiter
+    def __init__(self, list_of_lists):
+        self.list_of_lists = list_of_lists
         self.sort_fields = []
         self.reverse_sort = False
         self.has_header = False
-
+        self.output_as_list_of = list
+        self.output_as_list_of_string_delimiter = ' '
 
     def add_sort_field_by_position(self, column_position, sort_field_type="string"):
         '''
@@ -33,8 +34,7 @@ class list_of_string_lists_sorter:
         add a sort field to the sort field criteria by header field name in the list, sort field type default is string
         '''
         if self.has_header:
-            self.sort_fields.append(self.sort_field(self.list_of_string_lists[0].split(self.string_list_delimiter)
-                                                    .index(field_name), sort_field_type))
+            self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(field_name), sort_field_type))
 
     def add_multiple_fields_by_position(self, position_type_list):
         '''
@@ -45,15 +45,34 @@ class list_of_string_lists_sorter:
                 sort_field_add = (sort_field_add, "string")
             self.sort_fields.append(self.sort_field(sort_field_add[0], sort_field_add[1]))
 
-    def add_multiple_fields_by_header_field(self, header_type_list):
+    def add_multiple_fields_by_position_list_comprehension(self, position_type_list):
+        '''
+        deprecated
+        '''
+        [self.sort_fields.append(self.sort_field(sort_field_add[0], sort_field_add[1]))
+         if type(sort_field_add) is tuple
+         else
+         self.sort_fields.append(self.sort_field(sort_field_add, "string"))
+         for sort_field_add in position_type_list]
+
+    def add_multiple_fields_by_header_field(self, fieldheader_type_list):
         '''
         add a multiple sort fields to the sort field criteria by header field name in the list, sort field type default is string
         '''
-        for sort_field_add in header_type_list:
+        for sort_field_add in fieldheader_type_list:
             if type(sort_field_add) is not tuple:
                 sort_field_add = (sort_field_add, "string")
-            self.sort_fields.append(self.sort_field(self.list_of_lists[0].split(self.string_list_delimiter)
-                                                    .index(sort_field_add[0]), sort_field_add[1]))
+            self.sort_fields.append((self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1])))
+
+    def add_multiple_fields_by_header_field_list_comprehension(self, position_type_list):
+        '''
+        deprecated
+        '''
+        [self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1]))
+         if type(sort_field_add) is tuple
+         else
+         self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add), "string"))
+         for sort_field_add in position_type_list]
 
     def clear_sort_fields(self):
         '''
@@ -67,16 +86,31 @@ class list_of_string_lists_sorter:
         '''
         datetuple = namedtuple('datetuple', 'month day year')
         if field_type.startswith(self.STRINGDATEPREFIX):
-            return datetuple(*raw.split(field_type[-1]))
+            x = datetuple(*raw.split(field_type[-1]))
+            return date(int(x.year), int(x.month), int(x.day))
         return raw
+
+    def sort_choice(self, unsorted_list_row, sort_fields_to_apply):
+        '''
+        define the sort type based on the sort field list of criteria
+        '''
+        return [self.field_type_convert(unsorted_list_row[sort_field_to_apply.position], sort_field_to_apply.field_type)
+                for sort_field_to_apply in sort_fields_to_apply]
 
     def sort(self):
         '''
         execute the sort based on all of the criteria and setups in the instantiation
         '''
-        xvert_list = [i.split(self.string_list_delimiter) for i in self.list_of_string_lists]
-        self._list_of_lists_sorter = list_of_lists_sorter(xvert_list)
-        self._list_of_lists_sorter.has_header = self.has_header
-        self._list_of_lists_sorter.reverse_sort = self.reverse_sort
-        self._list_of_lists_sorter.sort_fields = self.sort_fields
-        return self._list_of_lists_sorter.sort()
+        header_offset = int(self.has_header)
+        if self.has_header:
+            copyheader = self.list_of_lists[0]
+        self.list_of_lists = self.list_of_lists[header_offset:]
+        self.list_of_lists.sort(
+            key=lambda row: self.sort_choice(row, self.sort_fields),
+            reverse=self.reverse_sort)
+        if self.has_header:
+            self.list_of_lists[0:0] = [copyheader]
+        return list_of_xs_converter(list_of_xs=self.list_of_lists,
+                                    to_list_of=self.output_as_list_of,
+                                    output_as_string_delimiter=self.output_as_list_of_string_delimiter)
+        return self.list_of_lists
