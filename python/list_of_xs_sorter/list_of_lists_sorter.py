@@ -113,4 +113,3 @@ class list_of_lists_sorter:
         return list_of_xs_converter(list_of_xs=self.list_of_lists,
                                     to_list_of=self.output_as_list_of,
                                     output_as_string_delimiter=self.output_as_list_of_string_delimiter)
-        return self.list_of_lists
