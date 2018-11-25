@@ -1,8 +1,16 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import copy
 from functools import wraps
 
 import dill
 
+
+#Allow multiple lines of comments concurrent to roll up into one deawk
+#Use #[tab] and more of them in sequence
+#With a header # this code had been deawkwardized to represent comments
+#And #[space] for logging
+#And make header message not deawked
 # TODO: https://en.wikipedia.org/wiki/Memoization
 # TODO: refactor
 # TODO: make delimiter logic better--
@@ -16,6 +24,7 @@ import dill
 # than just explicit logging lines
 # TODO: handle a case where a def is within a def when reawking logging!
 # TODO: shorten function and variable names
+# TODO: encrypt and then decrypt on the fly? https://nitratine.net/blog/post/encryption-and-decryption-in-python/
 class deawkwardize:
     '''
     Deawkwardize allows a user to
