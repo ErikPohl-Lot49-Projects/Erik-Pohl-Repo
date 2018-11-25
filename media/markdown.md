@@ -4,6 +4,6 @@
 
 [Mastering Markdown](https://guides.github.com/features/mastering-markdown/ "Mastering Markdown")
 
-[Markdown Quick Reference] (https://en.support.wordpress.com/markdown-quick-reference/ "Markdown Quick Reference")
+[Markdown Quick Reference](https://en.support.wordpress.com/markdown-quick-reference/ "Markdown Quick Reference")
 
-[Markdown Emoticons] (https://gist.github.com/rxaviers/7360908 "Markdown Emoticons")
+[Markdown Emoticons](https://gist.github.com/rxaviers/7360908 "Markdown Emoticons")
