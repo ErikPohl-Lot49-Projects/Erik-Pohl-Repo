@@ -5,6 +5,7 @@ I bet nobody's ever done this before! :smirk:
 Missing the switch from C and the case from PL/SQL, I looked and found this reason why there is no equivalent in Python:
 
 >A quick poll during my keynote presentation at PyCon 2007 shows this proposal has no popular support. I therefore reject it.
+
 (Courtesy: https://www.python.org/dev/peps/pep-3103/)
 
 So I did what surely nobody in the history of Python has done, and I made a switch class.
