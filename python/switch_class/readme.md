@@ -16,8 +16,7 @@ So I did what surely nobody in the history of Python has done, and I made a swit
 2. Looks prettier than a bunch of elifs.
 
 Of course, I think Pollock's abstraction is pretty:
-
-
+[logo]: https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/convergence_u-l-ehp4w0.jpg "Eye of the beholder"
 
 # Example usage
 
