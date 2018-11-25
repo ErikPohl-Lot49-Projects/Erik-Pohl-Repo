@@ -40,6 +40,14 @@ my_switch.add_switch_clause('4', 'Four',True)
 ````
 print(my_switch.execute_switch('1'))
 print(my_switch.execute_switch('2'))
+print(my_switch.execute_switch('5'))
+````
+
+#### Check the results
+````
+['X']
+['Two', 'Three', 'X']
+Not found
 ````
 
 # Important disclaimer
