@@ -1,4 +1,4 @@
-# switch class
+# switch_class
 
 I bet nobody's ever done this before! :smirk:
 
