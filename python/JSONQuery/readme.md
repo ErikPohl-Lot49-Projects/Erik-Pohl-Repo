@@ -2,7 +2,7 @@
 
 _This works and is functional, but **work is being migrated to JnesaisQ** for a better foundation and more functionality_
 
-_Imagine you are handling a sufficient amount of JSON input data._
+_**Imagine** you are handling a sufficient amount of JSON input data._
 
 The data has a bevy of keys, including deeply nested keys.
 
