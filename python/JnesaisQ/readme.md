@@ -2,6 +2,9 @@
 
 **_Along with a name change, this will target enhanced functionality_**
 
+![You do](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/you-do-have-a-certain-je-ne-sais-quoi-metal-prints.jpg "Je ne sais quoi")
+
+
 _Imagine you are handling a sufficient amount of JSON input data._
 
 The data has a bevy of keys, including deeply nested keys.
