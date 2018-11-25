@@ -1,4 +1,8 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 from functools import wraps
+
+# TODO potentially Guarantee will use regex on variable values for validation
 
 def guarantee(*argsx):
     """"this is a decorator to guarantee specific keyword arguments are used
