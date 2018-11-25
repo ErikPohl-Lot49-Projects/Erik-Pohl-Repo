@@ -1,28 +1,39 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 from collections import namedtuple
-import logging, sys
+import logging, sys, re
+
+
 
 
 # todo : make the return value better better
+#Dict return
+#Matches
+#Mismatches
+#Conclusions:
+#Match And , or
+#Mismatch and or
 # todo : handle parameters which are attributes better
+# todo : address complicated clauses
+# (this clause AND this clause) OR (This clause AND this clause) OR (this clause)
+#Ultimately a json query grammar
+#With findings in json format
 class JnesaisQ:
 
     def __init__(self, JSON_query_clause):
         self.json_query_finding = namedtuple('json_query_finding', 'current_json_path, actual_finding_value')
-        self.json_query_final_results = namedtuple('json_query_results', 'json_query_finding, all_criteria_met')
+        self.json_query_final_results = namedtuple('json_query_results', 'json_query_mismatches, json_query_matches')
         self.JSON_KEY_MISSING = 'JSON_key_not_found'
         self.JSON_VALUE_MISMATCH = 'JSON_value_mismatch'
-        self.MATCHMODES = {'AND': 1, 'OR': 2, 'MISMATCH': 0}
         self.JSON_query_clause = JSON_query_clause
 
 
     def compare(self,JSON_to_query, JSON_query_clause = None,
                 *,
-                match_mode=0,
                 debug_mode=False,
                 current_JSON_path='',
-                JSON_query_results=None):
+                JnesaisQ_matches=None,
+                JnesaisQ_mismatches=None):
         '''
         compare_json_to_query_clause
         :param JSON_to_query: This is an input JSON which you want to query
@@ -35,9 +46,10 @@ class JnesaisQ:
         '''
         if not JSON_query_clause:
             JSON_query_clause = self.JSON_query_clause
-        all_criteria_met = True
-        if JSON_query_results == None:
-            JSON_query_results = []
+        if JnesaisQ_matches == None:
+            JnesaisQ_matches = []
+        if JnesaisQ_mismatches == None:
+            JnesaisQ_mismatches = []
         if debug_mode:
             logging.basicConfig(stream=sys.stdout, level=logging.INFO)
         for format_key in self.JSON_query_clause.keys():
@@ -45,34 +57,36 @@ class JnesaisQ:
             try:
                 JSON_to_query_key_value = JSON_to_query[format_key]
             except:
-                if not match_mode:
-                    JSON_query_results.append(self.json_query_finding(current_json_path, self.JSON_KEY_MISSING))
-                    continue
-                else:
-                    raise ValueError
+                # key not found in JSON to query, so it is a mismatch
+                JnesaisQ_mismatches.append(self.json_query_finding(current_json_path, self.JSON_KEY_MISSING))
+                continue
             JSON_query_key_value = JSON_query_clause[format_key]
             ## if the format value which is being compared with the test value is itself a clause, recurse
             if isinstance(JSON_query_key_value, dict):
-                x = self.compare(JSON_to_query_key_value, JSON_query_key_value,
-                                                 current_JSON_path=current_json_path,
-                                                 JSON_query_results=JSON_query_results,
-                                                 match_mode=match_mode, debug_mode=debug_mode)
-                all_criteria_met = x.all_criteria_met
+                x = self.compare(JSON_to_query_key_value,
+                                 JSON_query_key_value,
+                                 current_JSON_path=current_json_path,
+                                 JnesaisQ_matches=JnesaisQ_matches,
+                                 JnesaisQ_mismatches=JnesaisQ_mismatches,
+                                 debug_mode=debug_mode)
             else:
                 if re.match(JSON_query_key_value, JSON_to_query_key_value):
-                    if match_mode:
-                        JSON_query_results.append(self.json_query_finding(current_json_path, JSON_to_query_key_value))
-                    else:
-                        all_criteria_met = False
+                    JnesaisQ_matches.append(self.json_query_finding(current_json_path, JSON_to_query_key_value))
                 else:
-                    if not match_mode:  # mismach is being tracked
-                        JSON_query_results.append(self.json_query_finding(current_json_path, self.JSON_VALUE_MISMATCH))
-                    else:  ## partial matches are not okay for ANDs but are okay for ORs
-                        if match_mode == self.MATCHMODES["AND"]:
-                            return self.json_query_final_results([], False)
-                        else:
-                            all_criteria_met = False
-                            # otherwise, this is a mismatch, but don't short circuit and exit because we're in or mode
-        return self.json_query_final_results(JSON_query_results, all_criteria_met)
+                    JnesaisQ_mismatches.append(self.json_query_finding(current_json_path, self.JSON_VALUE_MISMATCH))
+        return self.json_query_final_results(JnesaisQ_mismatches, JnesaisQ_matches)
+
+    def comp_bool(self, match_tuple):
+        retval = []
+        if match_tuple.json_query_mismatches == [] and match_tuple.json_query_matches == []:
+            return None
+        if not match_tuple.json_query_mismatches and match_tuple.json_query_matches:
+            retval.append("AND_match")
+        if match_tuple.json_query_mismatches and match_tuple.json_query_matches:
+            retval.append("OR_match_mismatch")
+        if match_tuple.json_query_mismatches and not match_tuple.json_query_matches:
+            retval.append("AND_mismatch")
+        return retval
+
 
 
