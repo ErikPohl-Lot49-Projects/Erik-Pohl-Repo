@@ -1,6 +1,6 @@
 # JSON Query Tool 
 
-_**This works and is functional, but work is being migrated to JnesaisQ for a better foundation and more functionality **_
+_This works and is functional, but **work is being migrated to JnesaisQ** for a better foundation and more functionality_
 
 _Imagine you are handling a sufficient amount of JSON input data._
 
