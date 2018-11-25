@@ -49,74 +49,39 @@ If a client were being served JSON, and it only wanted to display the JSON with 
 
 # Example cases
 
-#### No mismatches in a basic format-- this would be a find against a JSON dictionary 
-        compare_json_to_query_clause({'hello':'1'},{'hello':'1'})
-        
-        []
-        
-#### No mismatches in a basic format using a wildcard-- this would be a find against a JSON dictionary 
-        compare_json_to_query_clause({'hello':'1'},{'hello': '.'})
-        
-        []
+#### Import some stuff
+````
+from json import loads
+from JnesaisQ import JnesaisQ
+````
 
-#### Mismatch in a basic format -- this would be a record mismatch and would not produce a find against a JSON dictionary 
-        compare_json_to_query_clause({'hello':'1'},{'hello': 'x'})
-        
-        ['/hello']
+#### Create demo case 1
+````
+test_json_str =         '{"hello": "1", "zap": {"h1": "one", "h2": "two", "single": "."}}'
+json_query_format_str = '{"zap": {"h1": ".*"}, "hello": ".*"}'
+test_json = loads(test_json_str)
+json_query_format = loads(json_query_format_str)
+print("starting test_json", test_json)
+print("starting json_query_format", json_query_format)
+````
 
-#### No mismatches in a nested format-- this would be a find against a JSON dictionary 
-        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
-        {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}})
-        
-        []
+#### Run demo case 1
+````
+JNSQ = JnesaisQ(json_query_format)
+result = JNSQ.compare(test_json,  debug_mode=0)
+print("mismatches", result.json_query_matches)
+print("matches", result.json_query_mismatches)
+print("Overall result", JNSQ.comp_bool(result))
+````
 
-#### Mismatches in a nested format level 1 -- this would be a record mismatch and would not produce a find against a JSON dictionary  
-        compare_json_to_query_clause({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
-        {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}})
-        
-        ['/hello']
-
-#### Mismatches in a nested format level 1/2 -- this would be a record mismatch and would not produce a find against a JSON dictionary  
-        compare_json_to_query_clause({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
-        {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '2'}})
-        
-        ['/hello', '/zap/single'])
-
-#### Unexpected format key
-        compare_json_to_query_clause({'hello': '2', 'zap': {'h1': 'one', 'h2': 'two', 'single': '1'}},
-        {'hello': '.', 'blammo' : 'blam', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}})
-        
-        ['/blammo']
-        
-#### No mismatches in a nested format with format using only some keys in test data -- this would be a find against a JSON dictionary 
-        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
-        {'zap': {'h1': 'one'}})
-        
-        []      
-
-#### Mismatch in a nested format with format using only some keys in test data -- this would be a find against a JSON dictionary 
-        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
-        {'zap': {'h1': 'onx'}})
-        
-        ['/zap/h1']) 
-
-#### Mismatches in a nested format with format using only some keys in test data -- this would be a find against a JSON dictionary 
-        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '4'},
-       'zap': {'h1': 'onx', 'single': '5'}})
-        
-        [['/zap/h1', '/zap/single']]) 
-        
-#### Match found using a format looking for any character string in a field -- will return this filtered match result and path
-        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
-        {"zap": {"h1": ".*"}, matchmode=MATCHMODES["AND"])
-        
-        [('/zap/h1', 'one')]
-        
-#### Match found using or mode where only one format criteria is matching
-        compare_json_to_query_clause({'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}},
-        {"hello": ".", 'zap': {'h1': 'ox'}}, matchmode=MATCHMODES["OR"])
-        
-        [('/hello', '1')]
+#### Output from case 1
+````
+starting test_json {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}}
+starting json_query_format {'zap': {'h1': '.*'}, 'hello': '.*'}
+mismatches [json_query_finding(current_json_path='/zap/h1', actual_finding_value='one'), json_query_finding(current_json_path='/hello', actual_finding_value='1')]
+matches []
+Overall result ['AND_match']
+````
 
 # Important disclaimer
 
