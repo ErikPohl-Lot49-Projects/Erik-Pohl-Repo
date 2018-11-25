@@ -10,6 +10,15 @@ Missing the switch from C and the case from PL/SQL, I looked and found this reas
 
 So I did what surely nobody in the history of Python has done, and I made a switch class.
 
+# Features
+
+1. Allows you to assign breaks to conditions, otherwise will fall through to the end of the switch, evaluating every clause.
+2. Looks prettier than a bunch of elifs.
+
+Of course, I think Pollock's abstraction is pretty:
+
+
+
 # Example usage
 
 #### Import the switch_class
