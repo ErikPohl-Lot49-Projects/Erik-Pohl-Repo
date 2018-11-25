@@ -66,8 +66,8 @@ print("starting json_query_format", json_query_format)
 ````
 JNSQ = JnesaisQ(json_query_format)
 result = JNSQ.compare(test_json,  debug_mode=0)
-print("mismatches", result.json_query_matches)
-print("matches", result.json_query_mismatches)
+print("mismatches", result.json_query_mismatches)
+print("matches", result.json_query_matches)
 print("Overall result", JNSQ.overall_result(result))
 ````
 
@@ -75,8 +75,8 @@ print("Overall result", JNSQ.overall_result(result))
 ````
 starting test_json {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}}
 starting json_query_format {'zap': {'h1': '.*'}, 'hello': '.*'}
-mismatches [json_query_finding(current_json_path='/zap/h1', actual_finding_value='one'), json_query_finding(current_json_path='/hello', actual_finding_value='1')]
-matches []
+mismatches []
+matches [json_query_finding(current_json_path='/zap/h1', actual_finding_value='one'), json_query_finding(current_json_path='/hello', actual_finding_value='1')]
 Overall result ['AND_match']
 ````
 
