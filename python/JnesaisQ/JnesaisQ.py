@@ -52,7 +52,7 @@ class JnesaisQ:
             JnesaisQ_mismatches = []
         if debug_mode:
             logging.basicConfig(stream=sys.stdout, level=logging.INFO)
-        for format_key in self.JSON_query_clause.keys():
+        for format_key in JSON_query_clause.keys():
             current_json_path = current_JSON_path + '/' + format_key
             try:
                 JSON_to_query_key_value = JSON_to_query[format_key]
@@ -64,7 +64,7 @@ class JnesaisQ:
             ## if the format value which is being compared with the test value is itself a clause, recurse
             if isinstance(JSON_query_key_value, dict):
                 x = self.compare(JSON_to_query_key_value,
-                                 JSON_query_key_value,
+                                 JSON_query_clause=JSON_query_key_value,
                                  current_JSON_path=current_json_path,
                                  JnesaisQ_matches=JnesaisQ_matches,
                                  JnesaisQ_mismatches=JnesaisQ_mismatches,
@@ -76,7 +76,7 @@ class JnesaisQ:
                     JnesaisQ_mismatches.append(self.json_query_finding(current_json_path, self.JSON_VALUE_MISMATCH))
         return self.json_query_final_results(JnesaisQ_mismatches, JnesaisQ_matches)
 
-    def comp_bool(self, match_tuple):
+    def overall_result(self, match_tuple):
         retval = []
         if match_tuple.json_query_mismatches == [] and match_tuple.json_query_matches == []:
             return None
@@ -87,6 +87,14 @@ class JnesaisQ:
         if match_tuple.json_query_mismatches and not match_tuple.json_query_matches:
             retval.append("AND_mismatch")
         return retval
+    
+    def list_of_compares(self, list_of_JSON_to_query):
+        output_list_of_dicts = []
+        for JSON_to_query in list_of_JSON_to_query:
+            if self.overall_result(self.compare(JSON_to_query=JSON_to_query)) in ("OR_match_mismatch","AND_match" ):
+                output_list_of_dicts.append(JSON_to_query)
+        return output_list_of_dicts
+                
 
 
 
