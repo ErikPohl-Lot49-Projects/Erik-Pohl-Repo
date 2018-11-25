@@ -23,13 +23,14 @@ You want to be able to have granular designations:
   * an OR match mismatch (some query format criteria matched and some mismatched)
   * AND mismatch (all query format criteria failed)
   
-JnesaisQ returns, this info.
+My friend, you need a certain _je ne sais quoi_ to do this.  JnesaisQ returns this info for you.
 
-Using this function in a loop of all the data in your input will help you encapsulate the hard parts of searching the input JSON using highly flexible query expressions.
+Using this class in a loop of all the data in your input will help you encapsulate the hard parts of searching the input JSON using highly flexible query expressions.
 
 ---------
 
 JnesaisQ accepts a JSON format description when it is instantiated.
+
 Using a compare method, you can then compare against a JSON expression.
 
 Using Python's regex module (re) and the JSON format description, this returns a list of mismatches or matches if certain conditions are met.
