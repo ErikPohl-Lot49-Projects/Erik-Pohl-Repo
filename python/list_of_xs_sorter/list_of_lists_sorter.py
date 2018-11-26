@@ -14,8 +14,6 @@ __email__ = "erik.pohl.444@gmail.com"
 __status__ = "Beta"
 
 
-# TODO add output as list of dicts (only for list of lists with headers)
-# TODO , add output as list of string lists (with and without headers)
 class list_of_lists_sorter:
     '''
     This class allows you to flexibly define and execute sorts
