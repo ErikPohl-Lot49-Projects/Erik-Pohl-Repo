@@ -1,15 +1,20 @@
 # Decorator Example: Guarantee
 
-This decorator adds flexibility to Python function mandatory keyword handling.
-Given features of the language which generate exceptions for missing mandatory keyword arguments,
-this was an attempt to demonstrate usage of the decorator pattern with an application to handle 
-missing mandatory keyword arguments with a standard decorator which could be applied by the developer
-to add functionality to missing keyword argument exceptions and add to the self-documenting code.
+This decorator adds flexibility to Python function mandatory keyword argument handling.
+
+Python does a great job without a decorator like this.
+
+The intent of this decorator was to 
+* demonstrate usage of the decorator pattern 
+* add functionality to missing mandatory keyword argument exceptions
+* add to the self-documenting nature of the code
+* open the door for other argument validations with the same guarantee
 
 # Future plans
 
 - [ ] Build in other validation logic for parameters (regex, list-of-value, etc.)
 - [ ] Allow for different outcomes for validation failure
+- [ ] Add example code snippets
 - [ ] Do the below from the disclaimer
  
 # Important disclaimer
