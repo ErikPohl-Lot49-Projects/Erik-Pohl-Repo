@@ -1,5 +1,7 @@
 # This repo shows an evolution
 
+![Tools! Tools?](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/evolu.png "Tools! Tools?")
+
 I am quickly evolving my style now from "able to solve complex problems in Python reliably" more towards "writing Python I'd submit for a production code review".
 
 I'm still learning, researching Python-particular coding patterns (even learning from anti-patterns), to refine my code style
@@ -40,7 +42,7 @@ i) Readme.md pages with more interesting usage of markdown.  https://en.wikipedi
 
 # I know what code smells are
 
-![Yoda doesn't like code smells](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/code_smell.jpg)
+![Yoda doesn't like code smells](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/code_smell.jpg "Stinks it does.")
 
 I don't like code smells.  On the job, I'm ever-vigilant about them.
 
