@@ -1,13 +1,25 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 from collections import namedtuple
 from datetime import date
 from list_of_xs_converter import list_of_xs_converter
 
+__author__ = "Erik Pohl"
+__copyright__ = "None"
+__credits__ = ["Erik Pohl"]
+__license__ = "GPL"
+__version__ = "1.0.0"
+__maintainer__ = "Erik Pohl"
+__email__ = "erik.pohl.444@gmail.com"
+__status__ = "Beta"
 
-#TODO add output as list of dicts (only for list of lists with headers)
-#TODO , add output as list of string lists (with and without headers)
+
+# TODO add output as list of dicts (only for list of lists with headers)
+# TODO , add output as list of string lists (with and without headers)
 class list_of_lists_sorter:
     '''
-    This class allows you to flexibly define and execute sorts on lists of lists
+    This class allows you to flexibly define and execute sorts
+    on lists of lists
     with and without headers
     with and without reverse sort
     '''
@@ -23,33 +35,62 @@ class list_of_lists_sorter:
         self.output_as_list_of = list
         self.output_as_list_of_string_delimiter = ' '
 
-    def add_sort_field_by_position(self, column_position, sort_field_type="string"):
+    def add_sort_field_by_position(
+            self,
+            column_position,
+            sort_field_type="string"
+    ):
         '''
-        add a sort field to the sort field criteria by position in the list, sort field type default is string
+        add a sort field to the sort field criteria
+        by position in the list, sort field type default is string
         '''
-        self.sort_fields.append(self.sort_field(column_position, sort_field_type))
+        self.sort_fields.append(
+            self.sort_field(
+                column_position,
+                sort_field_type
+            )
+        )
 
-    def add_sort_field_by_header_field_name(self, field_name, sort_field_type="string"):
+    def add_sort_field_by_header_field_name(
+            self,
+            field_name,
+            sort_field_type="string"
+    ):
         '''
-        add a sort field to the sort field criteria by header field name in the list, sort field type default is string
+        add a sort field to the sort field criteria
+        by header field name in the list, sort field type default is string
         '''
         if self.has_header:
-            self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(field_name), sort_field_type))
+            self.sort_fields.append(
+                self.sort_field(
+                    self.list_of_lists[0].index(field_name),
+                    sort_field_type
+                )
+            )
 
     def add_multiple_fields_by_position(self, position_type_list):
         '''
-        add a multiple sort fields to the sort field criteria by position in the list, sort field type default is string
+        add a multiple sort fields to the sort field criteria
+        by position in the list, sort field type default is string
         '''
         for sort_field_add in position_type_list:
             if type(sort_field_add) is not tuple:
                 sort_field_add = (sort_field_add, "string")
-            self.sort_fields.append(self.sort_field(sort_field_add[0], sort_field_add[1]))
+            self.sort_fields.append(
+                self.sort_field(
+                    sort_field_add[0],
+                    sort_field_add[1]
+                )
+            )
 
-    def add_multiple_fields_by_position_list_comprehension(self, position_type_list):
+    def add_multiple_fields_by_position_list_comprehension(
+            self,
+            position_type_list):
         '''
         deprecated
         '''
-        [self.sort_fields.append(self.sort_field(sort_field_add[0], sort_field_add[1]))
+        [self.sort_fields.append(
+            self.sort_field(sort_field_add[0], sort_field_add[1]))
          if type(sort_field_add) is tuple
          else
          self.sort_fields.append(self.sort_field(sort_field_add, "string"))
@@ -57,22 +98,39 @@ class list_of_lists_sorter:
 
     def add_multiple_fields_by_header_field(self, fieldheader_type_list):
         '''
-        add a multiple sort fields to the sort field criteria by header field name in the list, sort field type default is string
+        add a multiple sort fields to the sort field criteria
+        by header field name in the list, sort field type default is string
         '''
         for sort_field_add in fieldheader_type_list:
             if type(sort_field_add) is not tuple:
                 sort_field_add = (sort_field_add, "string")
-            self.sort_fields.append((self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1])))
+            self.sort_fields.append(
+                (self.sort_field(
+                    self.list_of_lists[0].index(
+                        sort_field_add[0]
+                    ),
+                    sort_field_add[1]
+                )
+                )
+            )
 
-    def add_multiple_fields_by_header_field_list_comprehension(self, position_type_list):
+    def add_multiple_fields_by_header_field_list_comprehension(
+            self,
+            position_type_list
+    ):
         '''
         deprecated
         '''
-        [self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add[0]), sort_field_add[1]))
-         if type(sort_field_add) is tuple
-         else
-         self.sort_fields.append(self.sort_field(self.list_of_lists[0].index(sort_field_add), "string"))
-         for sort_field_add in position_type_list]
+        [
+            self.sort_fields.append(
+                self.sort_field(
+                    self.list_of_lists[0].index(sort_field_add[0]),
+                    sort_field_add[1])
+            ) if type(sort_field_add) is tuple else self.sort_fields.append(
+             self.sort_field(
+                 self.list_of_lists[0].index(sort_field_add), "string"))
+            for sort_field_add in position_type_list
+        ]
 
     def clear_sort_fields(self):
         '''
@@ -94,12 +152,18 @@ class list_of_lists_sorter:
         '''
         define the sort type based on the sort field list of criteria
         '''
-        return [self.field_type_convert(unsorted_list_row[sort_field_to_apply.position], sort_field_to_apply.field_type)
-                for sort_field_to_apply in sort_fields_to_apply]
+        return [
+            self.field_type_convert(
+                unsorted_list_row[sort_field_to_apply.position],
+                sort_field_to_apply.field_type
+            )
+            for sort_field_to_apply in sort_fields_to_apply
+        ]
 
     def sort(self):
         '''
-        execute the sort based on all of the criteria and setups in the instantiation
+        execute the sort based on all of the criteria
+        and setups in the instantiation
         '''
         header_offset = int(self.has_header)
         if self.has_header:
@@ -110,6 +174,8 @@ class list_of_lists_sorter:
             reverse=self.reverse_sort)
         if self.has_header:
             self.list_of_lists[0:0] = [copyheader]
-        return list_of_xs_converter(list_of_xs=self.list_of_lists,
-                                    to_list_of=self.output_as_list_of,
-                                    output_as_string_delimiter=self.output_as_list_of_string_delimiter)
+        return list_of_xs_converter(
+            list_of_xs=self.list_of_lists,
+            to_list_of=self.output_as_list_of,
+            output_as_string_delimiter=self.output_as_list_of_string_delimiter
+        )
