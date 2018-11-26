@@ -1,3 +1,15 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+__author__ = "Erik Pohl"
+__copyright__ = "None"
+__credits__ = ["Erik Pohl"]
+__license__ = "GPL"
+__version__ = "1.0.0"
+__maintainer__ = "Erik Pohl"
+__email__ = "erik.pohl.444@gmail.com"
+__status__ = "Beta"
+
 #TODO use a design pattern to simplify this
 from list_of_dicts_sorter import list_of_dicts_sorter
 from list_of_lists_sorter import list_of_lists_sorter
@@ -32,41 +44,9 @@ class list_of_xs_sorter:
             self.sort_object = list_of_string_lists_sorter(self.list_of_xs, self.string_list_delimiter)
 
     def sort(self):
-        self.sort_object.list_of_dicts = self.list_of_xs
         self.sort_object.reverse_sort = self.reverse_sort
         self.sort_object.has_header = self.has_header
         x = str(type(self.sort_object))
         if x == "<class 'list_of_string_lists_sorter.list_of_string_lists_sorter'>":
             self.sort_object.string_list_delimiter = self.string_list_delimiter
         return self.sort_object.sort()
-
-
-surprise_me_sorter = list_of_xs_sorter([
-    {'one': 1, 'two': 5},
-    {'one': 1, 'two': 4}
-])
-surprise_me_sorter.sort_factory()
-surprise_me_sorter.add_sort_field_by_field_name('two', 'string')
-print(surprise_me_sorter.sort())
-
-surprise_me_sorter = list_of_xs_sorter([
-    ['one', 'two'],
-    ['1', '5'],
-    ['1', '4']
-])
-surprise_me_sorter.sort_factory()
-surprise_me_sorter.has_header = True
-surprise_me_sorter.add_sort_field_by_field_name('two', 'string')
-print(surprise_me_sorter.sort())
-
-
-surprise_me_sorter = list_of_xs_sorter([
-    'one two',
-    '1 5',
-    '1 4'
-])
-surprise_me_sorter.sort_factory()
-surprise_me_sorter.has_header = True
-surprise_me_sorter.add_sort_field_by_field_name('two', 'string')
-print(surprise_me_sorter.sort())
-
