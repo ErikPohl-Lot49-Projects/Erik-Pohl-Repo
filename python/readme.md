@@ -1,16 +1,16 @@
 # This repo shows an evolution
 
-I am quickly evolving my style now from "able to solve complex problems in Python reliably" more towards "Python code I'd submit for a code review for production code".
+I am quickly evolving my style now from "able to solve complex problems in Python reliably" more towards "writing Python I'd submit for a production code review".
 
-I'm still learning, researching Python-particular coding patterns (even learning from anti-patterns) to refine my code style
+I'm still learning, researching Python-particular coding patterns (even learning from anti-patterns), to refine my code style
 
 The most representative work is recent work:
 
-_JSONquery_
+_JnesaisQ_
 
 _list_of_xs_sorter_
 
-I plan on building on these so they work together and so the list_of_lists_sorter uses the state pattern to handle dictionaries
+I plan on building on these so they work together and so the list_of_Xs_sorter uses a design pattern to handle all of the different lists of Xs it can sort.
 As I move forward, I will go back and refactor for style and clarity my former work, including adding the details below:
 
 # Important disclaimer
