@@ -35,9 +35,9 @@ Using a compare method, you can then compare against a JSON expression.
 
 Using Python's regex module (re) and the JSON format description, this returns a list of mismatches or matches if certain conditions are met.
 
-The goal here, whether using it in mismatch mode or match mode, is to be able to filter nested JSON for certain match conditions which are customizable and accept regex expressions.
+The goal here is to be able to filter even deeply-nested JSON for certain match conditions: match conditions which are flexibly customizable and which accept regex expressions for value matches.
 
-So, if a client were being served JSON and it only wanted the matches to the deeply nested foo key values, you could use this to get them.  
+So, if a client were being served JSON and it only wanted the matches to the deeply nested key values for a single key (foo) deeply embedded in the JSON, you could use this to get those matches.  
 
 If a client were being served JSON, and it only wanted to display the JSON with foo keys whose values matches one regex string and bar keys whose values match another, this functionality is also addressed.  
 
