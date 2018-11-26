@@ -53,11 +53,12 @@ class list_of_xs_sorter:
             self.sort_object.add_sort_field_by_key_name(field_name, field_type)
 
     def sort_factory(self):
-        if type(self.list_of_xs[0]) is list:
+        list_of_what = type(self.list_of_xs[0])
+        if list_of_what is list:
             self.sort_object = list_of_lists_sorter(self.list_of_xs)
-        if type(self.list_of_xs[0]) is dict:
+        if list_of_what is dict:
             self.sort_object = list_of_dicts_sorter(self.list_of_xs)
-        if type(self.list_of_xs[0]) is str:
+        if list_of_what is str:
             self.sort_object = list_of_string_lists_sorter(
                 self.list_of_xs,
                 self.string_list_delimiter
