@@ -25,21 +25,25 @@ class list_of_xs_sorter:
         # space delimiter -- this is not cool
         self.has_header = False
         self.sort_object = None
+        self.class_losl_sorter = "<class 'list_of_string_lists_sorter." \
+                                 "list_of_string_lists_sorter'>"
+        self.class_lol_sorter = "<class 'list_of_lists_sorter." \
+                                "list_of_lists_sorter'>"
+        self.class_lod_sorter = "<class 'list_of_dicts_sorter." \
+                                "list_of_dicts_sorter'>"
 
     def add_sort_field_by_field_name(self, field_name, field_type='string'):
         list_of_what_sorter = str(type(self.sort_object))
         if list_of_what_sorter in (
-                "<class 'list_of_lists_sorter.list_of_lists_sorter'>",
-                "<class 'list_of_string_lists_sorter."
-                "list_of_string_lists_sorter'>"
+                self.class_lol_sorter,
+                self.class_losl_sorter
         ):
             self.sort_object.has_header = self.has_header
             self.sort_object.add_sort_field_by_header_field_name(
                 field_name,
                 field_type
             )
-        if list_of_what_sorter == "<class 'list_of_dicts_sorter." \
-                                  "list_of_dicts_sorter'>":
+        if list_of_what_sorter == self.class_lod_sorter:
             self.sort_object.add_sort_field_by_key_name(field_name, field_type)
 
     def sort_factory(self):
@@ -57,7 +61,6 @@ class list_of_xs_sorter:
         self.sort_object.reverse_sort = self.reverse_sort
         self.sort_object.has_header = self.has_header
         list_of_what_sorter = str(type(self.sort_object))
-        if list_of_what_sorter == "<class 'list_of_string_lists_sorter." \
-                                  "list_of_string_lists_sorter'>":
+        if list_of_what_sorter == self.class_losl_sorter:
             self.sort_object.string_list_delimiter = self.string_list_delimiter
         return self.sort_object.sort()
