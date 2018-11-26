@@ -25,12 +25,18 @@ class list_of_xs_sorter:
         # space delimiter -- this is not cool
         self.has_header = False
         self.sort_object = None
-        self.class_losl_sorter = "<class 'list_of_string_lists_sorter." \
-                                 "list_of_string_lists_sorter'>"
-        self.class_lol_sorter = "<class 'list_of_lists_sorter." \
-                                "list_of_lists_sorter'>"
-        self.class_lod_sorter = "<class 'list_of_dicts_sorter." \
-                                "list_of_dicts_sorter'>"
+        self.class_of_xs_sorter = "<class '{z}.{z}'>".format(
+            z="list_of_{xs}_sorter"
+        )
+        self.class_losl_sorter = self.class_of_xs_sorter.format(
+            xs="string_lists"
+        )
+        self.class_lol_sorter = self.class_of_xs_sorter.format(
+            xs="lists"
+        )
+        self.class_lod_sorter = self.class_of_xs_sorter.format(
+            xs="dicts"
+        )
 
     def add_sort_field_by_field_name(self, field_name, field_type='string'):
         list_of_what_sorter = str(type(self.sort_object))
