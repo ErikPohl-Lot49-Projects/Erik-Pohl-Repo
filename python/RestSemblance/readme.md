@@ -1,68 +1,24 @@
-# RestSemblance aka RestfulTestful
+# Semblance (was RestSemblance aka RestFul Testful aka DDRestTest)
 
-I am mostly done with the code, but it is not ready for review.
+## This is only a rough draft
 
-This code provides classes for two key functions to automate Restful API testing.
- 
+### What it does:
 
-### a) The test case database database development tool for which I will develop a web front end to permit non-developers to build cases.
+It loads a series of endpoint mocked data from a pickle file.
+It then feeds the endpoint mocked data to unit tests on a test case by test case basis: allowing multiple endpoints per case.
 
-This tool object provides methods to build and update RestfulTestful database table values:
+### What it doesn't do
 
-i) Applications.  This is a humaan language description of the System Under Test
+* Instead of storing the business logic in a database as originally designed, it stores the business logic in a pickle file
+* It does not contain expected results for test cases: the unittest file which utilizes Semblance will need to supply those
+* Refactoring, refactoring, refactoring.  I look at this code and shake my head.  Everwhere there is opportunity to clean the code up!
 
-Columns:
+### What it will eventually do
 
-AppId: Unique identifier for a System Under Test.
-
-AppName: Human language name of the System Under Test.
-
-AppDescription: Human language description of the System Under Test.
-
-ii) Test Cases.  These are human language descriptions of test cases for the System Under Test.
-
-Columns:
-
-AppId: Joins to the System Under Test.
-
-TestCaseId: Unique identifier for the test case.
-
-TestCaseName: A user-friendly name of the test case.
-
-TestCaseDescr: A human language description of the what the test case does.
-
-iii) EndPoints.  These are one or many EndPoints to each Test Case.
-
-AppId: Joins to the System Under Test.
-
-TestCaseId: Joins to the Test Case.
-
-EndPointId: Unique identifier for the endpoint.
-
-EndPointURI: When the application code is called, this is the URI which will be used for this endpoint.
-
-EndPointJSON: This is the JSON to return to the System Under Test in RestfulTestful for this endpoint for this test case.
-
-iv) Expected results
-
-This is in process.
-
-
-### b) RestfulTestful
-
-This object utilizes the database constructed in the former object.
-
-This object generates mocked JSON results for a System Under Test based on entries in the database.
-
-This object allows for certain cases:
-
-a) suppose the System Under Test has multiple endpoints which need to be mocked
-
-b) suppose you want to store all your regression test cases in a non-techie user-friendly database with a web-front end
-
-c) suppose you want the code to simply iterate through all of the test cases in a way which utilizes the object and an App designation which moves the business logic of the test cases out of your code?
-
-
+* It will eventually look cleaner and more clearly patterned
+* I'm deciding whether or not to build in functionality here for mocked database reads, mocked file reads, etc.
+* I like the database back-end concept, but for now am sticking with pickled dictionaries
+* I'd like to entertain the notion of storing expected results in the test case definition in the pickle file (or db)
 
 # Important disclaimer
 
