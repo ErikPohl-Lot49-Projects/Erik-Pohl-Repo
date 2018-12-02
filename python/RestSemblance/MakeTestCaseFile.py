@@ -4,13 +4,13 @@ endpointdatasource = {'TestCase1':
     {
         'http://127.0.0.1:5002/Students':
             {
-                'json_value': '[{"Student":1},{"hello": 1}]',
-                'return_value': '200'
+                'text': '[{"Student":1},{"hello": 1}]',
+                'status_code': '200'
             },
         'http://127.0.0.1:5002/Courses':
             {
-                'json_value': '[{"Course":1},{"hello": 1}]',
-                'return_value': '200'
+                'text': '[{"Course":1},{"hello": 1}]',
+                'status_code': '200'
             }
     }
     ,
@@ -18,13 +18,13 @@ endpointdatasource = {'TestCase1':
         {
             'http://127.0.0.1:5002/Students':
                 {
-                    'json_value': '[{"Student":2},{"hello": 1}]',
-                    'return_value': '200'
+                    'text': '[{"Student":2},{"hello": 1}]',
+                    'status_code': '200'
                 },
             'http://127.0.0.1:5002/Courses':
                 {
-                    'json_value': '[{"Course":2},{"hello": 1}]',
-                    'return_value': '200'
+                    'text': '[{"Course":2},{"hello": 1}]',
+                    'status_code': '200'
                 }
         }
 }
