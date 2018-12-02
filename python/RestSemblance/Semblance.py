@@ -24,10 +24,10 @@ def semblance_mocked_requests_get(*args, **kwargs):
         # how do we iterate through testcases?
         endpoint = endpointdata[currentcase]
         endpoint_return = endpoint[kwargs['url']]
-        MR = SimpleNamespace()
+        MockedResponse = SimpleNamespace()
         for key, value in endpoint_return.items():
-           setattr(MR, key, value)
-        return MR
+           setattr(MockedResponse, key, value)
+        return MockedResponse
     else:
         logging.critical("Did not recognize the URL to be mocked: " + args[0])
         raise UnrecognizedURLTestCase
