@@ -34,11 +34,13 @@ e) Actual docstring comments at all levels of the code.
 
 f) Linting the code for PEP 8 standardization.
 
-g) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+g) Applying a PEP formatter to the code.
 
-h) Commit statements which facilitate an understanding of code history.
+h) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
-i) Readme.md pages with more interesting usage of markdown.  https://en.wikipedia.org/wiki/Markdown
+i) Commit statements which facilitate an understanding of code history.
+
+j) Readme.md pages with more interesting usage of markdown which tell a code narrative.  
 
 # I know what code smells are
 
