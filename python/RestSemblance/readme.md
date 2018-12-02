@@ -1,7 +1,5 @@
 # Semblance 
 
-# There is a lot of work yet to be done here
-
 # Origin Story
 
 Every superhero needs an origin story, right?  Preferably one which establishes the motivation for that hero's mission!
@@ -46,6 +44,7 @@ If I accomplish that, it will be called Semblance.  If I don't, I'll leave it as
 * It does not contain expected results for test cases: the unittest file which utilizes Semblance will need to supply those
 * Refactoring, refactoring, refactoring.  I look at this code and shake my head.  Everwhere there is opportunity to clean the code up!
 
+# There is a lot of work yet to be done here
 ### What it will eventually do
 
 * It will eventually look cleaner and more clearly patterned
