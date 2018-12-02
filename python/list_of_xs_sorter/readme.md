@@ -1,6 +1,11 @@
 # List of xs sorter class
 
-This is a class which provides a common interface for many list of xs sorter classes.  It began with a list of lists sorter class.
+This is a class which provides a common interface for many list of xs sorter classes.  
+
+![Xs](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/arranged_by_order.png "Xs")
+(Some Xs)
+
+It began with a list of lists sorter class.
 
 # But why?
 
