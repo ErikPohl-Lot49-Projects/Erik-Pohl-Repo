@@ -1,4 +1,4 @@
-# My GitHub Repo
+# Erik Pohl's GitHub Repo
 
 I'm a lead software engineer, working and living in the greater Boston metropolitan area.  Outside of work, I enjoy spending time with friends, hiking, studying good and bad movies, trying out new foods, creative writing, continually improving my engineering craft, and reading books (the old-fashioned kind, with spines, even!).
 
