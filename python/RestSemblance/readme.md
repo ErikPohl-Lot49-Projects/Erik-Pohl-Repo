@@ -4,7 +4,7 @@
 
 # Origin Story
 
-There is no reason why you should ever hard-code fake requests get responses for testing a variety of REST API calls.
+There is no reason why you should ever hard-code faked get responses for testing a variety of REST API calls.
 
 **_None._**
 
