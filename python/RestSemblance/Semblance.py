@@ -21,7 +21,6 @@ def semblance_mocked_requests_get(*args, **kwargs):
     currentcase = TestCase.currentcase
     endpointdata = TestCase.endpointdatasource
     if kwargs:
-        # how do we iterate through testcases?
         endpoint = endpointdata[currentcase]
         endpoint_return = endpoint[kwargs['url']]
         MockedResponse = SimpleNamespace()
@@ -34,6 +33,7 @@ def semblance_mocked_requests_get(*args, **kwargs):
 
 
 def inccurrentcase():
+    # do this far more gracefully
     TestCase.counter += 1
     TestCase.currentcase = 'TestCase' + str(TestCase.counter)
     try:
