@@ -25,9 +25,9 @@ Then, you can iterate through your test cases, calling your API client function,
 like magic!
 :sparkles: :sparkles: :sparkles: :sparkles: :sparkles: :sparkles: :sparkles: :sparkles:
 
-It uses the concept of data driven development to have an engine which cycles through a list of test cases in a data structure.
+It uses the concept of data driven development: an engine which cycles through a list of test cases in a data structure, instead of a series of individual test case procedures.
 
-That allows for test cases removed from the unit testing engine and tucked away safely in a file whose only purpose is to describe test case data, nothing else :clipboard:.  
+That lets us remove test case specifics from the unit testing engine, safely storing the test case specifications in a file whose only purpose is to describe test case data, nothing else :clipboard:.  
 
 That is clean for the engine and clean for the test case data. :bulb:
 
