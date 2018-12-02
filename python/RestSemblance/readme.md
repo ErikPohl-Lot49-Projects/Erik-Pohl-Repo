@@ -4,6 +4,10 @@
 
 # Origin Story
 
+Every superhero needs an origin story, right?  Preferably one which establishes the motivation for that hero's mission!
+
+![API Superhero](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/superhero.jpg "API Superhero")
+
 There is no reason why you should ever hard-code faked get responses for testing a variety of REST API calls.
 
 **_None._**
