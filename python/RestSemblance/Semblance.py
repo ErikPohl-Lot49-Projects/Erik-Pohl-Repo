@@ -13,7 +13,7 @@ from SemblanceExceptions import UnrecognizedURLTestCase
 # TODO: check out references for inspiration for project growth
 # TODO: allow changing file name
 # TODO: consider liberating test cases from fixed nomenclature
-
+# TODO: remove looping through all test cases from test script and put it here
 
 def semblance_mocked_requests_get(*args, **kwargs):
     '''
