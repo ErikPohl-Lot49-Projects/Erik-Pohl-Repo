@@ -1,7 +1,9 @@
 # Erik-Pohl-Repo
 
 ## A conspiracy theory
-I have a belief Microsoft bought LinkedIn and GitHub to combine them into the ideal place to find workers and work with your portfolios and network.  Using machine learning and such, it could be a good team assembly tool for ad-hoc, contract, or permanent placements.
+I have a belief Microsoft bought LinkedIn and GitHub to combine them into the ideal place to find workers and work with your portfolios and network.  This might actually work, despite Microsoft's [history of subpar products](https://en.wikipedia.org/wiki/Blue_Screen_of_Death "Blue Screen of Death") and [services](https://nhlife.files.wordpress.com/2013/04/binggoogle.jpg "The best use of Bing").
+
+Using machine learning and such, it could be a good team assembly tool for ad-hoc, contract, or permanent placements.
 
 ## Here is me doing the work for them, manually, before the AI takes over
 
