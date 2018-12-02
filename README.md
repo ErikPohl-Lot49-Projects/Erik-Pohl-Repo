@@ -1,13 +1,10 @@
 # My GitHub Repo
 
-## A conspiracy theory
-I believe Microsoft bought LinkedIn and GitHub to combine them into the ideal place to find workers and work with your portfolios and network.  This might actually succeed, despite Microsoft's [history of subpar products](https://en.wikipedia.org/wiki/Blue_Screen_of_Death "Blue Screen of Death") and [services](https://nhlife.files.wordpress.com/2013/04/binggoogle.jpg "The best use of Bing").
+I'm a lead software engineer, working and living in the greater Boston metropolitan area.  Outside of work, I enjoy spending time with friends, hiking, studying good and bad movies, trying out new foods, creative writing, continually improving my engineering craft, and reading books (the old-fashioned kind, with spines, even!).
 
-Using machine learning and such, it could be a good team assembly tool for ad-hoc, contract, or permanent placements.
+## Here is my LinkedIn profile
 
-## Here is me doing the work for them, manually, before the AI takes over
-
-Let me get started here with my [LinkedIn profile](https://www.linkedin.com/in/erik-pohl-0792159/ "My LinkedIn link").
+You can learn more about me in my [LinkedIn profile](https://www.linkedin.com/in/erik-pohl-0792159/ "My LinkedIn link").
 
 ## Also, in case you want to read some of my musings 
 
