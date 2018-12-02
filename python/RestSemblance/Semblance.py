@@ -3,6 +3,7 @@ import logging
 import pickle
 import sys
 from unittest import TestCase
+from types import SimpleNamespace
 
 from SemblanceExceptions import UnrecognizedURLTestCase
 
@@ -17,55 +18,16 @@ from SemblanceExceptions import UnrecognizedURLTestCase
 
 
 def semblance_mocked_requests_get(*args, **kwargs):
-    class MockResponse:
-        def __init__(self, endpoint_return):
-            # from http://docs.python-requests.org/en/master/api/#requests.Response
-            # set to None in a less didactic manner
-            # The apparent encoding, provided by the chardet library
-            self.apparent_encoding = None
-            # Content of the response, in bytes.
-            self.content = None
-            # A CookieJar of Cookies the server sent back.
-            self.cookies = None
-            # Elapsed time sending request and getting response
-            self.elapsed = None
-            # Encoding to decode with when accessing r.text.
-            self.encoding = None
-            # Case-insensitive Dictionary of Response Headers.
-            self.headers = None
-            # A list of Response objects from the history of the Request.
-            self.history = None
-            # True if this Response one of the permanent versions of redirect.
-            self.is_permanent_redirect = None
-            # True if this Response is a well-formed HTTP redirect that could have been processed automatically
-            self.is_redirect = None
-            # Returns the parsed header links of the response, if any.
-            self.links = None
-            # Returns a PreparedRequest for the next request in a redirect chain, if there is one.
-            self.next = None
-            # Returns True if status_code is less than 400, False if not.
-            self.ok = None
-            # Textual reason of responded HTTP Status, e.g. “Not Found” or “OK”.
-            self.reason = None
-            # The PreparedRequest object to which this is a response.
-            self.request = None
-            # Integer Code of responded HTTP Status, e.g. 404 or 200.
-            self.status_code = None
-            # Content of the response, in unicode.
-            self.text = None
-            # Final URL location of Response.
-            self.url = None
-            for key, value in endpoint_return.items():
-                setattr(self, key, value)
-
     currentcase = TestCase.currentcase
     endpointdata = TestCase.endpointdatasource
-
     if kwargs:
         # how do we iterate through testcases?
         endpoint = endpointdata[currentcase]
         endpoint_return = endpoint[kwargs['url']]
-        return MockResponse(endpoint_return)  # make the return code more flexible
+        MR = SimpleNamespace()
+        for key, value in endpoint_return.items():
+           setattr(MR, key, value)
+        return MR
     else:
         logging.critical("Did not recognize the URL to be mocked: " + args[0])
         raise UnrecognizedURLTestCase
