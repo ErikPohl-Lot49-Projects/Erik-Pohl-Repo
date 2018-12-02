@@ -1,5 +1,9 @@
 import pickle
 
+# endpointdatasource ideally would come from a front-end application geared
+# towards prompting non-technical folks
+# to construct test cases for each API endpoint
+
 endpointdatasource = {'TestCase1': {
         'http://127.0.0.1:5002/Students': {
                 'text': '[{"Student":1},{"hello": 1}]',
@@ -21,6 +25,8 @@ endpointdatasource = {'TestCase1': {
                 }
         }
 }
+
+# pickle it!
 
 with open("TestCaseFile.pickle", "wb") as TestCaseFileHandle:
     TestCaseFileHandle.write(
