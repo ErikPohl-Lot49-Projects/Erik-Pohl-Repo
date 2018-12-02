@@ -28,7 +28,7 @@ def semblance_mocked_requests_get(*args, **kwargs):
            setattr(MockedResponse, key, value)
         return MockedResponse
     else:
-        logging.critical("Did not recognize the URL to be mocked: " + args[0])
+        logging.critical("Did not recognize the URL to be mocked: " + kwargs['url'])
         raise UnrecognizedURLTestCase
 
 
