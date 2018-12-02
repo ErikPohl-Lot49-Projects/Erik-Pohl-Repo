@@ -1,11 +1,32 @@
-# Semblance (was RestSemblance aka RestFul Testful aka DDRestTest)
+# Semblance 
 
-## This is only a rough draft
+# There is a lot of work yet to be done here
 
-### What it does:
+# Origin Story
 
-It loads a series of endpoint mocked data from a pickle file.
-It then feeds the endpoint mocked data to unit tests on a test case by test case basis: allowing multiple endpoints per case.
+There is no reason why you should ever hard-code fake requests get responses for testing a variety of REST API calls.
+
+**_None._**
+
+However, some people still do it :smiling_imp:  
+
+(I know of at least one who did it several months ago! :see_no_evil:)
+
+That's why I made RestSemblance.  However, first, it was called DDRestTest, then RestFul Testful, finally RestSemblance.
+
+For now, you simply store test cases, each with any number of API endpoints to be mocked, in a dictionary pickle file.
+
+You leverage Semblance to load the pickle file.
+
+Then, you can iterate through your test cases, calling your API client function, and the results will be mocked for each endpoint for each test case like magic.
+
+## But wait!  Why did you switch from RestSemblance to Semblance mid readme?  
+
+There is a certain crisis of identity going on here.
+
+I started out with RestSemblance, then added the capability to capture stdout output for comparison against expected results, and now I'm wanting to expand this simple tool to handle other forms of mocked dependencies (file loads, function calls, etc.)
+
+If I accomplish that, it will be called Semblance.  If I don't, I'll leave it as RestSemblance and make everything consistent.
 
 ### What it doesn't do
 
