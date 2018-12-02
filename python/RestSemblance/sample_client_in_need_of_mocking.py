@@ -13,7 +13,8 @@ def GetStudentAndCourse():
     print(r_get_student.text)
     api_url = url_courses
     r_get_course = requests.get(url=api_url)
-    print(r_get_course.status_code, r_get_course.reason, r_get_course.text)
+    print("status_code, reason, text -->", r_get_course.status_code, r_get_course.reason, r_get_course.text)
+    print("my test case file doesn't contain reasons, so they will be None")
     return r_get_student.text, r_get_course.text
 
 
