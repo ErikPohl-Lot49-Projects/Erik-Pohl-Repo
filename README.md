@@ -7,7 +7,7 @@ Using machine learning and such, it could be a good team assembly tool for ad-ho
 
 ## Here is me doing the work for them, manually, before the AI takes over
 
-Let me get started here with my [LinkedIn link](https://www.linkedin.com/in/erik-pohl-0792159/ "My LinkedIn link").
+Let me get started here with my [LinkedIn profile](https://www.linkedin.com/in/erik-pohl-0792159/ "My LinkedIn link").
 
 ## Also, in case you want to read some of my musings 
 
