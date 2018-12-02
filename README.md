@@ -1,4 +1,4 @@
-# Erik-Pohl-Repo
+# My GitHub Repo
 
 ## A conspiracy theory
 I believe Microsoft bought LinkedIn and GitHub to combine them into the ideal place to find workers and work with your portfolios and network.  This might actually succeed, despite Microsoft's [history of subpar products](https://en.wikipedia.org/wiki/Blue_Screen_of_Death "Blue Screen of Death") and [services](https://nhlife.files.wordpress.com/2013/04/binggoogle.jpg "The best use of Bing").
