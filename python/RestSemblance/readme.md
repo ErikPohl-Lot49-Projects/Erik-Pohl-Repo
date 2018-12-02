@@ -20,7 +20,10 @@ For now, you simply store test cases, each with any number of API endpoints to b
 
 You leverage Semblance to load the pickle file.
 
-Then, you can iterate through your test cases, calling your API client function, and the results will be mocked for each endpoint in your unit tests -- like magic :sparkles:.
+Then, you can iterate through your test cases, calling your API client function, and the results will be mocked for each endpoint in your unit tests -- 
+
+like magic!
+:sparkles: :sparkles: :sparkles: :sparkles: :sparkles: :sparkles: :sparkles: :sparkles:
 
 It uses the concept of data driven development to have an engine which cycles through a list of test cases in a data structure.
 
