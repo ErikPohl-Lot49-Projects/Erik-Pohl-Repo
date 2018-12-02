@@ -14,7 +14,7 @@ class MyTestCases(Semblance):
         try:
             while True:
                 print("Incremented to ", Semblance.currentcase)
-                x, y = GetStudentAndCourse()
+                GetStudentAndCourse()
                 inccurrentcase()
         except:
             pass
