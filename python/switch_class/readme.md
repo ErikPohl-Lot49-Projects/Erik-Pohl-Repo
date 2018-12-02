@@ -15,7 +15,7 @@ So I did what surely nobody in the history of Python has done, and I made a swit
 1. Allows you to assign breaks to conditions, otherwise will fall through to the end of the switch, evaluating every clause.
 2. Looks prettier than a bunch of elifs.
 
-Of course, I think Pollock's abstraction is pretty:
+*And I think Pollock's abstraction is pretty*:
 
 ![Convergence](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/convergence_u-l-ehp4w0.jpg "Eye of the beholder")
 
