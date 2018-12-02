@@ -9,12 +9,13 @@ url_courses = url_base + '/Courses'
 def GetStudentAndCourse():
     api_url = url_students
     r_get_student = requests.get(url=api_url)
-    print(r_get_student.status_code, r_get_student.reason, r_get_student.text)
-    print(r_get_student.text)
+    print(r_get_student.status_code, r_get_student.text)
+    print("status_code, text -->", r_get_student.status_code, r_get_student.text)
+
     api_url = url_courses
     r_get_course = requests.get(url=api_url)
-    print("status_code, reason, text -->", r_get_course.status_code, r_get_course.reason, r_get_course.text)
-    print("my test case file doesn't contain reasons, so they will be None")
+    print(r_get_course.status_code, r_get_course.text)
+    print("status_code, text -->", r_get_course.status_code, r_get_course.text)
     return r_get_student.text, r_get_course.text
 
 
