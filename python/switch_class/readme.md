@@ -71,15 +71,7 @@ Here are some elements I expect to be able to provide, if needed:
 
 a) A complete regression test suite.
 
-b) Thoughtful, self-documenting, variable, method, and function names.
-
-c) Actual docstring comments at all levels of the code.
-
-d) Linting the code for PEP 8 standardization.
-
-e) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
-
-f) Commit statements which facilitate an understanding of code history.
+b) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
 ## Getting Started
 
