@@ -18,7 +18,11 @@ For now, you simply store test cases, each with any number of API endpoints to b
 
 You leverage Semblance to load the pickle file.
 
-Then, you can iterate through your test cases, calling your API client function, and the results will be mocked for each endpoint for each test case like magic.
+Then, you can iterate through your test cases, calling your API client function, and the results will be mocked for each endpoint in your unit tests -- like magic :sparkles:.
+
+It uses the concept of data driven development to have an engine with test cases removed from the unit tests.  
+
+Up next, obviously: create a front-end which will allow a non-technical user to create the JSON for the test cases pickle file.
 
 ## But wait!  Why did you switch from RestSemblance to Semblance mid readme?  
 
