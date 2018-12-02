@@ -1,6 +1,10 @@
+import logging
+import pickle
 from unittest import TestCase
-import logging, sys, pickle
+import io, sys
+
 from SemblanceExceptions import UnrecognizedURLTestCase
+
 
 # TODO: bundle this up so it can be used easily
 # TODO: https://medium.com/@yeraydiazdiaz/what-the-mock-cheatsheet-mocking-in-python-6a71db997832
@@ -39,7 +43,11 @@ def semblance_mocked_requests_get(*args, **kwargs):
         logging.critical("Did not recognize the URL to be mocked: " + args[0])
         raise UnrecognizedURLTestCase
 
+
 def inccurrentcase():
+    print("All of it", TestCase.endpointdatasource)
+    for i in TestCase.endpointdatasource:
+        print("-->", i)
     TestCase.counter += 1
     TestCase.currentcase = 'TestCase' + str(TestCase.counter)
     try:
@@ -47,6 +55,13 @@ def inccurrentcase():
     except:
         raise StopIteration
 
+def startCaptureOutput():
+    TestCase.capturedOutput = io.StringIO()
+    sys.stdout = TestCase.capturedOutput
+
+def stopCapturedOutput():
+    sys.stdout = sys.__stdout__
+    return TestCase.capturedOutput.getvalue()
 
 def LoadCases():
     TestCase.counter = 1
@@ -55,13 +70,6 @@ def LoadCases():
     with open("TestCaseFile.pickle", "rb") as Test_Case_File_Handle:
         TestCase.endpointdatasource = pickle.loads(Test_Case_File_Handle.read())
 
+
 class Semblance(TestCase):
     LoadCases()
-
-
-
-
-
-
-
-
