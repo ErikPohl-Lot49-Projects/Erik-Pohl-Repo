@@ -24,11 +24,15 @@ You leverage Semblance to load the pickle file.
 
 Then, you can iterate through your test cases, calling your API client function, and the results will be mocked for each endpoint in your unit tests -- like magic :sparkles:.
 
-It uses the concept of data driven development to have an engine with test cases removed from the unit tests.  
+It uses the concept of data driven development to have an engine which cycles through a list of test cases in a data structure.
+
+That allows for test cases removed from the unit testing engine and tucked away safely in a file whose only purpose is to describe test case data, nothing else :clipboard:.  
+
+That is clean for the engine and clean for the test case data. :bulb:
 
 Up next, obviously: create a front-end which will allow a non-technical user to create the JSON for the test cases pickle file.
 
-## But wait!  Why did you switch from RestSemblance to Semblance mid readme?  
+## But wait!  Why did you switch from RestSemblance to Semblance mid-readme?  
 
 There is a certain crisis of identity going on here.
 
@@ -48,6 +52,7 @@ If I accomplish that, it will be called Semblance.  If I don't, I'll leave it as
 * I'm deciding whether or not to build in functionality here for mocked database reads, mocked file reads, etc.
 * I like the database back-end concept, but for now am sticking with pickled dictionaries
 * I'd like to entertain the notion of storing expected results in the test case definition in the pickle file (or db)
+* Front end to allow a non-technical user to modify and create API responses for each test case
 
 # Important disclaimer
 
