@@ -14,7 +14,7 @@ class MyTestCases(Semblance):
                 side_effect=semblance_mocked_requests_get)
     def testWithMockValidJSon(self, *args, **kwargs):
         '''
-        test incremeneting through test cases
+        test incrementing through test cases
         using mocked endpoints
         :param args: not needed
         :param kwargs: not needed
