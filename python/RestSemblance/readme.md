@@ -16,6 +16,10 @@ However, some people still do it :smiling_imp:
 
 That's why I made RestSemblance.  However, first, it was called DDRestTest, then RestFul Testful, finally RestSemblance.
 
+Coming from an origin of hard-coded Rest API responses, it protects the business logic and the test engine by keeping them separate!
+
+# How?
+
 For now, you simply store test cases, each with any number of API endpoints to be mocked, in a dictionary pickle file.
 
 You leverage Semblance to load the pickle file.
