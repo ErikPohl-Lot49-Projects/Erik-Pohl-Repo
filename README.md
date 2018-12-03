@@ -10,13 +10,15 @@ You can learn more about me in my [LinkedIn profile](https://www.linkedin.com/in
 
 You can read some of my stories or series on [Medium](https://medium.com/@erikpohl.444 "My blog on Medium").
 
-Here's a more recent photo of me:
+## Here's a more recent photo of me:
 ![I'm the taller one](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/more_recent.jpg "I'm the taller one")
  (I'm the taller one)
- 
+
+## Python
+
 I'm including Java, Go, and Kotlin work here, but my [Python](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/tree/master/python "<3") work is the most representative of what I'm actively working on.
 
 
 # To do
 
-- [ ] upload presentations
+- [ ] upload additional presentations to GitHub from my Boston tech-scene presentations
