@@ -18,6 +18,9 @@ You can read some of my stories or series on [Medium](https://medium.com/@erikpo
 
 I'm including Java, Go, and Kotlin work here, but my [Python](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/tree/master/python "<3") work is the most representative of what I'm actively working on.
 
+## Recursion
+
+Here is one way to explain ![Recursion](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/edit/master/README.md "Recursion")
 
 # To do
 
