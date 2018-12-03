@@ -92,7 +92,7 @@ b) Requirements documents, user-facing documents and presentations, and other do
 
 ## Future work
 
-- [ ] Lint the code and clean up.
+- [x] Lint the code and clean up.
 - [x] Make this a class definition.
 - [x] Rework example cases in GitHub repo to be up-to-date with current revisions.
 - [ ] Provide additional demo usage cases.
