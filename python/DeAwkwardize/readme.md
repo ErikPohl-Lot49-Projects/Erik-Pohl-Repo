@@ -111,31 +111,38 @@ DeAwkwardizeBase
 - [ ] Allow a user to designate comment types and logging types to deawkwardize rather than hard-coding.
 - [ ] Address the issue of the token file delimiter possibly being part of the tokenized string.  
 - [ ] Better example cases for the readme.
-
+- [ ] Allow multiple lines of comments concurrent to roll up into one deawk
+- [ ] Use #(tab) and more of them in sequence with a header # this code had been deawkwardized to represent comments and #(space) for logging 
+- [ ] Allow folks to designate their own token types
+- [ ] And make header message: not deawked to notify people not to mess with comments
+- [ ]  TODO: https://en.wikipedia.org/wiki/Memoization
+- [ ]  TODO: refactor
+- [ ]  TODO: make delimiter logic better--
+- [ ] what if a comment or code has the delimiter in it naturally?
+- [ ] TODO: maybe use a database back-end
+- [ ] TODO: maybe improve token generation logic to create more interesting tokens
+- [ ] TODO: consider my concept of layering, as a developer works from pseudocode down-- so this could work with PyJamb
+- [ ] TODO: address how to handle common or anticipated exceptions
+- [ ] TODO: handle different types of logging messages than just explicit logging lines
+- [ ] TODO: handle a case where a def is within a def when reawking logging!
+- [ ] TODO: shorten function and variable names
+- [ ] TODO: encrypt and then decrypt on the fly? https://nitratine.net/blog/post/encryption-and-decryption-in-python/
   
   
 # Important disclaimer
 
-The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different
-sets, helping to establish and build on them.
+The code here does not yet represent work I'd submit for production code-review.  Standards differ, and I have worked within many different sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
-a) A complete regression test suite.
-
-b) Meaningful exceptions and exception-handling coverage.
-
-c) Thoughtful, self-documenting, variable, method, and function names.
-
-d) Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
-
-e) Actual docstring comments at all levels of the code.
-
-f) Linting the code for PEP 8 standardization.
-
-g) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
-
-h) Commit statements which facilitate an understanding of code history.
+- [ ] A complete regression test suite.
+- [ ] Meaningful exceptions and exception-handling coverage.
+- [ ] Thoughtful, self-documenting, variable, method, and function names.
+- [ ] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
+- [ ] Actual docstring comments at all levels of the code.
+- [ ] Linting the code for PEP 8 standardization.
+- [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+- [ ] Commit statements which facilitate an understanding of code history.
 
 ## Getting Started
 
