@@ -78,3 +78,8 @@ Thanks in advance for holding your nose!
 - [ ] Strategy	
 - [ ] Template Method	
 - [ ] Vistor	
+
+
+# Test
+
+<iframe src="https://gist.github.com/ErikPohl-Lot49-Projects/d1b23ffc9dbc1805cea7681c757f53b2"></iframe>
