@@ -55,8 +55,8 @@ class deawkwardize:
         self.standard_reawk_function_code_header = \
             'import logging, sys\n' \
             'logging.basicConfig(stream=sys.stdout, level=logging.INFO)\n'
-        self.logging_token_prefix = '#%'
-        self.comment_token_prefix = '#@'
+        self.logging_token_prefix = '# %'
+        self.comment_token_prefix = '# @'
         self.logging_startswith = 'logging'
         self.comment_startswith = '#'
         self.token_translation = [
