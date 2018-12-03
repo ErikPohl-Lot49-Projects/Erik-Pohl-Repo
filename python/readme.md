@@ -19,30 +19,22 @@ As I move forward, I will go back and refactor for style and clarity my former w
 
 # Important disclaimer
 
-The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different
-sets, helping to establish and build on them.
+Some of the code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
-a) A complete regression test suite.
+- [ ] A complete regression test suite.
+- [ ] Meaningful exceptions and exception-handling coverage.
+- [ ] Thoughtful, self-documenting, variable, method, and function names.
+- [ ] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
+- [ ] Actual docstring comments at all levels of the code.
+- [ ] Linting the code for PEP 8 standardization.
+- [ ] Applying a PEP formatter to the code.
+- [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+- [ ] Commit statements which facilitate an understanding of code history.
+- [ ] Readme.md pages with more interesting usage of markdown which tell a code narrative.  
 
-b) Meaningful exceptions and exception-handling coverage.
-
-c) Thoughtful, self-documenting, variable, method, and function names.
-
-d) Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
-
-e) Actual docstring comments at all levels of the code.
-
-f) Linting the code for PEP 8 standardization.
-
-g) Applying a PEP formatter to the code.
-
-h) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
-
-i) Commit statements which facilitate an understanding of code history.
-
-j) Readme.md pages with more interesting usage of markdown which tell a code narrative.  
+This will also serve as a template for the starting readme to do list for folders under this one.
 
 # I know what code smells are
 
