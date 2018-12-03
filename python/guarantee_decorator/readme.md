@@ -1,4 +1,4 @@
-# Decorator Example: Guarantee
+# Guarantee Decorator
 
 This decorator adds flexibility to Python function mandatory keyword argument handling.
 
