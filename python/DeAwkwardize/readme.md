@@ -107,7 +107,8 @@ DeAwkwardizeBase
 - [ ] Include a header comment not to manually modify tokenized comments.
 - [ ] Make more comprehensive demos.
 - [ ] Create a full regression test suite
-- [ ] PEP8 lint the code and clean up
+- [x] PEP8 lint the code and 
+- [ ] make code more readable
 - [ ] Allow a user to designate comment types and logging types to deawkwardize rather than hard-coding.
 - [ ] Address the issue of the token file delimiter possibly being part of the tokenized string.  
 - [ ] Better example cases for the readme.
@@ -140,9 +141,9 @@ Here are some elements I expect to be able to provide, if needed:
 - [ ] Thoughtful, self-documenting, variable, method, and function names.
 - [ ] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
 - [ ] Actual docstring comments at all levels of the code.
-- [ ] Linting the code for PEP 8 standardization.
+- [x] Linting the code for PEP 8 standardization.
 - [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
-- [ ] Commit statements which facilitate an understanding of code history.
+- [x] Commit statements which facilitate an understanding of code history.
 
 ## Getting Started
 
