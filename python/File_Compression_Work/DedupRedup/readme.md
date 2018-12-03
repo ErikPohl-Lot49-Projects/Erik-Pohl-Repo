@@ -9,21 +9,14 @@ sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
-a) A complete regression test suite.
-
-b) Meaningful exceptions and exception-handling coverage.
-
-c) Thoughtful, self-documenting, variable, method, and function names.
-
-d) Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
-
-e) Actual docstring comments at all levels of the code.
-
-f) Linting the code for PEP 8 standardization.
-
-g) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
-
-h) Commit statements which facilitate an understanding of code history.
+- [ ] A complete regression test suite.
+- [ ] Meaningful exceptions and exception-handling coverage.
+- [ ] Thoughtful, self-documenting, variable, method, and function names.
+- [ ] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
+- [ ] Actual docstring comments at all levels of the code.
+- [ ] Linting the code for PEP 8 standardization.
+- [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+- [ ] Commit statements which facilitate an understanding of code history.
 
 
 ## Getting Started
@@ -72,12 +65,12 @@ For now, I'd be excited to receive pull requests.  I don't have rules for contri
 ## Improvements
 
 There are a few targeted improvements I'd like to make:
-1. While this employs memory windowing to keep from storing entire files (except in really bad scenarios -- completely random files in memory), I'd like to review memory usage to further optimize it.
-2. I'd like to bail on files which cannot be effectively deduplicated.
-3. I'd like to do multiple attempts until there are no collisions in some cases.
-4. I'd like to add to in-code documentation and refactor.
-5. Pretty high up there on the list is deciding on another deduplication file format.  This one works, but I'd rather use delimiter text proven not to be in the original file at all.
-6. I'd love to add another, better, hash function into the mix, do analysis on if different approaches work better for different types of data.
+- [ ] While this employs memory windowing to keep from storing entire files (except in really bad scenarios -- completely random files in memory), I'd like to review memory usage to further optimize it.
+- [ ] I'd like to bail on files which cannot be effectively deduplicated.
+- [ ] I'd like to do multiple attempts until there are no collisions in some cases.
+- [ ] I'd like to add to in-code documentation and refactor.
+- [ ] Pretty high up there on the list is deciding on another deduplication file format.  This one works, but I'd rather use delimiter text proven not to be in the original file at all.
+- [ ] I'd love to add another, better, hash function into the mix, do analysis on if different approaches work better for different types of data.
 
 ## Authors
 
