@@ -34,7 +34,7 @@ Here are some elements I expect to be able to provide, if needed:
 - [ ] Commit statements which facilitate an understanding of code history.
 - [ ] Readme.md pages with more interesting usage of markdown which tell a code narrative.  
 
-**_This will also serve as a template for the starting readme to do list for folders under this one._**
+**_This will also serve as a template for the starting readme to do list for any new folders created under this one._**
 
 # I know what code smells are
 
