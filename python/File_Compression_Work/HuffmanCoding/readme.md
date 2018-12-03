@@ -9,21 +9,14 @@ sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
-a) A complete regression test suite.
-
-b) Meaningful exceptions and exception-handling coverage.
-
-c) Thoughtful, self-documenting, variable, method, and function names.
-
-d) Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
-
-e) Actual docstring comments at all levels of the code.
-
-f) Linting the code for PEP 8 standardization.
-
-g) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
-
-h) Commit statements which facilitate an understanding of code history.
+- [ ] A complete regression test suite.
+- [ ] Meaningful exceptions and exception-handling coverage.
+- [ ] Thoughtful, self-documenting, variable, method, and function names.
+- [ ] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
+- [ ] Actual docstring comments at all levels of the code.
+- [ ]  Linting the code for PEP 8 standardization.
+- [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+- [ ] Commit statements which facilitate an understanding of code history.
 
 
 ## Getting Started
@@ -52,8 +45,8 @@ For now, I'd be excited to receive pull requests.  I don't have rules for contri
 
 ## Improvements
 
-I'd like to mock some test files and their expected results.
-I'd like to utilize the Huffman Coding tree to compress files.
+- [ ] I'd like to mock some test files and their expected results.
+- [ ] I'd like to utilize the Huffman Coding tree to compress files.
 
 ## Authors
 
