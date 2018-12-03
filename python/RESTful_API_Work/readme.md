@@ -2,6 +2,8 @@
 
 Along with tool making, I love integrating systems.
 
+![Integration](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/API_image.jpg "Integration")
+
 For a long time, I was SPOC and SME ("spock and smee") for a suite of integrations from an medium-sized manufacturing firm 
 to all of its external customers.
 
