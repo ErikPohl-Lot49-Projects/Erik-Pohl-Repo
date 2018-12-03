@@ -20,7 +20,7 @@ I'm including Java, Go, and Kotlin work here, but my [Python](https://github.com
 
 ## Recursion
 
-Here is one way to explain ![Recursion](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/edit/master/README.md "Recursion")
+Here is one way to explain [Recursion](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/edit/master/README.md "Recursion").
 
 # To do
 
