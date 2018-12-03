@@ -26,11 +26,11 @@ sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
-a) A complete regression test suite.
+- [ ] A complete regression test suite.
 
-b) Meaningful exceptions and exception-handling coverage.
+- [ ] Meaningful exceptions and exception-handling coverage.
 
-c) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+- [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
 ## Getting Started
 
