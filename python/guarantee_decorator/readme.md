@@ -2,6 +2,8 @@
 
 This decorator adds flexibility to Python function mandatory keyword argument handling.
 
+![Guarantee](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/guarantee.jpg "Guarantee")
+
 Python does a great job without a decorator like this.
 
 The intent of this decorator was to 
