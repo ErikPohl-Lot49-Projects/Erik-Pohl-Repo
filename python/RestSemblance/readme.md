@@ -66,13 +66,10 @@ sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
-a) A complete regression test suite.
-
-b) Meaningful exceptions and exception-handling coverage.
-
-c) Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
-
-d) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+- [ ] A complete regression test suite.
+- [ ] Meaningful exceptions and exception-handling coverage.
+- [ ] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
+- [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
 ## Getting Started
 
