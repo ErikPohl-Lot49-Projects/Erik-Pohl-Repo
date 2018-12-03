@@ -69,9 +69,8 @@ sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
-a) A complete regression test suite.
-
-b) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+- [ ] A complete regression test suite.
+- [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
 ## Getting Started
 
