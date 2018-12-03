@@ -64,4 +64,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* No Acknowledgements, except thanks to the interview question I received which made me want to prove this task would be trivial for me to create from scratch in a few hours for a demonstration, then refactor over time.
+* Thank you for the people who helped inspire this.
