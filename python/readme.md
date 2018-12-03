@@ -60,7 +60,8 @@ Some of my better work is not in this repo because it is protected by an obligat
 
 Thanks in advance for holding your nose!
 
-# Design pattern gists to complete
+# Python High-Level To Do
+## Design pattern gists to complete
 - [ ] Factory Method
 - [ ] Adapter
 - [ ] Composite	
