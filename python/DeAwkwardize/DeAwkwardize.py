@@ -1,30 +1,40 @@
-#!/usr/bin/env python
+# !/usr/bin/env python
 # -*- coding: utf-8 -*-
 import copy
+import dill
 from functools import wraps
 
-import dill
+__author__ = "Erik Pohl"
+__copyright__ = "None"
+__credits__ = ["Erik Pohl"]
+__license__ = "GPL"
+__version__ = "1.0.0"
+__maintainer__ = "Erik Pohl"
+__email__ = "erik.pohl.444@gmail.com"
+__status__ = "Beta"
 
-
-#Allow multiple lines of comments concurrent to roll up into one deawk
-#Use #[tab] and more of them in sequence
-#With a header # this code had been deawkwardized to represent comments
-#And #[space] for logging
-#And make header message not deawked
+# TODO: Allow multiple lines of comments concurrent to roll up into one deawk
+# TODO: Use #[tab] and more of them in sequence
+# TODO: With a header # this code had been deawkwardized to represent comments
+# TODO: And #[space] for logging
+# TODO: And make header message not deawked
 # TODO: https://en.wikipedia.org/wiki/Memoization
 # TODO: refactor
 # TODO: make delimiter logic better--
-# what if a comment or code has the delimiter in it naturally?
+# TODO: what if a comment or code has the delimiter in it naturally?
 # TODO: maybe use a database back-end
 # TODO: maybe improve token generation logic to create more interesting tokens
 # TODO: consider my concept of layering, as a developer
-# works from pseudocode down-- so this could work with PyJamb
+# TODO: works from pseudocode down-- so this could work with PyJamb
 # TODO: address how to handle common or anticipated exceptions
 # TODO: handle different types of logging messages
-# than just explicit logging lines
+# TODO: than just explicit logging lines
 # TODO: handle a case where a def is within a def when reawking logging!
 # TODO: shorten function and variable names
-# TODO: encrypt and then decrypt on the fly? https://nitratine.net/blog/post/encryption-and-decryption-in-python/
+# TODO: encrypt and then decrypt on the fly?
+#  https://nitratine.net/blog/post/encryption-and-decryption-in-python/
+
+
 class deawkwardize:
     '''
     Deawkwardize allows a user to
@@ -119,8 +129,8 @@ class deawkwardize:
         :return: True
         '''
 
-        deawk_output_file_prefix = deawk_output_file_prefix + \
-                                   deawk_input_file_name
+        deawk_output_file_prefix = deawk_output_file_prefix +\
+            deawk_input_file_name
         with open(deawk_input_file_name, 'r') as deawk_input_handle, \
                 open(deawk_output_file_prefix, "w") as deawk_output_handle, \
                 open(deawk_token_file, 'w') as token_file_handle:
@@ -217,5 +227,4 @@ class deawkwardize:
 
             return wrapper
             func
-
         return real_decorator
