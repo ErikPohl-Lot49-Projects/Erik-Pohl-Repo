@@ -1,4 +1,4 @@
-# This was "JSON Query Tool", now JnesaisQ
+# JnesaisQ (was "JSONQuery")
 
 **_Along with a name change, this will target enhanced functionality_**
 
