@@ -1,4 +1,4 @@
-# List of xs sorter class
+# List of Xs sorter class
 
 This is a class which provides a common interface for many list of Xs sorter classes. 
 
