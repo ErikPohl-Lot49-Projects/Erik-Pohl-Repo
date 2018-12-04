@@ -3,8 +3,8 @@
 # A Use Case 
 
 Your team has sketched out some process to utilize the company's brand new Rest API endpoints:
-www.paracme.com/foo
-www.paracme.com/bar
+https://ww<i></i>w.paracme.com/foo
+https://ww<i></i>w.paracme.com/bar
 
 You're ready to implement the process, called parrot.  
 
