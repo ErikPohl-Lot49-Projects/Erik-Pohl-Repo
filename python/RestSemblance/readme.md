@@ -17,7 +17,9 @@ The problem?
 
 **_The APIs dependencies are not created yet.  They're behind schedule._**
 
-No worries... just get your QA team to fake results of the API to help you test your process.  But wait!  
+No worries... just get your QA team to fake results for the API calls to help you test your process.  
+
+*But wait!  *
 
 **How can we do it cleanly?**
 
