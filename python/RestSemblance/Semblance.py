@@ -27,6 +27,7 @@ __status__ = "Beta"
 # TODO: allow changing file name
 # TODO: consider liberating test cases from fixed nomenclature
 # TODO: remove looping through all test cases from test script and put it here
+# TODO: we must put the expected results for each case in the dictionary this way
 
 def semblance_mocked_requests_get(*args, **kwargs):
     '''
@@ -65,9 +66,6 @@ def inccurrentcase():
         TestCase.currentcase = test_case
         yield test_case
     raise StopIteration
-
-
-
 
 def startCaptureOutput():
     '''
@@ -110,3 +108,10 @@ def LoadCases():
 
 class Semblance(TestCase):
     LoadCases()
+
+    def all_mock_all_rest_api_cases(self, foo):
+        for _ in inccurrentcase():
+            z = foo()
+            self.assertEqual(z, True)
+        return True
+
