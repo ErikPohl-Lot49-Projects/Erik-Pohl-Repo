@@ -4,7 +4,7 @@ from unittest import mock
 import logging
 import sys
 from sample_client_in_need_of_mocking import GetStudentAndCourse
-from Semblance import Semblance, semblance_mocked_requests_get, inccurrentcase
+from Semblance import Semblance, semblance_mocked_requests_get
 from Semblance import startCaptureOutput, stopCapturedOutput
 
 __author__ = "Erik Pohl"
@@ -30,8 +30,7 @@ class MyTestCases(Semblance):
         :param kwargs: not needed
         :return: True
         '''
-        for _ in inccurrentcase():
-            GetStudentAndCourse()
+        self.all_mock_all_rest_api_cases(GetStudentAndCourse)
         return True
 
     def test_capture_stdout(self, *args, **kwargs):
