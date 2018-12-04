@@ -1,12 +1,25 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 import io
 import logging
 import pickle
 import sys
-from unittest import TestCase
 from types import SimpleNamespace
+from unittest import TestCase
 
 from SemblanceExceptions import UnrecognizedURLTestCase
 
+__author__ = "Erik Pohl"
+__copyright__ = "None"
+__credits__ = ["Erik Pohl"]
+__license__ = "GPL"
+__version__ = "1.0.0"
+__maintainer__ = "Erik Pohl"
+__email__ = "erik.pohl.444@gmail.com"
+__status__ = "Beta"
+
+
+# TODO: set case counter to 10 to make it blow up and test custom exception
 # TODO: Semblance
 # TODO:         Route faked DB / file?
 # TODO:         mock function calls and such?
@@ -25,17 +38,20 @@ def semblance_mocked_requests_get(*args, **kwargs):
     currentcase = TestCase.currentcase
     endpointdata = TestCase.endpointdatasource
     if kwargs:
-        endpoint = endpointdata[currentcase]
+        try:
+            endpoint = endpointdata[currentcase]
+        except:
+            logging.critical(
+                "Did not recognize the URL to be mocked: " + kwargs['url']
+            )
+            raise UnrecognizedURLTestCase
         endpoint_return = endpoint[kwargs['url']]
         MockedResponse = SimpleNamespace()
         for key, value in endpoint_return.items():
             setattr(MockedResponse, key, value)
         return MockedResponse
     else:
-        logging.critical(
-            "Did not recognize the URL to be mocked: " + kwargs['url']
-        )
-        raise UnrecognizedURLTestCase
+        print("no args")
     return True
 
 
@@ -45,14 +61,12 @@ def inccurrentcase():
     a standard nomenclature
     :return: True
     '''
-    # do this far more gracefully
-    TestCase.counter += 1
-    TestCase.currentcase = 'TestCase' + str(TestCase.counter)
-    try:
-        TestCase.endpointdatasource[TestCase.currentcase]
-    except:
-        raise StopIteration
-    return True
+    for z in TestCase.endpointdatasource:
+        TestCase.currentcase = z
+        yield z
+    raise StopIteration
+
+
 
 
 def startCaptureOutput():
@@ -82,6 +96,7 @@ def LoadCases():
     TestCaseFile.pickle
     :return: True
     '''
+
     TestCase.counter = 1
     TestCase.currentcase = 'TestCase' + str(TestCase.counter)
     # consider loading expected results so that it can be compared
