@@ -30,7 +30,7 @@ class MyTestCases(Semblance):
         :param kwargs: not needed
         :return: True
         '''
-        for i in inccurrentcase():
+        for _ in inccurrentcase():
             GetStudentAndCourse()
         return True
 
