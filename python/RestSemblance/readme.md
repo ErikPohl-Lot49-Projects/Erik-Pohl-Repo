@@ -13,9 +13,9 @@ Parrot takes two parameters and adds them.
 It then takes a key value from a request to the *foo* endpoint and a key value from the *bar* endpoint and adds those.
 It multiples the two sums and returns that.
 
-The problem?  
+**The problem?**
 
-**_The APIs dependencies are not created yet.  They're behind schedule._**
+_The APIs dependencies are not created yet.  They're behind schedule._
 
 No worries... just get your QA team to fake results for the API calls to help you test your process.  
 
