@@ -27,15 +27,15 @@ The QA team can start building test cases immediately.  They set to work constru
 
 They build a file containing the following for each test case:
 * a test case name
-* a list of positional arguments for the function
-* a list of keyword arguments for the function
+* a list of positional argument values for the process test case
+* a list of keyword arguments values for the process test case
 * the endpoints the function will use plus faked data for each endpoint for that test case
 
-Meanwhile your developers are building the process.
+Meanwhile, your developers are building the process.
 
 By the time the developers are ready for a test case, QA has a list of them constructed, none of which took any coding at all.
 
-The developers plug their process into the test cases using a Semblance engine, and wham! the test, resolve, refactor cycle has begun for all of the existing test cases.
+The developers plug their process into the test cases using a Semblance engine, and **wham!** your team's testing, resolution, refactoring cycle has begun for all of the existing test cases.
 
 Meanwhile, the QA team is adding more and more cases, independent of the code base.
 
