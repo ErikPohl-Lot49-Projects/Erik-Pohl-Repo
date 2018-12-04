@@ -40,7 +40,7 @@ def semblance_mocked_requests_get(*args, **kwargs):
     endpointdata = TestCase.endpointdatasource
     if kwargs:
         try:
-            endpoint = endpointdata[currentcase]
+            endpoint = endpointdata[currentcase]['urls']
         except:
             logging.critical(
                 "Did not recognize the URL to be mocked: " + kwargs['url']
@@ -110,8 +110,11 @@ class Semblance(TestCase):
     LoadCases()
 
     def all_mock_all_rest_api_cases(self, foo):
-        for _ in inccurrentcase():
-            z = foo()
-            self.assertEqual(z, True)
+        for l in inccurrentcase():
+            endpointdata = TestCase.endpointdatasource[l]
+            xargs = endpointdata['args']
+            xkwargs = endpointdata['kwargs']
+            actual_result = foo(*xargs, **xkwargs)
+            self.assertEqual(actual_result, endpointdata['Expected_Output'])
         return True
 
