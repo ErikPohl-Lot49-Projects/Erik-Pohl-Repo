@@ -18,7 +18,8 @@ __maintainer__ = "Erik Pohl"
 __email__ = "erik.pohl.444@gmail.com"
 __status__ = "Beta"
 
-
+# TODO: either make this work or back out thelooping logic back into the calling 
+#  unittest and let it handle expected results and parameters
 # TODO: set case counter to 10 to make it blow up and test custom exception
 # TODO: Semblance
 # TODO:         Route faked DB / file?
