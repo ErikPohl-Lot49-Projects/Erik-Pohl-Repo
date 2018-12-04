@@ -19,7 +19,7 @@ The problem?
 
 No worries... just get your QA team to fake results for the API calls to help you test your process.  
 
-*But wait!  *
+*But wait!*
 
 **How can we do it cleanly?**
 
