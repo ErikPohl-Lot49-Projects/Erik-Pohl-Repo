@@ -7,7 +7,7 @@ Your team has sketched out some process to utilize the company's brand new Rest 
 * https://<i></i>www<i></i>&#46;par<i></i>acme&#46;com/<i></i>foo
 * https://<i></i>www<i></i>&#46;par<i></i>acme&#46;com/<i></i>bar
 
-You're ready to implement the process, called parrot.  
+You're ready to implement the process, called Parrot.  
 
 Parrot takes two parameters and adds them.
 It then takes a key value from a request to the foo endpoint and a key value from the bar endpoint and adds those.
@@ -21,7 +21,7 @@ No worries... just get your QA team to fake results of the API to help you test 
 
 **How can we do it cleanly?**
 
-The QA team can start building test cases immediately.  They set to work constructing a set of test cases for parrot.
+The QA team can start building test cases immediately.  They set to work constructing a set of test cases for Parrot.
 
 They build a file containing the following for each test case:
 * a test case name
