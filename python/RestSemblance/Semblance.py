@@ -61,9 +61,9 @@ def inccurrentcase():
     a standard nomenclature
     :return: True
     '''
-    for z in TestCase.endpointdatasource:
-        TestCase.currentcase = z
-        yield z
+    for test_case in TestCase.endpointdatasource:
+        TestCase.currentcase = test_case
+        yield test_case
     raise StopIteration
 
 
