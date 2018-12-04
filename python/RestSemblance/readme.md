@@ -4,8 +4,8 @@
 
 Your team has sketched out some process to utilize the company's brand new Rest API endpoints:
 
-* https://<i></i>www&#46;paracme&#46;com/<i></i>foo
-* https://<i></i>www&#46;paracme&#46;com/<i></i>bar
+* https://<i></i>www&#46;par<i></i>acme&#46;com/<i></i>foo
+* https://<i></i>www&#46;par<i></i>acme&#46;com/<i></i>bar
 
 You're ready to implement the process, called parrot.  
 
