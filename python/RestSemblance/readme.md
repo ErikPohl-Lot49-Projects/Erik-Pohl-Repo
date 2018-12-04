@@ -2,7 +2,7 @@
 
 ## A Use Case 
 
-Your team has sketched out some process to utilize the company's brand new Rest API endpoints:
+Your team has sketched out some process to utilize the company's brand-new Rest API endpoints:
 
 * https://<i></i>www<i></i>&#46;par<i></i>acme&#46;com/<i></i>foo
 * https://<i></i>www<i></i>&#46;par<i></i>acme&#46;com/<i></i>bar
