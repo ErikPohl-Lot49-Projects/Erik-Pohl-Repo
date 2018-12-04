@@ -1,5 +1,39 @@
 # Semblance 
 
+# A Use Case 
+
+Your team has sketched out some process to utilize the company's brand new Rest API endpoints:
+www.paracme.com/foo
+www.paracme.com/bar
+
+You're ready to implement the process, called parrot.  
+
+Parrot takes two parameters and adds them.
+It then takes a key value from a request to the foo endpoint and a key value from the bar endpoint and adds those.
+It multiples the two sums and returns that.
+
+The problem?  **_The APIs dependencies are not created yet.  They're behind schedule._**
+
+No worries... just get your QA team to fake results of the API to help you test your process.  But wait!  
+
+**How can we do it cleanly?**
+
+The QA team can start building test cases immediately.  They set to work constructing a set of test cases for parrot.
+
+They build a file containing the following for each test case:
+* a test case name
+* a list of positional arguments for the function
+* a list of keyword arguments for the function
+* the endpoints the function will use plus faked data for each endpoint for that test case
+
+Meanwhile your developers are building the process.
+
+By the time the developers are ready for a test case, QA has a list of them constructed, none of which took any coding at all.
+
+The developers plug their process into the test cases using a Semblance engine, and wham! the test, resolve, refactor cycle has begun for all of the existing test cases.
+
+Meanwhile, the QA team is adding more and more cases, independent of the code base.
+
 # Origin Story
 
 Every superhero needs an origin story, right?  Preferably one which establishes the motivation for that hero's mission!
@@ -53,16 +87,15 @@ If I accomplish that, it will be called Semblance.  If I don't, I'll leave it as
 # There is a lot of work yet to be done here
 ### What it will eventually do
 
-* It will eventually look cleaner and more clearly patterned
-* I'm deciding whether or not to build in functionality here for mocked database reads, mocked file reads, etc.
-* I like the database back-end concept, but for now am sticking with pickled dictionaries
-* I'd like to entertain the notion of storing expected results in the test case definition in the pickle file (or db)
-* Front end to allow a non-technical user to modify and create API responses for each test case
+- [ ] It will eventually look cleaner and more clearly patterned
+- [ ] I'm deciding whether or not to build in functionality here for mocked database reads, mocked file reads, etc.
+- [ ] I like the database back-end concept, but for now am sticking with pickled dictionaries
+- [x] I'd like to entertain the notion of storing expected results in the test case definition in the pickle file (or db)
+- [ ] Front end to allow a non-technical user to modify and create API responses for each test case
 
 # Important disclaimer
 
-The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different
-sets, helping to establish and build on them.
+The code here does not yet represent work I'd submit for production code-review.  Standards differ, and I have worked within many different sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
