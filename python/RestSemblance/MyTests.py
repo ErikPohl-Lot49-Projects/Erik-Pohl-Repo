@@ -1,3 +1,5 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 from unittest import mock
 import logging
 import sys
@@ -5,6 +7,14 @@ from sample_client_in_need_of_mocking import GetStudentAndCourse
 from Semblance import Semblance, semblance_mocked_requests_get, inccurrentcase
 from Semblance import startCaptureOutput, stopCapturedOutput
 
+__author__ = "Erik Pohl"
+__copyright__ = "None"
+__credits__ = ["Erik Pohl"]
+__license__ = "GPL"
+__version__ = "1.0.0"
+__maintainer__ = "Erik Pohl"
+__email__ = "erik.pohl.444@gmail.com"
+__status__ = "Beta"
 
 class MyTestCases(Semblance):
     '''
@@ -20,13 +30,8 @@ class MyTestCases(Semblance):
         :param kwargs: not needed
         :return: True
         '''
-        try:
-            while True:
-                print("Incremented to ", Semblance.currentcase)
-                GetStudentAndCourse()
-                inccurrentcase()
-        except:
-            pass
+        for i in inccurrentcase():
+            GetStudentAndCourse()
         return True
 
     def test_capture_stdout(self, *args, **kwargs):
