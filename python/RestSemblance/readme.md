@@ -29,7 +29,7 @@ They build a file containing the following for each test case:
 * a test case name
 * a list of positional argument values for the process test case
 * a list of keyword arguments values for the process test case
-* the endpoints the function will use plus faked data for each endpoint for that test case
+* the endpoints the process will use plus faked data for each endpoint for that test case
 
 Meanwhile, your developers are building the process.
 
