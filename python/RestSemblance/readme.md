@@ -10,7 +10,7 @@ Your team has sketched out some process to utilize the company's brand-new Rest 
 You're ready to implement the process, called Parrot.  
 
 Parrot takes two parameters and adds them.
-It then takes a key value from a request to the foo endpoint and a key value from the bar endpoint and adds those.
+It then takes a key value from a request to the *foo* endpoint and a key value from the *bar* endpoint and adds those.
 It multiples the two sums and returns that.
 
 The problem?  
