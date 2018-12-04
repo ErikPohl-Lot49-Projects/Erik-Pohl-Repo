@@ -1,6 +1,6 @@
 # Semblance 
 
-# A Use Case 
+## A Use Case 
 
 Your team has sketched out some process to utilize the company's brand new Rest API endpoints:
 
@@ -37,7 +37,7 @@ The developers plug their process into the test cases using a Semblance engine, 
 
 Meanwhile, the QA team is adding more and more cases, independent of the code base.
 
-# Origin Story
+## Origin Story
 
 Every superhero needs an origin story, right?  Preferably one which establishes the motivation for that hero's mission!
 
@@ -55,7 +55,7 @@ That's why I made RestSemblance.  However, first, it was called DDRestTest, then
 
 Coming from an origin of hard-coded Rest API responses, it protects the business logic and the test engine by keeping them separate!
 
-# How?
+## How?
 
 For now, you simply store test cases, each with any number of API endpoints to be mocked, in a dictionary pickle file.
 
@@ -81,14 +81,14 @@ I started out with RestSemblance, then added the capability to capture stdout ou
 
 If I accomplish that, it will be called Semblance.  If I don't, I'll leave it as RestSemblance and make everything consistent.
 
-### What it doesn't do
+## What it doesn't do
 
 * Instead of storing the business logic in a database as originally designed, it stores the business logic in a pickle file
 * It does not contain expected results for test cases: the unittest file which utilizes Semblance will need to supply those
 * Refactoring, refactoring, refactoring.  I look at this code and shake my head.  Everwhere there is opportunity to clean the code up!
 
 # There is a lot of work yet to be done here
-### What it will eventually do
+## What it will eventually do
 
 - [ ] It will eventually look cleaner and more clearly patterned
 - [ ] I'm deciding whether or not to build in functionality here for mocked database reads, mocked file reads, etc.
@@ -96,7 +96,7 @@ If I accomplish that, it will be called Semblance.  If I don't, I'll leave it as
 - [x] I'd like to entertain the notion of storing expected results in the test case definition in the pickle file (or db)
 - [ ] Front end to allow a non-technical user to modify and create API responses for each test case
 
-# Important disclaimer
+## Important disclaimer
 
 The code here does not yet represent work I'd submit for production code-review.  Standards differ, and I have worked within many different sets, helping to establish and build on them.
 
@@ -111,11 +111,11 @@ Here are some elements I expect to be able to provide, if needed:
 
 Download these files to corresponding folders under your Python src path.
 
-### Prerequisites
+## Prerequisites
 
 I'll provide prereqs here.
 
-### Installing
+## Installing
 
 I will provide installation steps here.
 
