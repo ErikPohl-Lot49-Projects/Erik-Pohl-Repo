@@ -61,7 +61,7 @@ Some of this code is just downright experimental:
 
 In other words, this is my sandbox.  You get a peek inside what I'm curious about.  I move very fast and break a lot of things here, since I have limited evening and weekend time to move this work forward.
 
-**Code for me should not just be correct-- it should communicate, tell a story.**  
+**Code is only partly measured by how it performs as expected-- it should communicate, tell a story.**  
 
 That's what I do during my work-day.
 
