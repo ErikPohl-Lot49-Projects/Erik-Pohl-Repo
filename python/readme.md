@@ -56,10 +56,10 @@ Also, I am getting much better (some of this is Yoda-aged code for me!)  I do co
 
 Some of this code is just downright experimental:
 
-* Some code is made in such a way as to stretch out what the code does along different axis.  The early drafts are to get the code working, and the later drafts will make it more comforming to expectations in how it does that thing.
+* Some code is made in such a way as to stretch out what the code does along different axis.  The early drafts are to get the code working, and the later drafts will make it conform to expectations more in how it does that thing.
 * Some code was written deliberately hard in order to be a puzzle for my writing skills.  I learn from these anti-patterns: in constructing the code and recognizing why it would be difficult to maintain.
 
-In other words, this is my sandbox.  You get a peek inside what I'm curious about.  I move very fast and break a lot of things here, since I have limited evening and weekend time to move this work forward.
+In other words, this is my sandbox.  You get a peek inside what I'm curious about.  I move very fast and break a lot of things here, since I have limited evening and weekend time to move this work forward.  I focus on getting to green, and sometimes that means the code is not refactored when you check in.
 
 **Code is only partly measured by how it performs as expected-- it should communicate, tell a story.**  
 
