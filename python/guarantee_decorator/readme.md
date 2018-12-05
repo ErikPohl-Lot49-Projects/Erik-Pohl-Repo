@@ -14,7 +14,11 @@ The intent of this decorator was to
 
 # Future plans
 
-- [ ] Build in other validation logic for parameters (regex, list-of-value, etc.)
+- [x] Build in other validation logic for parameters: regex
+- [ ] Build in other validation logic for parameters: list of values
+- [ ] Build in other validation logic for parameters: function
+- [ ] Build in other validation logic for parameters: type
+- [ ] Unite the guarantees under one decorator
 - [ ] Allow for different outcomes for validation failure
 - [ ] Add example code snippets
 - [ ] Do the below from the disclaimer
@@ -27,9 +31,7 @@ sets, helping to establish and build on them.
 Here are some elements I expect to be able to provide, if needed:
 
 - [ ] A complete regression test suite.
-
 - [ ] Meaningful exceptions and exception-handling coverage.
-
 - [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
 ## Getting Started
