@@ -96,9 +96,10 @@ b) Requirements documents, user-facing documents and presentations, and other do
 - [x] Make this a class definition.
 - [x] Rework example cases in GitHub repo to be up-to-date with current revisions.
 - [ ] Provide additional demo usage cases.
-- [ ] Tie this to the list_of_xs_sorter.
+- [ ] Tie this to the list_of_xs_sorter by producing a list of dicts output for mass querying.
 - [ ] Re-evaluate the output format.
 - [ ] Change regex value matchers to include also functional value matchers?
+- [ ] Consider concurrency when querying lots of input data in the mass query function.
 
 ## Getting Started
 
