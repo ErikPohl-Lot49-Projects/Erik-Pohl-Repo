@@ -1,5 +1,7 @@
 # Semblance 
 
+**Disclaimer: This is _not_ how I write classes and functions.  This is my Picasso-ing of a class for a particular effect.  I'm going to make it more Chuck Close than Picasso going forward.**
+
 ## A Use Case 
 
 Your team has sketched out some process to utilize the company's brand-new Rest API endpoints:
