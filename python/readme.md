@@ -38,7 +38,9 @@ Here are some elements I expect to be able to provide, if needed:
 
 ![Yoda doesn't like code smells](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/code_smell.jpg "Stinks it does.")
 
-I don't like code smells.  On the job, I'm ever-vigilant about them.
+**_I don't like code smells._**  
+
+On the job, I'm ever-vigilant about them.
 
 Python is not my day-job.  I taught myself Python on nights and weekends because I love the language.
 
@@ -50,9 +52,20 @@ _Why do I have Python code up here with bad code smells?_
 
 I want to demonstrate I can write a rough draft of Python code to do a variety of things.
 
-Also, I am getting much better (some of this is Yoda-aged code for me!)  I do come back periodically and clean it up.
+Also, I am getting much better (some of this is Yoda-aged code for me!)  I do come back periodically and clean it up.  
 
-Were Python my day-job, I'd apply the same level of ever-vigilance to it, and I would address the code during a work day when I'm still fresh (have coffee / tea in me).
+Some of this code is just downright experimental:
+
+* Some code is made in such a way as to stretch out what the code does along different axis.  The early drafts are to get the code working, and the later drafts will make it more comforming to expectations in how it does that thing.
+* Some code was written deliberately hard in order to be a puzzle for my writing skills.  I learn from these anti-patterns: in constructing the code and recognizing why it would be difficult to maintain.
+
+In other words, this is my sandbox.  You get a peek inside what I'm curious about.  I move very fast and break a lot of things here, since I have limited evening and weekend time to move this work forward.
+
+**Code for me should not just be correct-- it should communicate, tell a story.**  
+
+That's what I do during my work-day.
+
+Were Python my day-job, I'd apply the same level of ever-vigilance to it as I have over time in other languages, and I would address the code during a work day when I'm still fresh (have coffee / tea in me).  
 
 Some of my better work is not in this repo because it is protected by an obligation to one or more companies.
 
