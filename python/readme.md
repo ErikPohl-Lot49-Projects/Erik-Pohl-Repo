@@ -12,8 +12,6 @@ _JnesaisQ_
 
 _list_of_xs_sorter_
 
-_RestSemblance_
-
 I plan on building on these so they work together and so the list_of_Xs_sorter uses a design pattern to handle all of the different lists of Xs it can sort.
 As I move forward, I will go back and refactor for style and clarity my former work, including adding the details below:
 
