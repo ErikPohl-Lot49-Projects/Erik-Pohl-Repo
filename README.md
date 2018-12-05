@@ -13,6 +13,9 @@ You can read some of my stories or series on [Medium](https://medium.com/@erikpo
 ## Here's a more recent photo of me:
 ![I'm the taller one](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/more_recent.jpg "I'm the taller one")
  (I'm the taller one)
+ 
+ ## Here is the ghost author of my code and presentations, my cat Fritz:
+![OctoFritz](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/octofritz.jpg "OctoFritz")
 
 ## Python
 
