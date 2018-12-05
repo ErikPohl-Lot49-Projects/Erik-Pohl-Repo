@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-from guarantee import guarantee
+from guarantee import guarantee_regex, guarantee_variable_names
 
 __author__ = "Erik Pohl"
 __copyright__ = "None"
@@ -12,7 +12,7 @@ __email__ = "erik.pohl.444@gmail.com"
 __status__ = "Beta"
 
 
-@guarantee('n')
+@guarantee_regex({'n':'.*'})
 def fibonacci_keywordarg_guarantee(**kwargs):
     """uses guarantee decorator to guarantee a particular
     variable name is used with keyword
@@ -45,3 +45,17 @@ print(
 print(
     fibonacci_keywordarg_standard_mandatory(n=9)
 )
+
+
+@guarantee_variable_names({'n':'.*'},{'x':'.*'})
+def printout_guarantee(**kwargs):
+    """uses guarantee decorator to guarantee a particular
+    variable name is used with keyword
+    arguments passed into an open-ended keyword argument"""
+    print(kwargs['n'], kwargs['x'])
+
+printout_guarantee(n = 1, x= 2)
+try:
+    printout_guarantee(n=1)
+except:
+    print("it worked!")
