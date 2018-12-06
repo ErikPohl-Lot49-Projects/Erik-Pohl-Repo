@@ -18,7 +18,8 @@ __maintainer__ = "Erik Pohl"
 __email__ = "erik.pohl.444@gmail.com"
 __status__ = "Beta"
 
-# TODO: either make this work or back out thelooping logic back into the calling 
+# TODO: Monkey patching [for Semblance]
+# TODO: either make this work or back out thelooping logic back into the calling
 #  unittest and let it handle expected results and parameters
 # TODO: set case counter to 10 to make it blow up and test custom exception
 # TODO: Semblance
@@ -70,6 +71,10 @@ def inccurrentcase():
 
 def startCaptureOutput():
     '''
+    deprecated: use the redirect context manager instead
+    :return:
+    '''
+    '''
     Start capturing stdout output
     :return: True
     '''
@@ -79,6 +84,10 @@ def startCaptureOutput():
 
 
 def stopCapturedOutput():
+    '''
+    deprecated: use the redirect context manager instead
+    :return:
+    '''
     '''
     End capturing stdout output
     and return it
