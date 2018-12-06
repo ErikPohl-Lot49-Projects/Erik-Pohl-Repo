@@ -81,7 +81,7 @@ Up next, obviously: create a front-end which will allow a non-technical user to 
 
 There is a certain crisis of identity going on here.
 
-I started out with RestSemblance, then added the capability to capture stdout output for comparison against expected results, and now I'm wanting to expand this simple tool to handle other forms of mocked dependencies (file loads, function calls, etc.)
+I started out with RestSemblance, and now I'm wanting to expand this simple tool to handle other forms of mocked dependencies (file loads, function calls, etc.)
 
 If I accomplish that, it will be called Semblance.  If I don't, I'll leave it as RestSemblance and make everything consistent.
 
