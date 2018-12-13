@@ -144,10 +144,11 @@ class JnesaisQ:
         :param list_of_JSON_to_query: the list of JSON to apply the query to
         :return: list of matching JSON
         '''
-        output_list_of_dicts = []
-        for JSON_to_query in list_of_JSON_to_query:
-            if self.overall_result(
-                    self.compare(JSON_to_query=JSON_to_query)
-            ) in (['OR_match_mismatch'], ['AND_match']):
-                output_list_of_dicts.append(JSON_to_query)
+        output_list_of_dicts = [
+            JSON_to_query for JSON_to_query in list_of_JSON_to_query if self.overall_result(
+                self.compare(
+                    JSON_to_query=JSON_to_query
+                    )
+                ) in (['OR_match_mismatch'], ['AND_match'])
+            ]
         return output_list_of_dicts
