@@ -18,7 +18,7 @@ print(demo_usage.xlate_to_str(output_format))
 print(demo_usage.xlate_to_dict())
 
 output_format = '{0} {1}, born on {2}, lives in {3} and prefers {4}'
-demo_usage = xlate(input_string, input_del, None)
+demo_usage = xlate(input_string, input_del)
 print(demo_usage.xlate_to_str(output_format))
 print(demo_usage.xlate_to_dict())
 
