@@ -73,15 +73,15 @@ Thanks in advance for holding your nose!
 
 # Python High-Level To Do
 ## Design pattern gists to complete
-- [ ] Factory Method
-- [ ] Adapter
-- [ ] Composite	
-- [ ] Flyweight	
-- [ ] Interpreter	
-- [ ] Observer	
-- [ ] Strategy	
-- [ ] Template Method	
-- [ ] Vistor	
+- [x] Factory Method
+- [x] Adapter
+- [x] Composite	
+- [x] Flyweight	
+- [x] Interpreter	
+- [x] Observer	
+- [x] Strategy	
+- [x] Template Method	
+- [x] Vistor	
 
 
 
