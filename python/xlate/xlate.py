@@ -8,7 +8,7 @@ Created on Dec 13, 2018
 
 class xlate:
     
-    def __init__(self, xlate_input, xlate_delimiter, xlate_input_format):
+    def __init__(self, xlate_input, xlate_delimiter, xlate_input_format=None):
         self.input = xlate_input
         self.input_delimiter = xlate_delimiter
         self._input_list = self.input.split(self.input_delimiter)
