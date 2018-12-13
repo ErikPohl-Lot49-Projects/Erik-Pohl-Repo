@@ -148,6 +148,6 @@ class JnesaisQ:
         for JSON_to_query in list_of_JSON_to_query:
             if self.overall_result(
                     self.compare(JSON_to_query=JSON_to_query)
-            ) in ("OR_match_mismatch", "AND_match"):
+            ) in (['OR_match_mismatch'], ['AND_match']):
                 output_list_of_dicts.append(JSON_to_query)
         return output_list_of_dicts
