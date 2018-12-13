@@ -11,6 +11,7 @@ class xlate:
     def __init__(self, xlate_input, xlate_delimiter, xlate_input_format):
         self.input = xlate_input
         self.input_delimiter = xlate_delimiter
+        self._input_list = self.input.split(self.input_delimiter)
         self.input_format = xlate_input_format
 
 
@@ -23,7 +24,7 @@ class xlate:
         if self.input_format:
             return output_format.format(**self.xlate_to_dict())
         else:
-            return (output_format.format(*self.input.split(self.input_delimiter)))
+            return (output_format.format(*self._input_list))
     
     def xlate_to_dict(self):
         '''
@@ -34,14 +35,8 @@ class xlate:
         return {
             k:v for (k,v) in zip(
                 self.input_format if self.input_format else [
-                    str(x) for x,_ in enumerate(
-                        self.input.split(
-                            self.input_delimiter
-                            )
-                        )
-                    ]
-                , self.input.split(
-                    self.input_delimiter
-                    )
+                    str(x) for x,_ in enumerate(self._input_list)
+                    ], 
+                self._input_list
                 )
             }
