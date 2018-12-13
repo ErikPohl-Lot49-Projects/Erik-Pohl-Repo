@@ -15,6 +15,18 @@ class xlate:
         self.input_format = xlate_input_format
 
 
+    def convert_to_positional(self, astring):         
+        return astring
+
+    def xlate_to_str_pos_override(self, output_format):
+        '''
+        takes an input, splits it by delimiter, applies a list of columns in the input_format,
+        and returns fields in a string based on the output_format
+        works on positional and non positional output
+        '''
+        self.convert_to_positional(output_format)
+        return (output_format.format(*self._input_list))
+
     def xlate_to_str(self, output_format):
         '''
         takes an input, splits it by delimiter, applies a list of columns in the input_format,
