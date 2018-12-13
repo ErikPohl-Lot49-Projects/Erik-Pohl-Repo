@@ -18,6 +18,9 @@ test_json_str = '{"hello": "1", "zap": {"h1": ' \
 json_query_format_str = '{"zap": {"h1": ".*"}, "hello": ".*"}'
 test_json = loads(test_json_str)
 json_query_format = loads(json_query_format_str)
+test_json_list = []
+for i in range(5):
+    test_json_list.append(test_json)
 print("starting test_json", test_json)
 print("starting json_query_format", json_query_format)
 
@@ -26,3 +29,6 @@ result = JNSQ.compare(test_json,  debug_mode=0)
 print("mismatches", result.json_query_mismatches)
 print("matches", result.json_query_matches)
 print("Overall result", JNSQ.overall_result(result))
+
+print("testing a list of test json dictionaries")
+print(JNSQ.list_of_compares(test_json_list))
