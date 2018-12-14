@@ -46,8 +46,7 @@ print(demo_usage.to_string_using_keyword_format(output_format))
 print(demo_usage.to_dictionary())
 ````
 
-#### Now, let's try outputting that positionally-designated input one more time -- remember, no keyword designations
-#### but this time let's force a keyword output format to be positional instead
+#### Now, let's try outputting that positionally-designated input one more time -- remember, no keyword designations but this time let's force a keyword output format to be positional instead
 
 #### Here's the output format-- a keyword-designated one
 ````
