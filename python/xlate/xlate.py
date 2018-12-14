@@ -62,10 +62,17 @@ class xlate:
         and returns fields in a dict
         '''
         return {
-            k: v for (k, v) in zip(
-            self.input_format if self.input_format else [
-                str(x) for x, _ in enumerate(self._input_list)
+            key: value
+            for (key, value)
+            in zip(
+            self.input_format
+            if self.input_format
+            else [
+                str(field_position)
+                for field_position, _
+                in enumerate(
+                    self._input_list
+                )
             ],
-            self._input_list
-        )
+            self._input_list)
         }
