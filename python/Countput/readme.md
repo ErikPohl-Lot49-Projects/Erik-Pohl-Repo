@@ -1,7 +1,7 @@
 # Countput 
 
 
-Countput extends Pythons Counter class from Collections to provide different styles of output and return values.
+Countput extends Python's Counter class from Collections to provide different styles of output and return values.
 
 Is Counter perfect?  _Of course_
 
