@@ -1,64 +1,62 @@
 # xlate
 
 
-Missing the switch from C and the case from PL/SQL, I looked and found this reason why there is no equivalent in Python:
-
->A quick poll during my keynote presentation at PyCon 2007 shows this proposal has no popular support. I therefore reject it.
-
-(Courtesy: https://www.python.org/dev/peps/pep-3103/)
-
-So I did what surely nobody in the history of Python has done, and I made a switch class.
-
-# Features
-
-1. Allows you to assign breaks to conditions, otherwise will fall through to the end of the switch, evaluating every clause.
-2. Looks prettier than a bunch of elifs.
-
-*And I think Pollock's abstraction is pretty*:
-
-![Convergence](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/convergence_u-l-ehp4w0.jpg "Eye of the beholder")
+This class encapsulates logic to convert a string input from one format into another string format, or into a dictionary.
+** Note: I will likely change the init parameters to be focused on the formats, not the input value itself **
 
 # Example usage
 
 #### Import the switch_class
 ```
-from switch_class import switch
+from xlate import xlate
 ```
 
-#### Set up a function which serves as a switch condition
+#### Set up the class with an input string, an input string delimiter, and an input format
 ```
-def foo():
-    return ['1','2']
+input_string = 'pohl erik 9/2/72 python arlington'
+input_del = ' '
+input_format = ['lname', 'fname', 'bdate', 'language_of_choice', 'hometown']
+demo_usage = xlate(input_string, input_del, input_format)
 ```
 
-#### Create a switch object with a default value
+#### Specify an output format with keyword fields
 ````
-my_switch = switch('Not found')
-````
-
-#### Add in switch conditions to be evaluated in order
-````
-my_switch.add_switch_clause('2', 'Two',False)
-my_switch.add_switch_clause(['2','3'], 'Three',False)
-my_switch.add_switch_clause(foo(), 'X',False)
-my_switch.add_switch_clause('4', 'Four',True)
-my_switch.add_switch_clause('4', 'Should not get here',True)
+output_format = '{fname} {lname}, born on {bdate}, lives in {hometown} and prefers {language_of_choice}'
 ````
 
-#### Execute the switch condition for some compare values and output the result
+#### Using all the input definitions and the output format, output it as a string and then as a dictionary
 ````
-print(my_switch.execute_switch('1'))
-print(my_switch.execute_switch('2'))
-print(my_switch.execute_switch('5'))
-print(my_switch.execute_switch('4'))
+print(demo_usage.to_string_using_keyword_format(output_format))
+print(demo_usage.to_dictionary())
 ````
 
-#### Check the results
+#### Now, let's try an output format with positionally-designated fields
 ````
-['X']
-['Two', 'Three', 'X']
-Not found
-['Four']
+output_format = '{0} {1}, born on {2}, lives in {3} and prefers {4}'
+````
+
+#### This time, our input will be specified with no input format-- just an input string and delimiters
+````
+demo_usage = xlate(input_string, input_del)
+````
+
+#### Let's output the contents of our input in the positionally-designated output format as a string then as a dictionary
+````
+print(demo_usage.to_string_using_keyword_format(output_format))
+print(demo_usage.to_dictionary())
+````
+
+#### Now, let's try outputting that positionally-designated input one more time -- remember, no keyword designations
+#### but this time let's force a keyword output format to be positional instead
+
+#### Here's the output format-- a keyword-designated one
+````
+output_format = '{fname} {lname}, born on {bdate}, lives in {hometown} and prefers {language_of_choice}'
+````
+
+#### Here's us outputting it as a string using forced positional fields
+````
+print(demo_usage.to_string_forcing_positional(output_format))
 ````
 
 # Important disclaimer
