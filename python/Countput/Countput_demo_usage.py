@@ -11,6 +11,6 @@ word_list = word_sentence.split(' ')
 
 
 MyCountput = Countput(word_list)
-print(MyCountput.return_list(2, ' - '))
-MyCountput.output_topn(2, ' - ')
+print('return_list : ' + str(MyCountput.return_list(2, ' - ')))
+MyCountput.output_topn(2, ' - Value:', '[Term: ', " ]")
 print(MyCountput.return_dict())
