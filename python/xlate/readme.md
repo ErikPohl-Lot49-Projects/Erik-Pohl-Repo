@@ -1,7 +1,7 @@
 # xlate
 
 
-This class encapsulates logic to convert a string input from one format into another string format, or into a dictionary.
+This class encapsulates logic to convert a string input from one string format into another string format, or into a dictionary.
 
 
 # Example usage
