@@ -10,6 +10,7 @@ word_list = word_sentence.split(' ')
 
 
 
-x = Countput(word_list)
-print(x.return_list(2, ' - '))
-x.output_topn(2, ' - ')
+MyCountput = Countput(word_list)
+print(MyCountput.return_list(2, ' - '))
+MyCountput.output_topn(2, ' - ')
+print(MyCountput.return_dict())
