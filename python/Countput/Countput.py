@@ -9,26 +9,61 @@ import re
 
 class Countput(Counter):
     
-    def _mycmp(self,version1, version2):
-        def normalize(v):
-            return [int(x) for x in re.sub(r'(\.0+)*$','', v).split(".")]
+    def _version_greater_than_or_equal(
+            self,version1, version2
+            ):
+        def normalize(version_info):
+            return [
+                int(version_component) 
+                for version_component 
+                in re.sub(r'(\.0+)*$','', version_info).split(".")
+                ]
         return normalize(version1) >=  normalize(version2) 
     
- 
-    def return_list(self, n = None, delimiter = ' '):
-        z= [delimiter.join([str(x) for x in i]) for i in self.most_common(n)]
-        return z
+    def return_topn_as_list_of_strings(
+            self, 
+            n = None, 
+            delimiter = ' ', 
+            prefix = '', 
+            suffix = ''):
+        return [
+            prefix + delimiter.join(
+                [
+                    str(frequency_data) for frequency_data in frequency_tuple
+                    ]
+                ) + suffix for frequency_tuple in self.most_common(n)
+            ]
         
+    def formatted_topn_output(self, n = None, delimiter = ' ', prefix = '', suffix = ''):
+        [
+            print(
+                prefix +delimiter.join(
+                    [
+                         str(frequency_data)  for frequency_data in frequency_tuple
+                         ]
+                    )+ suffix
+                ) for frequency_tuple in self.most_common(n) 
+            ]        
 
-    def output_topn(self, n = None, delimiter = ' ', prefix = '', suffix = ''):
-        [print(prefix +delimiter.join([ str(x)  for x in i])+ suffix) for i in self.most_common(n) ]        
-
-    def return_dict(self):
+    def return_as_dict(self):
         # do something different for versions of Python
         # where the dictionary is not automatically ordered
-        if self._mycmp('.'.join((str(sys.version_info.major),str(sys.version_info.minor), str(sys.version_info.micro))),"3.7.1"):
+        if self._version_greater_than_or_equal(
+            '.'.join(
+                (
+                    str(
+                        sys.version_info.major
+                        ),str(sys.version_info.minor), str(sys.version_info.micro
+                                                           )
+                        )
+                ),"3.7.1"
+            ):
             return_dictionary = {}
         else:  
             return_dictionary = OrderedDict()  
-        return_dictionary.update({frequency_tuple[0]:frequency_tuple[1] for frequency_tuple in self.most_common()})
+        return_dictionary.update(
+            {
+                frequency_tuple[0]:frequency_tuple[1] for frequency_tuple in self.most_common()
+                }
+            )
         return dict(return_dictionary)
