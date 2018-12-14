@@ -3,7 +3,7 @@
 
 Countput extends Pythons Counter class from Collections to provide different styles of output and return values.
 
-Was Counter perfect?  _Of course_
+Is Counter perfect?  _Of course_
 
 Is the word *perfecter* a good one?  _No, it is not.  It is not a good word._
 
