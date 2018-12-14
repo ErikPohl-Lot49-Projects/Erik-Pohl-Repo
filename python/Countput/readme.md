@@ -27,8 +27,13 @@ word_list = word_sentence.split(' ')
 #### Make a Countput object, print the output as a list of formatted count values, print the list with newlines
 ````
 MyCountput = Countput(word_list)
-print(MyCountput.return_list(2, ' - '))
-MyCountput.output_topn(2, ' - ')
+print('return_as_list of strings : ' + str(MyCountput.return_topn_as_list_of_strings(2, ' - Value', '[Term: ', ' ]' )))
+MyCountput.formatted_topn_output(2, ' - Value:', '[Term: ', " ]")
+````
+
+#### Return as a dictionary
+````
+print(MyCountput.return_as_dict())
 ````
 
 
