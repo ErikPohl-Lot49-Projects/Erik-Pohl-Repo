@@ -36,7 +36,7 @@ class xlate:
         positional_output_format += key_field_output_format[last_index:]
         return positional_output_format
 
-    def xlate_to_str_pos_override(self, output_format):
+    def to_string_forcing_positional(self, output_format):
         '''
         takes an input, splits it by delimiter, applies a list of columns in the input_format,
         and returns fields in a string based on the output_format
@@ -44,18 +44,18 @@ class xlate:
         '''
         return (self.convert_to_positional(output_format).format(*self._input_list))
 
-    def xlate_to_str(self, output_format):
+    def to_string_using_keyword_format(self, output_format):
         '''
         takes an input, splits it by delimiter, applies a list of columns in the input_format,
         and returns fields in a string based on the output_format
         works on positional and non positional output
         '''
         if self.input_format:
-            return output_format.format(**self.xlate_to_dict())
+            return output_format.format(**self.to_dictionary())
         else:
             return (output_format.format(*self._input_list))
 
-    def xlate_to_dict(self):
+    def to_dictionary(self):
         '''
         takes an input, splits it by delimiter, applies a list of columns in the input_format
         or numbers if no input format,
