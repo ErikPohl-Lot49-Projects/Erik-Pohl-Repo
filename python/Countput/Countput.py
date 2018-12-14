@@ -30,6 +30,6 @@ class Countput(Counter):
         if self.mycmp('.'.join((str(sys.version_info.major),str(sys.version_info.minor), str(sys.version_info.micro))),"3.7.1"):
             return_dictionary = {}
         else:  
-            return_dictionary = OrderedDict()   
+            return_dictionary = OrderedDict()  
         return_dictionary.update({frequency_tuple[0]:frequency_tuple[1] for frequency_tuple in self.most_common()})
-        return return_dictionary
+        return dict(return_dictionary)
