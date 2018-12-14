@@ -22,6 +22,5 @@ demo_usage = xlate(input_string, input_del)
 print(demo_usage.xlate_to_str(output_format))
 print(demo_usage.xlate_to_dict())
 
-
-
-
+output_format = '{fname} {lname}, born on {bdate}, lives in {hometown} and prefers {language_of_choice}'
+print(demo_usage.xlate_to_str_pos_override(output_format))
