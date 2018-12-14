@@ -2,7 +2,7 @@
 
 
 This class encapsulates logic to convert a string input from one format into another string format, or into a dictionary.
-** Note: I will likely change the init parameters to be focused on the formats, not the input value itself **
+**_Note: I will likely change the init parameters to be focused on the formats, not the input value itself_**
 
 # Example usage
 
