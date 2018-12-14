@@ -2,11 +2,11 @@
 
 
 This class encapsulates logic to convert a string input from one format into another string format, or into a dictionary.
-**_Note: I will likely change the init parameters to be focused on the formats, not the input value itself_**
+
 
 # Example usage
 
-#### Import the switch_class
+#### Import the xlate class
 ```
 from xlate import xlate
 ```
