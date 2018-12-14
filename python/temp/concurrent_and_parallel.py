@@ -3,6 +3,10 @@ Created on Dec 14, 2018
 
 @author: p636205
 '''
+# https://wiki.python.org/moin/Concurrency/
+# https://talkpython.fm/episodes/show/58/create-better-python-programs-with-concurrency-libraries-and-patterns
+# https://doc.lagout.org/programmation/python/Python%20in%20Practice_%20Create%20Better%20Programs%20using%20Concurrency%2C%20Libraries%2C%20and%20Patterns%20%5BSummerfield%202013-08-29%5D.pdf
+
 import threading
 from multiprocessing import Lock, Process
 
