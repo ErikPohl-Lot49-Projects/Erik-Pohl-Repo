@@ -42,7 +42,9 @@ class Countput(Counter):
             if header \
             else headless_horseman
 
-    def formatted_topn_output(self, n=None, delimiter=' ', prefix='', suffix=''):
+    def formatted_topn_output(self, *, n=None, delimiter=' ', prefix='', suffix='',header=None):
+        if header:
+            print(header)
         [
             print(
                 prefix + delimiter.join(
