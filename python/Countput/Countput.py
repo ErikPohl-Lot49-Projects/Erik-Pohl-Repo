@@ -25,18 +25,22 @@ class Countput(Counter):
 
     def return_topn_as_list_of_strings(
             self,
+            *,
             n=None,
             delimiter=' ',
             prefix='',
             suffix='',
-            header=''):
-        return [header] + [
+            header=None):
+        headless_horseman = [
             prefix + delimiter.join(
                 [
                     str(frequency_data) for frequency_data in frequency_tuple
                 ]
             ) + suffix for frequency_tuple in self.most_common(n)
-        ]
+            ]
+        return [header] + headless_horseman \
+            if header \
+            else headless_horseman
 
     def formatted_topn_output(self, n=None, delimiter=' ', prefix='', suffix=''):
         [
