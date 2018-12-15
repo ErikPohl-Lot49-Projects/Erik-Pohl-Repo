@@ -21,11 +21,13 @@ print(
           )
       )
 )
-print('return_as_list of strings for sort_as_list_of_strings: ' +
-      str(
+
+print(
+    'return_as_list of strings for sort_as_list_of_strings: ' + str(
           MyCountput.return_topn_as_list_of_strings(n=2)
       )
-      )
+)
+
 MyCountput.formatted_topn_output(
     n=2,
     delimiter=' - Value:',
