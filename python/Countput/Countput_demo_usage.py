@@ -21,5 +21,5 @@ print('return_as_list of strings for sort_as_list_of_strings: ' +
           MyCountput.return_topn_as_list_of_strings(n=2)
       )
       )
-MyCountput.formatted_topn_output(2, ' - Value:', '[Term: ', " ]")
+MyCountput.formatted_topn_output(n=2, delimiter=' - Value:', prefix='[Term: ', suffix=" ]")
 print(MyCountput.return_as_dict())
