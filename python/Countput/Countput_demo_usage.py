@@ -22,4 +22,7 @@ print('return_as_list of strings for sort_as_list_of_strings: ' +
       )
       )
 MyCountput.formatted_topn_output(n=2, delimiter=' - Value:', prefix='[Term: ', suffix=" ]")
+
+MyCountput.formatted_topn_output(n=2, delimiter=' - Value:', prefix='[Term: ', suffix=" ]", header='Formatted Output with header:')
+
 print(MyCountput.return_as_dict())
