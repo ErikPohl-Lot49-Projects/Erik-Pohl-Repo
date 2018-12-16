@@ -4,6 +4,7 @@ import logging
 import re
 import sys
 from collections import namedtuple
+from contextlib import contextmanager
 
 __author__ = "Erik Pohl"
 __copyright__ = "None"
@@ -20,6 +21,18 @@ __status__ = "Beta"
 # OR (this clause)
 # Ultimately a json query grammar
 # With findings in json format
+
+
+@contextmanager
+def jnesaisq_compare(
+        JSON_query_clause
+):
+    jnesaiq_instance = JnesaisQ(
+        JSON_query_clause
+    )
+    yield_fun = jnesaiq_instance.compare
+    yield yield_fun
+    yield_fun = None
 
 
 class JnesaisQ:
@@ -42,12 +55,12 @@ class JnesaisQ:
         self.JSON_VALUE_MISMATCH = 'JSON_value_mismatch'
         self.JSON_query_clause = JSON_query_clause
 
-    def compare(self, JSON_to_query, JSON_query_clause=None,
-                *,
-                debug_mode=False,
-                current_JSON_path='',
-                JnesaisQ_matches=None,
-                JnesaisQ_mismatches=None):
+    def compare_verbose(self, JSON_to_query, JSON_query_clause=None,
+                        *,
+                        debug_mode=False,
+                        current_JSON_path='',
+                        JnesaisQ_matches=None,
+                        JnesaisQ_mismatches=None):
         '''
         compare_json_to_query_clause
         :param JSON_to_query: This is an input JSON which you want to query
@@ -88,12 +101,14 @@ class JnesaisQ:
             # if the format value which is being compared with
             # the test value is itself a clause, recurse
             if isinstance(JSON_query_key_value, dict):
-                x = self.compare(JSON_to_query_key_value,
-                                 JSON_query_clause=JSON_query_key_value,
-                                 current_JSON_path=current_json_path,
-                                 JnesaisQ_matches=JnesaisQ_matches,
-                                 JnesaisQ_mismatches=JnesaisQ_mismatches,
-                                 debug_mode=debug_mode)
+                x = self.compare_verbose(
+                    JSON_to_query_key_value,
+                    JSON_query_clause=JSON_query_key_value,
+                    current_JSON_path=current_json_path,
+                    JnesaisQ_matches=JnesaisQ_matches,
+                    JnesaisQ_mismatches=JnesaisQ_mismatches,
+                    debug_mode=debug_mode
+                )
             else:
                 if re.match(JSON_query_key_value, JSON_to_query_key_value):
                     JnesaisQ_matches.append(
@@ -137,6 +152,13 @@ class JnesaisQ:
             retval.append("AND_mismatch")
         return retval
 
+    def compare(self, JSON_to_query):
+        return self.overall_result(
+            self.compare_verbose(
+                JSON_to_query=JSON_to_query
+            )
+        )
+
     def list_of_compares(self, list_of_JSON_to_query):
         '''
         list of compares
@@ -144,11 +166,10 @@ class JnesaisQ:
         :param list_of_JSON_to_query: the list of JSON to apply the query to
         :return: list of matching JSON
         '''
-        output_list_of_dicts = [
-            JSON_to_query for JSON_to_query in list_of_JSON_to_query if self.overall_result(
-                self.compare(
-                    JSON_to_query=JSON_to_query
-                    )
-                ) in (['OR_match_mismatch'], ['AND_match'])
-            ]
+        output_list_of_dicts = []
+        for JSON_to_query in list_of_JSON_to_query:
+            if self.overall_result(
+                    self.compare_verbose(JSON_to_query=JSON_to_query)
+            ) in ("OR_match_mismatch", "AND_match"):
+                output_list_of_dicts.append(JSON_to_query)
         return output_list_of_dicts
