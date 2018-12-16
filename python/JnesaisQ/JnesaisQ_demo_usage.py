@@ -1,7 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 from json import loads
-from JnesaisQ import JnesaisQ
+from JnesaisQ import JnesaisQ, jnesaisq_compare
 
 __author__ = "Erik Pohl"
 __copyright__ = "None"
@@ -25,10 +25,13 @@ print("starting test_json", test_json)
 print("starting json_query_format", json_query_format)
 
 JNSQ = JnesaisQ(json_query_format)
-result = JNSQ.compare(test_json,  debug_mode=0)
+result = JNSQ.compare_verbose(test_json, debug_mode=0)
 print("mismatches", result.json_query_mismatches)
 print("matches", result.json_query_matches)
 print("Overall result", JNSQ.overall_result(result))
 
 print("testing a list of test json dictionaries")
 print(JNSQ.list_of_compares(test_json_list))
+
+with jnesaisq_compare(json_query_format) as j:
+    print(j(test_json))
