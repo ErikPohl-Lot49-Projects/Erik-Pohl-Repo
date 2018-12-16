@@ -6,10 +6,28 @@ Created on Dec 13, 2018
 @author: Erik Pohl
 '''
 
-# TODO: With
-# outputasformat(‘file.dat’, ’format’) as handle:
-# Handle.write(contents)
-# TODO: make this play nicely with countput
+from contextlib import contextmanager
+
+# TODO: make this play nicely with countput and jnesaisq
+
+
+@contextmanager
+def xlate_to_string(
+        xlate_input_delimiter,
+        xlate_input_format=None,
+        xlate_output_format=None
+):
+    xlate_instance = xlate(
+        xlate_input_delimiter,
+        xlate_input_format=xlate_input_format,
+        xlate_output_format=xlate_output_format
+    )
+    if xlate_input_format:
+        yield_fun = xlate_instance.to_string_using_keyword_format
+    else:
+        yield_fun = xlate_instance.to_string_forcing_positional
+    yield yield_fun
+    yield_fun = None
 
 
 class xlate:
@@ -17,13 +35,17 @@ class xlate:
     string format -- using keywords or positional
     -- or even into a dictionary'''
 
-    def __init__(self, xlate_input, xlate_delimiter, xlate_input_format=None):
-        self.input = xlate_input
-        self.input_delimiter = xlate_delimiter
-        self._input_list = self.input.split(self.input_delimiter)
+    def __init__(
+            self,
+            xlate_input_delimiter,
+            xlate_input_format=None,
+            xlate_output_format=None
+    ):
+        self.input_delimiter = xlate_input_delimiter
         self.input_format = xlate_input_format
+        self.output_format = xlate_output_format
 
-    def convert_to_positional(self, key_field_output_format):
+    def _convert_to_positional(self, key_field_output_format):
         '''
         converts an output format into positional from field names
         :param key_field_output_format: output format
@@ -46,7 +68,7 @@ class xlate:
         positional_output_format += key_field_output_format[last_index:]
         return positional_output_format
 
-    def to_string_forcing_positional(self, output_format):
+    def to_string_forcing_positional(self, input_data):
         '''
         takes an input, splits it by delimiter,
         applies a list of columns in the input_format,
@@ -54,12 +76,12 @@ class xlate:
         works on positional and non positional output
         '''
         return (
-            self.convert_to_positional(output_format).format(
-                *self._input_list
+            self._convert_to_positional(self.output_format).format(
+                *input_data.split(self.input_delimiter)
             )
         )
 
-    def to_string_using_keyword_format(self, output_format):
+    def to_string_using_keyword_format(self, input_data):
         '''
         takes an input, splits it by delimiter,
         applies a list of columns in the input_format,
@@ -67,11 +89,17 @@ class xlate:
         works on positional and non positional output
         '''
         if self.input_format:
-            return output_format.format(**self.to_dictionary())
+            return self.output_format.format(**self.to_dictionary(input_data))
         else:
-            return (output_format.format(*self._input_list))
+            return (
+                self.output_format.format(
+                    *input_data.split(
+                        self.input_delimiter
+                    )
+                )
+            )
 
-    def to_dictionary(self):
+    def to_dictionary(self, input_data):
         '''
         takes an input, splits it by delimiter,
         applies a list of columns in the input_format
@@ -86,9 +114,9 @@ class xlate:
                 if self.input_format
                 else [
                         str(field_position) for field_position, _ in enumerate(
-                            self._input_list
+                            input_data.split(self.input_delimiter)
                         )
                     ],
-                self._input_list
+                input_data.split(self.input_delimiter)
             )
         }
