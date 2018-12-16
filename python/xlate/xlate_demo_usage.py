@@ -11,9 +11,10 @@ from xlate import xlate
 input_string = 'pohl erik 9/2/72 python arlington'
 input_del = ' '
 input_format = ['lname', 'fname', 'bdate', 'language_of_choice', 'hometown']
-output_format = '{fname} {lname}, born on {bdate}, lives in {hometown} and prefers {language_of_choice}'
-
 demo_usage = xlate(input_string, input_del, input_format)
+
+output_format = '{fname} {lname}, born on {bdate}, ' \
+                'lives in {hometown} and prefers {language_of_choice}'
 print(demo_usage.to_string_using_keyword_format(output_format))
 print(demo_usage.to_dictionary())
 
@@ -22,5 +23,6 @@ demo_usage = xlate(input_string, input_del)
 print(demo_usage.to_string_using_keyword_format(output_format))
 print(demo_usage.to_dictionary())
 
-output_format = '{fname} {lname}, born on {bdate}, lives in {hometown} and prefers {language_of_choice}'
+output_format = '{fname} {lname}, born on {bdate}, ' \
+                'lives in {hometown} and prefers {language_of_choice}'
 print(demo_usage.to_string_forcing_positional(output_format))
