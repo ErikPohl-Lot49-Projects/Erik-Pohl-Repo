@@ -87,8 +87,7 @@ sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
-a) Linting the code for PEP 8 standardization.
-b) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+a) Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
 ## Future work
 
