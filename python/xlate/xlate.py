@@ -12,7 +12,7 @@ from contextlib import contextmanager
 
 
 @contextmanager
-def xlate_to_string(
+def xlate_string_formats(
         xlate_input_delimiter,
         xlate_input_format=None,
         xlate_output_format=None
