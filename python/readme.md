@@ -82,6 +82,25 @@ Thanks in advance for holding your nose!
 - [x] Strategy	
 - [x] Template Method	
 - [x] Vistor	
+## Other
+- [ ] Sum/Aggregate of JnesaisQ?
+- [ ] Tools for PyJamb
+- [ ] Tools for Fast Hammer (Dedup/Redup)
+- [ ] More Countput result formats
+- [ ] Desigm Patterns Presentation
+- [ ] Design Patterns Wiki
+- [ ] PEP8 Design Pattern Gists
+- [ ] ML Presentation
+- [ ] Django Tutorial
+- [ ] Rewrite Blister using tools (term count)
+- [ ] Rewrite Velodrome using tools (ETL)
+- [ ] Revisit Validations in Guarantee
+- [ ] Mandatory fields and/or validations in xlate
+- [ ] Concurrency in JnesaisQ list query
+- [ ] xlate date format and custom field type support
+- [ ]    field_validate?  custom rules
+- [ ]    field_xlate?   custom rules
+- [ ] tool driven Stopwatch (next side-project)
 
 
 
