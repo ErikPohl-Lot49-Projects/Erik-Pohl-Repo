@@ -32,7 +32,25 @@ def foo():
     return ['1','2']
 ```
 
-#### Create a switch object with a default value
+#### The easiest usage is as a context manager
+````
+with switch_compare(
+    'Not found', 
+    [
+        ('2', 'Two',False), 
+        (['2','3'], 'Three',False), 
+        (foo(), 'X',False), 
+        ('4', 'Four',True), 
+        ('4', 'Should not get here',True)
+        ]
+    ) as x:
+    print(x('1'))
+    print(x('2'))
+    print(x('5'))
+    print(x('4'))
+````
+
+#### OR you can create a switch object with a default value
 ````
 my_switch = switch('Not found')
 ````
