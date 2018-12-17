@@ -9,9 +9,9 @@ Your team has sketched out some process to utilize the company's brand-new Rest 
 * https://<i></i>www<i></i>&#46;par<i></i>acme&#46;com/<i></i>foo
 * https://<i></i>www<i></i>&#46;par<i></i>acme&#46;com/<i></i>bar
 
-You're ready to implement the process, called Parrot.  
+You're ready to implement the new process you just designed, called Dead Parrot.  
 
-Parrot takes two parameters and adds them.
+Dead Parrot takes two parameters and adds them.
 It then takes a key value from a request to the *foo* endpoint and a key value from the *bar* endpoint and adds those.
 It multiples the two sums and returns that.
 
@@ -19,25 +19,25 @@ It multiples the two sums and returns that.
 
 _The APIs dependencies are not created yet.  They're behind schedule._
 
-No worries... just get your QA team to fake results for the API calls to help you test your process.  
+No worries... just get your QA team to fake results for the API calls to help you test Dead Parrot (your new process).  
 
 *But wait!*
 
 **How can we do it cleanly?**
 
-The QA team can start building test cases immediately.  They set to work constructing a set of test cases for Parrot.
+The QA team can start building test cases immediately.  They set to work constructing a set of test cases for Dead Parrot.
 
 They build a file containing the following for each test case:
 * a test case name
 * a list of positional argument values for the process test case
 * a list of keyword arguments values for the process test case
-* the endpoints the process will use plus faked data for each endpoint for that test case
+* the endpoints your new process (Dead Parrot) will use, plus faked data for each endpoint for that test case
 
-Meanwhile, your developers are building the process.
+Meanwhile, your developers are building the Dead Parrot process itself.
 
 By the time the developers are ready for a test case, QA has a list of them constructed, none of which took any coding at all.
 
-The developers plug their process into the test cases using a Semblance engine, and **wham!** your team's testing, resolution, refactoring cycle has begun for all of the existing test cases.
+The developers plug their Dead Parrot process into the test cases using a Semblance engine, and **wham!** your team's cycle of testing, resolution, refactoring has begun in earnest for all of the existing test cases.
 
 Meanwhile, the QA team is adding more and more cases, independent of the code base.
 
