@@ -49,35 +49,45 @@ ANDs and ORs are diagnosed by a overall_result diagnosis.
 #### Import some stuff
 ````
 from json import loads
-from JnesaisQ import JnesaisQ
+from JnesaisQ import JnesaisQ, jnesaisq_compare
 ````
 
-#### Create demo case 1
+#### Create the demonstration case
+#### test_json_str is the JSON to be queried
+#### json_query_format_str is the JSON query itself-- a subset of JSON keys with regex for pattern-matching values
+#### test_json_list will be used to test repetetive queries of JSON using the query format
 ````
-test_json_str =         '{"hello": "1", "zap": {"h1": "one", "h2": "two", "single": "."}}'
+test_json_str = '{"hello": "1", "zap": {"h1": ' \
+                '"one", "h2": "two", "single": "."}}'
 json_query_format_str = '{"zap": {"h1": ".*"}, "hello": ".*"}'
 test_json = loads(test_json_str)
 json_query_format = loads(json_query_format_str)
+test_json_list = []
+for i in range(5):
+    test_json_list.append(test_json)
 print("starting test_json", test_json)
 print("starting json_query_format", json_query_format)
 ````
 
-#### Run demo case 1
+#### The easiest way to use basic JnesaisQ functionality: with a context manager handle
+````
+with jnesaisq_compare(json_query_format) as j:
+    print(j(test_json))
+````
+
+#### Instantiate JnesaisQ and get the verbose output for a query along with an overall result
 ````
 JNSQ = JnesaisQ(json_query_format)
-result = JNSQ.compare(test_json,  debug_mode=0)
+result = JNSQ.compare_verbose(test_json, debug_mode=0)
 print("mismatches", result.json_query_mismatches)
 print("matches", result.json_query_matches)
 print("Overall result", JNSQ.overall_result(result))
 ````
 
-#### Output from case 1
+#### Executing a query against a list 
 ````
-starting test_json {'hello': '1', 'zap': {'h1': 'one', 'h2': 'two', 'single': '.'}}
-starting json_query_format {'zap': {'h1': '.*'}, 'hello': '.*'}
-mismatches []
-matches [json_query_finding(current_json_path='/zap/h1', actual_finding_value='one'), json_query_finding(current_json_path='/hello', actual_finding_value='1')]
-Overall result ['AND_match']
+print("testing a list of test json dictionaries")
+print(JNSQ.list_of_compares(test_json_list))
 ````
 
 # Important disclaimer
@@ -94,9 +104,9 @@ a) Requirements documents, user-facing documents and presentations, and other do
 - [x] Lint the code and clean up.
 - [x] Make this a class definition.
 - [x] Rework example cases in GitHub repo to be up-to-date with current revisions.
-- [ ] Provide additional demo usage cases.
-- [ ] Tie this to the list_of_xs_sorter by producing a list of dicts output for mass querying.
-- [ ] Re-evaluate the output format.
+- [x] Provide additional demo usage cases.
+- [x] Tie this to the list_of_xs_sorter by producing a list of dicts output for mass querying.
+- [x] Re-evaluate the output format.
 - [ ] Change regex value matchers to include also functional value matchers?
 - [ ] Consider concurrency when querying lots of input data in the mass query function.
 
