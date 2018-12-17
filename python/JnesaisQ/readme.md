@@ -53,7 +53,7 @@ from JnesaisQ import JnesaisQ, jnesaisq_compare
 ````
 
 #### Create the demonstration case
-* **_test_json_str_ is the JSON to be queried*
+* **_test_json_str_ is the JSON to be queried**
 * **_json_query_format_str_ is the JSON query itself-- a subset of JSON keys with regex for pattern-matching values**
 * **_test_json_list_ will be used to test repetetive queries of JSON using the query format**
 ````
