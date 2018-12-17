@@ -6,7 +6,8 @@ This class encapsulates logic to convert a string input from one string format i
 
 # Example usage
 
-#### The easiest way to use it is with a context manager which assumes string format to string format (not dictionary) conversions
+### The easiest way to use xlate is with a context manager 
+### (The context manager assumes string format to string format (not dictionary) conversions)
 
 #### Import the tool
 ````
@@ -43,6 +44,8 @@ with xlate_string_formats(
 ) as f:
     [print(f(input_string)) for input_string in input_strings]
 ````
+
+### Or you can use xlate as an explicitly instantiated class
 
 #### Here is a use importing the xlate class explicitly
 ```
