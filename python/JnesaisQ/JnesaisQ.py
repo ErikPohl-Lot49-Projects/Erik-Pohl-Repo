@@ -106,7 +106,7 @@ class JnesaisQ:
             # if the format value which is being compared with
             # the test value is itself a clause, recurse
             if isinstance(JSON_query_key_value, dict):
-                x = self.compare_verbose(
+                _ = self.compare_verbose(
                     JSON_to_query_key_value,
                     JSON_query_clause=JSON_query_key_value,
                     current_JSON_path=current_json_path,
