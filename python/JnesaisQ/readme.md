@@ -88,7 +88,7 @@ with jnesaisq_compare(json_query_format) as j:
     print(j(test_json))
 ````
 
-#### Instantiate JnesaisQ and get the verbose output for a query along with an overall result
+#### OR you can instantiate JnesaisQ and get the verbose output for a query along with an overall result
 ````
 JNSQ = JnesaisQ(json_query_format)
 result = JNSQ.compare_verbose(test_json, debug_mode=0)
