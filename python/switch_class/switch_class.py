@@ -1,5 +1,22 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+from contextlib import contextmanager
+
+@contextmanager
+def switch_compare(
+        switch_default, switch_list
+):
+    switch_instance = switch(
+        switch_default
+    )
+    for i in switch_list:
+        switch_instance.add_switch_clause(*i)
+    yield_fun = switch_instance.execute_switch
+    yield yield_fun
+    yield_fun = None
+
+
 class switch:
     '''
     Damn the torpedoes (https://www.python.org/dev/peps/pep-3103/),
