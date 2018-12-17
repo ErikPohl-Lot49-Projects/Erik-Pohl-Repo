@@ -6,7 +6,7 @@ This class encapsulates logic to convert a string input from one string format i
 
 # Example usage
 
-### The easiest way to use it is with a context manager which assumes string format to string format (not dictionary) conversions
+#### The easiest way to use it is with a context manager which assumes string format to string format (not dictionary) conversions
 
 #### Import the tool
 ````
