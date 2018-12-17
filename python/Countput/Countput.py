@@ -1,3 +1,5 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 '''
 Created on Dec 14, 2018
 
@@ -6,11 +8,15 @@ Created on Dec 14, 2018
 from collections import Counter, OrderedDict
 import sys
 import re
+# this is problematic, so I won't use it
+# from ..version_compare import version_compare
 
+class version_compare:
 
-class Countput(Counter):
+    def __init__(self):
+        self._current_version = sys.version.split(' ')[0]
 
-    def _version_greater_than_or_equal(self, version1, version2):
+    def current_version_greater_than_or_equal_than(self,compare_version):
         def normalize(version_info):
             return [
                 int(version_component)
@@ -18,7 +24,9 @@ class Countput(Counter):
                 in re.sub(
                     r'(\.0+)*$', '', version_info).split(".")
             ]
-        return normalize(version1) >= normalize(version2)
+        return normalize(self._current_version) >= normalize(compare_version)
+
+class Countput(Counter):
 
     def return_topn_as_list_of_strings(
             self,
@@ -74,8 +82,8 @@ class Countput(Counter):
     def return_as_dict(self):
         # do something different for versions of Python
         # where the dictionary is not automatically ordered
-        if self._version_greater_than_or_equal(
-                '.'.join(
+
+        current_version = '.'.join(
                     (
                             str(
                                 sys.version_info.major
@@ -87,9 +95,9 @@ class Countput(Counter):
                                 sys.version_info.micro
                             )
                     )
-                ),
-                "3.7.1"
-        ):
+                )
+        VC = version_compare();
+        if VC.current_version_greater_than_or_equal_than("3.7.1"):
             return_dictionary = {}
         else:
             return_dictionary = OrderedDict()
