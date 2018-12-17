@@ -6,56 +6,93 @@ This class encapsulates logic to convert a string input from one string format i
 
 # Example usage
 
-#### Import the xlate class
+### The easiest way to use it is with a context manager which assumes string format to string format (not dictionary) conversions
+
+#### Import the tool
+````
+from xlate import xlate_string_formats
+````
+
+####  Set up some test cases
+````
+input_del = ' '
+input_format = ['lname', 'fname', 'bdate', 'language_of_choice', 'hometown']
+output_format = '{fname} {lname}, born on {bdate}, ' \
+                'lives in {hometown} and prefers {language_of_choice}'
+
+input_strings = [
+        'pohl erik 9/2/72 python arlington',
+        'pynchon thomas 5/5/45 muted_posthorn manhattan'
+]
+````
+#### If you don't specify the input format with keywords, it converts the output format into a positional format
+````
+with xlate_string_formats(
+        xlate_input_delimiter=input_del,
+        xlate_output_format=output_format
+) as f:
+    [print(f(input_string)) for input_string in input_strings]
+````
+
+#### Here is an example where the input format has keywords
+````
+with xlate_string_formats(
+        xlate_input_delimiter=input_del,
+        xlate_input_format=input_format,
+        xlate_output_format=output_format
+) as f:
+    [print(f(input_string)) for input_string in input_strings]
+````
+
+#### Here is a use importing the xlate class explicitly
 ```
 from xlate import xlate
 ```
 
-#### Set up the class with an input string, an input string delimiter, and an input format
-```
+#### Create some formats and inputs
+````
 input_string = 'pohl erik 9/2/72 python arlington'
 input_del = ' '
 input_format = ['lname', 'fname', 'bdate', 'language_of_choice', 'hometown']
-demo_usage = xlate(input_string, input_del, input_format)
+output_format = '{fname} {lname}, born on {bdate}, ' \
+                'lives in {hometown} and prefers {language_of_choice}'
+````
+
+#### Set up the class with an input format, input delimiter, and output format and it is ready to use
+```
+demo_usage = xlate(
+    xlate_input_delimiter=input_del,
+    xlate_input_format=input_format,
+    xlate_output_format=output_format
+)
 ```
 
-#### Specify an output format with keyword fields
+#### Output an input string in the format out the output format using the input format keywords as a string then a dictionary
 ````
-output_format = '{fname} {lname}, born on {bdate}, lives in {hometown} and prefers {language_of_choice}'
-````
-
-#### Using all the input definitions and the output format, output it as a string and then as a dictionary
-````
-print(demo_usage.to_string_using_keyword_format(output_format))
-print(demo_usage.to_dictionary())
+print(demo_usage.to_string_using_keyword_format(input_string))
+print(demo_usage.to_dictionary(input_string))
 ````
 
-#### Now, let's try an output format with positionally-designated fields
+#### Let's try again without an input format, and with a positional output format explicitly specified
 ````
 output_format = '{0} {1}, born on {2}, lives in {3} and prefers {4}'
+demo_usage = xlate(
+    xlate_input_delimiter=input_del,
+    xlate_output_format=output_format
+)
+print(demo_usage.to_string_using_keyword_format(input_string))
+print(demo_usage.to_dictionary(input_string))
 ````
 
-#### This time, our input will be specified with no input format-- just an input string and delimiters
+#### Now, let's not specify an input format and force the keyword output format to be positional
 ````
-demo_usage = xlate(input_string, input_del)
-````
-
-#### Let's output the contents of our input in the positionally-designated output format as a string then as a dictionary
-````
-print(demo_usage.to_string_using_keyword_format(output_format))
-print(demo_usage.to_dictionary())
-````
-
-#### Now, let's try outputting that positionally-designated input one more time -- remember, no keyword designations but this time let's force a keyword output format to be positional instead
-
-#### Here's the output format-- a keyword-designated one
-````
-output_format = '{fname} {lname}, born on {bdate}, lives in {hometown} and prefers {language_of_choice}'
-````
-
-#### Here's us outputting it as a string using forced positional fields
-````
-print(demo_usage.to_string_forcing_positional(output_format))
+output_format = '{fname} {lname}, born on {bdate}, ' \
+                'lives in {hometown} and prefers {language_of_choice}'
+demo_usage = xlate(
+    xlate_input_delimiter=input_del,
+    xlate_output_format=output_format
+)
+print(demo_usage.to_string_forcing_positional(input_string))
 ````
 
 # Important disclaimer
