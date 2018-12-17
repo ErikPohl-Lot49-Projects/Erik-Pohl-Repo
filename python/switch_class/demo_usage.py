@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-from switch_class import switch
+from switch_class import switch, switch_compare
 
 def foo():
     return ['1','2']
@@ -15,3 +15,18 @@ print(my_switch.execute_switch('1'))
 print(my_switch.execute_switch('2'))
 print(my_switch.execute_switch('5'))
 print(my_switch.execute_switch('4'))
+
+with switch_compare(
+    'Not found', 
+    [
+        ('2', 'Two',False), 
+        (['2','3'], 'Three',False), 
+        (foo(), 'X',False), 
+        ('4', 'Four',True), 
+        ('4', 'Should not get here',True)
+        ]
+    ) as x:
+    print(x('1'))
+    print(x('2'))
+    print(x('5'))
+    print(x('4'))
