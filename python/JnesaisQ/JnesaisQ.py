@@ -42,18 +42,23 @@ class JnesaisQ:
     to JSON inputs to see if and where matches or mismatches occur.
     '''
 
+
+
     def __init__(self, JSON_query_clause):
-        self.json_query_finding = namedtuple(
+        self._json_query_finding = namedtuple(
             'json_query_finding',
             'current_json_path, actual_finding_value'
         )
-        self.json_query_final_results = namedtuple(
+        self._json_query_final_results = namedtuple(
             'json_query_results',
             'json_query_mismatches, json_query_matches'
         )
-        self.JSON_KEY_MISSING = 'JSON_key_not_found'
-        self.JSON_VALUE_MISMATCH = 'JSON_value_mismatch'
+        self._JSON_KEY_MISSING = 'JSON_key_not_found'
+        self._JSON_VALUE_MISMATCH = 'JSON_value_mismatch'
         self.JSON_query_clause = JSON_query_clause
+        self._AND_match = 'AND_match'
+        self._AND_mismatch = 'AND_mismatch'
+        self._OR_match_mismatch = 'OR_match_mismatch'
 
     def compare_verbose(self, JSON_to_query, JSON_query_clause=None,
                         *,
@@ -91,9 +96,9 @@ class JnesaisQ:
             except:
                 # key not found in JSON to query, so it is a mismatch
                 JnesaisQ_mismatches.append(
-                    self.json_query_finding(
+                    self._json_query_finding(
                         current_json_path,
-                        self.JSON_KEY_MISSING
+                        self._JSON_KEY_MISSING
                     )
                 )
                 continue
@@ -112,19 +117,19 @@ class JnesaisQ:
             else:
                 if re.match(JSON_query_key_value, JSON_to_query_key_value):
                     JnesaisQ_matches.append(
-                        self.json_query_finding(
+                        self._json_query_finding(
                             current_json_path,
                             JSON_to_query_key_value
                         )
                     )
                 else:
                     JnesaisQ_mismatches.append(
-                        self.json_query_finding(
+                        self._json_query_finding(
                             current_json_path,
-                            self.JSON_VALUE_MISMATCH
+                            self._JSON_VALUE_MISMATCH
                         )
                     )
-        return self.json_query_final_results(
+        return self._json_query_final_results(
             JnesaisQ_mismatches,
             JnesaisQ_matches
         )
@@ -143,13 +148,13 @@ class JnesaisQ:
             return None
         if not match_tuple.json_query_mismatches \
                 and match_tuple.json_query_matches:
-            retval.append("AND_match")
+            retval.append(self._AND_match)
         if match_tuple.json_query_mismatches \
                 and match_tuple.json_query_matches:
-            retval.append("OR_match_mismatch")
+            retval.append(self._OR_match_mismatch)
         if match_tuple.json_query_mismatches \
                 and not match_tuple.json_query_matches:
-            retval.append("AND_mismatch")
+            retval.append(self._AND_mismatch)
         return retval
 
     def compare(self, JSON_to_query):
@@ -163,7 +168,7 @@ class JnesaisQ:
         return JSON_to_query if self.overall_result(
             self.compare_verbose(
                 JSON_to_query=JSON_to_query
-            )) == ['AND_match'] else None
+            )) == [self._AND_match] else None
 
     def list_of_compares(self, list_of_JSON_to_query):
         '''
@@ -176,6 +181,6 @@ class JnesaisQ:
         for JSON_to_query in list_of_JSON_to_query:
             if self.overall_result(
                     self.compare_verbose(JSON_to_query=JSON_to_query)
-            ) in (['OR_match_mismatch'], ['AND_match']):
+            ) in ([self._OR_match_mismatch], [self._AND_match]):
                 output_list_of_dicts.append(JSON_to_query)
         return output_list_of_dicts
