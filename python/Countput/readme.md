@@ -45,7 +45,11 @@ sets, helping to establish and build on them.
 Here are some elements I expect to be able to provide, if needed:
 
 - [ ] A complete regression test suite.
+- [ ] Meaningful exceptions and exception-handling coverage.
+- [ ] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
+- [ ] Actual docstring comments at all levels of the code.
 - [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
+
 
 ## Getting Started
 
