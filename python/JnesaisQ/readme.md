@@ -11,7 +11,16 @@ The data has a bevy of keys, including deeply nested keys.
 
 You want to query the JSON data flexibly.
 
-For example, you might want to allow a user to designate some keys they are interested in querying, ignoring the others, and allowing for wildcards in the values for the keys they are interested in.
+JnesaisQ provides a useful handle to query JSON data by flexibly defined keys within the JSON and regex to query the values for those keys.
+
+---------
+
+Let's talk about one example use case.
+
+You're loading JSON from an API.
+
+You might want to allow a user to designate some keys they are interested in querying, while ignoring the other keys in the JSON.
+You want to allow for wildcards in the values for the keys the user is interested in.
 
 Or imagine you want to find negative cases: JSON values which do not match a pattern.  
 
@@ -23,17 +32,21 @@ You want to be able to have granular designations:
   * an OR match mismatch (some query format criteria matched and some mismatched)
   * AND mismatch (all query format criteria failed)
   
+---------
+  
 My friend, you need a certain _je ne sais quoi_ to do this.  JnesaisQ returns this info for you.
 
-Using this class in a loop of all the data in your input will help you encapsulate the hard parts of searching the input JSON using highly flexible query expressions.
+Using this class in a loop of all the data in your input will help you encapsulate the hard parts of searching the input JSON using highly flexible query expressions.  
+
+Or you can use the class method created specifically for this purpose.
 
 ---------
 
-JnesaisQ accepts a JSON format description when it is instantiated.
+On instantiation, JnesaisQ accepts a JSON query format description.
 
-Using a compare method, you can then compare against a JSON expression.
+Using a compare method, you can then compare against a JSON expression: either verbose or just the overall results.
 
-Using Python's regex module (re) and the JSON format description, this returns a list of mismatches or matches if certain conditions are met.
+Using Python's regex module (re) and the JSON format description, this returns a list of mismatches or matches if certain conditions are met in verbose mode.  It returns an overall conclusion if not in verbose mode.
 
 The goal here is to be able to filter even deeply-nested JSON for certain match conditions: match conditions which are flexibly customizable and which accept regex expressions for value matches.
 
