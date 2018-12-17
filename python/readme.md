@@ -30,7 +30,8 @@ Here are some elements I expect to be able to provide, if needed:
 - [ ] Applying a PEP formatter to the code.
 - [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 - [ ] Commit statements which facilitate an understanding of code history.
-- [ ] Readme.md pages with more interesting usage of markdown which tell a code narrative.  
+- [ ] Readme.md pages with more interesting usage of markdown which tell a code narrative. 
+- [ ] Work on xlate list of lists sorter and countput to align them and jnesaidq
 
 **_This will also serve as a template for the starting readme to do list for any new folders created under this one._**
 
