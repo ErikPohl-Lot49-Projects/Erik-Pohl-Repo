@@ -30,7 +30,7 @@ The QA team can start building test cases immediately.  They set to work constru
 They build a file containing the following for each test case:
 * a test case name
 * a list of positional argument values for the process test case
-* a list of keyword arguments values for the process test case
+* a list of keyword argument values for the process test case
 * the endpoints your new process (Dead Parrot) will use, plus faked data for each endpoint for that test case
 
 Meanwhile, your developers are building the Dead Parrot process itself.
