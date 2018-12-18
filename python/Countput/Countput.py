@@ -83,19 +83,6 @@ class Countput(Counter):
         # do something different for versions of Python
         # where the dictionary is not automatically ordered
 
-        current_version = '.'.join(
-                    (
-                            str(
-                                sys.version_info.major
-                            ),
-                            str(
-                                sys.version_info.minor
-                            ),
-                            str(
-                                sys.version_info.micro
-                            )
-                    )
-                )
         VC = version_compare();
         if VC.current_version_greater_than_or_equal_than("3.7.1"):
             return_dictionary = {}
