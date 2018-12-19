@@ -9,6 +9,9 @@ Is the word *perfecter* a good one?  _No, it is not.  It is not a good word._
 
 Is Countput *perfecter* than Counter?  _Given the above statements, yes.  Sure.  It is perfecter._
 
+![Ah Ah Ah!](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/count.jpg "Ah Ah Ah!")
+*The Ah Ah Ah! to Python's Counter*
+
 
 
 # Example usage
