@@ -32,8 +32,46 @@ word_list = word_sentence.split(' ')
 #### Make a Countput object, print the output as a list of formatted count values, print the list with newlines
 ````
 MyCountput = Countput(word_list)
-print('return_as_list of strings : ' + str(MyCountput.return_topn_as_list_of_strings(2, ' - Value', '[Term: ', ' ]' )))
-MyCountput.formatted_topn_output(2, ' - Value:', '[Term: ', " ]")
+print(
+    'return_as_list of strings : ' + str(
+          MyCountput.return_topn_as_list_of_strings(
+              n=2,
+              delimiter=' - Value',
+              prefix='[Term: ',
+              suffix=' ]',
+              header='Header'
+          )
+      )
+)
+````
+
+#### Now, with fewer frills
+````
+print(
+    'return_as_list of strings for sort_as_list_of_strings: ' + str(
+          MyCountput.return_topn_as_list_of_strings(n=2)
+      )
+)
+````
+
+#### Now, just the output, no return list
+````
+MyCountput.formatted_topn_output(
+    n=2,
+    delimiter=' - Value:',
+    prefix='[Term: ',
+    suffix=" ]"
+)
+````
+
+#### Just the output, with frills
+````
+MyCountput.formatted_topn_output(
+    n=2,
+    delimiter=' - Value:',
+    prefix='[Term: ', suffix=" ]",
+    header='Formatted Output with header:'
+)
 ````
 
 #### Return as a dictionary
