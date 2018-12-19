@@ -84,6 +84,7 @@ class Countput(Counter):
         # where the dictionary is not automatically ordered
 
         VC = version_compare();
+        # adding to an ordered dict takes 75% more time
         return_dictionary = {} if VC.current_version_greater_than_or_equal_than("3.7.1") else OrderedDict()
         return_dictionary.update(
             {
