@@ -3,6 +3,10 @@
 
 This class encapsulates logic to convert a string input from one string format into another string format, or into a dictionary.
 
+--------------------------------------------
+
+![about as good](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/google-translate-1401697.jpg "about as good")
+
 
 # Example usage
 
