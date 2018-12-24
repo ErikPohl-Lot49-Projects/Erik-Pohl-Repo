@@ -44,7 +44,7 @@ See demo_usage.py for now!  This will be updated soon to reflect common usages.
 - [x] Move demo usage code to one file and out of my list_of_xs_sorter class file.
 - [x] Write "output as" methods for each individual sorter class to permit outputting as other list of x types.
 - [ ] Better example cases for the readme
-
+- [ ] Allow a user to inject a sort order type (Month, day names as an example) to sort by custom values. 
   
 ## Getting Started
 
