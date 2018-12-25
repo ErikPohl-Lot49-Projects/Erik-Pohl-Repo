@@ -175,25 +175,25 @@ class dedupredup:
     def readind(self,x,longstring):
         return longstring[x:x+self.chunksize]
 
+    def getchunk(self, input_file):
+        return input_file.read(self.chunksize)
+
     # remove duplicates from a file by constructing a hash table and file table to represent the file
     def dedup(self,inputpath,outputpath):
         print("DEDUPPING:",inputpath)
         self.originalfizesize = os.stat(inputpath).st_size
-        input_file = open(inputpath, "rb")
-        outfile = open(outputpath, "wb")
-        indcount = 0
-        block = input_file.read(1024)
-        while block != b"":
-            for chunkstart in range(0, len(block), self.chunksize):
-                chunk = self.readind(chunkstart, block)
-                self.add_hash_to_lookup(outfile, chunk, indcount)
-            indcount += 1
-            block = input_file.read(1024)
-        for i in self.orderedhashes:
-            outfile.write(i.encode())
-        outfile.write("\r\n".encode())
-        outfile.close()
-        input_file.close()
+        with open(inputpath, "rb") as input_file, open(outputpath, "wb") as outfile:
+            indcount = 0
+            block = self.getchunk(input_file)
+            while block != b"":
+                for chunkstart in range(0, len(block), self.chunksize):
+                    chunk = self.readind(chunkstart, block)
+                    self.add_hash_to_lookup(outfile, chunk, indcount)
+                indcount += 1
+                block = self.getchunk(input_file)
+            for i in self.orderedhashes:
+                outfile.write(i.encode())
+            outfile.write("\r\n".encode())
         self.dedupedfilesize = os.stat(outputpath).st_size
         return 'Result: Deduped ' + str(indcount) + ' chunks into '+outputpath +' using '+self.hashfunc+' hash function.'
 
@@ -210,25 +210,22 @@ class dedupredup:
 # START METHODS to create test files
     def createrandomtestfile(self,outpath,  num_of_blocks):
         longstring =""
-        output_file = open(outpath, "wb")
-        ## create a block of random numbers and write to file
-        for i in range(1024*num_of_blocks):
-            longstring = longstring + str(random.randint(0, 9))
-        output_file.write(longstring.encode())
-        #closing file
-        output_file.close()
+        with open(outpath, "wb") as output_file:
+            ## create a block of random numbers and write to file
+            for i in range(1024*num_of_blocks):
+                longstring = longstring + str(random.randint(0, 9))
+            output_file.write(longstring.encode())
         return num_of_blocks
 
     def createboringtestfile(self,outpath,  num_of_blocks):
         longstring =""
         print("writing boring test file")
-        output_file = open(outpath, "wb")
-        ## create a block of zeros and write to file
-        for i in range(1024*num_of_blocks):
-            longstring = longstring + '0'
-        output_file.write(longstring.encode())
-        #closing file
-        output_file.close()
+        with open(outpath, "wb") as output_file:
+            ## create a block of zeros and write to file
+            for i in range(1024*num_of_blocks):
+                longstring = longstring + '0'
+            output_file.write(longstring.encode())
+            #closing file
         return num_of_blocks
 
     def createverylongpatterns(self,outpath,numofpatternblocks):
@@ -270,38 +267,31 @@ class dedupredup:
         output_file.close()
         return num_of_blocks
 
+    def chunkload(self, file_handle):
+        return file_handle.readline()[:-2]
+
 # END METHODS to create test files
     # redup the inputf file into the outputf file
     def redup(self,inputf, outputf):
         print('REDUPPING:',inputf)
         self.hashtable = {}
-        finput = open(inputf,"rb")
-        foutput = open(outputf,"wb")
-        # load hash table from file
-        inputline = finput.readline()[:-2]
-        while inputline == b'hash then raw':
-            filehashkey = finput.readline()[:-2]
-            filehashvalue = finput.readline()[:-2]
-            self.hashtable[filehashkey] = filehashvalue
-            inputline = finput.readline()[:-2]
-        # go through file contents and map file out of hash table
-        for i in range(0,len(inputline)//self.hashsize):
-            decodethis = inputline[i*self.hashsize:i*self.hashsize+self.hashsize]
-            foutput.write(self.hashtable[decodethis])
-        foutput.close()
-        finput.close()
+        with open(inputf,"rb") as finput, open(outputf,"wb") as foutput:
+            # load hash table from file
+            inputline = self.chunkload(finput)
+            while inputline == b'hash then raw':
+                filehashkey = self.chunkload(finput)
+                filehashvalue = self.chunkload(finput)
+                self.hashtable[filehashkey] = filehashvalue
+                inputline = self.chunkload(finput)
+            # go through file contents and map file out of hash table
+            for i in range(0,len(inputline)//self.hashsize):
+                decodethis = inputline[i*self.hashsize:i*self.hashsize+self.hashsize]
+                foutput.write(self.hashtable[decodethis])
         self.redupedfilesize = os.stat(outputf).st_size
         # output if any error is expected due to collisions
         if self.collisions > 0:
             return "Result: Redupped {0} with {0} collisions.\n".format(outputf, self.collisions)
         return "Result: Completed redupping without collisions or error: redupped {0} into {1}.\n".format( inputf, outputf)
-
-# used to print out a file
-def outputfile(inpath):
-    finput = open(inpath, "rb")
-    x = finput.readline()
-    print(x)
-    finput.close()
 
 #execute tests
 if __name__ == '__main__':
