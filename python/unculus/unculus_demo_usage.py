@@ -11,6 +11,14 @@ two.add_option(two,4)
 head = one
 z = [2,3,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,1]
 head.consume(z)
+print(head.is_completing_sequence(z))
+
+z = [2,3,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3]
+print(head.is_completing_sequence(z))
+
+z = [1]
+print(head.is_completing_sequence(z))
+
 
 
 
