@@ -21,6 +21,14 @@ class unculus_node:
                 break
             print(i, start.name)
 
+    def is_completing_sequence(self, l):
+        start = self
+        for i in l:
+            if start is None:
+                return False
+            start = start.eval_val(i)
+        return not start
+
 
 
 
