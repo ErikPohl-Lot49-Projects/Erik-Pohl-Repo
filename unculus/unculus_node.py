@@ -1,4 +1,4 @@
-class FSAnode:
+class unculus_node:
 
     def __init__(self,name):
         self._options = []
@@ -20,3 +20,10 @@ class FSAnode:
             if start is None:
                 break
             print(i, start.name)
+
+
+
+
+
+
+
