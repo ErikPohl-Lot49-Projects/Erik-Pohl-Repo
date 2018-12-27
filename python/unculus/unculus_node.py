@@ -45,7 +45,7 @@ class unculus_node:
         self.do_something_with_entrance_token = \
             something_to_do_with_entrance_token
 
-    def add_option(self, goto_node, value):
+    def add_turnstile(self, goto_node, value):
         self._turnstiles[value] = goto_node
 
     def evaluate_token(self, token):
