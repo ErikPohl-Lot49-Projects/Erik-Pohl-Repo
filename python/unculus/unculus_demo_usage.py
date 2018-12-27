@@ -41,3 +41,8 @@ print(head.is_consumed_completing_sequence(z))
 
 z = [7, 3, 1, 2]
 print(head.is_consumed_completing_sequence(z))
+
+print("big test here -------------------------")
+nextone = head.eval_val(2)
+print("moved to")
+print(nextone.value)
