@@ -14,15 +14,15 @@ zappo = 2
 one = unculus_node('one', 1, foo, bar)
 two = unculus_node('two', 2, foo, bar)
 
-one.add_option(None, 1)
-one.add_option(two, 2)
-two.add_option(one, 3)
-two.add_option(two, 4)
+one.add_turnstile(None, 1)
+one.add_turnstile(two, 2)
+two.add_turnstile(one, 3)
+two.add_turnstile(two, 4)
 
 head = one
 z = [2, 3, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 1]
 try:
-    head.consume(z)
+    head.consume_and_print(z)
 except:
     pass
 try:
@@ -42,7 +42,7 @@ print(head.is_consumed_completing_sequence(z))
 z = [7, 3, 1, 2]
 print(head.is_consumed_completing_sequence(z))
 
-print("big test here -------------------------")
-nextone = head.eval_val(2)
+print("single evaluation test here -------------------------")
+nextone = head.evaluate_token(2)
 print("moved to")
 print(nextone.value)
