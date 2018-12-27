@@ -1,4 +1,5 @@
 from contextlib import contextmanager
+from collections import defaultdict
 
 ''''@contextmanager
 def switch_compare(
@@ -36,7 +37,7 @@ class unculus_node:
             something_to_do_with_my_value=None,
             something_to_do_with_entrance_token=None
     ):
-        self._options = []
+        self._options = defaultdict()
         self.name = name
         self.value = value
         self.do_something_with_value = \
@@ -44,18 +45,18 @@ class unculus_node:
         self.do_something_with_entrance_token = \
             something_to_do_with_entrance_token
 
-    def add_option(self, goto_node, list_of_values):
-        self._options.append((goto_node, {list_of_values}))
+    def add_option(self, goto_node, value):
+        self._options[value] = goto_node
 
     def eval_val(self, val):
         if self.do_something_with_entrance_token:
             self.do_something_with_entrance_token(val)
         if self.do_something_with_value:
             self.do_something_with_value(self.value)
-        for i in self._options:
-            if val in i[1]:
-                return i[0]
-        raise bad_token_exception
+        try:
+            return self._options[val]
+        except:
+            raise bad_token_exception
 
     def consume_exceptions(self, l):
         print('start', self.name)
