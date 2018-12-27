@@ -37,7 +37,7 @@ class unculus_node:
             something_to_do_with_my_value=None,
             something_to_do_with_entrance_token=None
     ):
-        self._options = defaultdict()
+        self._turnstiles = defaultdict()
         self.name = name
         self.value = value
         self.do_something_with_value = \
@@ -46,52 +46,54 @@ class unculus_node:
             something_to_do_with_entrance_token
 
     def add_option(self, goto_node, value):
-        self._options[value] = goto_node
+        self._turnstiles[value] = goto_node
 
-    def eval_val(self, val):
+    def evaluate_token(self, token):
         if self.do_something_with_entrance_token:
-            self.do_something_with_entrance_token(val)
+            self.do_something_with_entrance_token(token)
         if self.do_something_with_value:
             self.do_something_with_value(self.value)
         try:
-            return self._options[val]
+            return self._turnstiles[token]
         except:
             raise bad_token_exception
 
-    def consume_exceptions(self, l):
+    def consume_and_print_and_raise_exceptions(self, tokens):
         print('start', self.name)
-        start = self
-        for i in l:
-            start = start.eval_val(i)
-            if start is None:
+        current_state = self
+        for token in tokens:
+            current_state = current_state.evaluate_token(token)
+            if current_state is None:
                 raise sequence_terminated_partially_consumed_exception
-            print(i, start.name)
+            print(token, current_state.name)
 
-    def consume(self, l):
+    def consume_and_print(self, tokens):
         print('start', self.name)
-        start = self
-        for i in l:
-            print("consuming token " + str(i))
-            start = start.eval_val(i)
-            if start is None:
+        current_state = self
+        for token in tokens:
+            current_state = current_state.evaluate_token(token)
+            if current_state is None:
                 break
-            print(i, start.name)
+            print("consumed {0} and went to {1}".format(
+                str(token),
+                current_state.name)
+            )
 
-    def is_consumed_completing_sequence_exceptions(self, l):
-        start = self
-        for i in l:
-            if start is None:
+    def is_consumed_completing_sequence_and_raising_exceptions(self, tokens):
+        current_state = self
+        for token in tokens:
+            if current_state is None:
                 raise sequence_terminated_partially_consumed_exception
-            start = start.eval_val(i)
-        raise (sequence_did_not_terminate_exception if start else True)
+            current_state = current_state.evaluate_token(token)
+        raise (sequence_did_not_terminate_exception if current_state else True)
 
-    def is_consumed_completing_sequence(self, l):
-        start = self
-        for i in l:
-            if start is None:
+    def is_consumed_completing_sequence(self, tokens):
+        current_state = self
+        for token in tokens:
+            if current_state is None:
                 return False
             try:
-                start = start.eval_val(i)
+                current_state = current_state.evaluate_token(token)
             except:
                 return False
-        return not start
+        return not current_state
