@@ -38,6 +38,7 @@ class unculus_node:
             something_to_do_with_entrance_token=None
     ):
         self._turnstiles = defaultdict()
+        self._default_turnstile = None
         self.name = name
         self.value = value
         self.do_something_with_value = \
@@ -48,15 +49,22 @@ class unculus_node:
     def add_turnstile(self, goto_node, value):
         self._turnstiles[value] = goto_node
 
+    def add_default_turnstile(self, goto_node):
+        self._default_turnstile = goto_node
+
     def evaluate_token(self, token):
-        if self.do_something_with_entrance_token:
-            self.do_something_with_entrance_token(token)
         if self.do_something_with_value:
             self.do_something_with_value(self.value)
         try:
-            return self._turnstiles[token]
+            x = self._turnstiles[token]
         except:
-            raise bad_token_exception
+            if not self._default_turnstile:
+                raise bad_token_exception
+            else:
+                x= self._default_turnstile
+        if x.do_something_with_entrance_token:
+            x.do_something_with_entrance_token(token)
+        return x
 
     def consume_and_print_and_raise_exceptions(self, tokens):
         print('start', self.name)
