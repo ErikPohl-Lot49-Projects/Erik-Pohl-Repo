@@ -1,14 +1,16 @@
 # Unculus 
 
+Imagine a more basic, granularly-defined regex which is given tools to do things with patterns.
+
+*******************************************
+
 I don't really do holiday presents for myself.  However, I made a finite state automata, a homunculus, for myself, named Unculus.
+
+![Unculus](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/unculus.jpg "Unculus")
 
 Emerson said: *The creation of a thousand forests is in one acorn.* 
 
 This is one acorn.
-
-![Unculus](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/unculus.jpg "Unculus")
-
-
 
 ## Important disclaimer
 
