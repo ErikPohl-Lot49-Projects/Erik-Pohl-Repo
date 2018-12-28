@@ -67,9 +67,9 @@ class unculus_node:
     def evaluate_token(self, token):
         if self.do_something_with_value:
             self.do_something_with_value(self.value)
-        for turnstyle in self._turnstiles:
-            if token in turnstyle[0]:
-                return self._execute_and_return(turnstyle[1], token)
+        for turnstile in self._turnstiles:
+            if token in turnstile[0]:
+                return self._execute_and_return(turnstile[1], token)
         if not self._default_turnstile:
             raise bad_token_exception
         return self._execute_and_return(self._default_turnstile, token)
