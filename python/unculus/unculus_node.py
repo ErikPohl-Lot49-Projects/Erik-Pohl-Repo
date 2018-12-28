@@ -35,36 +35,42 @@ class unculus_node:
             name,
             value=None,
             something_to_do_with_my_value=None,
-            something_to_do_with_entrance_token=None
+            something_to_do_with_accepted_token=None
     ):
-        self._turnstiles = defaultdict()
+        self._turnstiles = {}
         self._default_turnstile = None
         self.name = name
         self.value = value
         self.do_something_with_value = \
             something_to_do_with_my_value
-        self.do_something_with_entrance_token = \
-            something_to_do_with_entrance_token
+        self.do_something_with_accepted_token = \
+            something_to_do_with_accepted_token
 
-    def add_turnstile(self, goto_node, value):
-        self._turnstiles[value] = goto_node
+    def add_turnstile(self, value, goto_node, fun=None ):
+        self._turnstiles[value] = (goto_node, fun)
 
-    def add_default_turnstile(self, goto_node):
-        self._default_turnstile = goto_node
+    def add_default_turnstile(self, goto_node, fun=None):
+        self._default_turnstile = (goto_node, fun)
 
     def evaluate_token(self, token):
         if self.do_something_with_value:
             self.do_something_with_value(self.value)
         try:
-            x = self._turnstiles[token]
+            if self._turnstiles[token]:
+                if self._turnstiles[token][1]:
+                    self._turnstiles[token][1](token)
+                elif self.do_something_with_accepted_token:
+                    self.do_something_with_accepted_token(token)
+                return self._turnstiles[token][0]
         except:
             if not self._default_turnstile:
                 raise bad_token_exception
             else:
-                x= self._default_turnstile
-        if x.do_something_with_entrance_token:
-            x.do_something_with_entrance_token(token)
-        return x
+                if self._default_turnstile[1]:
+                    self._default_turnstile[1](token)
+                elif self.do_something_with_accepted_token:
+                    self.do_something_with_accepted_token(token)
+                return self._default_turnstile[0]
 
     def consume_and_print_and_raise_exceptions(self, tokens):
         print('start', self.name)
