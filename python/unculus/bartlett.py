@@ -3,17 +3,14 @@ from unculus_node import unculus_node
 def collect(z):
     zaz.append(z)
 
-bartlett = unculus_node('start', None, None, None)
-bartlett.add_default_turnstile(bartlett)
-quote = unculus_node('quote', None, None, None)
-inquotes = unculus_node('inquote', None, None, collect)
-bartlett.add_turnstile(quote, '"')
-quote.add_default_turnstile(inquotes)
-inquotes.add_default_turnstile(inquotes)
-inquotes.add_turnstile(bartlett, '"')
+bartlett = unculus_node('start')
+bartlett.add_default_turnstile(bartlett,None)
+inquotes = unculus_node('inquote')
+bartlett.add_turnstile('"',inquotes, None)
+inquotes.add_default_turnstile(inquotes, collect)
+inquotes.add_turnstile('"', bartlett, None)
 
-sample = 'Shelby told him "I would like the sweet tea, please"'
-samplelist = list(sample)
+samplelist = list('Shelby told him, "I would like the sweet tea, please"')
 zaz = []
 start = bartlett
 for n in samplelist:
