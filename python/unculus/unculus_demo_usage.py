@@ -14,10 +14,10 @@ zappo = 2
 one = unculus_node('one', 1, foo, bar)
 two = unculus_node('two', 2, foo, bar)
 
-one.add_turnstile(None, 1)
-one.add_turnstile(two, 2)
-two.add_turnstile(one, 3)
-two.add_turnstile(two, 4)
+one.add_turnstile(1, None)
+one.add_turnstile(2, two)
+two.add_turnstile(3, one)
+two.add_turnstile(4, two)
 
 head = one
 z = [2, 3, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 1]
