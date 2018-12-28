@@ -5,8 +5,10 @@ def collect(z):
 
 bartlett = unculus_node('start', None, None, None)
 bartlett.add_default_turnstile(bartlett)
+quote = unculus_node('quote', None, None, None)
 inquotes = unculus_node('inquote', None, None, collect)
-bartlett.add_turnstile(inquotes, '"')
+bartlett.add_turnstile(quote, '"')
+quote.add_default_turnstile(inquotes)
 inquotes.add_default_turnstile(inquotes)
 inquotes.add_turnstile(bartlett, '"')
 
@@ -17,3 +19,5 @@ start = bartlett
 for n in samplelist:
     start = start.evaluate_token(n)
 print(''.join(zaz))
+
+
