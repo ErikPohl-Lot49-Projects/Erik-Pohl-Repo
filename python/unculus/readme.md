@@ -1,6 +1,6 @@
 # Unculus 
 
-Imagine a more basic, granularly-defined regex which is given tools to do things with patterns.
+Imagine a more basic, more granularly-defined regex which is given tools to do things with patterns.
 
 *******************************************
 
