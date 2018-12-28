@@ -1,19 +1,4 @@
-from contextlib import contextmanager
-from collections import defaultdict
-
-''''@contextmanager
-def switch_compare(
-        switch_default, switch_list
-):
-    switch_instance = unculus_node(
-        switch_default
-    )
-    for i in switch_list:
-        switch_instance.add_switch_clause(*i)
-    yield_fun = switch_instance.execute_switch
-    yield yield_fun
-    yield_fun = None
-'''
+from collections import namedtuple
 
 
 class bad_token_exception(Exception):
@@ -45,31 +30,55 @@ class unculus_node:
             something_to_do_with_my_value
         self.do_something_with_accepted_token = \
             something_to_do_with_accepted_token
+        self._Path_type = namedtuple(
+            '_Path_type',
+            'destination token_function'
+        )
+        self._Turnstile_type = namedtuple(
+            '_Turnstile_type',
+            'token_values path'
+        )
 
-    def add_turnstile(self, value, goto_node, fun=None ):
+    def add_turnstile(self, value, goto_node, fun=None):
         try:
-            iter(value) # TODO: note that a '"' shows as iterable -- is this okay?
+            iter(value)  # TODO: don't allow strings to be considered iterable
         except:
-            self._turnstiles.append(([value], (goto_node, fun)))
+            self._turnstiles.append(
+                self._Turnstile_type(
+                    [value],
+                    self._Path_type(
+                        goto_node,
+                        fun
+                    )
+                )
+            )
         else:
-            self._turnstiles.append((value, (goto_node, fun)))
+            self._turnstiles.append(
+                self._Turnstile_type(
+                    value,
+                    self._Path_type(
+                        goto_node,
+                        fun
+                    )
+                )
+            )
 
     def add_default_turnstile(self, goto_node, fun=None):
-        self._default_turnstile = (goto_node, fun)
+        self._default_turnstile = self._Path_type(goto_node, fun)
 
-    def _execute_and_return(self, path, token ):
-        if path[1]: # TODO : handle gracefully with namedtuple
-            path[1](token)
+    def _execute_and_return(self, path, token):
+        if path.token_function:
+            path.token_function(token)
         elif self.do_something_with_accepted_token:
             self.do_something_with_accepted_token(token)
-        return path[0]
+        return path.destination
 
     def evaluate_token(self, token):
         if self.do_something_with_value:
             self.do_something_with_value(self.value)
         for turnstile in self._turnstiles:
-            if token in turnstile[0]:
-                return self._execute_and_return(turnstile[1], token)
+            if token in turnstile.token_values:
+                return self._execute_and_return(turnstile.path, token)
         if not self._default_turnstile:
             raise bad_token_exception
         return self._execute_and_return(self._default_turnstile, token)
