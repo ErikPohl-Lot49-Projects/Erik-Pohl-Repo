@@ -7,14 +7,14 @@ def collect(z):
 
 
 def foo():
-    # return ['"','a'] # this will truncate the quote at the 'a'
+    # return ['"','a'] to truncate the quote at the 'a'
     return ['"']
 
 bartlett = unculus_node('start')
 bartlett.add_default_turnstile(bartlett, None)
 inquotes = unculus_node('inquote')
 bartlett.add_turnstile(['"', '%'], inquotes, None)
-bartlett.add_turnstile(ascii_uppercase, bartlett, print)
+bartlett.add_turnstile(list(ascii_uppercase), bartlett, print)
 inquotes.add_default_turnstile(inquotes, collect)
 inquotes.add_turnstile(foo(), bartlett, None)
 
