@@ -37,7 +37,7 @@ class unculus_node:
             something_to_do_with_my_value=None,
             something_to_do_with_accepted_token=None
     ):
-        self._turnstiles = {}
+        self._turnstiles = []
         self._default_turnstile = None
         self.name = name
         self.value = value
@@ -47,30 +47,32 @@ class unculus_node:
             something_to_do_with_accepted_token
 
     def add_turnstile(self, value, goto_node, fun=None ):
-        self._turnstiles[value] = (goto_node, fun)
+        try:
+            iter(value) # TODO: note that a '"' shows as iterable -- is this okay?
+        except:
+            self._turnstiles.append(([value], (goto_node, fun)))
+        else:
+            self._turnstiles.append((value, (goto_node, fun)))
 
     def add_default_turnstile(self, goto_node, fun=None):
         self._default_turnstile = (goto_node, fun)
 
+    def _execute_and_return(self, path, token ):
+        if path[1]: # TODO : handle gracefully with namedtuple
+            path[1](token)
+        elif self.do_something_with_accepted_token:
+            self.do_something_with_accepted_token(token)
+        return path[0]
+
     def evaluate_token(self, token):
         if self.do_something_with_value:
             self.do_something_with_value(self.value)
-        try:
-            if self._turnstiles[token]:
-                if self._turnstiles[token][1]:
-                    self._turnstiles[token][1](token)
-                elif self.do_something_with_accepted_token:
-                    self.do_something_with_accepted_token(token)
-                return self._turnstiles[token][0]
-        except:
-            if not self._default_turnstile:
-                raise bad_token_exception
-            else:
-                if self._default_turnstile[1]:
-                    self._default_turnstile[1](token)
-                elif self.do_something_with_accepted_token:
-                    self.do_something_with_accepted_token(token)
-                return self._default_turnstile[0]
+        for turnstyle in self._turnstiles:
+            if token in turnstyle[0]:
+                return self._execute_and_return(turnstyle[1], token)
+        if not self._default_turnstile:
+            raise bad_token_exception
+        return self._execute_and_return(self._default_turnstile, token)
 
     def consume_and_print_and_raise_exceptions(self, tokens):
         print('start', self.name)
