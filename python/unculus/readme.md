@@ -12,6 +12,10 @@ Emerson said: *The creation of a thousand forests is in one acorn.*
 
 This is one acorn.
 
+## Future plans
+
+- [ ] Make an input which simplifies FSA creation
+
 ## Important disclaimer
 
 The code here does not yet represent work I'd submit for production code-review.  Standards differ, and I have worked within many different sets, helping to establish and build on them.
