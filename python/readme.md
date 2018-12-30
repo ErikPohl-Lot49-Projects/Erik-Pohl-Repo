@@ -22,7 +22,7 @@ Some of the code here does not represent work I'd submit for production code-rev
 Here are some elements I expect to be able to provide, if needed:
 
 - [ ] Apply this checklist to all new projects as step one
-- [ ] A complete regression test suite.
+- [ ] A complete regression test suite in PyTest (until I can decide between that and unittest/Parameterized)
 - [ ] Meaningful exceptions and exception-handling coverage.
 - [ ] Thoughtful, self-documenting, variable, method, and function names.
 - [ ] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
@@ -91,25 +91,35 @@ Thanks in advance for holding your nose!
 - [x] Template Method	
 - [x] Vistor	
 ## Other
-- [ ] Sum/Aggregate of JnesaisQ?
-- [ ] Tools for PyJamb
-- [ ] Tools for Fast Hammer (Dedup/Redup)
-- [ ] More Countput result formats
-- [ ] Desigm Patterns Presentation
-- [ ] Design Patterns Wiki
-- [ ] PEP8 Design Pattern Gists
-- [ ] ML Presentation
+- [ ] Add to this list from every project
 - [ ] Django Tutorial
+- [ ] Design Patterns tasks -- goal: present, complete
+  - [ ] Design Patterns Presentation
+  - [ ] Design Patterns Wiki
+  - [ ] PEP8 Design Pattern Gists
+- [ ] PyJamb
+  - [ ] Tools for PyJamb
 - [ ] Rewrite Blister using tools (term count)
 - [ ] Rewrite Velodrome using tools (ETL)
-- [ ] Revisit Validations in Guarantee
-- [ ] Mandatory fields and/or validations in xlate
-- [ ] Concurrency in JnesaisQ list query
-- [ ] xlate date format and custom field type support
-- [ ]    field_validate?  custom rules
-- [ ]    field_xlate?   custom rules
-- [ ] tool driven Stopwatch (next side-project)
+- [ ] Fast Hammer
+  - [ ] Tools for Fast Hammer (Dedup/Redup)
+- [ ] JnesaisQ
+   - [ ] Sum/Aggregate of JnesaisQ?
+   - [ ] Concurrency in JnesaisQ list query?  *Probably not.*
+- [ ] Countput
+  - [ ] More Countput result formats
+- [ ] Machine Learning
+  - [ ] Complete various tutorials on different datasets / algorithms
+  - [ ] Prepare ML presentation
+- [ ] Guarantee
+  - [ ] Revisit Validations in Guarantee
+- [ ] xlate
+  - [ ] Mandatory fields and/or validations in xlate
+  - [ ] xlate date format and custom field type support
+    - [ ]    field_validate?  custom rules
+    - [ ]    field_xlate?   custom rules
 - [ ] Work on xlate list of lists sorter and countput to align them and jnesaidq
+- [ ] tool driven Stopwatch (next side-project)
 
 
 
