@@ -31,7 +31,7 @@ Here are some elements I expect to be able to provide, if needed:
   - [ ] How do I want to manage output to stdout, stderr, file, etc?
   - [ ] How do comments and outputs help and assist one another without being redundant?
 - [ ] Actual docstring comments at all levels of the code.
-- [ ] Linting the code for PEP 8 standardization or Applying a PEP formatter to the code.
+- [ ] Linting the code for PEP 8 standardization like PEP8 or Applying a PEP formatter to the code like Project Black.
 - [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 - [ ] Commit statements which facilitate an understanding of code history.
 - [ ] Readme.md pages with more interesting usage of markdown which tell a code narrative. 
