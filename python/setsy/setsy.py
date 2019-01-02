@@ -30,6 +30,15 @@ class setsy(set):
         return setsy(d)
 
     def power(self):
-        def recurse_sets(n):
-            pass
- 
+        for i in range(len(self.copy())+1):
+            if i  == 0:
+                print(setsy([]))
+            if i == 1:
+                for j in self.copy():
+                    print(j)
+            if i == 2:
+                z = self.cartesian(self.copy())
+                print(z)
+            if i ==3 :
+                z = self.cartesian(self.copy()).cartesian(self.copy())
+                print(z)
