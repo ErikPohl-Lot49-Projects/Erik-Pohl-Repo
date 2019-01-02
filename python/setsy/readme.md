@@ -8,7 +8,7 @@ It's too setsy for your party.
 
 ## Future plans
 
-- [ ] Power set
+- [x] Power set
 
 ## Important disclaimer
 
