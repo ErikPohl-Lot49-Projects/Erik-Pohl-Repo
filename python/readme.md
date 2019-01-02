@@ -35,6 +35,7 @@ Here are some elements I expect to be able to provide, if needed:
 - [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 - [ ] Commit statements which facilitate an understanding of code history.
 - [ ] Readme.md pages with more interesting usage of markdown which tell a code narrative. 
+- [ ] For custom classes, create dunders as appropriate
 - [ ] Make good decisions relating to
   - [ ] Exceptions versus return values
   - [ ] Using idiomatic Python versus clarity of code
