@@ -18,6 +18,9 @@ print(my_switch.execute_switch('5'))
 print(my_switch.execute_switch('4'))
 print(my_switch.execute_switch('6'))
 
+print(my_switch)
+
+
 with switch_compare(
     'Not found', 
     [
