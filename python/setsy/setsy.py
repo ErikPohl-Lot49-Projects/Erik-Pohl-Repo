@@ -29,7 +29,15 @@ class setsy(set):
                 d.append((i, j))
         return setsy(d)
 
+    def cartesian_append(self, b):
+        d = []
+        for i in self.iter:
+            for j in b:
+                d.append(i+(j,))
+        return setsy(d)
+
     def power(self):
+        # just add recursion, and we're set
         for i in range(len(self.copy())+1):
             if i  == 0:
                 print(setsy([]))
@@ -40,5 +48,5 @@ class setsy(set):
                 z = self.cartesian(self.copy())
                 print(z)
             if i ==3 :
-                z = self.cartesian(self.copy()).cartesian(self.copy())
+                z = self.cartesian(self.copy()).cartesian_append(self.copy())
                 print(z)
