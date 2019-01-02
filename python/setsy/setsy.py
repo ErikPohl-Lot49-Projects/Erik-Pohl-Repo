@@ -5,8 +5,7 @@ class setsy(set):
     def __init__(self, n):
         self.iter = n
         super(setsy, self).__init__(n)
-
-        
+      
     def difference(self, n):
         return setsy(self.copy().difference(n))
 
@@ -20,19 +19,28 @@ class setsy(set):
         return setsy(self.copy().union(n))
 
     def __str__(self):
-        return '{' + ''.join([str(x)+', ' for x in self.iter])[:-2] + '}'
+        return '{' + ''.join([str(element)+', ' for element in set(self.iter)])[:-2] + '}'
 
     def printorig(self):
         print(self.iter)
 
-    def cartesian(self, b):
-        d = []
+    def cartesian(self, multiply_by):
+        resultset = []
         for level in self.iter:
-            for j in b:
-                d.append((level, j))
-        return setsy(d)
+            for element in multiply_by:
+                resultset.append((level, element))
+        return setsy(resultset)
 
     def powerset(self):
-        s = self.copy()
-        return setsy(chain.from_iterable(combinations(s, r) for r in range(len(s)+1)))
-
+        setsy_set = self.copy()
+        return setsy(list(
+            chain.from_iterable(
+                combinations(
+                    setsy_set, 
+                    length_of_combo
+                    ) 
+                for length_of_combo in range(len(setsy_set)+1
+                                             )
+                )
+            )
+        )
