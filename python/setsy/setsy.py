@@ -1,9 +1,12 @@
+from itertools import chain, combinations 
+
 class setsy(set):
 
     def __init__(self, n):
         self.iter = n
         super(setsy, self).__init__(n)
 
+        
     def difference(self, n):
         return setsy(self.copy().difference(n))
 
@@ -24,29 +27,12 @@ class setsy(set):
 
     def cartesian(self, b):
         d = []
-        for i in self.iter:
+        for level in self.iter:
             for j in b:
-                d.append((i, j))
+                d.append((level, j))
         return setsy(d)
 
-    def cartesian_append(self, b):
-        d = []
-        for i in self.iter:
-            for j in b:
-                d.append(i+(j,))
-        return setsy(d)
+    def powerset(self):
+        s = self.copy()
+        return setsy(chain.from_iterable(combinations(s, r) for r in range(len(s)+1)))
 
-    def power(self):
-        # just add recursion, and we're set
-        for i in range(len(self.copy())+1):
-            if i  == 0:
-                print(setsy([]))
-            if i == 1:
-                for j in self.copy():
-                    print(j)
-            if i == 2:
-                z = self.cartesian(self.copy())
-                print(z)
-            if i ==3 :
-                z = self.cartesian(self.copy()).cartesian_append(self.copy())
-                print(z)
