@@ -31,6 +31,13 @@ class switch:
         self.default_return_value = default_return_value
         self.decision_clauses = []
 
+    def __repr__(self):
+        z = ''
+        for i in self.decision_clauses:
+            z=z+"on {switch_condition} return {result} and break on match? {break_on_match}\n".format(**i)
+        z=z+"default value: "+str(self.default_return_value)
+        return z    
+    
     def add_switch_clause(self, switch_condition, switch_result, break_on_match):
         '''
         add, in sequence of switching, a switch logic clause with condition,
