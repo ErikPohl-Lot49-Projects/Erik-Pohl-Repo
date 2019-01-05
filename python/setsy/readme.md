@@ -4,7 +4,7 @@ This adds the cartesian operation and a powerset operation to the inherited set 
 
 It attempts to preserve the order of the input iterable when outputting with the _str_ method.
 
-It's too setsy for your party.
+It's too setsy for its shirt.
 
 ## Future plans
 
