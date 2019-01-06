@@ -8,8 +8,7 @@ Created on Dec 13, 2018
 
 from contextlib import contextmanager
 
-# TODO: make this play nicely with countput and jnesaisq
-
+# TODO: allow output format to be a list of field names
 
 @contextmanager
 def xlate_string_formats(
