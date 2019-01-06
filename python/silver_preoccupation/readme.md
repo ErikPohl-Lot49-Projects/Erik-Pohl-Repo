@@ -7,6 +7,10 @@ There are probably a billion out there, but this is a start, just for practice, 
 
 See demo usage file.
 
+# Future work
+
+- [ ] Implement multiprocessing 
+
 # Important disclaimer
 
 The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different sets, helping to establish and build on them.
