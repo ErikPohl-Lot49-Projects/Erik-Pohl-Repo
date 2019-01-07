@@ -4,22 +4,32 @@ from operator import itemgetter
 
 class silver_preoccupation:
 
-    def __init__(self, widgets , iterations):
+    def __init__(self, control_widget, widgets , inputs, iterations):
+        self.control_widget = control_widget
         self.widgets = widgets
         self.iterations = iterations
         self.results = []
+        self.inputs = inputs
 
     def perform(self,fun, *args):
-        fun(*args)
+        return fun(*args)
 
     def first_call(self):
         self.results = []
+        totaltime = 0
         for i in self.widgets:
-            start = time.time()
-            for j in range(self.iterations):
-                self.perform(i[1], i[2])
-            end = time.time()
-            self.results.append(end-start)
+            for k in self.inputs:
+                start = time.time()
+                for j in range(self.iterations):
+                    z = self.perform(i[1],k)
+                end = time.time()
+                if z ==self.perform(self.control_widget,k):
+                    totaltime += end-start
+                else:
+                    totaltime = 0
+                    break
+            self.results.append(totaltime)
+
 
     def resultput(self):
         l = [(self.widgets[i][0], self.results[i], self.results[i]/sum(self.results)*100) for i,j in enumerate(self.results)]
