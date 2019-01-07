@@ -26,7 +26,7 @@ class numerous_ants:
                 if z ==self.perform(self.control_widget,k):
                     totaltime += end-start
                 else:
-                    totaltime = 0
+                    totaltime = -1 ## this is a problem
                     break
             self.results.append(totaltime)
 
