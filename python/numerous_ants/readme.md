@@ -1,6 +1,6 @@
 # numerous_ants
 
-This class allows you to run a variety of approaches multiple times asynchronously to determine which one performs the best.
+This class allows a developer user to run a variety of algorithmic approaches multiple times each asynchronously to determine which one performs the best maintaining the same output for all inputs as a control algorithm.
 
 ![formicate](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/formicate.jpg "formicate")
 
