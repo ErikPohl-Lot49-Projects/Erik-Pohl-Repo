@@ -24,7 +24,7 @@ See demo usage file.
 
 # Future work
 
-- [ ] Implement multiprocessing 
+- [x] Implement multiprocessing 
 
 # Important disclaimer
 
