@@ -14,7 +14,7 @@ class numerous_ants:
     def perform(self,fun, *args):
         return fun(*args)
 
-    def first_call(self):
+    def formicate(self):
         self.results = []
         for i in self.widgets:
             totaltime = 0
@@ -35,7 +35,6 @@ class numerous_ants:
         l = [(self.widgets[i][0], self.results[i], self.results[i]/sum(self.results)*100) for i,j in enumerate(self.results)]
         for j in sorted(l, key=itemgetter(1)):
             print(j)
-
 
 
 
