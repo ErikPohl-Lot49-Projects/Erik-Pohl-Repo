@@ -1,10 +1,14 @@
 # numerous_ants
 
-Watching a Python video on selecting from one of many ways of deciding whether a string is within 'yes' or 'no', I decided it might be nice to formalize a runtime performance comparison framework of my own.
+This class allows you to run a variety of approaches multiple times asynchronously to determine which one performs the best.
 
 ![formicate](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/formicate.jpg "formicate")
 
-There are probably a billion out there, but this is a start, just for practice, of my own.
+It was inspired by a Dan Bader video in which a viewer asked him which of three or four if conditions were the most Pythonic/idiomatic.  I saw that at least one variation was missing, one which would perform much better.
+
+Yet, I wanted to prove it.  That was trivial.  However, I also wanted to make a tool to do the same in the future.  Synchronous processing was simple.  It was a good learning exercise to make it asynchronous. 
+
+There are probably a billion of performance comparison frameworks out there, but this is a start, just for practice, of my own.
 
 This is really not much of anything, but it is good to have handy.
 
