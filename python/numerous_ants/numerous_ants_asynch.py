@@ -14,7 +14,7 @@ class numerous_ants:
 
     def perform(self,its, fun, *args):
         start = time.time()
-        for _ in range(its):
+        for _ in repeat(None, its):
             z = fun(*args)
         end = time.time()
         return (z, end-start)
