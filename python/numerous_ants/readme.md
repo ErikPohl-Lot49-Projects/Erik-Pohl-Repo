@@ -2,6 +2,8 @@
 
 Watching a Python video on selecting from one of many ways of deciding whether a string is within 'yes' or 'no', I decided it might be nice to formalize a runtime performance comparison framework of my own.
 
+![formicate](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/formicate.jpg "formicate")
+
 There are probably a billion out there, but this is a start, just for practice, of my own.
 
 This is really not much of anything, but it is good to have handy.
