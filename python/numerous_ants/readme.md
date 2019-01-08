@@ -6,7 +6,13 @@ This class allows a developer user to run a variety of algorithmic approaches mu
 
 It was inspired by a Dan Bader video in which a viewer asked him which of three or four if conditions were the most Pythonic/idiomatic.  I saw that at least one variation was missing, one which would perform much better.
 
-Yet, I wanted to prove it.  That was trivial.  However, I also wanted to make a tool to do the same in the future.  Synchronous processing was simple.  It was a good learning exercise to make it asynchronous. 
+Yet, I wanted to prove it.  
+Proving it for a specific case was trivial.  
+
+It was so trivial that I also wanted to make a tool to do the same in the future.  
+Synchronous processing was simple.  
+
+It was a good learning exercise to make it asynchronous.  I enjoy the thought of an army of myrmidons resolving a performance decision, a Pythonic episode of Black Mirror's "Hang The DJ" for performance comparisons.
 
 There are probably a billion of performance comparison frameworks out there, but this is a start, just for practice, of my own.
 
