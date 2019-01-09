@@ -5,9 +5,11 @@ from multiprocessing import Pool
 
 
 class numerous_ants:
+    '''Compare a list of functions asynchronously to find the fastest
+    one which behaves exactly like one designated the control (the queen)'''
 
-    def __init__(self, control_widget, ants, inputs, iterations):
-        self.control_widget = control_widget
+    def __init__(self, queen, ants, inputs, iterations):
+        self.queen = queen
         self.ants = ants
         self.iterations = iterations
         self.results = []
@@ -19,6 +21,7 @@ class numerous_ants:
             function,
             *args
     ):
+        '''Execute a function for a number of iterations with given arguments'''
         start = time.time()
         for _ in repeat(None, iterations):
             output = function(*args)
@@ -26,9 +29,15 @@ class numerous_ants:
         return (output, end - start)
 
     def log_result(self, result_value):
+        '''log result currently does nothing, but could later track results'''
         pass
 
     def formicate(self):
+        '''for a series of algorithms run them asynchronously
+        for a series of inputs--
+        get rid of any which do not behave the same as the queen 
+        (a control algorithm) and time the runtime of the rest
+        to find the fastest'''
         self.results = []
         pool = Pool()
         for this_ant in self.ants:
@@ -36,7 +45,7 @@ class numerous_ants:
             for this_input in self.inputs:
                 control_result = self.perform(
                     1,
-                    self.control_widget,
+                    self.queen,
                     this_input
                 )
                 experimental_result = pool.apply_async(
@@ -56,13 +65,14 @@ class numerous_ants:
             self.results.append(total_time)
 
     def resultput(self):
+        '''output the results of an anthill formication'''
         result_tuples = [
             (
                 self.ants[result_counter][0],
                 self.results[result_counter],
                 self.results[result_counter] / sum(self.results) * 100
             )
-            for result_counter, result
+            for result_counter, _
             in enumerate(self.results)
         ]
         for result_tuple in sorted(result_tuples, key=itemgetter(1)):
