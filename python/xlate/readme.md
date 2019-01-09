@@ -9,7 +9,7 @@ This class encapsulates logic to convert a string input from one string format i
 
 # Good question
 
-Why not just use the CSV standard library?  
+**_Why not just use the CSV standard library?_**
 
 xlate could borrow at least one feature from CSV's dialects: incorporating quotes.  Otherwise, xlate focuses on string translation no matter how the strings are sourced-- not just from files.  In addition, xlate is intended to have built in translations which do not strictly adhere to the same translations possible in CSV.  
 
