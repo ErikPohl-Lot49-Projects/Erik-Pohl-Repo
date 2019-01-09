@@ -7,6 +7,13 @@ This class encapsulates logic to convert a string input from one string format i
 
 ![about as good](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/google-translate-1401697.jpg "about as good")
 
+# Good question
+
+Why not just use the CSV standard library?  
+
+xlate could borrow at least one feature from CSV's dialects: incorporating quotes.  Otherwise, xlate focuses on string translation no matter how the strings are sourced-- not just from files.  In addition, xlate is intended to have built in translations which do not strictly adhere to the same translations possible in CSV.  
+
+That said: for translation of one *read* file's delimited format to another *write* file's delimited format, CSV is the one to use.
 
 # Example usage
 
