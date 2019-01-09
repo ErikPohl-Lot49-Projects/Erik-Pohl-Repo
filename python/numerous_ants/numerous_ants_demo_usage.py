@@ -1,4 +1,4 @@
-from numerous_ants import numerous_ants
+from numerous_ants_async import numerous_ants
 
 answer1 = 'x'
 answer2 = 'yes'
@@ -69,5 +69,5 @@ l = [('trial1',trial1), ('trial2',trial2), ('trial3',trial3), ('trial4',trial4),
      ('trial9', trial9)]
 a = [answer1, answer2, answer3]
 x = numerous_ants(trial1, l,a, 20000000)
-x.first_call()
+x.formicate()
 x.resultput()
