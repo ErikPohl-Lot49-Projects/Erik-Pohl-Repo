@@ -2,7 +2,8 @@ import time
 from operator import itemgetter
 from itertools import repeat
 from multiprocessing import Pool
-
+from contextlib import redirect_stdout
+import io
 
 class numerous_ants:
     '''Compare a list of functions asynchronously to find the fastest
@@ -24,7 +25,9 @@ class numerous_ants:
         '''Execute a function for a number of iterations with given arguments'''
         start = time.time()
         for _ in repeat(None, iterations):
-            output = function(*args)
+            redirect_here = io.StringIO()
+            with redirect_stdout(redirect_here):
+                output = function(*args)
         end = time.time()
         return (output, end - start)
 
@@ -42,7 +45,7 @@ class numerous_ants:
         pool = Pool()
         for this_ant in self.ants:
             total_time = 0
-            for this_input in self.inputs:
+            for this_input in self.inputs:    
                 control_result = self.perform(
                     1,
                     self.queen,
