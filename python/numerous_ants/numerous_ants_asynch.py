@@ -23,12 +23,12 @@ class numerous_ants:
             *args
     ):
         '''Execute a function for a number of iterations with given arguments'''
-        start = time.time()
-        for _ in repeat(None, iterations):
-            redirect_here = io.StringIO()
-            with redirect_stdout(redirect_here):
-                output = function(*args)
-        end = time.time()
+        redirect_here = io.StringIO()
+        with redirect_stdout(redirect_here):
+            start = time.time()
+            for _ in repeat(None, iterations):
+                    output = function(*args)
+            end = time.time()
         return (output, end - start)
 
     def log_result(self, result_value):
