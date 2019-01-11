@@ -42,15 +42,17 @@ class numerous_ants:
         (a control algorithm) and time the runtime of the rest
         to find the fastest'''
         self.results = []
+        control_results = {this_input:self.perform(
+                    1,
+                    self.queen,
+                    this_input
+                )[0]
+            for this_input in self.inputs
+            }
         pool = Pool()
         for this_ant in self.ants:
             total_time = 0
             for this_input in self.inputs:    
-                control_result = self.perform(
-                    1,
-                    self.queen,
-                    this_input
-                )
                 experimental_result = pool.apply_async(
                     self.perform,
                     args=(
@@ -60,7 +62,7 @@ class numerous_ants:
                     ),
                     callback=self.log_result
                 ).get()
-                if experimental_result[0] == control_result[0]:
+                if experimental_result[0] == control_results[this_input]:
                     total_time += experimental_result[1]
                 else:
                     total_time = -1  # this is a problem
