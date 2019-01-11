@@ -25,9 +25,10 @@ See demo usage file.
 # Future work
 
 - [x] Implement multiprocessing 
-- [ ] Capture output so it is excluded from consideration using the context manager
+- [x] Capture output so it is excluded from consideration using the context manager
 - [ ] Handle correct output when a function yields an invalid result compared to the queen
 - [ ] Make sure to short circuit processing for a function when it yields one bad value (confirm again)
+- [ ] Take out extra processing between start and end time for each function execution
 
 # Important disclaimer
 
