@@ -71,14 +71,25 @@ class numerous_ants:
 
     def resultput(self):
         '''output the results of an anthill formication'''
-        result_tuples = [
+        valid_result_tuples = [
             (
                 self.ants[result_counter][0],
                 self.results[result_counter],
-                self.results[result_counter] / sum(self.results) * 100
+                self.results[result_counter] / sum([i for i in self.results if i != -1]) * 100
             )
             for result_counter, _
             in enumerate(self.results)
+            if self.results[result_counter] != -1 
         ]
-        for result_tuple in sorted(result_tuples, key=itemgetter(1)):
+        invalid_results = [
+            self.ants[result_counter][0]
+            for result_counter, _
+            in enumerate(self.results)
+            if self.results[result_counter] == -1 
+        ]
+        for result_tuple in sorted(valid_result_tuples, key=itemgetter(1)):
             print(result_tuple)
+        if invalid_results:
+            print("These results were not valid for all of the given inputs:")
+            for result in invalid_results:
+                print(result)
