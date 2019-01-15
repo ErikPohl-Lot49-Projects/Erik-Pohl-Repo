@@ -10,6 +10,7 @@ There is a ton of refactoring needed.
 - [ ] Add more test cases
 - [ ] Rethink variable names and function names
 - [ ] Reconsider data structures
+- [ ] Docsys and other comments
 
 # Important disclaimer
 
