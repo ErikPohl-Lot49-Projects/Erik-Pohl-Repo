@@ -5,6 +5,12 @@ This is the product of a kata performed at a coding dojo during a Boston Softwar
 The challenge was to convert roman numerals to arabic **_without using mathematical operations on ints**_ _(multiplication on strings was fine for repeated concatenation)._
 There is a ton of refactoring needed.
 
+# Up Next
+- [ ] Parameterize test cases
+- [ ] Add more test cases
+- [ ] Rethink variable names and function names
+- [ ] Reconsider data structures
+
 # Important disclaimer
 
 The code here does not represent work I'd submit for production code-review.  Standards differ, and I have worked within many different
