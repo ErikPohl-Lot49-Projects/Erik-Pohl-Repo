@@ -10,6 +10,8 @@ def test_addition_case():
 def test_subtraction_case():
     assert plural_roman_numerals.plural_rn('IX') == 9
     assert plural_roman_numerals.plural_rn('XCIX') == 99
+
+def test_longer_than_four_digits():
     assert plural_roman_numerals.plural_rn('MMMMMMMMMM') == 10000
 
 
