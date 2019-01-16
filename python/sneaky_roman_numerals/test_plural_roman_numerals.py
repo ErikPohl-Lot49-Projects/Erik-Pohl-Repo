@@ -1,29 +1,29 @@
 import pytest
 from plural_roman_numerals import plural_roman_numerals
 
-def test_null_case():
-    assert plural_roman_numerals.plural_rn('') == 0
-    
-def test_simple_case():
-    assert plural_roman_numerals.plural_rn('MCXIII') == 1113
 
-def test_additive_case():
-    assert plural_roman_numerals.plural_rn('MCLXVIII') == 1168
-    assert plural_roman_numerals.plural_rn('MMDCCLXVIII') == 2768
-
-def test_subtractive_case():
-    assert plural_roman_numerals.plural_rn('IX') == 9
-    assert plural_roman_numerals.plural_rn('XCIX') == 99
-    assert plural_roman_numerals.plural_rn('CMXC') == 990
-    assert plural_roman_numerals.plural_rn('CMXCIX') == 999
-    assert plural_roman_numerals.plural_rn('CMXCIV') == 994
-    assert plural_roman_numerals.plural_rn('CMXLIX') == 949
-    assert plural_roman_numerals.plural_rn('CMXLIV') == 944
-    assert plural_roman_numerals.plural_rn('CDXCIX') == 499
-    assert plural_roman_numerals.plural_rn('CDXCIV') == 494
-    assert plural_roman_numerals.plural_rn('CDXLIX') == 449
-    assert plural_roman_numerals.plural_rn('CDXLIV') == 444
-    
-def test_longer_than_four_digits():
-    assert plural_roman_numerals.plural_rn('MMMMMMMMMM') == 10000
-    
+@pytest.mark.parametrize("roman_input,expected_arabic", [
+## null case
+    ('', 0),
+## simple case
+    ('MCXIII', 1113),
+## additive cases
+    ('MCLXVIII',1168),
+    ('MMDCCLXXVIII',2778),
+## longer than four digits in Arabic
+    ('MMMMMMMMMM',10000),
+## subtractive cases
+    ('IX', 9),
+    ('XCIX', 99),
+    ('CMXC', 990),
+    ('CMXCIX', 999),
+    ('CMXCIV', 994),
+    ('CMXLIX', 949),
+    ('CMXLIV', 944),
+    ('CDXCIX', 499),
+    ('CDXCIV', 494),
+    ('CDXLIX', 449),
+    ('CDXLIV', 444)
+])
+def test_subtractive_case(roman_input, expected_arabic):
+    assert plural_roman_numerals.plural_rn(roman_input) == expected_arabic
