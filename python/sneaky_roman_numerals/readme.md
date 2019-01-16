@@ -8,8 +8,8 @@ There is a ton of refactoring needed.
 # Up Next
 - [x] Parameterize test cases
 - [x] Add more test cases
-- [ ] Rethink variable names and function names
-- [ ] Reconsider data structures
+- [x] Rethink variable names and function names
+- [x] Reconsider data structures
 - [ ] Docsys and other comments
 
 # Important disclaimer
