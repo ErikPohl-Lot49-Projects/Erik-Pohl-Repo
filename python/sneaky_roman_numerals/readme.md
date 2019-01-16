@@ -6,8 +6,8 @@ The challenge was to convert roman numerals to arabic **_without using mathemati
 There is a ton of refactoring needed.
 
 # Up Next
-- [ ] Parameterize test cases
-- [ ] Add more test cases
+- [x] Parameterize test cases
+- [x] Add more test cases
 - [ ] Rethink variable names and function names
 - [ ] Reconsider data structures
 - [ ] Docsys and other comments
