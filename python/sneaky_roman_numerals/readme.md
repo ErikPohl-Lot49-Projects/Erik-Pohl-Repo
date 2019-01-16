@@ -3,7 +3,8 @@
 
 This is the product of a kata performed at a coding dojo during a Boston Software Crafter's meetup last night.
 The challenge was to convert roman numerals to arabic **_without using mathematical operations on ints**_ _(multiplication on strings was fine for repeated concatenation)._
-There is a ton of refactoring needed.
+
+This is an on-going refactoring kata, so I will use it as a sandbox for refactoring.
 
 # Up Next
 - [x] Parameterize test cases
