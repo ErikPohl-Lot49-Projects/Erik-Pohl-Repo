@@ -25,5 +25,5 @@ from plural_roman_numerals import plural_roman_numerals
     ('CDXLIX', 449),
     ('CDXLIV', 444)
 ])
-def test_subtractive_case(roman_input, expected_arabic):
+def test_roman_to_arabic(roman_input, expected_arabic):
     assert plural_roman_numerals.plural_rn(roman_input) == expected_arabic
