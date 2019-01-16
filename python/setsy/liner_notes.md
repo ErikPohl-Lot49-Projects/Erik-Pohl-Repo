@@ -1,3 +1,3 @@
 # Do yourself a favor
 
-**_Look up Roxanne Potvin's cover of Right Said Fred's _I'm Too Sexy_**
+**Look up Roxanne Potvin's cover of Right Said Fred's _I'm Too Sexy_**
