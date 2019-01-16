@@ -12,7 +12,7 @@ import re
 # from ..version_compare import version_compare
 
 class version_compare:
-
+    '''Compare the current compiling version Python against a benchmark to determine which code to use''' 
     def __init__(self):
         self._current_version = sys.version.split(' ')[0]
 
@@ -27,7 +27,8 @@ class version_compare:
         return normalize(self._current_version) >= normalize(compare_version)
 
 class Countput(Counter):
-
+    ''' Extend Counter with some output methods '''
+    
     def return_topn_as_list_of_strings(
             self,
             *,
