@@ -1,0 +1,26 @@
+
+
+def combinations(a, n):
+    if n <=0:
+        z = 0
+    else:
+        z= len(a)-n+1
+    if z <=0:
+        yield []
+    for i in range(z):
+        if n == 1:
+            yield [a[i]]
+        else:
+            for j in combinations(a[i+1:], n-1):
+                z = [a[i]]
+                z.extend(j)
+                yield z
+            
+def power(z):
+    for i in range(len(z)+1):
+        for j in combinations(z,i):
+            print(j)
+            
+a = [1,2,3,4,5,6,7]
+power(a)
+power([])
