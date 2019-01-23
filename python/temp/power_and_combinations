@@ -1,26 +1,26 @@
 
 
-def combinations(a, n):
-    if n <=0:
-        z = 0
+def combinations(items, combination_length):
+    if combination_length <=0:
+        max_item_position = 0
     else:
-        z= len(a)-n+1
-    if z <=0:
+        max_item_position= len(items)-combination_length+1
+    if max_item_position <=0:
         yield []
-    for i in range(z):
-        if n == 1:
-            yield [a[i]]
+    for item_position in range(max_item_position):
+        if combination_length == 1:
+            yield [items[item_position]]
         else:
-            for j in combinations(a[i+1:], n-1):
-                z = [a[i]]
-                z.extend(j)
-                yield z
+            for sub_combination in combinations(items[item_position+1:], combination_length-1):
+                max_item_position = [items[item_position]]
+                max_item_position.extend(sub_combination)
+                yield max_item_position
             
-def power(z):
-    for i in range(len(z)+1):
-        for j in combinations(z,i):
-            print(j)
+def power(items):
+    for combination_length in range(len(items)+1):
+        for single_length_combination in combinations(items,combination_length):
+            print(single_length_combination)
             
-a = [1,2,3,4,5,6,7]
-power(a)
+demo_list = [1,2,3,4,5,6,7]
+power(demo_list)
 power([])
