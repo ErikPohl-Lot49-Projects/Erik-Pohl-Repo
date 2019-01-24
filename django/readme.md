@@ -1,7 +1,5 @@
 # Something Jerry Garcia said about Django
-```
- I mean, the combination of incredible speed – all the speed you could possibly want – but also the thing of every note have a specific personality. You don't hear it. I really haven't heard it anywhere but with Django.
- ```
+> I mean, the combination of incredible speed – all the speed you could possibly want – but also the thing of every note have a specific personality. You don't hear it. I really haven't heard it anywhere but with Django.
 
 ![The original](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/django.jpg "The original")
 
