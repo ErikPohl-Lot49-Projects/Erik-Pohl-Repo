@@ -94,3 +94,73 @@ if minn < x and x < maxx:
     print("hello")
 if minn < x < maxx:
     print("hello")
+if 1 < x:
+    print("hello")
+
+
+from functools import reduce
+
+a = [1,2,3,4,5,6,7]
+# Apply function of two arguments cumulatively to the items of sequence, 
+# from left to right, so as to reduce the sequence to a single value. 
+# For example, reduce(lambda x, y: x+y, 
+# [1, 2, 3, 4, 5]) calculates ((((1+2)+3)+4)+5).
+b = reduce(lambda x,y: y if y>x else x,a)
+print(a,'reduced',b)
+
+#@functools.singledispatch
+
+from functools import singledispatch
+@singledispatch
+def fun(arg, verbose=False):
+    if verbose:
+        print("Let me just say,", end=" ")
+    print(arg)
+
+@fun.register
+def _(arg: int, verbose=False):
+    if verbose:
+        print("Strength in numbers, eh?", end=" ")
+    print(arg)
+
+@fun.register
+def fun(arg: list, verbose=False):
+    if verbose:
+        print("Enumerate this:")
+    for i, elem in enumerate(arg):
+        print(i, elem)
+        
+@fun.register(complex)
+def fun(arg, verbose=False):
+    if verbose:
+        print("Better than complicated.", end=" ")
+    print(arg.real, arg.imag)
+
+@fun.register(complex)
+def fun(arg, verbose=False):
+    if verbose:
+        print("Better than complicated.", end=" ")
+    print(arg.real, arg.imag)
+
+
+## wraps
+from functools import wraps
+def my_decorator(f):
+    @wraps(f)
+    def wrapper(*args, **kwds):
+        print('Calling decorated function')
+        return f(*args, **kwds)
+    return wrapper
+
+@my_decorator
+def example():
+    """Docstring"""
+    print('Called example function')
+
+example()
+
+
+example.__name__
+
+example.__doc__
+
