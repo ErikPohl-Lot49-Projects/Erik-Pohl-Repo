@@ -1,4 +1,3 @@
-That is a ridiculous statement. There was NO Android 20 years ago. There was no Google Photos 20 years ago. There was NO YouTube 20 years ago. There was no TPUs 20 years ago. There was no Angular, or Flutter or Fuchsia or Zircon or Google Maps or Google WifI or Google Homes or Google inventing GANS or Capsule networks or AlphaGo or Google Chrome or well the list goes on and on.
 
 
 class Solution:
