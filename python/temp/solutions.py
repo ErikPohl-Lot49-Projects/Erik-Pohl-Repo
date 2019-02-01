@@ -112,13 +112,59 @@ class Solution:
         pricetrim(pr)
         for i,j in enumerate(pr):
             for k in range(i+1,len(pr)):
-			
                 value = 0    
                 if pr[k] > pr[i]:
                     prx = copy(pr)
+					#del prx[-1,k+1]
                     for n2 in range(k,-1,-1): # was i-1 instead of 0
                         del prx[n2]
                     value = value + pr[k]-pr[i] + self.maxProfit( prx)
                     if value > maxval:
                         maxval = value
         return maxval
+		
+##fast
+from copy import copy
+class Solution:
+    def maxProfit(self, prices):            
+        i = 0
+        if len(prices) <=0:
+            return 0
+        valley = prices[0]
+        peak = prices[0]
+        maxprofit = 0
+        prlen = len(prices)
+        while (i < prlen - 1):
+            while (i < prlen - 1 and prices[i] >= prices[i + 1]):
+                i +=1
+            valley = prices[i]
+            while (i < prlen - 1 and prices[i] <= prices[i + 1]):
+                i +=1
+            peak = prices[i]
+            maxprofit += peak - valley
+        return maxprofit
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def minDepth(self, root):
+        if not root:
+            return 0
+        l =0
+        r = 0
+        if root.left and root.right:
+            print(root.left.val)
+            print(root.right.val)
+            l = 1 + self.minDepth(root.left)
+            r = 1 + self.minDepth(root.right)
+            return min([l,r])
+        elif root.left:
+            return 1 + self.minDepth(root.left)
+        elif root.right:
+            return 1 + self.minDepth(root.right)
+        return 1
+        
