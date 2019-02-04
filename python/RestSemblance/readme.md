@@ -1,5 +1,7 @@
 # Semblance 
 
+Semblance allows non-technical users to input REST API endpoint test case data and expected results for a system under test with that API as a dependency, using multiple endpoints at a time, to allow users to test for an API dependency which does not yet exist.
+
 **Disclaimer: This is _not_ how I write classes and functions.  This is my Picasso-ing of a class for a particular effect.  I'm going to make it more Chuck Close than Picasso going forward.**
 
 ## A Use Case 
