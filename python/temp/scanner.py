@@ -8,6 +8,7 @@ with open('C:\\Users\\p636205\\workspace\\jnesaisq\\JnesaisQ\\format.json','r') 
     json_query_format = load(f1)
 
 def scanner(xjson):
+    recursable_tags = ('subviews', 'contentView', 'input', 'control')
     print('called;', type(xjson),xjson)
     if isinstance(xjson, str):
         print('string leaf')
@@ -21,13 +22,18 @@ def scanner(xjson):
     if isinstance(xjson,dict): 
         print('indict')
         for i in xjson.keys():
-            if isinstance(xjson[i],dict) or isinstance(xjson[i],list):
-                print(type(xjson[i]), xjson[i])
-                print('calling')
-                scanner(xjson[i])
+            if isinstance(xjson[i],dict) or (i != 'classNames' and isinstance(xjson[i],list)):
+                if i in recursable_tags:
+                    print(type(xjson[i]), xjson[i])
+                    print('calling')
+                    scanner(xjson[i])
             else:
                 if (i == 'class') and (xjson[i] == 'Input'):
-                    print(25*'*'+'Input') 
+                    print(25*'*'+i + ' : ' + xjson[i])
+                if (i == 'identifier') and (xjson[i] == 'apply'):
+                    print(25*'#'+i + ' : ' + xjson[i])
+                if (i == 'classNames') and ('container' in xjson[i]):
+                    print(25*'>'+i + ' : ' + ''.join(xjson[i])) 
     return None
 
 scanner(z)
