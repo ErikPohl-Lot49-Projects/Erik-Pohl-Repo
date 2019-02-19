@@ -40,6 +40,7 @@ Here are some elements I expect to be able to provide, if needed:
 - [ ] Commit statements which facilitate an understanding of code history.
 - [ ] Readme.md pages with more interesting usage of markdown which tell a code narrative. 
 - [ ] For custom classes, create dunders as appropriate
+- [ ] Make sure to include standard module comment headers
 - [ ] Make good decisions relating to
   - [ ] Exceptions versus return values
   - [ ] Using idiomatic Python versus clarity of code
