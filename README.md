@@ -10,6 +10,10 @@ You can learn more about me in my [LinkedIn profile](https://www.linkedin.com/in
 
 You can read some of my stories or series on [Medium](https://medium.com/@erikpohl.444 "My blog on Medium").
 
+## I also tweet
+
+I don't tweet often, but, when I do, it's about programming languages or [feeding goats on a hike](https://twitter.com/444Pohl "My Twitter link")
+
 ## Here's a more recent photo of me:
 ![I'm the taller one](https://github.com/ErikPohl-Lot49-Projects/Erik-Pohl-Repo/blob/master/media/more_recent.jpg "I'm the taller one")
  (I'm the taller one)
