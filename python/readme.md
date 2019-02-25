@@ -42,6 +42,7 @@ Here are some elements I expect to be able to provide, if needed:
 - [ ] For custom classes, create dunders as appropriate
 - [ ] Make sure to include standard module comment headers
 - [ ] Make good decisions relating to
+  - [ ] Duck typing instead of type checking
   - [ ] Exceptions versus return values
   - [ ] Using idiomatic Python versus clarity of code
   - [ ] Extend this list
