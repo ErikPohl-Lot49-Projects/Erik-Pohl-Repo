@@ -44,4 +44,4 @@ MyCountput.formatted_topn_output(
 
 print(MyCountput.return_as_dict())
 
-print(MyCountput.counts_of(1))
+print(MyCountput.return_as_dict(1))
