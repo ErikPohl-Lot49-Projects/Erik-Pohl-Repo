@@ -80,7 +80,7 @@ class Countput(Counter):
             in self.most_common(n)
         ]
 
-    def return_as_dict(self):
+    def return_as_dict(self,frequency = None):
         # do something different for versions of Python
         # where the dictionary is not automatically ordered
 
@@ -92,16 +92,9 @@ class Countput(Counter):
                 frequency_tuple[0]: frequency_tuple[1]
                 for frequency_tuple
                 in self.most_common()
+                if frequency_tuple[1] == (frequency_tuple[1] if frequency is None else frequency)
             }
         )
         return dict(return_dictionary)
 
-    def counts_of(self, count):
-        # return only values which are of a given frequency
-        return {
-            key:frequency 
-            for key,frequency 
-            in self.most_common() 
-            if frequency == count
-            }
         
