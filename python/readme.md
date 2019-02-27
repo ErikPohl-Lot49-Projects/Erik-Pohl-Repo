@@ -100,7 +100,7 @@ Thanks in advance for holding your nose!
 - [x] Vistor	
 ## Other
 - [ ] Add to this list from every project
-- [ ] Django Tutorial
+- [x] Django Tutorial-- completed in January but not on GitHub
 - [ ] Design Patterns tasks -- goal: present, complete
   - [ ] Design Patterns Presentation
   - [ ] Design Patterns Wiki
@@ -114,11 +114,14 @@ Thanks in advance for holding your nose!
 - [ ] JnesaisQ
    - [ ] Sum/Aggregate of JnesaisQ?
    - [ ] Concurrency in JnesaisQ list query?  *Probably not.*
+   - [ ] Consider recursive or floating searches
 - [ ] Countput
   - [ ] More Countput result formats
 - [ ] Machine Learning
   - [ ] Complete various tutorials on different datasets / algorithms
   - [ ] Prepare ML presentation
+  - [ ] Student expected results project (Regular Flock)
+  - [ ] Journalism bias project (Ad Hoc Knot)
 - [ ] Guarantee
   - [ ] Revisit Validations in Guarantee
 - [ ] xlate
@@ -127,7 +130,6 @@ Thanks in advance for holding your nose!
     - [ ]    field_validate?  custom rules
     - [ ]    field_xlate?   custom rules
 - [ ] Work on xlate list of lists sorter and countput to align them and jnesaidq
-- [ ] tool driven Stopwatch (next side-project)
 
 
 
