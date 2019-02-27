@@ -95,3 +95,8 @@ class Countput(Counter):
             }
         )
         return dict(return_dictionary)
+
+    def counts_of(self, count):
+        # return only values which are of a given frequency
+        return {z:y for z,y in self.most_common() if y == count}
+        
