@@ -9,10 +9,8 @@ import re
 # TODO: support function validation (lambda and otherwise)
 
 def guarantee_regex(*argsx):
-    """"this is a decorator to guarantee specific keyword arguments are used
-    in an otherwise open ended keyword argument list
-    Allows for extra messaging and handling for an error
-    related to missing or invalid keyword arguments
+    """"this checks the values of the arguments
+    and the names of the arguments
     """
     def real_decorator(func):
         @wraps(func)
@@ -20,12 +18,13 @@ def guarantee_regex(*argsx):
             #print(argsx,kwargs)
             try:
                 # attempt 1, regex and key value match at same time
-                [re.match(str(list(argument.values())[0]),str(kwargs[next(iter(argument))])) for argument in argsx]
+                if not all([re.match(str(list(argument.values())[0]),str(kwargs[next(iter(argument))])) for argument in argsx]):
+                    raise ValueError
             except:
                 print(
                     "expected argument list [%s] "
                     "does not match argument list [%s]" % (
-                        argsx, list(kwargs.keys()
+                        argsx, list(kwargs.items()
                                     )
                     )
                 )
