@@ -89,5 +89,10 @@ if __name__ == '__main__':
         print('guarantee regex worked! no exception was generated')
     except:
         print('guarantee regex failed! an exception was generated')
+    try:
+        printout_specific_guarantee(z=5, x = 'hello')
+        print('guarantee regex failed! no exception was generated')
+    except:
+        print('guarantee regex worked! an exception was generated')
     visual_delimiter()
     
