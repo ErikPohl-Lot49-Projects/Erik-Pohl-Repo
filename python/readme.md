@@ -45,8 +45,8 @@ Here are some elements I expect to be able to provide, if needed:
   - [ ] Duck typing instead of type checking
   - [ ] Exceptions versus return values
   - [ ] Using idiomatic Python versus clarity of code
-  - [ ] Extend this list
   - [ ] Having functions return values -- as a default-- have a good reason not to
+  - [ ] More items will be added here
 
 **_This will also serve as a template for the starting readme to do list for any new folders created under this one._**
 
