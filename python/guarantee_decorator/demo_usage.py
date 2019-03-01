@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-from guarantee import guarantee_regex, guarantee_variable_names
+from guarantee import guarantee
 
 __author__ = "Erik Pohl"
 __copyright__ = "None"
@@ -19,7 +19,7 @@ def visual_delimiter(title=None):
         print('-'*80)
         
     
-@guarantee_regex({'n':'.*'})
+@guarantee({'n':'.*'})
 def fibonacci_keywordarg_guarantee(**kwargs):
     """uses guarantee decorator to guarantee a particular
     variable name is used with keyword
@@ -46,7 +46,7 @@ def fibonacci_keywordarg_standard_mandatory(*, n):
             fibonacci_keywordarg_standard_mandatory(n=n-1)
     )
 
-@guarantee_variable_names({'n':'.*'},{'x':'.*'})
+@guarantee({'n':'.*'},{'x':'.*'})
 def printout_guarantee(**kwargs):
     """uses guarantee decorator to guarantee a particular
     variable name is used with keyword
@@ -54,7 +54,7 @@ def printout_guarantee(**kwargs):
     print(kwargs['n'], kwargs['x'])
 
 
-@guarantee_regex({'n':'5'},{'x':'hello'})
+@guarantee({'n':'5'},{'x':'hello'})
 def printout_specific_guarantee(**kwargs):
     """uses guarantee decorator to guarantee a particular
     variable name is used with keyword
@@ -64,10 +64,13 @@ def printout_specific_guarantee(**kwargs):
 if __name__ == '__main__':
     visual_delimiter('Basic arg check for N using guarantee')
     print(fibonacci_keywordarg_guarantee(n=9))
+    print("this worked.  n was expected and n was used.")
     visual_delimiter('Standard argument check for mandatory keyword arguments without guarantee')
     print(fibonacci_keywordarg_standard_mandatory(n=9))
+    print("this worked. n was expected and n was used")
     visual_delimiter('Gurantee two arguments with their values [both wildcards]')
     printout_guarantee(n = 1, x= 2)
+    print("this worked. n and x were expected and n and x were used")
     visual_delimiter('Fail because I am only supplying one argument using guarantee for two arguments and values')
     try:
         printout_guarantee(n=1)
