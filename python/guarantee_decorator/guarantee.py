@@ -8,7 +8,7 @@ import re
 # TODO: type checking of input variables?
 # TODO: support function validation (lambda and otherwise)
 
-def guarantee_regex(*argsx):
+def guarantee(*argsx):
     """"this checks the values of the arguments
     and the names of the arguments
     """
@@ -34,28 +34,4 @@ def guarantee_regex(*argsx):
         return wrapper
     return real_decorator
 
-def guarantee_variable_names(*argsx):
-    """"this is a decorator to guarantee specific keyword arguments are used
-    in an otherwise open ended keyword argument list
-    Allows for extra messaging and handling for an error
-    related to missing or invalid keyword arguments
-    """
-    def real_decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            #print(argsx,kwargs)
-            try:
-                [kwargs[next(iter(argument))] for argument in argsx]
-            except:
-                print(
-                    "expected argument list [%s] "
-                    "does not match argument list [%s]" % (
-                        argsx, list(kwargs.keys()
-                                    )
-                    )
-                )
-                raise Exception("expected argument does not match argument")
-            result = func(*args, **kwargs)
-            return result
-        return wrapper
-    return real_decorator
+
