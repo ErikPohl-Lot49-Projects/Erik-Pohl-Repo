@@ -124,6 +124,8 @@ Thanks in advance for holding your nose!
   - [ ] Journalism bias project (Ad Hoc Knot)
 - [ ] Guarantee
   - [ ] Revisit Validations in Guarantee
+    - [ ]   validate field by list of values
+    - [ ]   validate field by numeric range
 - [ ] xlate
   - [ ] Mandatory fields and/or validations in xlate
   - [ ] xlate date format and custom field type support
