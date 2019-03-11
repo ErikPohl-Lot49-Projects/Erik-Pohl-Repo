@@ -1,3 +1,6 @@
+
+
+
 class kleene():
     '''
     common regex usage translation
@@ -10,8 +13,21 @@ class kleene():
         '''
         returns regex expression for list of values
         '''
-        #/^(foo|bar){1}$/
-        extra = '{1}'
-        result = '\/^(' + ''.join([str(y)+'|' for x,y in enumerate(list) if x != len(list)-1])+str(list[len(list)-1]) + ')' + extra + '$\/'
-        result = '^(' + ''.join(['\\b'+str(x)+'|' for x,y in enumerate(list) if x != len(list)])+'\\b'+str(list[len(list)-1]) + ')'+extra+'$'
-        return result
+        return '^(' + ''.join(['\\b'+str(y)+'|' for x,y in enumerate(list) if x != len(list)]) + ')'+'{1}'+'$'
+
+if __name__ == '__main__':
+    k = kleene()
+    z = [1,2,3,4,5]
+    patternstr = k.list_of_values(z)
+    print('pattern ' + patternstr)
+    import re
+    f = re.search(patternstr, '3')
+    print(f)
+    z = ['Hello', 'Goodbye', 'Aloha']
+    patternstr = k.list_of_values(z)
+    print('pattern ' + patternstr)
+    import re
+    f = re.search(patternstr, '3')
+    print(f)
+        
+        
