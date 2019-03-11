@@ -1,5 +1,5 @@
 from unittest import TestCase
-from kleene_project.kleene import kleene
+from kleene import kleene
 import re
 
 class testKleene(TestCase):
