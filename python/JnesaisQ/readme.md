@@ -129,15 +129,28 @@ Download these files to corresponding folders under your Python src path.
 
 ### Prerequisites
 
-I'll provide prereqs here.
+JnesaisQ was developed in Python 3.6.  I have not tested previous releases of Python 3.
 
 ### Installing
 
-I will provide installation steps here.
+Download these Python files into a folder which has access to Python 3.6 or higher:
+
+* JnesaisQ.py
+
+Download these test files into the same folder:
+
+* 
+
+These are helpful but not necessary:
+
+* JnesaisQ_demo_usage.py
 
 ## Running the tests
 
-I will explain how to test the system here using the automated tests.
+Tests have been batched in one Python module.  To execute it, run this command from the command line in the folder in which the files are installed:
+```
+python -m unittest -v test_viewtree_search.py
+```
 
 ## Contributing
 
