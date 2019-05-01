@@ -6,7 +6,7 @@ This class allows a developer user to run a variety of algorithmic approaches mu
 
 It was inspired by a Dan Bader video in which a viewer asked him which of three or four if conditions were the most Pythonic/idiomatic.  I saw that at least one variation was missing, one which would perform much better.
 
-Yet, I wanted to prove it.  
+Yet, I wanted to prove it was faster.  
 Proving it for a specific case was trivial.  
 
 It was so trivial that I also wanted to make a tool to do the same in the future.  
