@@ -42,3 +42,16 @@ __status__ = "Code Review"
 ])
 def test_roman_to_arabic(roman_input, expected_arabic):
     assert sneaky_roman_numerals.sneaky_roman_numerals(roman_input) == expected_arabic
+
+def test_roman_to_arabic_error():
+    try:
+        assert sneaky_roman_numerals.sneaky_roman_numerals('ZIII') == 10
+        raise AssertionError
+    except ValueError:
+        print("Expected error")
+    try:
+        assert sneaky_roman_numerals.sneaky_roman_numerals('iii') == 3
+        raise AssertionError
+    except ValueError:
+        print("Expected error")
+    
