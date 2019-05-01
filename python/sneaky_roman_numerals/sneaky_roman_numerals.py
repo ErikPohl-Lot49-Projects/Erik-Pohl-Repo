@@ -47,6 +47,11 @@ def sneaky_roman_numerals(roman):
     
     arabic = ['0','0','0','0']
     
+    #roman = roman.upper()  # assumes uppercase
+    
+    if set(roman).difference({'I', 'V', 'X', 'L', 'C', 'D', 'M'}):
+        raise ValueError;
+    
     '''
     first, replace any subtractive phrase by its first letter.  
     Do it by the number of factors indicated for the phrase
@@ -77,3 +82,6 @@ def sneaky_roman_numerals(roman):
         arabic[base_ten_arabic_digit_places[index]] = str(len(list(roman_numeral_group)))
     return int(''.join(arabic))
         
+
+if __name__ == '__main__':
+    sneaky_roman_numerals('iii')
