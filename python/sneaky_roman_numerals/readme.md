@@ -39,8 +39,8 @@ Sneaky Roman Numerals was developed in Python 3.7.  However, it should be backwa
 
 Download these Python files into a folder which has access to Python 3.6 or higher:
 
-* plural_roman_numerals.py
-* test_plural_roman_numerals.py
+* sneaky_roman_numerals.py
+* test_sneaky_roman_numerals.py
 
 ## Running the tests
 
