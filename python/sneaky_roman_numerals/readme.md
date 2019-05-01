@@ -28,19 +28,26 @@ Here are some elements I expect to be able to provide, if needed:
 
 ## Getting Started
 
-Download these files to corresponding folders under your Python src path.
+1. Retrieve files from the sneaky_roman_numerals repo folder.  
+2. Perform the installation steps in the Installing section of this readme.
 
 ### Prerequisites
 
-I'll provide prereqs here.
+Sneaky Roman Numerals was developed in Python 3.7.  However, it should be backwards compatible into Python 3.6.  I have not tested it in earlier releases of Python 3. 
 
 ### Installing
 
-I will provide installation steps here.
+Download these Python files into a folder which has access to Python 3.6 or higher:
+
+* plural_roman_numerals.py
+* test_plural_roman_numerals.py
 
 ## Running the tests
 
-I will explain how to test the system here using the automated tests.
+Tests have been batched in one Python module.  To execute it, run this command from the command line in the folder in which the files are installed:
+```
+python -m unittest -v test_plural_roman_numerals.py
+```
 
 ## Contributing
 
