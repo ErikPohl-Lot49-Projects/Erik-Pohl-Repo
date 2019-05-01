@@ -11,7 +11,7 @@ This is an on-going refactoring kata, so I will use it as a sandbox for refactor
 - [x] Add more test cases
 - [x] Rethink variable names and function names
 - [x] Reconsider data structures
-- [ ] Docsys and other comments
+- [x] Docsys and other comments
 
 # Important disclaimer
 
@@ -20,9 +20,9 @@ sets, helping to establish and build on them.
 
 Here are some elements I expect to be able to provide, if needed:
 
-- [ ] Meaningful exceptions and exception-handling coverage.
+- [x] Meaningful exceptions and exception-handling coverage.
 - [ ] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
-- [ ] Actual docstring comments at all levels of the code.
+- [x] Actual docstring comments at all levels of the code.
 - [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
 
