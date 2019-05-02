@@ -21,7 +21,7 @@ sets, helping to establish and build on them.
 Here are some elements I expect to be able to provide, if needed:
 
 - [x] Meaningful exceptions and exception-handling coverage.
-- [ ] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
+- [x] Adequate output to permit users to understand the results, assisting in the self-documenting nature of the code.
 - [x] Actual docstring comments at all levels of the code.
 - [ ] Requirements documents, user-facing documents and presentations, and other documents consistent with Agile User Stories to add value.
 
@@ -41,6 +41,9 @@ Download these Python files into a folder which has access to Python 3.6 or high
 
 * sneaky_roman_numerals.py
 * test_sneaky_roman_numerals.py
+
+This is not necessary, but is helpful:
+* sneaky_roman_numerals_demo_usage.py
 
 ## Running the tests
 
